@@ -1,0 +1,31 @@
+{
+  "name": "theearthissquare",
+  "version": "1.0.0",
+  "description": "Repository for The Earth is Square website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MitchellRomney/theearthissquare.git"
+  },
+  "author": "Mitchell Romney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MitchellRomney/theearthissquare/issues"
+  },
+  "homepage": "https://github.com/MitchellRomney/theearthissquare#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.4.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "sweetalert2": "^8.0.1"
+  }
+}

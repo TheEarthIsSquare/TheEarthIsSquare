@@ -1,0 +1,56 @@
+@import 'bootstrap/bootstrap';
+@import 'fontawesome/fontawesome';
+@import "fontawesome/solid.scss";
+@import 'variables';
+
+.landing-page {
+  .logo {
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  .email {
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.login-modal {
+  border: none;
+  .form {
+    padding: 10px;
+    .field {
+      border: none;
+      transition: all 0.5s ease;
+      background-color: white;
+      border-bottom: 1px solid #e9ecef;
+      &:focus {
+        background-color: rgba(67, 80, 88, 0.2);
+        outline: none;
+        box-shadow: none;
+      }
+      &::placeholder {
+        color: $earth-dark-grey;
+      }
+    }
+    .icon {
+      background-color: white;
+      border: none;
+    }
+    .footer {
+      border-top: none;
+      .submit {
+        background-color: $earth-green;
+        color: white;
+      }
+      .closeButton {
+        background-color: $earth-dark-grey;
+        color: white;
+      }
+    }
+  }
+}

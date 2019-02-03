@@ -1,0 +1,6 @@
+Django==2.0.9
+django-registration-redux==2.0
+pytz==2018.7
+hellowebapp-deploy
+requests
+psycopg2==2.7.3.2
