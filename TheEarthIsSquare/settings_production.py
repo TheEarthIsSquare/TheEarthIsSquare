@@ -1,5 +1,5 @@
 # Inherit from standard settings file for default
-from TheEarthisSquare.settings import *
+from theearthissquare.settings import *
 
 # Everything below will override our standard settings:
 # Parse database configuration from $DATABASE_URL
