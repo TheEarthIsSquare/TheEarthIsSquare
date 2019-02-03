@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'TheEarthIsSquare.urls'
+ROOT_URLCONF = 'TheEarthisSquare.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TheEarthIsSquare.wsgi.application'
+WSGI_APPLICATION = 'TheEarthisSquare.wsgi.application'
 
 
 # Database
