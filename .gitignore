@@ -2,9 +2,8 @@
 *.log
 *.pot
 *.pyc
-*/*/*/__pycache__/
-*/*/__pycache__/
-*/__pycache__/
+__pycache__/
+local_settings.py
 db.sqlite3
 media
 
@@ -24,7 +23,7 @@ staticfiles/
 .Python
 build/
 develop-eggs/
-dist/
+# dist/
 downloads/
 eggs/
 .eggs/
@@ -267,4 +266,5 @@ typings/
 pyvenv.cfg
 pip-selfcheck.json
 
-*.DS_Store
+.DS_Store
+# End of https://www.gitignore.io/api/node,python,django,virtualenv
