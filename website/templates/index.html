@@ -6,14 +6,31 @@
 {% endblock title %}
 
 {% block content %}
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
 
 <div class="container">
   <h1>Welcome to our shitty site.</h1>
+  <div class="logout" data-tippy="Logout">
+    <a class="-link" href="{% url 'auth_logout' %}">
+      <i class="fas fa-sign-out-alt"></i>
+    </a>
+  </div>
 </div>
 
-<div class="logout" data-tippy="Logout">
-  <a class="-link" href="{% url 'auth_logout' %}">
-    <i class="fas fa-sign-out-alt"></i>
-  </a>
-</div>
+<script>
+  $(document).ready(function() {
+
+    setTimeout(function(){
+        $('body').addClass('loaded');
+        $('h1').css('color','#222222');
+    }, 3000);
+
+  });
+</script>
 {% endblock content %}
