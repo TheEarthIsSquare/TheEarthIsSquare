@@ -1,4 +1,6 @@
 @font-face {
   font-family: 'Futura-Extra-Black';
-  src: url('../fonts/futura/Futura-Extra-Black.ttf') format('truetype');
+  src: url('../fonts/futura/Futura-Extra-Black.woff2') format('woff2'),
+       url('../fonts/futura/Futura-Extra-Black.ttf') format('truetype');
+  unicode-range: U+0020-007F;
 }
