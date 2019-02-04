@@ -6,20 +6,37 @@
 {% endblock title %}
 
 {% block content %}
-<div class="video-banner">
-    <div class="overlay">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-10">
-            <div class="banner-text">
-              We're The Earth is Square, and we're <span>cooler than you.</span>
-            </div>
-          </div>
+<div class="container">
+  <section class="main-blurb">
+    <div class="row">
+      <div class="col-8">
+        <div class="blurb">
+          The Earth is Square is a digital web agency, we help bring brands into the <span>online modern era.</span>
         </div>
       </div>
     </div>
-    <video loop muted autoplay class="banner__video">
-        <source src="../static/images/banner-city.mp4" type="video/mp4">
-    </video>
+  </section>
+  <section class="previous-work">
+    <div class="row">
+      <div class="col-4">
+        <div class="description">
+          <h2>The League Digest</h2>
+          <p>
+            The League Digest website was our innovative first attempt at a website with
+             a sidebar and dynamic content, the team over there produce a lot of video
+             content and we built a custome process for them to update their video list
+             with the click of a button.
+          </p>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="image">
+          <a href="https://www.leaguedigest.com">
+            <img class="img-fluid" alt="The League Digest Website" src="../static/images/the-league-digest.png" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock content %}
