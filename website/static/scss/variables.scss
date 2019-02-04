@@ -4,5 +4,6 @@ $earth-dark-grey: #435058;
 $earth-light-grey: #848C8E;
 
 /* Breakpoints */
-$bp-tablet: "(min-width: 768px)";
-$bp-laptop: "(min-width: 992px)";
+$bp-sm: "(min-width: 576px)"; // col-sm
+$bp-md: "(min-width: 768px)"; // col-md
+$bp-lg: "(min-width: 992px)"; // col-lg

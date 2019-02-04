@@ -80,6 +80,7 @@
     #loader-teis {
       display: block;
       position: relative;
+      text-align: center;
       top: 50%;
       width: 100%;
       z-index: 1001;
@@ -88,20 +89,19 @@
       font-size: 3rem;
       margin-top: -36px;
       .left {
-        text-align: right;
-        position: absolute;
-        left: 0%;
-        width: 53%;
         opacity: 0;
         animation: fade-main 1s ease;
         animation-delay: 0.5s;
         animation-fill-mode: forwards;
+        @media #{$bp-md} {
+          text-align: right;
+        }
       }
       .right {
         position: relative;
-        text-align: left;
-        margin-left: 54%;
-        margin-top: -48px;
+        @media #{$bp-md} {
+          text-align: left;
+        }
         .-square {
           animation: fade-main 2s ease;
           animation-delay: 3.5s;
@@ -109,24 +109,28 @@
           color: $earth-green;
           opacity: 0;
           position: absolute;
+          width: 100%;
         }
         .-unique {
           animation: fade 1s ease;
           animation-delay: 0.5s;
           opacity: 0;
           position: absolute;
+          width: 100%;
         }
         .-different {
           animation: fade 1s ease;
           animation-delay: 1.5s;
           opacity: 0;
           position: absolute;
+          width: 100%;
         }
         .-creative {
           animation: fade 1s ease;
           animation-delay: 2.5s;
           opacity: 0;
           position: absolute;
+          width: 100%;
         }
       }
     }
