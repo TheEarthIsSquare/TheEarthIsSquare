@@ -6,4 +6,20 @@
 {% endblock title %}
 
 {% block content %}
+<div class="video-banner">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-10">
+            <div class="banner-text">
+              We're The Earth is Square, and we're <span>cooler than you.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <video loop muted autoplay class="banner__video">
+        <source src="../static/images/banner-city.mp4" type="video/mp4">
+    </video>
+</div>
 {% endblock content %}
