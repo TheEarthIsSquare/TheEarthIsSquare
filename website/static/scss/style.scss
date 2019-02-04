@@ -1,8 +1,21 @@
+@import 'animations';
 @import 'bootstrap/bootstrap';
 @import 'fontawesome/fontawesome';
-@import "fontawesome/solid.scss";
-@import "fonts";
+@import 'fontawesome/solid.scss';
+@import 'fonts';
 @import 'variables';
+
+html, body, #wrapper, #page-content-wrapper, #main-wrapper {
+  height: 100%;
+}
+
+body {
+  font-family: "Futura-Light", Roboto, Arial, sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
 
 .landing-page {
   .logo {
@@ -57,190 +70,158 @@
 }
 
 #loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  .loader-section {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    width: 51%;
     height: 100%;
+    background: $earth-dark-grey;
     z-index: 1000;
-    .loader-section {
-        position: fixed;
-        top: 0;
-        width: 51%;
-        height: 100%;
-        background: $earth-dark-grey;
-        z-index: 1000;
+  }
+  .loader-section.section-left {
+    left: 0;
+  }
+  .loader-section.section-right {
+    right: 0;
+  }
+  #loader-teis {
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    z-index: 1001;
+    color: #fff;
+    font-family: "Futura-Extra-Black";
+    font-size: 3rem;
+    margin-top: -36px;
+    @media #{$bp-md} {
+      margin-left: 40px;
     }
-    .loader-section.section-left {
-        left: 0;
+    .left {
+      opacity: 0;
+      animation: fade-main 1s ease;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      @media #{$bp-md} {
+        text-align: right;
+      }
     }
-    .loader-section.section-right {
-        right: 0;
-    }
-    #loader-teis {
-      display: block;
+    .right {
       position: relative;
-      text-align: center;
-      top: 50%;
-      width: 100%;
-      z-index: 1001;
-      color: #fff;
-      font-family: "Futura-Extra-Black";
-      font-size: 3rem;
-      margin-top: -36px;
-      .left {
-        opacity: 0;
-        animation: fade-main 1s ease;
-        animation-delay: 0.5s;
+      @media #{$bp-md} {
+        text-align: left;
+      }
+      .-square {
+        animation: fade-main 2s ease;
+        animation-delay: 3.5s;
         animation-fill-mode: forwards;
-        @media #{$bp-md} {
-          text-align: right;
-        }
+        color: $earth-green;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
       }
-      .right {
-        position: relative;
-        @media #{$bp-md} {
-          text-align: left;
-        }
-        .-square {
-          animation: fade-main 2s ease;
-          animation-delay: 3.5s;
-          animation-fill-mode: forwards;
-          color: $earth-green;
-          opacity: 0;
-          position: absolute;
-          width: 100%;
-        }
-        .-unique {
-          animation: fade 1s ease;
-          animation-delay: 0.5s;
-          opacity: 0;
-          position: absolute;
-          width: 100%;
-        }
-        .-different {
-          animation: fade 1s ease;
-          animation-delay: 1.5s;
-          opacity: 0;
-          position: absolute;
-          width: 100%;
-        }
-        .-creative {
-          animation: fade 1s ease;
-          animation-delay: 2.5s;
-          opacity: 0;
-          position: absolute;
-          width: 100%;
-        }
+      .-unique {
+        animation: fade 1s ease;
+        animation-delay: 0.5s;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+      }
+      .-different {
+        animation: fade 1s ease;
+        animation-delay: 1.5s;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+      }
+      .-creative {
+        animation: fade 1s ease;
+        animation-delay: 2.5s;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
       }
     }
-
-    @keyframes fade {
-      0% {
-        -webkit-transform: translateY(-50px);
-        -ms-transform:  translateY(-50px);
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      25%, 75% {
-        -webkit-transform: translateY(0px);
-        -ms-transform:  translateY(0px);
-        transform: translateY(0px);
-        opacity: 1;
-      }
-      100% {
-        -webkit-transform: translateY(50px);
-        -ms-transform:  translateY(50px);
-        transform: translateY(50px);
-        opacity: 0;
-      }
-    }
-
-    @keyframes fade-main {
-      0% {
-        -webkit-transform: translateY(-50px);
-        -ms-transform:  translateY(-50px);
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      25%, 100% {
-        -webkit-transform: translateY(0px);
-        -ms-transform:  translateY(0px);
-        transform: translateY(0px);
-        opacity: 1;
-      }
-    }
-
-    @-webkit-keyframes fade {
-      0% {
-        -webkit-transform: translateY(-50px);
-        -ms-transform:  translateY(-50px);
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      25%, 75% {
-        -webkit-transform: translateY(0px);
-        -ms-transform:  translateY(0px);
-        transform: translateY(0px);
-        opacity: 1;
-      }
-      100% {
-        -webkit-transform: translateY(50px);
-        -ms-transform:  translateY(50px);
-        transform: translateY(50px);
-        opacity: 0;
-      }
-    }
-
-    @-webkit-keyframes fade-main {
-      0% {
-        -webkit-transform: translateY(-50px);
-        -ms-transform:  translateY(-50px);
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      25%, 100% {
-        -webkit-transform: translateY(0px);
-        -ms-transform:  translateY(0px);
-        transform: translateY(0px);
-        opacity: 1;
-      }
-    }
+  }
 }
 
-.loaded {
-  #loader-teis {
-      opacity: 0;
-
-      -webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-              transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-
+.site-navbar {
+  height: 75px;
+  width: 100%;
+  position: fixed;
+  .black-logo {
+    height: 100%;
+    margin-left: 20px;
   }
-  #loader-wrapper {
-    visibility: hidden;
-
-    -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: translateY(-100%);  /* IE 9 */
-            transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
-
-    -webkit-transition: all 0.3s 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-            transition: all 0.3s 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-    .loader-section {
-      &.section-left {
-          -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(-100%);  /* IE 9 */
-                  transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
-
-                  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+  .opener {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top:  20px;
+    margin-right: 40px;
+    padding: 7px 14px;
+    background-color: $earth-green;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 1.3rem;
+    transition: all 0.5s ease;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    &:hover {
+      transform: translateY(5px);
+    }
+  }
+  .label {
+    float: right;
+    margin-top: 35px;
+    margin-right: 95px;
+  }
+  .nav-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: $earth-dark-grey;
+    display: none;
+    z-index: 1000;
+    top: 0;
+    transition: display 0.5s ease;
+    &.open {
+      display: block;
+      .navigation {
+        animation: fade-main 2s ease;
+        animation-fill-mode: forwards;
       }
-      &.section-right {
-          -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(100%);  /* IE 9 */
-                  transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
-
-          -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+    }
+    .white-logo {
+      height: 75px;
+      margin-left: 20px;
+      position: absolute;
+    }
+  }
+  .navigation {
+    top: 15%;
+    text-align: center;
+    font-family: "Futura";
+    position: relative;
+    li {
+      list-style-type: none;
+      margin: 35px 0px ;
+    }
+    .item {
+      color: white;
+      transition: color 0.5s ease;
+      padding: 10px 0px;
+      &:hover {
+        color: $earth-green;
       }
     }
   }
