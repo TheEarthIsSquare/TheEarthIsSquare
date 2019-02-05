@@ -167,17 +167,27 @@ a:hover {
 .background {
   background-color: rgba(220, 247, 99, 0.5);
   position: relative;
+  overflow: hidden;
   &::before {
     content: "";
     display: block;
     position: absolute;
     top: 0;
-    left: -200px;
+    left: 0px;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 980px 980px 0 0;
+    border-width: 980px 245px 0 0;
     border-color: #fff transparent transparent transparent;
+    @media #{$bp-sm}{
+      content: "";
+      border-width: 980px 490px 0 0;
+    }
+    @media #{$bp-md}{
+      content: "";
+      left: -200px;
+      border-width: 980px 980px 0 0;
+    }
   }
 }
 
@@ -285,18 +295,14 @@ section {
       font-family: "Futura-Extra-Black", Roboto, Arial, sans-serif;
       text-transform: uppercase;
       transition: all 0.5s ease;
+      text-align: center;
+      @media #{$bp-md}{
+        text-align: left;
+      }
       &:hover {
-        transform: scale(1.2,1.2);
+        transform: scale(1.05,1.05);
       }
       span {
-        background-color: $earth-green;
-      }
-    }
-  }
-  &.previous-work {
-    .description {
-      h2 {
-        text-align: center;
         background-color: $earth-green;
       }
     }
