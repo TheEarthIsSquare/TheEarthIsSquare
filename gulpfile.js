@@ -1,6 +1,7 @@
 // Include Gulp
 var gulp = require('gulp');
 let cleanCSS = require('gulp-clean-css');
+const minify = require('gulp-minify');
 
 // Include Our Plugins
 var sass = require('gulp-sass');
@@ -21,6 +22,7 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
   return gulp.src('website/static/js/**/*.js')
     .pipe(concat('all.js'))
+    .pipe(minify())
     .pipe(gulp.dest('website/static/js'));
 });
 

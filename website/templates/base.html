@@ -5,7 +5,7 @@
 <head>
   <title>
     {% block title %}
-    The Earth is Square
+    The Earth is Square - Web Design, Development & Digital Marketing
     {% endblock title %}
   </title>
 
@@ -13,7 +13,7 @@
   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="../static/js/custom/particles.js"></script>
+  <script src="../static/js/particles/particles.js"></script>
   <script src="../static/js/all.js"></script>
   {% block header %}{% endblock header %}
 </head>
@@ -45,9 +45,7 @@
 
   {% if user.is_authenticated %}
   <div class="background">
-
-    <!-- particles.js container -->
-    <div id="particles-js"></div>
+    <div id="particles-js" class="particles"></div>
 
     <nav class="site-navbar">
       <a href="/">
