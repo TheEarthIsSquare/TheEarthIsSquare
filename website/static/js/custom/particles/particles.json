@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 160,
+      "value": 300,
       "density": {
         "enable": true,
         "value_area": 800
@@ -14,7 +14,7 @@
       "type": "circle",
       "stroke": {
         "width": 0,
-        "color": "#000000"
+        "color": "#fff"
       },
       "polygon": {
         "nb_sides": 5
@@ -36,11 +36,11 @@
       }
     },
     "size": {
-      "value": 3,
+      "value": 10,
       "random": true,
       "anim": {
         "enable": false,
-        "speed": 4,
+        "speed": 1,
         "size_min": 0.3,
         "sync": false
       }
@@ -71,14 +71,14 @@
     "detect_on": "canvas",
     "events": {
       "onhover": {
-        "enable": true,
+        "enable": false,
         "mode": "bubble"
       },
       "onclick": {
-        "enable": true,
+        "enable": false,
         "mode": "repulse"
       },
-      "resize": true
+      "resize": false
     },
     "modes": {
       "grab": {

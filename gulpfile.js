@@ -20,8 +20,9 @@ gulp.task('sass', function() {
 
 // Concatenate
 gulp.task('scripts', function() {
-  return gulp.src('website/static/js/**/*.js')
+  return gulp.src('website/static/js/custom/**/*.js')
     .pipe(concat('all.js'))
+    .pipe(gulp.dest('website/static/js'))
     .pipe(minify())
     .pipe(gulp.dest('website/static/js'));
 });
