@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'website',
     'registration',
     'django.contrib.sitemaps',
-    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
