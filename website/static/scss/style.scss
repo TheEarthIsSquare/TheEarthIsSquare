@@ -319,3 +319,15 @@ section {
     }
   }
 }
+
+.profiles-container {
+  .profile {
+    .avatar {
+      border-radius: 200px;
+    }
+    .name {
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
+  }
+}

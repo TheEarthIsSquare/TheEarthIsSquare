@@ -123,6 +123,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'website/static'),
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'website/media/')
+MEDIA_URL = '/media/'
+
 ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'testing@example.com'

@@ -48,13 +48,13 @@
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
   </div>
-  <div class="background">
-    <div id="particles-js" class="particles"></div>
   {% endif %}
 
   {% if user.is_authenticated %}
+  {% if request.get_full_path == "/" %}
   <div class="background">
     <div id="particles-js" class="particles"></div>
+  {% endif %}
 
     <nav class="site-navbar">
       <a href="/">
@@ -157,7 +157,9 @@
         </div>
       </div>
     </div>
+  {% if request.get_full_path == "/" %}
   </div>
+  {% endif %}
   {% endif %}
 
   <!-- Bootstrap core JavaScript -->

@@ -20,6 +20,10 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib.auth import views as auth_views
 from website import views
 from django.contrib.auth import logout
+from django.conf.urls.static import static
+from django.conf import settings
+
+
 
 urlpatterns = [
 
@@ -31,11 +35,11 @@ urlpatterns = [
 
     path('', TemplateView.as_view(template_name = 'index.html'), name='home'),
 
-    path('team/', TemplateView.as_view(template_name = 'team.html'), name='team'),
+    path('team/', views.team, name='team'),
 
     path('projects/', TemplateView.as_view(template_name = 'projects.html'), name='projects'),
 
     path('contact/', TemplateView.as_view(template_name = 'contact.html'), name='contact'),
 
     path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
