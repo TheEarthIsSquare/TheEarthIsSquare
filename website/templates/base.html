@@ -14,7 +14,7 @@
   in website design, website development, digital marketing, photography, social media,
   & more.
   "></meta>
-  
+
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,6 +48,8 @@
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
   </div>
+  <div class="background">
+    <div id="particles-js" class="particles"></div>
   {% endif %}
 
   {% if user.is_authenticated %}
@@ -67,17 +69,17 @@
         <div class="container navigation">
           <ul>
             <li>
-              <a href="/">
+              <a href="{% url 'team' %}">
                 <h2 class="item">WHO ARE WE</h2>
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="{% url 'projects' %}">
                 <h2 class="item">PORTFOLIO</h2>
               </a>
             </li>
               <li>
-              <a href="/">
+              <a href="{% url 'contact' %}">
                 <h2 class="item">CONTACT</h2>
               </a>
             </li>
