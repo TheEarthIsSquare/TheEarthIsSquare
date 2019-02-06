@@ -22,6 +22,7 @@ from website import views
 from django.contrib.auth import logout
 
 urlpatterns = [
+
     path('', auth_views.login, {'template_name': 'index.html'}, name='login'),
 
     path('', include('registration.backends.simple.urls')),
@@ -29,4 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', TemplateView.as_view(template_name = 'index.html'), name='home'),
+
+    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
 ]
