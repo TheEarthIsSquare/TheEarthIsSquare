@@ -320,6 +320,42 @@ section {
 
 .profiles-container {
   .profile {
+    margin-top: 100px;
+    &:hover {
+      .frame{
+        &.-hover {
+          height: 100%;
+          width: 100%;
+          opacity: 1;
+          z-index: 1001;
+          background-color: $earth-dark-grey;
+        }
+      }
+    }
+    .frame-overlay {
+      height: 100%;
+      width: 100%;
+      background-color: $earth-dark-grey;
+      opacity: 0;
+      transition: all 0.5s ease;
+      position: absolute;
+      display: inline-block;
+      margin-left: -15px;
+      display: table;
+      .text {
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
     .frame {
       height: 250px;
       width: 250px;
@@ -331,8 +367,12 @@ section {
       }
     }
     .name {
+      text-align: center;
       margin-top: 30px;
       margin-bottom: 0px;
+    }
+    .role {
+      text-align: center;
     }
   }
 }

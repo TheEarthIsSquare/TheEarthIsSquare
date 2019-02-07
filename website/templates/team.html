@@ -12,15 +12,59 @@
   <div class="row profiles-container justify-content-center">
     {% if profiles.count > 0 %}
       {% for profile in profiles %}
-      <div class="col-6 col-md-3 profile">
+      <div class="col-6 col-md-4 profile justify-content-center">
+        <div id="frame-{{ profile.id }}" class="frame-overlay">
+          <p class="text">Like what you see?</p>
+        </div>
         <div class="frame">
           <img class="img-fluid avatar" src="{{ profile.avatar }}" />
         </div>
         <h4 class="name">{{ profile.name }}</h4>
         <p class="role">{{ profile.role }}</p>
       </div>
+
+      <!-- Central Modal Medium Info -->
+      <div class="modal fade" id="teamModal-{{ profile.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <p class="heading lead">{{ profile.name }}</p>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="text-center">
+                <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+                <p>{{ profile.description }}</p>
+              </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+              <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">No, thanks</a>
+            </div>
+          </div>
+          <!--/.Content-->
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function() {
+          $('#frame-{{ profile.id }}').click(function() {
+            $('#teamModal-{{ profile.id }}').modal('show')
+          });
+        })
+      </script>
       {% endfor %}
     {% endif %}
   </div>
 </div>
+
 {% endblock content %}
