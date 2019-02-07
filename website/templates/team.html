@@ -29,26 +29,26 @@
         <div class="modal-dialog modal-notify modal-info" role="document">
           <!--Content-->
           <div class="modal-content">
-            <!--Header-->
             <div class="modal-header">
-              <p class="heading lead">{{ profile.name }}</p>
-
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" class="white-text">&times;</span>
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
-
-            <!--Body-->
-            <div class="modal-body">
-              <div class="text-center">
-                <img class="img-fluid avatar" src="{{ profile.avatar }}" />
-                <p>{{ profile.description }}</p>
+            <div class="containter">
+              <div class="row">
+                <div class="col-12 col-md-3 order-2 order-md-1 modal-left">
+                  <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+                  <a href="{{ profile.twitter_username }}"><i class="fab fa-twitter"></i></a>
+                  <a href="{{ profile.instagram_username }}"><i class="fab fa-instagram"></i></a>
+                  </div>
+                <div class="col-12 col-md-9 order-1 order-md-2 modal-right">
+                  <p>{{ profile.description }}</p>
+                </div>
               </div>
             </div>
-
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-              <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">No, thanks</a>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
           <!--/.Content-->

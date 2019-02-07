@@ -2,6 +2,7 @@
 @import 'bootstrap/bootstrap';
 @import 'fontawesome/fontawesome';
 @import 'fontawesome/solid.scss';
+@import 'fontawesome/brands.scss';
 @import 'variables';
 
 html, #wrapper {
@@ -361,6 +362,8 @@ section {
       width: 250px;
       border-radius: 200px;
       overflow: hidden;
+      margin: auto;
+      margin-top: 20px;
       .avatar {
         height: auto;
         width: 250px;
