@@ -1,6 +1,7 @@
 ### Custom ###
 *.sqlite3
-website/media
+website/media/profiles/*.png
+website/media/profiles/*.jpg
 
 ### Django ###
 *.log
