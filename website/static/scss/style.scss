@@ -2,7 +2,6 @@
 @import 'bootstrap/bootstrap';
 @import 'fontawesome/fontawesome';
 @import 'fontawesome/solid.scss';
-@import 'fonts';
 @import 'variables';
 
 html, #wrapper {
@@ -11,12 +10,12 @@ html, #wrapper {
 
 body {
   min-height: 100%;
-  font-family: "Futura-Light", Roboto, Arial, sans-serif;
+  font-family: Raleway, sans-serif;
+  font-weight: 300;
   color: $earth-grey;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Futura-Extra-Black", Roboto, Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -116,8 +115,8 @@ a:hover {
     width: 100%;
     z-index: 1001;
     color: #fff;
-    font-family: "Futura-Extra-Black", Roboto, Arial, sans-serif;
-    font-size: 3rem;
+    font-weight: 900;
+    font-size: 3.5rem;
     margin-top: -36px;
     @media #{$bp-md} {
       margin-left: 40px;
@@ -278,7 +277,6 @@ a:hover {
   .navigation {
     top: 15%;
     text-align: center;
-    font-family: "Futura", Roboto, Arial, sans-serif;
     position: relative;
     li {
       list-style-type: none;
@@ -303,7 +301,7 @@ section {
   &.main-blurb {
     .blurb {
       font-size: 2rem;
-      font-family: "Futura-Extra-Black", Roboto, Arial, sans-serif;
+      font-weight: 900;
       text-transform: uppercase;
       transition: all 0.5s ease;
       text-align: center;
