@@ -20,8 +20,13 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
-a:hover {
+a {
   text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .landing-page {
@@ -376,6 +381,26 @@ section {
     }
     .role {
       text-align: center;
+    }
+  }
+}
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .role {
+          font-weight: 300;
+          font-size: 1.2rem;
+        }
+      }
+      .social {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .modal-footer {
+        border: none;
+      }
     }
   }
 }
