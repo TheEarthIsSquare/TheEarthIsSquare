@@ -17,16 +17,10 @@ DEBUG = False
 
 SECURE_SSL_REDIRECT = True
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_ACCESS_KEY_ID = os.environ['BUCKETEER_AWS_ACCESS_KEY_ID']
 
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_SECRET_ACCESS_KEY = os.environ['BUCKETEER_AWS_SECRET_ACCESS_KEY']
 
-AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
+AWS_STORAGE_BUCKET_NAME = os.environ['BUCKETEER_BUCKET_NAME']
 
-AWS_S3_REGION_NAME = 'ap-southeast-2'
-
-AWS_S3_ENDPOINT_URL = 'https://s3-ap-southeast-2.amazonaws.com'
-
-S3DIRECT_ENDPOINT = 's3.amazonaws.com'  # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-S3DIRECT_DIR = 's3direct'  # (optional, default is 's3direct', location within the bucket to upload files)
-S3DIRECT_UNIQUE_RENAME = False # (optional, default is 'False', gives the uploaded file a unique filename)
+AWS_S3_REGION_NAME = os.environ['BUCKETEER_AWS_REGION']
