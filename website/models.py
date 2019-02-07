@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from s3direct.fields import S3DirectField
 
+
 # Create your models here.
 class Profile(models.Model):
     name = models.CharField(max_length=255)

@@ -136,24 +136,3 @@ EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
-
-S3DIRECT_DESTINATIONS = {
-    'profiles': {
-        # "key" [required] The location to upload file
-        #       1. String: folder path to upload to
-        #       2. Function: generate folder path + filename using a function
-        'key': 'uploads/profiles',
-
-        # "auth" [optional] Limit to specfic Django users
-        #        Function: ACL function
-        'auth': lambda u: u.is_staff,
-
-        # "allowed" [optional] Limit to specific mime types
-        #           List: list of mime types
-        'allowed': ['image/jpeg', 'image/png', 'video/mp4'],
-
-    },
-    'projects': {
-        'key': 'uploads/projects'
-    }
-}
