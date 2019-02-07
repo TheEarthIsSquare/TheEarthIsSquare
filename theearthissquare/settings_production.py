@@ -25,7 +25,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
 
 AWS_S3_REGION_NAME = 'ap-southeast-2'
 
-AWS_S3_ENDPOINT_URL = 'https://ap-southeast-2.amazonaws.com'
+AWS_S3_ENDPOINT_URL = 'https://s3-ap-southeast-2.amazonaws.com'
 
 S3DIRECT_ENDPOINT = 's3.amazonaws.com'  # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 S3DIRECT_DIR = 's3direct'  # (optional, default is 's3direct', location within the bucket to upload files)
