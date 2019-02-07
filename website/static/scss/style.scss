@@ -320,8 +320,15 @@ section {
 
 .profiles-container {
   .profile {
-    .avatar {
+    .frame {
+      height: 250px;
+      width: 250px;
       border-radius: 200px;
+      overflow: hidden;
+      .avatar {
+        height: auto;
+        width: 250px;
+      }
     }
     .name {
       margin-top: 30px;

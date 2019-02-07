@@ -30,8 +30,8 @@ class Project(models.Model):
     date_completed = models.DateField(default=datetime.now)
     description = models.TextField(null=True, blank=True)
     tesimonial = models.TextField(null=True, blank=True)
-    main_image = models.ImageField(upload_to='website/static/media/projects', null = True)
+    main_image = S3DirectField(dest='projects', null=True)
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='website/static/images/projects', null = True)
+    image = S3DirectField(dest='projects', null=True)
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)

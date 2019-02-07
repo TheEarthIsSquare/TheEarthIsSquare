@@ -12,8 +12,10 @@
   <div class="row profiles-container justify-content-center">
     {% if profiles.count > 0 %}
       {% for profile in profiles %}
-      <div class="col-3 profile">
-        <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+      <div class="col-6 col-md-3 profile">
+        <div class="frame">
+          <img class="img-fluid avatar" src="../media/profiles/mitchell.jpg" />
+        </div>
         <h4 class="name">{{ profile.name }}</h4>
         <p class="role">{{ profile.role }}</p>
       </div>
