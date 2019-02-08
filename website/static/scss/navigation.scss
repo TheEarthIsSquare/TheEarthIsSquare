@@ -8,14 +8,20 @@
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1148px;
   padding-left: 30px;
   padding-right: 30px;
   left: 0;
   right: 0;
+  @media #{$bp-md}{
+    max-width: 1148px;
+  }
   .black-logo {
+    position: absolute;
     height: 100%;
+    left: 0;
     margin-left: 20px;
+    padding-left: 30px;
+    z-index: 1001;
   }
   .white-logo {
     position: absolute;
@@ -53,9 +59,8 @@
     }
   }
   .label {
-    float: right;
-    margin-top: 26px;
-    margin-right: 60px;
+    position: absolute;
+    right: 40px;
   }
   .nav-container {
     height: 100%;
