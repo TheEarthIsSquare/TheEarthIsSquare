@@ -22,26 +22,39 @@
         <p class="role">{{ profile.role }}</p>
       </div>
 
-      <!-- Central Modal Medium Info -->
-      <div class="modal fade" id="teamModal-{{ profile.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+      <div class="modal fade" id="teamModal-{{ profile.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-          <!--Content-->
           <div class="modal-content">
             <div class="modal-body container">
               <div class="row">
-                <div class="col-12 col-md-3 order-2 order-md-1 modal-left">
-                  <img class="img-fluid avatar" src="{{ profile.avatar }}" />
-                  <div class="social row">
-                    <div class="col-6">
+                <div class="col-12 col-md-4 order-2 order-md-1 modal-left">
+                  <div class="frame">
+                    <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+                  </div>
+                  <div class="social row justify-content-center">
+                    {% if profile.email != '' %}
+                    <div class="col-12 email">
+                      <a href="mailto:{{ profile.email }}" target="_blank">{{ profile.email }}</a>
+                    </div>
+                    {% endif %}
+                    {% if profile.twitter_username != '' %}
+                    <div class="col-3">
                       <a href="https://www.twitter.com/{{ profile.twitter_username }}"><i class="fab fa-2x fa-twitter"></i></a>
                     </div>
-                    <div class="col-6">
+                    {% endif %}
+                    {% if profile.instagram_username != '' %}
+                    <div class="col-3">
                       <a href="https://www.instagram.com/{{ profile.instagram_username }}"><i class="fab fa-2x fa-instagram"></i></a>
                     </div>
+                    {% endif %}
+                    {% if profile.linkedin_username != '' %}
+                    <div class="col-3">
+                      <a href="https://www.linkedin.com/in/{{ profile.linkedin_username }}"><i class="fab fa-2x fa-linkedin"></i></a>
+                    </div>
+                    {% endif %}
                   </div>
                 </div>
-                <div class="col-12 col-md-9 order-1 order-md-2 modal-right">
+                <div class="col-12 col-md-8 order-1 order-md-2 modal-right">
                   <h3>{{ profile.name }}<br>
                     <small class="text-muted role">{{ profile.role }}</small>
                   </h3>

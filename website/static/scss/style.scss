@@ -24,10 +24,11 @@ h1, h2, h3, h4, h5 {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: $earth-dark-grey;
+  transition: all 0.5s ease;
   &:hover {
     text-decoration: none;
-    color: inherit;
+    color: $earth-green;
   }
 }
 
@@ -232,8 +233,10 @@ a {
         }
       }
       .social {
-        text-align: center;
         margin-top: 50px;
+        .email {
+          margin-bottom: 10px;
+        }
       }
       .modal-footer {
         border: none;

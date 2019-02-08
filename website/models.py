@@ -3,15 +3,15 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from s3direct.fields import S3DirectField
 
-
-# Create your models here.
 class Profile(models.Model):
+    avatar = S3DirectField(dest='profiles')
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(max_length=254, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    avatar = S3DirectField(dest='profiles')
     twitter_username = models.CharField(max_length=255, null=True, blank=True)
     instagram_username = models.CharField(max_length=255, null=True, blank=True)
+    linkedin_username = models.CharField(max_length=255, null=True, blank=True)
 
 class Project(models.Model):
     TYPE_CHOICES = (
