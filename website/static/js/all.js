@@ -17,11 +17,6 @@ $(document).ready(function() {
   });
 });
 
-/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-particlesJS.load('particles-js', 'static/js/custom/particles/particles.json', function() {
-  console.log('callback - particles.js config loaded');
-});
-
 /* -----------------------------------------------
 /* Author : Vincent Garreau  - vincentgarreau.com
 /* MIT license: http://opensource.org/licenses/MIT

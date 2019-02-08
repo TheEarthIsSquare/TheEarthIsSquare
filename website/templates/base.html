@@ -1,183 +1,170 @@
 {% load static %}
 <!doctype html>
-<html class="fa-events-icons-ready">
+<html>
+  <head>
+    <title>
+      {% block title %}
+      The Earth is Square - Web Design, Development & Digital Marketing
+      {% endblock title %}
+    </title>
 
-<head>
-  <title>
-    {% block title %}
-    The Earth is Square - Web Design, Development & Digital Marketing
-    {% endblock title %}
-  </title>
+    <meta name="description" content="
+    THE EARTH IS SQUARE is an Australian based digitial agency. We provide services
+    in website design, website development, digital marketing, photography, social media,
+    & more.
+    "></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta name="description" content="
-  THE EARTH IS SQUARE is an Australian based digitial agency. We provide services
-  in website design, website development, digital marketing, photography, social media,
-  & more.
-  "></meta>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'js/all-min.js' %}"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {% block header %}{% endblock header %}
+  </head>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="../static/js/custom/particles/particles.js"></script>
-  <script src="../static/js/all-min.js"></script>
+  <body>
+    {% if user.is_authenticated %}
 
-  {% block header %}{% endblock header %}
-</head>
-
-<body>
-  {% if request.get_full_path == "/" %}
-  <div id="loader-wrapper">
-    <div class="loading-bar"></div>
-    <div id="loader-teis">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <div class="left">
-            THE EARTH IS
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="right">
-            <div class="-square">SQUARE</div>
-            <div class="-unique">UNIQUE</div>
-            <div class="-different">DIFFERENT</div>
-            <div class="-creative">CREATIVE</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-  </div>
-  {% endif %}
-
-  {% if user.is_authenticated %}
-  <nav class="site-navbar">
-    <a href="/">
-      <img class="black-logo" src="../static/images/logo-black-text.png">
-    </a>
-    <a href="/">
-      <img class="white-logo" src="../static/images/logo-white-text.png">
-    </a>
-    <div id="opener" class="opener"><i class="fas fa-bars"></i></div>
-    <p class="label">MENU</p>
-    <div class="nav-container">
-      <div class="container navigation">
-        <ul>
-          <li>
-            <a href="{% url 'team' %}">
-              <h2 class="item">WHO ARE WE</h2>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'projects' %}">
-              <h2 class="item">PORTFOLIO</h2>
-            </a>
-          </li>
+    <nav class="site-navbar">
+      <a href="/">
+        <img class="black-logo" src="../static/images/logo-black-text.png">
+      </a>
+      <a href="/">
+        <img class="white-logo" src="../static/images/logo-white-text.png">
+      </a>
+      <div id="opener" class="opener"><i class="fas fa-bars"></i></div>
+      <p class="label">MENU</p>
+      <div class="nav-container">
+        <div class="container navigation">
+          <ul>
             <li>
-            <a href="{% url 'contact' %}">
-              <h2 class="item">CONTACT</h2>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'auth_logout' %}">
-              <h2 class="item">LOGOUT</h2>
-            </a>
-          </li>
-        </ul>
-      </di>
-    </div>
-  </nav>
-  <div id="wrapper">
-    {% if request.get_full_path == "/" %}
-    <div id="page-content" class="background">
-      <div id="particles-js" class="particles"></div>
-    {% endif %}
-      <div id="main-wrapper">
-          {% block content %}{% endblock content %}
+              <a href="{% url 'team' %}">
+                <h2 class="item">WHO ARE WE</h2>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'projects' %}">
+                <h2 class="item">PORTFOLIO</h2>
+              </a>
+            </li>
+              <li>
+              <a href="{% url 'contact' %}">
+                <h2 class="item">CONTACT</h2>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'auth_logout' %}">
+                <h2 class="item">LOGOUT</h2>
+              </a>
+            </li>
+          </ul>
+        </di>
       </div>
-    {% if request.get_full_path == "/" %}
-    </div>
-    {% endif %}
-    <div class="footer-push"></div>
-  </div>
-  <footer id="footer">
-    <div class="copyright">
-      &copy; The Earth is Square 2019
-    </div>
-  </footer>
-  {% else %}
+    </nav>
 
-  <div id="landing-page" class="container">
-    <div class="row">
-      <div class="col-xl-12 landing-page">
-        <a data-toggle="modal" data-target="#loginModal">
-          <img id="logo" class="logo" src="/static/images/logo.png" alt="The Earth is Square">
-        </a>
-        <p class="email"><b>Contact Us:</b> hello@theearthissquare.com</p>
+    <div id="wrapper">
+      {% block content %}{% endblock content %}
+      <div class="footer-push"></div>
+    </div>
+
+    <footer id="footer">
+      <div class="copyright">
+        &copy; The Earth is Square 2019
       </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content login-modal">
-        <div class="modal-header header">
-          <h3 class="modal-title title">Login</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="form">
-          <form role="form" action="" method="post">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text icon" id="login-addon">
-                      {% if field.html_name == "username" %}
-                      <span class="fas fa-user"></span>
-                      {% else %}
-                      <span class="fas fa-key"></span>
-                      {% endif %}
-                    </span>
-                  </div>
-                    <input
-                    {% if field.html_name == "password" %}
-                    type="password"
-                    {% else %}
-                    type="text"
-                    {% endif %}
-                    class="form-control field"
-                    placeholder="{{ field.html_name|title }}"
-                    maxlength="30"
-                    name="{{ field.html_name }}"
-                    aria-label="Username"
-                    aria-describedby="login-addon"/>
-                    {{ field.errors }}
-                </div>
-            {% endfor %}
-            <div class="modal-footer footer">
-              <input class="submit btn btn-block" type="submit">
-              <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>
+    {% else %}
+
+    <div id="loader-wrapper">
+      <div class="loading-bar"></div>
+      <div id="loader-teis">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="left">
+              THE EARTH IS
             </div>
-          </form>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="right">
+              <div class="-square">SQUARE</div>
+              <div class="-unique">UNIQUE</div>
+              <div class="-different">DIFFERENT</div>
+              <div class="-creative">CREATIVE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <div id="landing-page" class="container">
+      <div class="row">
+        <div class="col-xl-12 landing-page">
+          <a data-toggle="modal" data-target="#loginModal">
+            <img id="logo" class="logo" src="/static/images/logo.png" alt="The Earth is Square">
+          </a>
+          <p class="email"><b>Contact Us:</b> hello@theearthissquare.com</p>
         </div>
       </div>
     </div>
-  </div>
-  <!-- End Login Modal -->
 
-{% endif %}
+    <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content login-modal">
+          <div class="modal-header header">
+            <h3 class="modal-title title">Login</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form">
+            <form role="form" action="" method="post">
+              {% csrf_token %}
+              {% for field in form %}
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text icon" id="login-addon">
+                        {% if field.html_name == "username" %}
+                        <span class="fas fa-user"></span>
+                        {% else %}
+                        <span class="fas fa-key"></span>
+                        {% endif %}
+                      </span>
+                    </div>
+                      <input
+                      {% if field.html_name == "password" %}
+                      type="password"
+                      {% else %}
+                      type="text"
+                      {% endif %}
+                      class="form-control field"
+                      placeholder="{{ field.html_name|title }}"
+                      maxlength="30"
+                      name="{{ field.html_name }}"
+                      aria-label="Username"
+                      aria-describedby="login-addon"/>
+                      {{ field.errors }}
+                  </div>
+              {% endfor %}
+              <div class="modal-footer footer">
+                <input class="submit btn btn-block" type="submit">
+                <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+    {% endif %}
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
 </html>

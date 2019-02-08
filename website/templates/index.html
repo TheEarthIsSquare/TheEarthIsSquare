@@ -1,25 +1,58 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 
 {% block title %}
 {{ block.super }}
 {% endblock title %}
 
+{% block header %}
+<script>
+  particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
+</script>
+{% endblock header %}
+
 {% block content %}
-<div class="container">
-  <section id="blurb" class="main-blurb">
+<div id="loader-wrapper">
+  <div class="loading-bar"></div>
+  <div id="loader-teis">
     <div class="row">
-      <div class="col-12 col-md-8">
-        <div class="blurb">
-            The Earth is Square is a digital web agency, we help bring brands into the
-          <span>
-            online modern era.
-          </span>
+      <div class="col-12 col-md-6">
+        <div class="left">
+          THE EARTH IS
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="right">
+          <div class="-square">SQUARE</div>
+          <div class="-unique">UNIQUE</div>
+          <div class="-different">DIFFERENT</div>
+          <div class="-creative">CREATIVE</div>
         </div>
       </div>
     </div>
-  </section>
-  <section id="portfolio" ></section>
-  <section id="why-us"></section>
+  </div>
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+</div>
+
+<div class="background">
+  <div id="particles-js" class="particles"></div>
+  <div class="container">
+    <section id="blurb" class="main-blurb">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="blurb">
+              The Earth is Square is a digital web agency, we help bring brands into the
+            <span>
+              online modern era.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio" ></section>
+    <section id="why-us"></section>
+  </div>
 </div>
 {% endblock content %}
