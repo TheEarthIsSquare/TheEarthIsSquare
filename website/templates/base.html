@@ -21,49 +21,50 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{% static 'js/all-min.js' %}"></script>
-
     {% block header %}{% endblock header %}
   </head>
 
   <body>
     {% if user.is_authenticated %}
 
-    <nav class="site-navbar">
-      <a href="{% url 'home' %}">
-        <img class="black-logo" src="../static/images/logo-black-text.png">
-      </a>
-      <a href="{% url 'home' %}">
-        <img class="white-logo" src="../static/images/logo-white-text.png">
-      </a>
-      <div id="opener" class="opener">
-        <p class="label">MENU</p>
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="nav-container">
-        <div class="container navigation">
-          <ul>
-            <li>
-              <a href="{% url 'team' %}">
-                <h2 class="item">WHO ARE WE</h2>
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'projects' %}">
-                <h2 class="item">PORTFOLIO</h2>
-              </a>
-            </li>
+    <nav id="navbar" class="site-navbar">
+      <div class="navbar-container">
+        <a href="{% url 'home' %}">
+          <img class="black-logo" src="../static/images/logo-black-text.png">
+        </a>
+        <a href="{% url 'home' %}">
+          <img class="white-logo" src="../static/images/logo-white-text.png">
+        </a>
+        <div id="opener" class="opener">
+          <p class="label">MENU</p>
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-container">
+          <div class="container navigation">
+            <ul>
               <li>
-              <a href="{% url 'contact' %}">
-                <h2 class="item">CONTACT</h2>
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'auth_logout' %}">
-                <h2 class="item">LOGOUT</h2>
-              </a>
-            </li>
-          </ul>
-        </di>
+                <a href="{% url 'team' %}">
+                  <h2 class="item">WHO ARE WE</h2>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'projects' %}">
+                  <h2 class="item">PORTFOLIO</h2>
+                </a>
+              </li>
+                <li>
+                <a href="{% url 'contact' %}">
+                  <h2 class="item">CONTACT</h2>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'auth_logout' %}">
+                  <h2 class="item">LOGOUT</h2>
+                </a>
+              </li>
+            </ul>
+          </di>
+        </div>
       </div>
     </nav>
 

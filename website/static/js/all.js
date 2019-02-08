@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  $(window).scroll(function(){
+    var $nav = $("#navbar");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+
   // Open loading screen.
   setTimeout(function(){
       $('#wrapper').addClass('loaded');
