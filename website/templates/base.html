@@ -29,10 +29,10 @@
     {% if user.is_authenticated %}
 
     <nav class="site-navbar">
-      <a href="/">
+      <a href="{% url 'home' %}">
         <img class="black-logo" src="../static/images/logo-black-text.png">
       </a>
-      <a href="/">
+      <a href="{% url 'home' %}">
         <img class="white-logo" src="../static/images/logo-white-text.png">
       </a>
       <div id="opener" class="opener"><i class="fas fa-bars"></i></div>

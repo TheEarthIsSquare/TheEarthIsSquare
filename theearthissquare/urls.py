@@ -32,7 +32,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('', TemplateView.as_view(template_name = 'index.html'), name='home'),
+    path('', views.home, name='home'),
 
     path('team/', views.team, name='team'),
 
@@ -43,5 +43,5 @@ urlpatterns = [
     path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
 
     url(r'^s3direct/', include('s3direct.urls')),
-    
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

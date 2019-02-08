@@ -1,12 +1,15 @@
 $(document).ready(function() {
 
+  // Open loading screen.
   setTimeout(function(){
-      $('body').addClass('loaded');
+      $('#wrapper').addClass('loaded');
   }, 4500);
 
+  // Navigation Menu
   $('#opener').click(function() {
     $('.nav-container').toggleClass('open');
     $('.white-logo').toggleClass('open');
+    $('#opener').toggleClass('open');
     if($('.opener i').hasClass('fa-bars')){
       $('.opener i').removeClass('fa-bars');
       $('.opener i').addClass('fa-times');

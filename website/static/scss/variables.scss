@@ -1,10 +1,14 @@
 /* Colours */
 $earth-green: #DCF763;
-$earth-dark-grey: #435058;
-$earth-grey: #353535;
+$earth-dark-grey: #202021;
+$earth-grey: #435058;
 $earth-light-grey: #848C8E;
 
 /* Breakpoints */
 $bp-sm: "(min-width: 576px)"; // col-sm
 $bp-md: "(min-width: 768px)"; // col-md
 $bp-lg: "(min-width: 992px)"; // col-lg
+
+/* Page Elements */
+$nav-height: 75px;
+$footer-height: 50px;

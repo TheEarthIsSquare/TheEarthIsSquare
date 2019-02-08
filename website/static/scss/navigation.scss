@@ -1,0 +1,98 @@
+/* Navigation & Navbar Styling */
+.site-navbar {
+  height: $nav-height;
+  position: absolute;
+  background-color: transparent;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1148px;
+  padding-left: 30px;
+  padding-right: 30px;
+  left: 0;
+  right: 0;
+  .black-logo {
+    height: 100%;
+    margin-left: 20px;
+  }
+  .white-logo {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    margin-left: 20px;
+    padding-left: 30px;
+    display: none;
+    z-index: 1001;
+    &.open {
+      display: block;
+    }
+  }
+  .opener {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top:  15px;
+    margin-right: 40px;
+    padding: 7px 14px;
+    background-color: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 1.3rem;
+    transition: all 0.5s ease;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    &.open {
+      background-color: $earth-green;
+    }
+    &:hover {
+      transform: translateY(5px);
+    }
+  }
+  .label {
+    float: right;
+    margin-top: 26px;
+    margin-right: 60px;
+  }
+  .nav-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: $earth-dark-grey;
+    display: none;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    transition: display 0.5s ease;
+    &.open {
+      display: block;
+      .navigation {
+        animation: fade-main 2s ease;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  .navigation {
+    top: 15%;
+    text-align: center;
+    position: relative;
+    li {
+      list-style-type: none;
+      margin: 35px 0px ;
+    }
+    ul {
+      padding: 0;
+    }
+    .item {
+      color: white;
+      transition: color 0.5s ease;
+      padding: 10px 0px;
+      &:hover {
+        color: $earth-green;
+      }
+    }
+  }
+}
