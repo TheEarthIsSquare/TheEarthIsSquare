@@ -38,22 +38,28 @@
         </a>
         <div id="opener" class="opener">
           <p class="label">MENU</p>
+          <p class="label -close">CLOSE</p>
           <i class="fas fa-bars"></i>
         </div>
         <div class="nav-container">
           <div class="container navigation">
             <ul>
               <li>
+                <a href="{% url 'services' %}">
+                  <h2 class="item">SERVICES</h2>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'portfolio' %}">
+                  <h2 class="item">PORTFOLIO</h2>
+                </a>
+              </li>
+              <li>
                 <a href="{% url 'team' %}">
                   <h2 class="item">WHO ARE WE</h2>
                 </a>
               </li>
               <li>
-                <a href="{% url 'projects' %}">
-                  <h2 class="item">PORTFOLIO</h2>
-                </a>
-              </li>
-                <li>
                 <a href="{% url 'contact' %}">
                   <h2 class="item">CONTACT</h2>
                 </a>

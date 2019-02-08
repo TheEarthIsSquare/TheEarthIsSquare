@@ -32,22 +32,22 @@
                     <img class="img-fluid avatar" src="{{ profile.avatar }}" />
                   </div>
                   <div class="social row justify-content-center">
-                    {% if profile.email != '' %}
+                    {% if profile.email != None %}
                     <div class="col-12 email">
                       <a href="mailto:{{ profile.email }}" target="_blank">{{ profile.email }}</a>
                     </div>
                     {% endif %}
-                    {% if profile.twitter_username != '' %}
+                    {% if profile.twitter_username != None %}
                     <div class="col-3">
                       <a href="https://www.twitter.com/{{ profile.twitter_username }}"><i class="fab fa-2x fa-twitter"></i></a>
                     </div>
                     {% endif %}
-                    {% if profile.instagram_username != '' %}
+                    {% if profile.instagram_username != None %}
                     <div class="col-3">
                       <a href="https://www.instagram.com/{{ profile.instagram_username }}"><i class="fab fa-2x fa-instagram"></i></a>
                     </div>
                     {% endif %}
-                    {% if profile.linkedin_username != '' %}
+                    {% if profile.linkedin_username != None %}
                     <div class="col-3">
                       <a href="https://www.linkedin.com/in/{{ profile.linkedin_username }}"><i class="fab fa-2x fa-linkedin"></i></a>
                     </div>
