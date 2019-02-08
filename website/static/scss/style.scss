@@ -5,8 +5,9 @@
 @import 'fontawesome/brands.scss';
 @import 'variables';
 
-html, #wrapper {
+html, body {
   height: 100%;
+  margin: 0;
 }
 
 body {
@@ -27,6 +28,25 @@ a {
     text-decoration: none;
     color: inherit;
   }
+}
+
+#footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 10px 50px;
+  background-color: $earth-dark-grey;
+  text-align: center;
+}
+
+#footer, .footer-push {
+  height: 50px;
+}
+
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
 }
 
 .landing-page {
@@ -209,11 +229,9 @@ a {
 
 .site-navbar {
   height: 75px;
-  width: 100%;
-  position: fixed;
+  position: absolute;
   background-color: transparent;
   z-index: 900;
-  position: relative;
   display: flex;
   justify-content: space-between;
   margin-left: auto;
@@ -221,6 +239,8 @@ a {
   max-width: 1148px;
   padding-left: 30px;
   padding-right: 30px;
+  left: 0;
+  right: 0;
   .black-logo {
     height: 100%;
     margin-left: 20px;
@@ -326,7 +346,9 @@ section {
 
 .profiles-container {
   .profile {
-    margin-top: 100px;
+    margin-top: 20%;
+    animation: fade-main 3s ease;
+    animation-fill-mode: forwards;
     &:hover {
       .frame{
         &.-hover {

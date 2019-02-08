@@ -29,7 +29,7 @@
 </head>
 
 <body>
-{% if request.get_full_path == "/" %}
+  {% if request.get_full_path == "/" %}
   <div id="loader-wrapper">
     <div class="loading-bar"></div>
     <div id="loader-teis">
@@ -55,116 +55,124 @@
   {% endif %}
 
   {% if user.is_authenticated %}
-  {% if request.get_full_path == "/" %}
-  <div class="background">
-    <div id="particles-js" class="particles"></div>
-  {% endif %}
-
-    <nav class="site-navbar">
-      <a href="/">
-        <img class="black-logo" src="../static/images/logo-black-text.png">
-      </a>
-      <a href="/">
-        <img class="white-logo" src="../static/images/logo-white-text.png">
-      </a>
-      <div id="opener" class="opener"><i class="fas fa-bars"></i></div>
-      <p class="label">MENU</p>
-      <div class="nav-container">
-        <div class="container navigation">
-          <ul>
+  <nav class="site-navbar">
+    <a href="/">
+      <img class="black-logo" src="../static/images/logo-black-text.png">
+    </a>
+    <a href="/">
+      <img class="white-logo" src="../static/images/logo-white-text.png">
+    </a>
+    <div id="opener" class="opener"><i class="fas fa-bars"></i></div>
+    <p class="label">MENU</p>
+    <div class="nav-container">
+      <div class="container navigation">
+        <ul>
+          <li>
+            <a href="{% url 'team' %}">
+              <h2 class="item">WHO ARE WE</h2>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'projects' %}">
+              <h2 class="item">PORTFOLIO</h2>
+            </a>
+          </li>
             <li>
-              <a href="{% url 'team' %}">
-                <h2 class="item">WHO ARE WE</h2>
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'projects' %}">
-                <h2 class="item">PORTFOLIO</h2>
-              </a>
-            </li>
-              <li>
-              <a href="{% url 'contact' %}">
-                <h2 class="item">CONTACT</h2>
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'auth_logout' %}">
-                <h2 class="item">LOGOUT</h2>
-              </a>
-            </li>
-          </ul>
-        </di>
-      </div>
-    </nav>
-    <div id="main-wrapper">
-        {% block content %}{% endblock content %}
+            <a href="{% url 'contact' %}">
+              <h2 class="item">CONTACT</h2>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'auth_logout' %}">
+              <h2 class="item">LOGOUT</h2>
+            </a>
+          </li>
+        </ul>
+      </di>
     </div>
-
-    {% else %}
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-12 landing-page">
-          <a data-toggle="modal" data-target="#myModal">
-            <img id="logo" class="logo" src="/static/images/logo.png" alt="The Earth is Square">
-          </a>
-          <p class="email"><b>Contact Us:</b> hello@theearthissquare.com</p>
-        </div>
+  </nav>
+  <div id="wrapper">
+    {% if request.get_full_path == "/" %}
+    <div id="page-content" class="background">
+      <div id="particles-js" class="particles"></div>
+    {% endif %}
+      <div id="main-wrapper">
+          {% block content %}{% endblock content %}
       </div>
+    {% if request.get_full_path == "/" %}
     </div>
-
-
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content login-modal">
-          <div class="modal-header header">
-            <h3 class="modal-title title">Login</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="form">
-            <form role="form" action="" method="post">
-              {% csrf_token %}
-              {% for field in form %}
-                  <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text icon" id="login-addon">
-                        {% if field.html_name == "username" %}
-                        <span class="fas fa-user"></span>
-                        {% else %}
-                        <span class="fas fa-key"></span>
-                        {% endif %}
-                      </span>
-                    </div>
-                      <input
-                      {% if field.html_name == "password" %}
-                      type="password"
-                      {% else %}
-                      type="text"
-                      {% endif %}
-                      class="form-control field"
-                      placeholder="{{ field.html_name|title }}"
-                      maxlength="30"
-                      name="{{ field.html_name }}"
-                      aria-label="Username"
-                      aria-describedby="login-addon"/>
-                      {{ field.errors }}
-                  </div>
-              {% endfor %}
-              <div class="modal-footer footer">
-                <input class="submit btn btn-block" type="submit">
-                <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  {% if request.get_full_path == "/" %}
+    {% endif %}
+    <div class="footer-push"></div>
   </div>
-  {% endif %}
-  {% endif %}
+  <footer id="footer">
+    <div class="copyright">
+      &copy; The Earth is Square 2019
+    </div>
+  </footer>
+  {% else %}
+
+  <div id="landing-page" class="container">
+    <div class="row">
+      <div class="col-xl-12 landing-page">
+        <a data-toggle="modal" data-target="#loginModal">
+          <img id="logo" class="logo" src="/static/images/logo.png" alt="The Earth is Square">
+        </a>
+        <p class="email"><b>Contact Us:</b> hello@theearthissquare.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content login-modal">
+        <div class="modal-header header">
+          <h3 class="modal-title title">Login</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="form">
+          <form role="form" action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text icon" id="login-addon">
+                      {% if field.html_name == "username" %}
+                      <span class="fas fa-user"></span>
+                      {% else %}
+                      <span class="fas fa-key"></span>
+                      {% endif %}
+                    </span>
+                  </div>
+                    <input
+                    {% if field.html_name == "password" %}
+                    type="password"
+                    {% else %}
+                    type="text"
+                    {% endif %}
+                    class="form-control field"
+                    placeholder="{{ field.html_name|title }}"
+                    maxlength="30"
+                    name="{{ field.html_name }}"
+                    aria-label="Username"
+                    aria-describedby="login-addon"/>
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            <div class="modal-footer footer">
+              <input class="submit btn btn-block" type="submit">
+              <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Login Modal -->
+
+{% endif %}
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
