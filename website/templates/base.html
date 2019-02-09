@@ -9,7 +9,7 @@
     </title>
 
     <meta name="description" content="
-      THE EARTH IS SQUARE is an Australian based digitial agency. We provide services
+      THE EARTH IS SQUARE is an Australian based digital agency. We provide services
       in website design, website development, digital marketing, photography, social media,
       & more.
     "></meta>
@@ -26,8 +26,36 @@
   </head>
 
   <body>
+
+    <!-- Loading Screen -->
+    {% if request.get_full_path == '/' %}
+      <div id="loader-wrapper">
+        <div class="loading-bar"></div>
+        <div id="loader-teis">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="left">
+                THE EARTH IS
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="right">
+                <div class="-square">SQUARE</div>
+                <div class="-unique">UNIQUE</div>
+                <div class="-different">DIFFERENT</div>
+                <div class="-creative">CREATIVE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
+    {% endif %}
+
     {% if user.is_authenticated %}
 
+    <!-- Navbar -->
     <nav id="navbar" class="site-navbar">
       <div class="navbar-container">
         <a href="{% url 'home' %}">
@@ -87,30 +115,6 @@
     </footer>
 
     {% else %}
-    <div id="wrapper">
-      <div id="loader-wrapper">
-        <div class="loading-bar"></div>
-        <div id="loader-teis">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <div class="left">
-                THE EARTH IS
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="right">
-                <div class="-square">SQUARE</div>
-                <div class="-unique">UNIQUE</div>
-                <div class="-different">DIFFERENT</div>
-                <div class="-creative">CREATIVE</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-      </div>
-    </div>
 
     <div id="landing-page" class="container">
       <div class="row">
@@ -135,32 +139,22 @@
           <div class="form">
             <form role="form" action="" method="post">
               {% csrf_token %}
-              {% for field in form %}
-                  <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text icon" id="login-addon">
-                        {% if field.html_name == "username" %}
-                        <span class="fas fa-user"></span>
-                        {% else %}
-                        <span class="fas fa-key"></span>
-                        {% endif %}
-                      </span>
-                    </div>
-                      <input
-                      {% if field.html_name == "password" %}
-                      type="password"
-                      {% else %}
-                      type="text"
-                      {% endif %}
-                      class="form-control field"
-                      placeholder="{{ field.html_name|title }}"
-                      maxlength="30"
-                      name="{{ field.html_name }}"
-                      aria-label="Username"
-                      aria-describedby="login-addon"/>
-                      {{ field.errors }}
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text icon" id="login-addon">
+                      <span class="fas fa-user"></span>
+                    </span>
                   </div>
-              {% endfor %}
+                  <input type="text" name="username" class="form-control field" placeholder="Username" maxlength="30" aria-label="Username" aria-describedby="login-addon"/>
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text icon" id="login-addon">
+                      <span class="fas fa-key"></span>
+                    </span>
+                  </div>
+                  <input type="password" name="password" class="form-control field" placeholder="Password" maxlength="30" aria-label="Password" aria-describedby="login-addon"/>
+              </div>
               <div class="modal-footer footer">
                 <input class="submit btn btn-block" type="submit">
                 <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>

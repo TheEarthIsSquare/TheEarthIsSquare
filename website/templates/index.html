@@ -18,34 +18,15 @@
       particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
       $('#particles-wrapper').toggleClass('fade');
     }, 6000);
+
+    setTimeout(function() {
+      $('.services-container').toggleClass('fade');
+    }, 6500);
   </script>
 {% endif %}
 {% endblock header %}
 
 {% block content %}
-<div id="loader-wrapper">
-  <div class="loading-bar"></div>
-  <div id="loader-teis">
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="left">
-          THE EARTH IS
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="right">
-          <div class="-square">SQUARE</div>
-          <div class="-unique">UNIQUE</div>
-          <div class="-different">DIFFERENT</div>
-          <div class="-creative">CREATIVE</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="loader-section section-left"></div>
-  <div class="loader-section section-right"></div>
-</div>
-
 <div class="homepage">
   <div id="particles-wrapper">
     <div id="particles-js" class="particles show"></div>
@@ -66,7 +47,30 @@
       </div>
     </section>
     <section id="services">
-
+      <div class="services-container container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="header">What can we do</h1>
+          </div>
+          <div class="col-6">
+            <p>
+              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+              We're cooler than you. We're cooler than you. We're cooler than you.
+            </p>
+          </div>
+          <div class="col-6">
+            <ul class="services-list">
+            {% for service in services %}
+              <li class="service">
+                {{ service.name }}
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="portfolio">
 

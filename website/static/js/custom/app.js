@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   // Open loading screen.
   setTimeout(function(){
-      $('#wrapper').addClass('loaded');
+      $('#loader-wrapper').addClass('loaded');
   }, 4500);
 
   // Navigation Menu

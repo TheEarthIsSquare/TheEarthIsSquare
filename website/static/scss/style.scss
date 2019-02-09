@@ -117,14 +117,20 @@ a {
   #particles-wrapper {
     opacity: 0;
     transition: all 0.5s ease;
+    z-index: -1;
     &.fade {
       opacity: 1;
     }
     #particles-js {
       display: none;
       position: absolute;
-      height: 100%;
+      height: 675px;
       width: 100%;
+      z-index: -1;
+      canvas {
+        z-index: -1;
+        position: absolute;
+      }
       &.show {
         display: block;
       }
@@ -154,7 +160,7 @@ a {
   .content {
     margin-top: $nav-height;
     section {
-      padding: 150px 0px;
+      padding: 100px 0px;;
       &#main {
         height: 600px;
         .blurb {
@@ -172,6 +178,32 @@ a {
           span {
             background-color: $earth-dark-grey;
             color: white;
+          }
+        }
+      }
+      &#services {
+        background-color: $earth-dark-grey;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        .services-container {
+          background-color: $earth-dark-grey;
+          min-height: 200px;
+          color: white;
+          padding: 20px 100px;
+          opacity: 0;
+          transition: all 0.5s ease;
+          &.fade {
+            animation: fade-main 1s ease;
+            animation-fill-mode: forwards;
+          }
+          .header {
+            font-size: 4.5rem;
+            margin-bottom: 50px;
+          }
+          .services-list {
+            list-style-type: none;
+            .service {
+                padding: 10px;
+            }
           }
         }
       }

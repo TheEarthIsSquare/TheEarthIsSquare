@@ -20,10 +20,10 @@ class Profile(models.Model):
 
 class Project(models.Model):
     TYPE_CHOICES = (
-        (1, 'Website'),
+        (1, 'Development'),
         (2, 'Design'),
-        (3, 'Marketing'),
-        (4, 'Social Media Campagin'),
+        (3, 'Social Media & Marketing'),
+        (4, 'Visual Media'),
     )
 
     name = models.CharField(max_length=255)
@@ -36,6 +36,9 @@ class Project(models.Model):
     description = models.TextField(null=True, blank=True)
     tesimonial = models.TextField(null=True, blank=True)
     main_image = S3DirectField(dest='projects', null=True)
+    def __str__(self):
+        return self.name
+
 
 class Image(models.Model):
     image = S3DirectField(dest='projects', null=True)
@@ -45,3 +48,8 @@ class Service(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     image = S3DirectField(dest='services', null=True, blank=True)
+    enabled = models.BooleanField(default=False)
+    parent = models.BooleanField(default=False)
+    parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
+    def __str__(self):
+        return self.name

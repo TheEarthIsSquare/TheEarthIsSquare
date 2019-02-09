@@ -15,7 +15,7 @@ class ImageAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
     model = Service
-    list_display = ('name',)
+    list_display = ('name', 'parent', 'parent_service', 'enabled',)
 
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Project, ProjectAdmin)
