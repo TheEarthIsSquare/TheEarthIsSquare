@@ -5,7 +5,6 @@ from website.models import *
 class ProfileAdmin(admin.ModelAdmin):
     model = Profile
     list_display = ('name', 'role')
-    readonly_fields = ('image_tag',)
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
