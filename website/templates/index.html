@@ -7,9 +7,12 @@
 {% endblock title %}
 
 {% block header %}
-<script>
-  particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
-</script>
+{% if user.is_authenticated %}
+  <script src="{% static 'js/custom/particles/particles.js' %}"></script>
+  <script>
+    particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
+  </script>
+{% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -53,8 +56,15 @@
         </div>
       </div>
     </section>
-    <section id="portfolio" ></section>
-    <section id="why-us"></section>
+    <section id="services">
+
+    </section>
+    <section id="portfolio">
+
+    </section>
+    <section id="why-us">
+
+    </section>
   </div>
 </div>
 {% endblock content %}

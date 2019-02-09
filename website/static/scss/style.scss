@@ -76,6 +76,7 @@ a {
       transition: all 0.5s ease;
       background-color: white;
       border-bottom: 1px solid #e9ecef;
+      font-weight: 300;
       &:focus {
         background-color: rgba(67, 80, 88, 0.2);
         outline: none;
@@ -236,6 +237,7 @@ a {
         margin-top: 10px;
         .email {
           margin-bottom: 10px;
+          text-align: center;
         }
       }
       .modal-footer {
