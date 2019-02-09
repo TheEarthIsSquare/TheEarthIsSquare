@@ -4,6 +4,11 @@ from datetime import datetime
 from s3direct.fields import S3DirectField
 
 class Profile(models.Model):
+    # def image_tag(self):
+    #    return u'<img src="%s" />' % {{ self.avatar.url }}
+    # image_tag.short_description = 'Image'
+    # image_tag.allow_tags = True
+
     avatar = S3DirectField(dest='profiles')
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, null=True, blank=True)
@@ -12,10 +17,6 @@ class Profile(models.Model):
     twitter_username = models.CharField(max_length=255, null=True, blank=True)
     instagram_username = models.CharField(max_length=255, null=True, blank=True)
     linkedin_username = models.CharField(max_length=255, null=True, blank=True)
-    def image_tag(self):
-        return u'<img src="%s" />' % {{ self.avatar.url }}
-    image_tag.short_description = 'Image'
-    image_tag.allow_tags = True
 
 class Project(models.Model):
     TYPE_CHOICES = (
@@ -43,4 +44,4 @@ class Image(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    image = S3DirectField(dest='services', null=True)
+    image = S3DirectField(dest='services', null=True, blank=True)
