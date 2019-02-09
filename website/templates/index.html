@@ -10,7 +10,14 @@
 {% if user.is_authenticated %}
   <script src="{% static 'js/custom/particles/particles.js' %}"></script>
   <script>
-    particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
+    setTimeout(function(){
+      $('.homepage').toggleClass('fade');
+    }, 5500);
+
+    setTimeout(function(){
+      particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
+      $('#particles-wrapper').toggleClass('fade');
+    }, 6000);
   </script>
 {% endif %}
 {% endblock header %}
@@ -40,7 +47,9 @@
 </div>
 
 <div class="homepage">
-  <div id="particles-js" class="particles"></div>
+  <div id="particles-wrapper">
+    <div id="particles-js" class="particles show"></div>
+  </div>
   <div class="content">
     <section id="main">
       <div class="container">

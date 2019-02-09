@@ -108,10 +108,27 @@ a {
   background-color: $earth-green;
   position: relative;
   overflow: hidden;
-  #particles-js {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease;
+  &.fade {
+    animation: fade-main 2s ease;
+    animation-fill-mode: forwards;
+  }
+  #particles-wrapper {
+    opacity: 0;
+    transition: all 0.5s ease;
+    &.fade {
+      opacity: 1;
+    }
+    #particles-js {
+      display: none;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      &.show {
+        display: block;
+      }
+    }
   }
   &::before {
     content: "";
@@ -139,6 +156,7 @@ a {
     section {
       padding: 150px 0px;
       &#main {
+        height: 600px;
         .blurb {
           font-size: 2rem;
           font-weight: 900;
