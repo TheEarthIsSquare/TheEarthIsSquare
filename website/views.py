@@ -6,7 +6,7 @@ from website.models import Profile, Project, Image, Service
 # Create your views here.
 def home(request, reason=""):
 
-    services = Service.objects.all().order_by('name')
+    services = Service.objects.filter(parent=True)
     projects = Project.objects.all().order_by('name')
     profiles = Profile.objects.all().order_by('name')
 

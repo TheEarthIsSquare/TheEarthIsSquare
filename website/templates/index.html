@@ -8,16 +8,10 @@
 
 {% block header %}
 {% if user.is_authenticated %}
-  <script src="{% static 'js/custom/particles/particles.js' %}"></script>
   <script>
     setTimeout(function(){
       $('.homepage').toggleClass('fade');
     }, 5500);
-
-    setTimeout(function(){
-      particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
-      $('#particles-wrapper').toggleClass('fade');
-    }, 6000);
 
     setTimeout(function() {
       $('.services-container').toggleClass('fade');
@@ -28,9 +22,6 @@
 
 {% block content %}
 <div class="homepage">
-  <div id="particles-wrapper">
-    <div id="particles-js" class="particles show"></div>
-  </div>
   <div class="content">
     <section id="main">
       <div class="container">
@@ -49,22 +40,28 @@
     <section id="services">
       <div class="services-container container">
         <div class="row">
-          <div class="col-12">
-            <h1 class="header">What can we do</h1>
-          </div>
           <div class="col-6">
-            <p>
-              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-              We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-              We're cooler than you. We're cooler than you. We're cooler than you.
-            </p>
+            <h1 class="header">Services</h1>
+            <div class="blurb">
+              <p>
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+              </p>
+            </div>
           </div>
           <div class="col-6">
             <ul class="services-list">
             {% for service in services %}
               <li class="service">
-                {{ service.name }}
+                <a class="-inner" href="/services/{{ service.name }}">
+                  <i class="fa-2x {{ service.fa_icon }}" style="margin-right: 10px"></i>
+                  <span class="title">{{ service.name }}</span>
+                </a>
               </li>
             {% endfor %}
             </ul>

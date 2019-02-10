@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5 {
 
 a {
   text-decoration: none;
-  color: $earth-dark-grey;
+  color: none;
   transition: all 0.5s ease;
   &:hover {
     text-decoration: none;
@@ -202,7 +202,34 @@ a {
           .services-list {
             list-style-type: none;
             .service {
-                padding: 10px;
+              height: 100px;
+              display: table;
+              width: 100%;
+              border-bottom: 1px solid white;
+              &:last-child {
+                border: none;
+              }
+              .-inner {
+                display: table-cell;
+                vertical-align: middle;
+                color: white;
+                font-weight: 500;
+                transition: all 0.5s ease;
+                padding: 0px 10px;
+                &:hover {
+                  background-color: $earth-green;
+                  color: $earth-dark-grey;
+                  i {
+                    color: white;
+                  }
+                }
+                i {
+                  color: $earth-green;
+                }
+                .title {
+                  vertical-align: super;
+                }
+              }
             }
           }
         }

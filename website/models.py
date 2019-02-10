@@ -51,5 +51,6 @@ class Service(models.Model):
     enabled = models.BooleanField(default=False)
     parent = models.BooleanField(default=False)
     parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
+    fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
     def __str__(self):
         return self.name
