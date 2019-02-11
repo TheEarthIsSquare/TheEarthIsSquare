@@ -108,15 +108,33 @@ a {
 }
 
 .homepage {
-  background-color: $earth-green;
+  animation: colorchange 40s;
+   -webkit-animation: colorchange 40s;
   position: relative;
   overflow: hidden;
-  opacity: 0;
   transition: all 0.5s ease;
   margin-top: -$nav-height;
-  &.fade {
-    animation: fade-main 2s ease;
-    animation-fill-mode: forwards;
+  #particles-wrapper {
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: -1;
+    &.fade {
+      opacity: 1;
+    }
+    #particles-js {
+      display: none;
+      position: absolute;
+      height: 675px;
+      width: 100%;
+      z-index: -1;
+      canvas {
+        z-index: -1;
+        position: absolute;
+      }
+      &.show {
+        display: block;
+      }
+    }
   }
   &::before {
     content: "";
@@ -141,6 +159,10 @@ a {
   }
   .content {
     margin-top: $nav-height;
+    &.fade {
+      animation: fade-main 2s ease;
+      animation-fill-mode: forwards;
+    }
     section {
       padding: 100px 0px;;
       &#main {

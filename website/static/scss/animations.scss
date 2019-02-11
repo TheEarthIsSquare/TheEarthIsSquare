@@ -139,3 +139,19 @@
     opacity: 0;
   }
 }
+
+@keyframes colorchange {
+  0%   {background: #72ef3e;}
+  25%  {background: #efd93e;}
+  50%  {background: #3e64ef;}
+  75%  {background: #ef3e3e;}
+  100% {background: #72ef3e;}
+}
+
+@-webkit-keyframes colorchange {
+  0%   {background: #72ef3e;}
+  25%  {background: #efd93e;}
+  50%  {background: #3e64ef;}
+  75%  {background: #ef3e3e;}
+  100% {background: #72ef3e;}
+}

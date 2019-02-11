@@ -72,20 +72,16 @@
         <div class="nav-container">
           <div class="container navigation">
             <ul>
-              {% if services.count > 0 %}
               <li>
                 <a href="{% url 'services' %}">
                   <h2 class="item">SERVICES</h2>
                 </a>
               </li>
-              {% endif %}
-              {% if projects.count > 0 %}
               <li>
                 <a href="{% url 'portfolio' %}">
                   <h2 class="item">PORTFOLIO</h2>
                 </a>
               </li>
-              {% endif %}
               <li>
                 <a href="{% url 'team' %}">
                   <h2 class="item">WHO ARE WE</h2>
