@@ -1,7 +1,6 @@
 import os
 
-# Custom variables
-USE_LOADING_SCREEN = os.environ['USE_LOADING_SCREEN'] = 'false'
+USE_LOADING_SCREEN = os.environ.get('USE_LOADING_SCREEN', False)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
