@@ -7,17 +7,17 @@
 {% endblock title %}
 
 {% block header %}
-{% if user.is_authenticated %}
-  <script>
-    setTimeout(function(){
-      $('.homepage').toggleClass('fade');
-    }, 5500);
+  {% if user.is_authenticated %}
+    <script>
+      setTimeout(function(){
+        $('.homepage').toggleClass('fade');
+      }, {{timeout}});
 
-    setTimeout(function() {
-      $('.services-container').toggleClass('fade');
-    }, 6500);
-  </script>
-{% endif %}
+      setTimeout(function() {
+        $('.services-container').toggleClass('fade');
+      }, ({{timeout}} + 1000));
+    </script>
+  {% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -40,21 +40,15 @@
     <section id="services">
       <div class="services-container container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <h1 class="header">Services</h1>
             <div class="blurb">
               <p>
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
-                We're cooler than you. We're cooler than you. We're cooler than you. We're cooler than you.
+                {% lorem %}
               </p>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <ul class="services-list">
             {% for service in services %}
               <li class="service">
@@ -69,12 +63,12 @@
         </div>
       </div>
     </section>
-    <section id="portfolio">
+  <!--  <section id="portfolio">
 
     </section>
     <section id="why-us">
 
-    </section>
+    </section> -->
   </div>
 </div>
 {% endblock content %}

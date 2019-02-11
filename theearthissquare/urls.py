@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('', views.home, name='home'),
 
-    path('', include('registration.backends.simple.urls')),
+    path('', include('registration.backends.simple.urls')), # Figure out why this is needed to use the auth_logout link.
 
     path('admin/', admin.site.urls),
 

@@ -21,3 +21,8 @@ admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Service, ServiceAdmin)
+
+admin.site.site_header = "The Earth is Square"
+admin.site.site_title = "The Earth is Square"
+admin.site.index_title = "Admin Panel"
+admin.site.index_template = "admin/admin_index.html"

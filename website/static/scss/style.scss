@@ -2,6 +2,7 @@
 @import 'animations';
 @import 'loading';
 @import 'navigation';
+@import 'admin';
 @import 'bootstrap/bootstrap';
 
 html, body {
@@ -163,7 +164,9 @@ a {
       padding: 100px 0px;;
       &#main {
         height: 600px;
+        padding: 0px;
         .blurb {
+          padding-top: 200px;
           font-size: 2rem;
           font-weight: 900;
           text-transform: uppercase;
@@ -185,22 +188,36 @@ a {
         background-color: $earth-dark-grey;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         .services-container {
-          background-color: $earth-dark-grey;
           min-height: 200px;
           color: white;
-          padding: 20px 100px;
+          padding: 20px 50px;
           opacity: 0;
           transition: all 0.5s ease;
+          @media #{bp-md}{
+            padding: 20px 100px;
+          }
           &.fade {
             animation: fade-main 1s ease;
             animation-fill-mode: forwards;
           }
           .header {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
+            text-align: center;
             margin-bottom: 50px;
+            @media #{bp-md}{
+              font-size: 4.5rem;
+              text-align: left;
+            }
+          }
+          .blurb {
+            text-align: center;
+            @media #{bp-md}{
+              text-align: left;
+            }
           }
           .services-list {
             list-style-type: none;
+            padding-left: 0px;
             .service {
               height: 100px;
               display: table;

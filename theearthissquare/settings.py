@@ -1,5 +1,8 @@
 import os
 
+# Custom variables
+USE_LOADING_SCREEN = False
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '8@jl6lay-4-xzjdic2#mw%e2c@%*o1nfh&k@95p2=&x%5n&n@g'
@@ -10,7 +13,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'website',
-    'registration',
     's3direct',
     'django.contrib.sitemaps',
     'django.contrib.admin',
