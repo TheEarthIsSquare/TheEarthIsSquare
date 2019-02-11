@@ -1,13 +1,44 @@
 {% extends 'base.html' %}
-{% load humanize %}
 
 {% block title %}
-{{ block.super }} - Contact Us
-{% endblock title %}
+  Contact - {{ block.super }}
+{% endblock %}
 
 {% block content %}
 <div class="container">
-  <section>
-  </section>
+  <div id="contact-form">
+    {% if emailSent == False %}
+    <form role="form" action="" method="post">
+      {% csrf_token %}
+      <div class="contact-form">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="name">
+              {{ form.contact_name }}
+            </div>
+            <div class="email">
+              {{ form.contact_email }}
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="content">
+              {{ form.content }}
+            </div>
+          </div>
+        </div>
+      <button class="submit btn" type="submit">Submit</button>
+      </div>
+    </form>
+    {% else %}
+    <div class="email-success">
+      <div class="title">
+      Email Sent!
+      </div>
+      <div class="text">
+        Your email has been sent, we'll be in touch shortly!
+      </div>
+    </div>
+    {% endif %}
+  </div>
 </div>
-{% endblock content %}
+{% endblock %}

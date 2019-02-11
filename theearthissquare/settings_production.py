@@ -29,3 +29,5 @@ S3DIRECT_DESTINATIONS = {
         'key': 'uploads/projects'
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

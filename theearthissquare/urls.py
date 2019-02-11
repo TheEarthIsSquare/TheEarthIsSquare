@@ -22,7 +22,7 @@ urlpatterns = [
 
     path('portfolio/', TemplateView.as_view(template_name = 'portfolio.html'), name='portfolio'),
 
-    path('contact/', TemplateView.as_view(template_name = 'contact.html'), name='contact'),
+    path('contact/', views.contact, name='contact'),
 
     path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
 

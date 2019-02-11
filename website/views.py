@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
 from theearthissquare import settings
+from website.forms import ContactForm
+
 
 # Create your views here.
 def home(request, reason=""):
@@ -35,12 +37,45 @@ def home(request, reason=""):
     'timeout' : timeout,
     })
 
-# def redirect_home(request):
-#    return redirect('home', {
-#    })
-
 def team(request):
     profiles = Profile.objects.all().order_by('name')
     return render(request, 'team.html', {
     'profiles' : profiles,
+    })
+
+def contact(request):
+    form_class = ContactForm
+    success = False
+
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+        if form.is_valid():
+            contact_name = form.cleaned_data['contact_name']
+            contact_email = form.cleaned_data['contact_email']
+            form_content = form.cleaned_data['content']
+
+            # email the profile with the contact info
+            template = get_template('contact_template.txt')
+
+            context = {
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'form_content': form_content,
+            }
+
+            content = template.render(context)
+
+            send_mail(
+                'New Contact Form',
+                content + ' REPLY TO: ' + contact_email,
+                settings.EMAIL_HOST_USER,
+                ['hello@theearthissquare.com'],
+                fail_silently=False,
+            )
+            success = True
+
+    return render(request, 'contact.html', {
+        'form': form_class,
+        'emailSent': success,
     })
