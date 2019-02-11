@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
-from theearthissquare import settings, settings_production
+from theearthissquare import settings
 
 # Create your views here.
 def home(request, reason=""):

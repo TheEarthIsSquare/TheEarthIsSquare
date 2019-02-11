@@ -1,6 +1,8 @@
 from theearthissquare.settings import *
 import dj_database_url
 
+USE_LOADING_SCREEN = True
+
 DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -12,6 +14,7 @@ DEBUG = False
 SECURE_SSL_REDIRECT = True
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
