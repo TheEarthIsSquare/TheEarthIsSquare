@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
-from theearthissquare import settings
+from theearthissquare import settings, settings_production
 
 # Create your views here.
 def home(request, reason=""):
 
     loading_screen = settings.USE_LOADING_SCREEN
+
     if loading_screen == False:
         timeout = 0
     else:
