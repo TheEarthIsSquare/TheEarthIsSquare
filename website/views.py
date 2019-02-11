@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
 from theearthissquare import settings
 from website.forms import ContactForm
+from django.template.loader import get_template
+from django.core.mail import send_mail
 
 
 # Create your views here.
