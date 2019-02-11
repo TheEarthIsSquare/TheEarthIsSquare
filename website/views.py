@@ -8,10 +8,10 @@ from theearthissquare import settings
 def home(request, reason=""):
 
     loading_screen = settings.USE_LOADING_SCREEN
-    if loading_screen == True:
-        timeout = 5500
-    else:
+    if loading_screen == False:
         timeout = 0
+    else:
+        timeout = 5500
 
     services = Service.objects.filter(parent=True)
     projects = Project.objects.all().order_by('name')
