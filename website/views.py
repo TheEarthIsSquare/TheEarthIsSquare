@@ -71,7 +71,7 @@ def contact(request):
             send_mail(
                 'New Contact Form',
                 content + ' REPLY TO: ' + contact_email,
-                'contact@theearthissquare.com',
+                'hello@theearthissquare.com',
                 ['hello@theearthissquare.com'],
                 fail_silently=False,
             )

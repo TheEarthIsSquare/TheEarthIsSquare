@@ -63,10 +63,26 @@
         </div>
       </div>
     </section>
-  <!--  <section id="portfolio">
-
+    <section id="portfolio">
+      <div class="portfolio-container container">
+        <h1 class="header">Portfolio</h1>
+        <div class="projects-list row justify-content-center">
+        {% for project in projects %}
+        <div class="col-12 col-md-4">
+          <div class="project">
+            <a href="/project/{{ project.name }}">
+              <div class="overlay">
+                <h3 class="title">{{ project.name }}</h3>
+              </div>
+            </a>
+            <div class="img" style="background: url(../static/images/tld-main-image.png) 60% 60% no-repeat;"></div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
     </section>
-    <section id="why-us">
+    <!-- <section id="why-us">
 
     </section> -->
   </div>

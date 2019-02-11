@@ -174,7 +174,7 @@ a {
           padding: 20px 50px;
           opacity: 0;
           transition: all 0.5s ease;
-          @media #{bp-md}{
+          @media #{$bp-md}{
             padding: 20px 100px;
           }
           &.fade {
@@ -185,14 +185,14 @@ a {
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 50px;
-            @media #{bp-md}{
+            @media #{$bp-md}{
               font-size: 4.5rem;
               text-align: left;
             }
           }
           .blurb {
             text-align: center;
-            @media #{bp-md}{
+            @media #{$bp-md}{
               text-align: left;
             }
           }
@@ -227,6 +227,46 @@ a {
                 .title {
                   vertical-align: super;
                 }
+              }
+            }
+          }
+        }
+      }
+      &#portfolio {
+        padding: 50px 0px;
+        background-color: white;
+        .portfolio-container {
+          .header {
+            font-size: 4.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+          }
+          .projects-list {
+            list-style-type: none;
+            padding: 0px;
+            .project {
+              &:hover {
+                .img {
+                  background-position: 65% 65%;
+                }
+                .overlay {
+                  opacity: 1;
+                }
+              }
+              .img {
+                width: 300px;
+                height: 300px;
+                transition: all 0.5s ease;
+                margin: auto;
+              }
+              .overlay {
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: all 0.5s ease;
+                position: absolute;
+                width: 300px;
+                height: 300px;
               }
             }
           }
