@@ -265,9 +265,10 @@ a {
             list-style-type: none;
             padding: 0px;
             .project {
+              padding: 0px 25px;
               &:hover {
                 .img {
-                  background-position: 65% 65%;
+                  background-size: 150%;
                 }
                 .overlay {
                   opacity: 1;
@@ -278,15 +279,26 @@ a {
                 height: 300px;
                 transition: all 0.5s ease;
                 margin: auto;
+                background: url(../images/tld-main-image.png) 60% 60%;
+                background-size: 100%;
               }
-              .overlay {
-                text-align: center;
-                background-color: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                transition: all 0.5s ease;
-                position: absolute;
-                width: 300px;
-                height: 300px;
+              a {
+                color: white;
+                .overlay {
+                  text-align: center;
+                  background-color: rgba(0, 0, 0, 0.8);
+                  opacity: 0;
+                  transition: all 0.5s ease;
+                  position: absolute;
+                  width: 300px;
+                  height: 300px;
+                  display: table;
+                  .title {
+                    display: table-cell;
+                    vertical-align: middle;
+                    color: white;
+                  }
+                }
               }
             }
           }

@@ -35,7 +35,7 @@ class Project(models.Model):
     date_completed = models.DateField(default=datetime.now)
     description = models.TextField(null=True, blank=True)
     tesimonial = models.TextField(null=True, blank=True)
-    main_image = S3DirectField(dest='projects', null=True)
+    main_image = S3DirectField(dest='projects', null=True, blank=True)
     def __str__(self):
         return self.name
 
