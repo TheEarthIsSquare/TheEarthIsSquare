@@ -161,6 +161,7 @@ a {
   }
   .content {
     margin-top: $nav-height;
+    opacity: 0;
     &.fade {
       animation: fade-main 2s ease;
       animation-fill-mode: forwards;
@@ -288,7 +289,7 @@ a {
                 height: 300px;
                 transition: all 0.5s ease;
                 margin: auto;
-                background: url(../images/tld-main-image.png) 60% 60%;
+                background-position: 60% 60%;
                 background-size: 100%;
               }
               a {
