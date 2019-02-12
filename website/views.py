@@ -19,7 +19,7 @@ def home(request, reason=""):
         timeout = 5500
 
     services = Service.objects.filter(parent=True)
-    projects = Project.objects.all().order_by('name')
+    projects = Project.objects.all().order_by('client')
     profiles = Profile.objects.all().order_by('name')
 
     # If user accesses homepage and IS NOT logged in.
@@ -37,6 +37,37 @@ def home(request, reason=""):
     'projects' : projects,
     'profiles' : profiles,
     'timeout' : timeout,
+    })
+
+def services(request):
+    services = Service.objects.filter(parent=True)
+
+    return render(request, 'services.html', {
+    'services' : services,
+    })
+
+def service(request, parsed_name):
+    name = parsed_name.replace('_', ' ')
+    service = Service.objects.get(name__iexact=name)
+
+    return render(request, 'service.html', {
+    'service' : service,
+    })
+
+def portfolio(request):
+    services = Service.objects.filter(parent=True)
+    portfolio = Project.objects.all().order_by('client')
+
+    return render(request, 'portfolio.html', {
+    'portfolio' : portfolio,
+    })
+
+def project(request, parsed_client):
+    client = parsed_client.replace('_', ' ')
+    project = Project.objects.get(client__iexact=client)
+
+    return render(request, 'project.html', {
+    'project' : project,
     })
 
 def team(request):

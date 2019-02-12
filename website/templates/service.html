@@ -8,10 +8,7 @@
 {% block content %}
 <div class="container">
   <section>
-    <h1>Services</h1>
-    {% for service in services %}
-      <a href="/services/{{service.parsed_name}}">{{ service.name }}</a><br>
-    {% endfor %}
+    <h1>{{ service.name }}</h1>
   </section>
 </div>
 {% endblock content %}

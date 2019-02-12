@@ -18,9 +18,13 @@ urlpatterns = [
 
     path('team/', views.team, name='team'),
 
-    path('services/', TemplateView.as_view(template_name = 'services.html'), name='services'),
+    path('services/', views.services, name='services'),
 
-    path('portfolio/', TemplateView.as_view(template_name = 'portfolio.html'), name='portfolio'),
+    path('services/<parsed_name>/', views.service, name='service'),
+
+    path('portfolio/', views.portfolio, name='portfolio'),
+
+    path('portfolio/<parsed_client>/', views.project, name='project'),
 
     path('contact/', views.contact, name='contact'),
 

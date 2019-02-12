@@ -70,7 +70,7 @@
             <ul class="services-list">
             {% for service in services %}
               <li class="service">
-                <a class="-inner" href="/services/{{ service.name }}">
+                <a class="-inner" href="/services/{{ service.parsed_name }}">
                   <i class="fa-2x {{ service.fa_icon }}" style="margin-right: 10px"></i>
                   <span class="title">{{ service.name }}</span>
                 </a>
@@ -88,9 +88,9 @@
         {% for project in projects %}
         <div class="col-12 col-md-4">
           <div class="project">
-            <a href="/project/{{ project.name }}">
+            <a href="/portfolio/{{ project.parsed_client }}">
               <div class="overlay">
-                <h3 class="title">{{ project.name }}</h3>
+                <h3 class="title">{{ project.client }}</h3>
               </div>
             </a>
             <div class="img" style="background-image: url('{{ project.main_image }}');"></div>

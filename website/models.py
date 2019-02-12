@@ -26,18 +26,21 @@ class Project(models.Model):
         (4, 'Visual Media'),
     )
 
-    name = models.CharField(max_length=255)
+    client = models.CharField(max_length=255)
     type = models.IntegerField(
         choices=TYPE_CHOICES,
         default=1,
     )
-    client = models.CharField(max_length=255)
     date_completed = models.DateField(default=datetime.now)
     description = models.TextField(null=True, blank=True)
     tesimonial = models.TextField(null=True, blank=True)
     main_image = S3DirectField(dest='projects', null=True, blank=True)
+
     def __str__(self):
         return self.name
+
+    def parsed_client(self):
+        return self.client.lower().replace(' ', '_')
 
 
 class Image(models.Model):
@@ -52,5 +55,9 @@ class Service(models.Model):
     parent = models.BooleanField(default=False)
     parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
     fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
+
     def __str__(self):
         return self.name
+
+    def parsed_name(self):
+        return self.name.lower().replace(' ', '_')

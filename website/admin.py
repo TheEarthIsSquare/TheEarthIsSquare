@@ -8,7 +8,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
-    list_display = ('name', 'client', 'date_completed')
+    list_display = ('client', 'type', 'date_completed')
 
 class ImageAdmin(admin.ModelAdmin):
     model = Image
