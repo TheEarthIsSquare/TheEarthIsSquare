@@ -9,6 +9,7 @@
 {% block header %}
   {% if user.is_authenticated %}
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
+  <script src="{% static 'js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
       setTimeout(function(){
         $('.content').toggleClass('fade');
@@ -17,11 +18,19 @@
       setTimeout(function(){
         particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
         $('#particles-wrapper').toggleClass('fade');
+        $('.homepage').toggleClass('fade');
       }, ({{timeout}} + 500));
 
-      setTimeout(function() {
-        $('.services-container').toggleClass('fade');
-      }, ({{timeout}} + 1000));
+      $(window).scroll(function(){
+        if ($(window).scrollTop() >= 175) {
+            $(".services-container").addClass("fade");
+        }
+
+        if ($(window).scrollTop() >= 700) {
+            $(".portfolio-container").addClass("fade");
+        }
+      });
+
     </script>
   {% endif %}
 {% endblock header %}
@@ -47,7 +56,7 @@
       </div>
     </section>
     <section id="services">
-      <div class="services-container container">
+      <div id="services-container" class="services-container container">
         <div class="row">
           <div class="col-12 col-md-6">
             <h1 class="header">Services</h1>

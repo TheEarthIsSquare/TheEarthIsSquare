@@ -114,6 +114,10 @@ a {
   animation: colorchange 40s ease;
   animation-iteration-count: infinite;
   margin-top: -$nav-height;
+  opacity: 0;
+  &.fade {
+    opacity: 1;
+  }
   #particles-wrapper {
     opacity: 0;
     transition: all 0.5s ease;
@@ -256,6 +260,11 @@ a {
         padding: 50px 0px;
         background-color: white;
         .portfolio-container {
+          opacity: 0;
+          &.fade {
+            animation: fade-main 2s ease;
+            animation-fill-mode: forwards;
+          }
           .header {
             font-size: 4.5rem;
             text-align: center;
