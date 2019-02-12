@@ -108,11 +108,11 @@ a {
 }
 
 .homepage {
-  animation: colorchange 40s;
-   -webkit-animation: colorchange 40s;
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease;
+  animation: colorchange 40s ease;
+  animation-iteration-count: infinite;
   margin-top: -$nav-height;
   #particles-wrapper {
     opacity: 0;
@@ -126,9 +126,7 @@ a {
       position: absolute;
       height: 675px;
       width: 100%;
-      z-index: -1;
       canvas {
-        z-index: -1;
         position: absolute;
       }
       &.show {
