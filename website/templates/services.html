@@ -7,11 +7,20 @@
 
 {% block content %}
 <div class="container">
-  <section>
-    <h1>Services</h1>
-    {% for service in services %}
-      <a href="/services/{{service.parsed_name}}">{{ service.name }}</a><br>
-    {% endfor %}
+  <section id="services-page">
+    <!-- <h1 class="title">Services</h1> -->
+    <div class="row services-list">
+      {% for service in services %}
+      <div class="col-12 col-md-3 service">
+        <div class="service-panel">
+          <a href="/services/{{service.parsed_name}}">
+            <i class="fa-2x {{ service.fa_icon }} icon"></i><br>
+            {{ service.name }}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </section>
 </div>
 {% endblock content %}

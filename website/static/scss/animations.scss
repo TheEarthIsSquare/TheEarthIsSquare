@@ -141,17 +141,17 @@
 }
 
 @keyframes colorchange {
-  0%   {background: #72ef3e;}
-  25%  {background: #efd93e;}
-  50%  {background: #3e64ef;}
-  75%  {background: #ef3e3e;}
-  100% {background: #72ef3e;}
+  0%   {background: $earth-dark-green;}
+  25%  {background: $earth-blue;}
+  50%  {background: $earth-orange;}
+  75%  {background: $earth-red;}
+  100% {background: $earth-dark-green;}
 }
 
 @-webkit-keyframes colorchange {
-  0%   {background: #72ef3e;}
-  25%  {background: #efd93e;}
-  50%  {background: #3e64ef;}
-  75%  {background: #ef3e3e;}
-  100% {background: #72ef3e;}
+  0%   {background: $earth-dark-green;}
+  25%  {background: $earth-blue;}
+  50%  {background: $earth-orange;}
+  75%  {background: $earth-red;}
+  100% {background: $earth-dark-green;}
 }

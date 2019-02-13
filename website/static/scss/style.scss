@@ -4,6 +4,7 @@
 @import 'navigation';
 @import 'admin';
 @import 'portfolio';
+@import 'services';
 @import 'contact';
 @import 'bootstrap/bootstrap';
 
@@ -208,11 +209,16 @@ a {
             animation-fill-mode: forwards;
           }
           .header {
-            font-size: 3.5rem;
             text-align: center;
             margin-bottom: 50px;
+            color: white;
+            h1 {
+              font-size: 3.5rem;
+              @media #{$bp-md}{
+                font-size: 4.5rem;
+              }
+            }
             @media #{$bp-md}{
-              font-size: 4.5rem;
               text-align: left;
             }
           }
@@ -230,6 +236,26 @@ a {
               display: table;
               width: 100%;
               border-bottom: 1px solid white;
+              &:nth-child(1) {
+                .-inner i {
+                  color: $earth-red;
+                }
+              }
+              &:nth-child(2) {
+                .-inner i {
+                  color: $earth-blue;
+                }
+              }
+              &:nth-child(3) {
+                .-inner i {
+                  color: $earth-orange;
+                }
+              }
+              &:nth-child(4) {
+                .-inner i {
+                  color: $earth-dark-green;
+                }
+              }
               &:last-child {
                 border: none;
               }
@@ -243,9 +269,6 @@ a {
                 &:hover {
                   background-color: $earth-green;
                   color: $earth-dark-grey;
-                  i {
-                    color: white;
-                  }
                 }
                 i {
                   color: $earth-green;
@@ -268,9 +291,12 @@ a {
             animation-fill-mode: forwards;
           }
           .header {
-            font-size: 4.5rem;
             text-align: center;
             margin-bottom: 50px;
+            color: $earth-dark-grey;
+            h1 {
+              font-size: 3.5rem;
+            }
           }
           .projects-list {
             list-style-type: none;

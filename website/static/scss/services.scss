@@ -1,0 +1,54 @@
+#services-page {
+  .title {
+    text-align: center;
+  }
+  .services-list {
+    margin-top: 20%;
+    .service {
+      opacity: 0;
+      transition: all 0.5s ease;
+      animation: fade-main 2s ease;
+      animation-fill-mode: forwards;
+      &:nth-child(1) {
+        .service-panel {
+          background-color: $earth-red;
+        }
+      }
+      &:nth-child(2) {
+        .service-panel {
+          background-color: $earth-blue;
+        }
+      }
+      &:nth-child(3) {
+        .service-panel {
+          background-color: $earth-orange;
+        }
+      }
+      &:nth-child(4) {
+        .service-panel {
+          background-color: $earth-dark-green;
+        }
+      }
+      .service-panel {
+        height: 250px;
+        width: 250px;
+        margin: 10px auto;
+        background-color: $earth-dark-grey;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        display: table;
+        a {
+          color: white;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          vertical-align: middle;
+          display: table-cell;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
