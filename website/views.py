@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
 from theearthissquare import settings
-from website.forms import ContactForm
+from website.forms import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
 
@@ -77,25 +77,62 @@ def team(request):
     })
 
 def contact(request):
-    form_class = ContactForm
+    coffee_form = ContactForm_Coffee
+    work_form = ContactForm_Work
+    other_form = ContactForm_Other
     success = False
 
     if request.method == 'POST':
-        form = form_class(data=request.POST)
+        if request.POST['action'] == 'Coffee':
+            form = ContactForm_Coffee(data=request.POST)
+
+        elif request.POST['action'] == 'Work':
+            form = ContactForm_Work(data=request.POST)
+
+        else:
+            form = ContactForm_Other(data=request.POST)
 
         if form.is_valid():
             contact_name = form.cleaned_data['contact_name']
             contact_email = form.cleaned_data['contact_email']
             form_content = form.cleaned_data['content']
 
-            # email the profile with the contact info
-            template = get_template('contact_template.txt')
+            if request.POST['action'] == 'Coffee':
+                city = form.cleaned_data['city']
 
-            context = {
-                'contact_name': contact_name,
-                'contact_email': contact_email,
-                'form_content': form_content,
-            }
+                # email the profile with the contact info
+                template = get_template('contact_coffee.txt')
+
+                context = {
+                    'contact_name': contact_name,
+                    'contact_email': contact_email,
+                    'form_content': form_content,
+                    'city': city,
+                }
+
+            elif request.POST['action'] == 'Work':
+                type = form.cleaned_data['type']
+
+                # email the profile with the contact info
+                template = get_template('contact_work.txt')
+
+                context = {
+                    'contact_name': contact_name,
+                    'contact_email': contact_email,
+                    'form_content': form_content,
+                    'type': type,
+                }
+
+            else:
+
+                # email the profile with the contact info
+                template = get_template('contact_other.txt')
+
+                context = {
+                    'contact_name': contact_name,
+                    'contact_email': contact_email,
+                    'form_content': form_content,
+                }
 
             content = template.render(context)
 
@@ -109,6 +146,8 @@ def contact(request):
             success = True
 
     return render(request, 'contact.html', {
-        'form': form_class,
+        'coffee_form': coffee_form,
+        'work_form': work_form,
+        'other_form': other_form,
         'emailSent': success,
     })

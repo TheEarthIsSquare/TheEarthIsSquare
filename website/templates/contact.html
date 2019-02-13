@@ -41,21 +41,26 @@
         <div class="row">
           <div class="col-12 col-md-6">
             <div class="name">
-              {{ form.contact_name }}
+              {{ coffee_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="email">
-              {{ form.contact_email }}
+              {{ coffee_form.contact_email }}
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="email">
+              {{ coffee_form.city }}
             </div>
           </div>
           <div class="col-12">
             <div class="content">
-              {{ form.content }}
+              {{ coffee_form.content }}
             </div>
           </div>
         </div>
-      <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
+      <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>
@@ -70,21 +75,26 @@
         <div class="row">
           <div class="col-12 col-md-6">
             <div class="name">
-              {{ form.contact_name }}
+              {{ work_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="email">
-              {{ form.contact_email }}
+              {{ work_form.contact_email }}
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="email">
+              {{ work_form.type }}
             </div>
           </div>
           <div class="col-12">
             <div class="content">
-              {{ form.content }}
+              {{ work_form.content }}
             </div>
           </div>
         </div>
-      <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
+      <button class="submit btn btn-primary btn-block" name="action" value="Work"  type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>
@@ -99,21 +109,21 @@
         <div class="row">
           <div class="col-12 col-md-6">
             <div class="name">
-              {{ form.contact_name }}
+              {{ other_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="email">
-              {{ form.contact_email }}
+              {{ other_form.contact_email }}
             </div>
           </div>
           <div class="col-12">
             <div class="content">
-              {{ form.content }}
+              {{ other_form.content }}
             </div>
           </div>
         </div>
-      <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
+      <button class="submit btn btn-primary btn-block" name="action" value="Other" type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>
