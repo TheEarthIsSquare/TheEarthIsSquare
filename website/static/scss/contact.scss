@@ -17,6 +17,20 @@
   }
 }
 
+#email-success {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  font-size: 2rem;
+  text-align: center;
+  animation: fade-main 2s ease;
+  animation-fill-mode: forwards;
+  .title {
+    font-weight: 500;
+  }
+}
+
 .contact-form-wrapper {
   opacity: 0;
   width: 100%;

@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block content %}
+{% if emailSent == True %}
+<div id="email-success">
+  <div class="title">
+  Email Sent!
+  </div>
+  <div class="text">
+    Your email has been sent, we'll be in touch shortly!
+  </div>
+</div>
+{% else %}
 <div id="contact-why-wrapper">
   <div id="contact-why" class="container">
     <h1>Why Are You Contacting Us Today?</h1>
@@ -25,7 +35,6 @@
 <div id="contact-form-coffee" class="contact-form-wrapper">
   <div class="container">
     <h1 class="text-center">Let's Grab a Coffee</h1>
-    {% if emailSent == False %}
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -49,23 +58,12 @@
       <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
       </div>
     </form>
-    {% else %}
-    <div class="email-success">
-      <div class="title">
-      Email Sent!
-      </div>
-      <div class="text">
-        Your email has been sent, we'll be in touch shortly!
-      </div>
-    </div>
-    {% endif %}
   </div>
 </div>
 
 <div id="contact-form-work" class="contact-form-wrapper">
   <div class="container">
     <h1 class="text-center">Let's Make Something Beautiful</h1>
-    {% if emailSent == False %}
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -89,23 +87,12 @@
       <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
       </div>
     </form>
-    {% else %}
-    <div class="email-success">
-      <div class="title">
-      Email Sent!
-      </div>
-      <div class="text">
-        Your email has been sent, we'll be in touch shortly!
-      </div>
-    </div>
-    {% endif %}
   </div>
 </div>
 
 <div id="contact-form-other" class="contact-form-wrapper">
   <div class="container">
     <h1 class="text-center">Let's Have a Chat</h1>
-    {% if emailSent == False %}
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -129,16 +116,7 @@
       <button class="submit btn btn-primary btn-block" type="submit">Start the Conversation</button>
       </div>
     </form>
-    {% else %}
-    <div class="email-success">
-      <div class="title">
-      Email Sent!
-      </div>
-      <div class="text">
-        Your email has been sent, we'll be in touch shortly!
-      </div>
-    </div>
-    {% endif %}
   </div>
 </div>
+{% endif %}
 {% endblock %}
