@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  // Show navbar background on scroll.
   $(window).scroll(function(){
     var $nav = $("#navbar");
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
@@ -24,4 +25,21 @@ $(document).ready(function() {
       $('.opener i').addClass('fa-bars');
     }
   });
+
+  // Contact Form
+  $('#contact-why .coffee').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-form-coffee').toggleClass('show');
+  });
+
+  $('#contact-why .work').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-form-work').toggleClass('show');
+  });
+
+  $('#contact-why .other').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-form-other').toggleClass('show');
+  });
+
 });

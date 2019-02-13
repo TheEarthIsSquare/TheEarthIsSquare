@@ -6,8 +6,11 @@
 {% endblock title %}
 
 {% block content %}
+<div class="project-banner"></div>
 <div class="container">
-  <section>
+  <section id="project">
+    <a href="/portfolio/">Back to portfolio</a>
+    <img src="{{ project.main_image }}"/>
     <h1>{{ project.client }}</h1>
   </section>
 </div>

@@ -1,3 +1,55 @@
-#contact-form {
-  margin-top: 100px;
+#contact-why-wrapper {
+  opacity: 1;
+  transition: all 0.5s ease;
+  #contact-why {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    transition: all 0.5s ease;
+    animation: fade-main 2s ease;
+    animation-fill-mode: forwards;
+  }
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.contact-form-wrapper {
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  &.show {
+    pointer-events: inherit;
+    animation: fade-main 2s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+  }
+  .contact-form {
+    padding: 0px 20%;
+    .name {
+      input {
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+    .email {
+      input {
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+    .content {
+      margin-top: 20px;
+      textarea {
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
 }
