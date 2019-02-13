@@ -1,6 +1,12 @@
 #contact-why-wrapper {
   opacity: 1;
   transition: all 0.5s ease;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  animation: fade-main 2s ease;
+  animation-fill-mode: forwards;
   #contact-why {
     position: absolute;
     top: 40%;
@@ -8,12 +14,14 @@
     right: 0;
     text-align: center;
     width: 100%;
+    opacity: 1;
     transition: all 0.5s ease;
-    animation: fade-main 2s ease;
-    animation-fill-mode: forwards;
   }
   &.hide {
     opacity: 0;
+    #contact-why {
+      opacity: 0;
+    }
   }
 }
 
@@ -46,20 +54,14 @@
   }
   .contact-form {
     padding: 0px 20%;
-    .name {
-      input {
-        padding: 5px 10px;
-        width: 100%;
-      }
-    }
-    .email {
+    .textField {
+      margin-bottom: 20px;
       input {
         padding: 5px 10px;
         width: 100%;
       }
     }
     .content {
-      margin-top: 20px;
       textarea {
         padding: 10px;
         width: 100%;

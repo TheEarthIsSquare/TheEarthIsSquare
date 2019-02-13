@@ -40,17 +40,17 @@
       <div class="contact-form">
         <div class="row">
           <div class="col-12 col-md-6">
-            <div class="name">
+            <div class="textField">
               {{ coffee_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="email">
+            <div class="textField">
               {{ coffee_form.contact_email }}
             </div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="email">
+            <div class="textField">
               {{ coffee_form.city }}
             </div>
           </div>
@@ -59,8 +59,13 @@
               {{ coffee_form.content }}
             </div>
           </div>
+          <div class="col-2">
+            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
+          </div>
+          <div class="col-10">
+            <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
+          </div>
         </div>
-      <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>
@@ -74,17 +79,17 @@
       <div class="contact-form">
         <div class="row">
           <div class="col-12 col-md-6">
-            <div class="name">
+            <div class="textField">
               {{ work_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="email">
+            <div class="textField">
               {{ work_form.contact_email }}
             </div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="email">
+            <div class="textField">
               {{ work_form.type }}
             </div>
           </div>
@@ -93,8 +98,13 @@
               {{ work_form.content }}
             </div>
           </div>
+          <div class="col-2">
+            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
+          </div>
+          <div class="col-10">
+            <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
+          </div>
         </div>
-      <button class="submit btn btn-primary btn-block" name="action" value="Work"  type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>
@@ -108,12 +118,12 @@
       <div class="contact-form">
         <div class="row">
           <div class="col-12 col-md-6">
-            <div class="name">
+            <div class="textField">
               {{ other_form.contact_name }}
             </div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="email">
+            <div class="textField">
               {{ other_form.contact_email }}
             </div>
           </div>
@@ -122,8 +132,13 @@
               {{ other_form.content }}
             </div>
           </div>
+          <div class="col-2">
+            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
+          </div>
+          <div class="col-10">
+            <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
+          </div>
         </div>
-      <button class="submit btn btn-primary btn-block" name="action" value="Other" type="submit">Start the Conversation</button>
       </div>
     </form>
   </div>

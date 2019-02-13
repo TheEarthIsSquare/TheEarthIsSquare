@@ -137,7 +137,7 @@ def contact(request):
             content = template.render(context)
 
             send_mail(
-                'New Contact Form',
+                'Contact Form: ' + contact_name + ' (' + contact_email + ')',
                 content + ' REPLY TO: ' + contact_email,
                 'hello@theearthissquare.com',
                 ['hello@theearthissquare.com'],

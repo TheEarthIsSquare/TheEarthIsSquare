@@ -34,11 +34,30 @@ $(document).ready(function() {
 
   $('#contact-why .work').click(function() {
     $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-why-wrapper').removeClass('fade');
     $('#contact-form-work').toggleClass('show');
   });
 
   $('#contact-why .other').click(function() {
     $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-why-wrapper').toggleClass('fade');
+    $('#contact-form-other').toggleClass('show');
+  });
+
+  $('#contact-form-coffee #contact-go-back').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-form-coffee').toggleClass('show');
+  });
+
+  $('#contact-form-work #contact-go-back').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-why-wrapper').toggleClass('fade');
+    $('#contact-form-work').toggleClass('show');
+  });
+
+  $('#contact-form-other #contact-go-back').click(function() {
+    $('#contact-why-wrapper').toggleClass('hide');
+    $('#contact-why-wrapper').toggleClass('fade');
     $('#contact-form-other').toggleClass('show');
   });
 

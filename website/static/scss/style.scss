@@ -415,6 +415,13 @@ a {
 .modal {
   .modal-dialog {
     .modal-content {
+      a {
+        color: $earth-dark-grey;
+        transition: all 0.5s ease;
+        &:hover {
+          color: $earth-green;
+        }
+      }
       .modal-body {
         .role {
           font-weight: 300;
