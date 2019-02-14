@@ -87,11 +87,14 @@
         {% for project in projects %}
         <div class="col-12 col-md-4">
           <div class="project">
+            <div class="ribbon">{{ project.type }}</div>
+            <div class="corner"></div>
             <a href="/portfolio/{{ project.parsed_client }}">
               <div class="overlay">
                 <h3 class="title">{{ project.client }}</h3>
               </div>
             </a>
+            <!-- <div class="img" style="background-image: url('{% static 'images/avatar.jpg' %}');"></div> -->
             <div class="img" style="background-image: url('{{ project.avatar }}');"></div>
           </div>
         </div>

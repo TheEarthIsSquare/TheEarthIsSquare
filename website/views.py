@@ -40,9 +40,14 @@ def home(request, reason=""):
     })
 
 def services(request):
-    services = Service.objects.filter(parent=True)
+    #services = {};
+    services = Service.objects.filter(parent=True, enabled=True)
+    sub_services = Service.objects.filter(parent=False, enabled=True)
 
-    sub_services = Service.objects.filter(parent=False)
+    #for service in sub_services:
+    #    parent = Service.objects.filter(id=service.parent_service.id)
+    #    if parent not in services:
+    #        services.update(parent)
 
     return render(request, 'services.html', {
     'services' : services,
