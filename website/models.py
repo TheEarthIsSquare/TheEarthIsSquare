@@ -31,7 +31,9 @@ class Service(models.Model):
         return self.name
 
     def parsed_name(self):
-        return self.name.lower().replace(' ', '_')
+        name = self.name.lower().replace('&amp;', '_')
+        name = self.name.lower().replace('&', '_')
+        return name.replace(' ', '_')
 
 class Project(models.Model):
 

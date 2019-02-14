@@ -5,21 +5,59 @@
 {{ block.super }} - Services
 {% endblock title %}
 
+{% block header %}
+<script>
+$(document).ready(function() {
+  {% for service in services %}
+    $('#{{service.parsed_name}}-button').click(function() {
+      $('.service').toggleClass('hide');
+      $('.{{service.parsed_name}}.sub-service').toggleClass('show');
+      $('.{{service.parsed_name}}.go-back').toggleClass('show');
+    });
+
+    $('.{{service.parsed_name}}.go-back').click(function() {
+      $('.service').toggleClass('hide');
+      $('.{{service.parsed_name}}.sub-service').toggleClass('show');
+      $('.{{service.parsed_name}}.go-back').toggleClass('show');
+    });
+  {% endfor %}
+});
+</script>
+{% endblock header %}
+
 {% block content %}
 <div class="container">
   <section id="services-page">
     <!-- <h1 class="title">Services</h1> -->
     <div class="row services-list">
       {% for service in services %}
-      <div class="col-12 col-md-3 service">
+      <div class="{{service.parsed_name}} go-back">
+        <i class="fas fa-2x fa-angle-up"></i>
+      </div>
+      <div class="col-12 col-md-3 {{ service.parsed_name }} service">
         <div class="service-panel">
-          <a href="/services/{{service.parsed_name}}">
+          <a id="{{service.parsed_name}}-button" href="#">
             <i class="fa-2x {{ service.fa_icon }} icon"></i><br>
-            {{ service.name }}
+            {{ service.name }}<br>
+            <i class="fas fa-angle-down"></i>
           </a>
         </div>
       </div>
-      {% endfor %}
+      <div class="sub-services-list container row justify-content-center">
+        {% for sub_service in sub_services %}
+          {% if sub_service.parent_service == service %}
+          <div class="col-12 col-md-3 {{ service.parsed_name }} sub-service">
+            <div class="sub-service-panel">
+              <a href="#">
+                <i class="fa-2x {{ sub_service.fa_icon }} icon"></i><br>
+                {{ sub_service.name }}<br>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
     </div>
   </section>
 </div>

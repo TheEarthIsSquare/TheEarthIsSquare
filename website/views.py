@@ -42,8 +42,11 @@ def home(request, reason=""):
 def services(request):
     services = Service.objects.filter(parent=True)
 
+    sub_services = Service.objects.filter(parent=False)
+
     return render(request, 'services.html', {
     'services' : services,
+    'sub_services' : sub_services,
     })
 
 def service(request, parsed_name):
