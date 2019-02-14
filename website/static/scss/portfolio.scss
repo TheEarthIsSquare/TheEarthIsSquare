@@ -2,7 +2,7 @@
   padding: 50px 0px;
   background-color: white;
   .portfolio-container {
-    animation: fade-main 2s ease;
+    animation: fadeInDown 2s ease;
     animation-fill-mode: forwards;
     .header {
       font-size: 4.5rem;
@@ -53,6 +53,30 @@
           }
         }
       }
+    }
+  }
+}
+
+#project {
+  .project-banner {
+    min-width: 100%;
+    height: 400px;
+    overflow: hidden;
+    animation: fadeInDown 1s ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    img {
+      width: 100%;
+    }
+  }
+  .project-content {
+    animation: fadeInUp 1s ease;
+    .back-button {
+      margin: 10px 0px;
+    }
+    .avatar-frame {
+      overflow: hidden;
+      border-radius: 5px;
     }
   }
 }

@@ -165,7 +165,7 @@ a {
     margin-top: $nav-height;
     opacity: 0;
     &.fade {
-      animation: fade-main 2s ease;
+      animation: fadeIn 2s ease;
       animation-fill-mode: forwards;
     }
     section {
@@ -180,6 +180,8 @@ a {
           text-transform: uppercase;
           transition: all 0.5s ease;
           text-align: center;
+          animation: fadeInDown 2s ease;
+          animation-fill-mode: forwards;
           @media #{$bp-md}{
             text-align: left;
           }
@@ -205,7 +207,7 @@ a {
             padding: 20px 100px;
           }
           &.fade {
-            animation: fade-main 1s ease;
+            animation: fadeInDown 1.5s ease;
             animation-fill-mode: forwards;
           }
           .header {
@@ -287,7 +289,7 @@ a {
         .portfolio-container {
           opacity: 0;
           &.fade {
-            animation: fade-main 2s ease;
+            animation: fadeInDown 1.5s ease;
             animation-fill-mode: forwards;
           }
           .header {

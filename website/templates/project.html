@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 
 {% block title %}
 {{ block.super }} - Services
 {% endblock title %}
 
 {% block content %}
-<div class="project-banner"></div>
-<div class="container">
-  <section id="project">
-    <a href="/portfolio/">Back to portfolio</a>
-    <img src="{{ project.main_image }}"/>
-    <h1>{{ project.client }}</h1>
-  </section>
+<div id="project">
+  <div class="project-banner">
+    <img class="img-fluid avatar" src="{{ project.banner }}" />
+  </div>
+  <div class="container project-content">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3 text-center back-button">
+        <a href="/portfolio/" class="btn btn-warning">Back to portfolio</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3">
+        <div class="avatar-frame">
+          <img class="img-fluid avatar" src="{{ project.avatar}}" />
+        </div>
+      </div>
+      <div class="col-12 col-md-8 col-lg-9">
+        <h1>{{ project.client }}</h1>
+        <p>
+          <strong>Project Completed On: </strong>{{ project.date_completed }}<br>
+          <strong>Type of Project: </strong>{{ project.type }}<br>
+          <strong>Client Website: </strong><a href="{{ project.client_website }}">Take a look</a><br>
+          <strong>Project Description:</strong><br>
+          {{ project.description }}
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %}

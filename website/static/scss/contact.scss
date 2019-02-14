@@ -5,8 +5,7 @@
   top: 40%;
   left: 0;
   right: 0;
-  animation: fade-main 2s ease;
-  animation-fill-mode: forwards;
+  animation: zoomIn 1s ease;
   #contact-why {
     position: absolute;
     top: 40%;
@@ -32,7 +31,7 @@
   right: 0;
   font-size: 2rem;
   text-align: center;
-  animation: fade-main 2s ease;
+  animation: fadeInDown 1s ease;
   animation-fill-mode: forwards;
   .title {
     font-weight: 500;
@@ -48,7 +47,7 @@
   pointer-events: none;
   &.show {
     pointer-events: inherit;
-    animation: fade-main 2s ease;
+    animation: fadeInDown 1s ease;
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
   }

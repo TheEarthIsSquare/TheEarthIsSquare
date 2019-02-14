@@ -104,7 +104,11 @@
       &.open {
         display: block;
         .navigation {
-          animation: fade-main 2s ease;
+          animation: fadeInDown 0.5s ease;
+          animation-fill-mode: forwards;
+        }
+        .social {
+          animation: fadeInUp 0.5s ease;
           animation-fill-mode: forwards;
         }
       }
@@ -127,6 +131,19 @@
         &:hover {
           color: $earth-green;
         }
+      }
+    }
+    .social {
+      bottom: 15%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      a {
+        color: white;
+      }
+      .btn-primary {
+        color: $earth-dark-grey;
+        background-color: white;
       }
     }
   }

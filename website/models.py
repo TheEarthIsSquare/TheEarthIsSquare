@@ -18,35 +18,6 @@ class Profile(models.Model):
     instagram_username = models.CharField(max_length=255, null=True, blank=True)
     linkedin_username = models.CharField(max_length=255, null=True, blank=True)
 
-class Project(models.Model):
-    TYPE_CHOICES = (
-        (1, 'Development'),
-        (2, 'Design'),
-        (3, 'Social Media & Marketing'),
-        (4, 'Visual Media'),
-    )
-
-    client = models.CharField(max_length=255)
-    type = models.IntegerField(
-        choices=TYPE_CHOICES,
-        default=1,
-    )
-    date_completed = models.DateField(default=datetime.now)
-    description = models.TextField(null=True, blank=True)
-    tesimonial = models.TextField(null=True, blank=True)
-    main_image = S3DirectField(dest='projects', null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def parsed_client(self):
-        return self.client.lower().replace(' ', '_')
-
-
-class Image(models.Model):
-    image = S3DirectField(dest='projects', null=True)
-    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
-
 class Service(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -61,3 +32,21 @@ class Service(models.Model):
 
     def parsed_name(self):
         return self.name.lower().replace(' ', '_')
+
+class Project(models.Model):
+
+    type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'parent': False})
+    client = models.CharField(max_length=255)
+    date_completed = models.DateField(default=datetime.now)
+    description = models.TextField(null=True, blank=True)
+    tesimonial = models.TextField(null=True, blank=True)
+    client_website = models.CharField(max_length=255, null=True, blank=True)
+    avatar = S3DirectField(dest='projects', null=True, blank=True)
+    banner = S3DirectField(dest='projects', null=True, blank=True)
+
+    def parsed_client(self):
+        return self.client.lower().replace(' ', '_')
+
+class Image(models.Model):
+    image = S3DirectField(dest='projects', null=True)
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
