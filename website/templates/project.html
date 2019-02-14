@@ -8,7 +8,7 @@
 
 {% block content %}
 <div id="project">
-  <div class="project-banner" style="background-image: {{ project.banner }}"></div>
+  <div class="project-banner" style="background-image: url('{{ project.banner }}')'"></div>
   <div class="container project-content">
     <div class="row">
       <div class="col-12 col-md-4 col-lg-3 text-center back-button">
@@ -28,7 +28,7 @@
           <strong>Type of Project: </strong>{{ project.type }}<br>
           <strong>Client Website: </strong><a href="{{ project.client_website }}">Take a look</a><br>
           <strong>Project Description:</strong><br>
-          {{ project.description }}
+          {{ project.description|linebreaks }}
       </div>
     </div>
   </div>
