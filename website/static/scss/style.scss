@@ -336,39 +336,27 @@ a {
                   height: 300px;
                   display: table;
                   z-index: 1000;
-                  .title {
+                  ._content {
                     display: table-cell;
                     vertical-align: middle;
-                    color: white;
+                    color: #fff;
+                    text-transform: uppercase;
                   }
                 }
               }
-              .ribbon {
+              .type {
                 position: absolute;
-                height: 40px;
-                width: 250px;
-                background-color: $earth-dark-grey;
-                bottom: 34px;
-                margin-left: -20px;
-                border-bottom-left-radius: 10px;
-                border-radius: 6px;
-                border-bottom-left-radius: 23px;
-                z-index: 1004;
+                height: 60px;
+                width: 60px;
                 color: white;
-                padding: 8px 24px;
+                bottom: 0px;
+                right: 2%;
+                border-radius: 0px;
+                padding: 14px;
                 font-weight: 500;
                 text-align: center;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-              }
-              .corner {
-                background-color: $earth-dark-grey;
-                position: absolute;
-                height: 40px;
-                width: 50px;
-                left: 20px;
-                border-radius: 18px;
-                z-index: -1;
-                bottom: 46px;
+                z-index: 1004;
+                text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
               }
             }
           }

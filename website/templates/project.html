@@ -26,7 +26,7 @@
         <p>
           <strong>Project Completed On: </strong>{{ project.date_completed }}<br>
           <strong>Type of Project: </strong>{{ project.type }}<br>
-          <strong>Client Website: </strong><a href="{{ project.client_website }}">Take a look</a><br>
+          <strong>Client Website: </strong><a href="{{ project.client_website }}" target="_blank">Take a look</a><br>
           <strong>Project Description:</strong><br>
           {{ project.description|linebreaks }}
       </div>
