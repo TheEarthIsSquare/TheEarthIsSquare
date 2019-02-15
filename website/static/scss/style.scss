@@ -373,6 +373,9 @@ a {
       }
       .social {
         margin-top: 10px;
+        a {
+          color: $earth-dark-grey;
+        }
         .email {
           margin-bottom: 10px;
           text-align: center;

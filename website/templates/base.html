@@ -9,7 +9,7 @@
     </title>
 
     <meta charset='utf-8'>
-    
+
     <meta name="description" content="
       THE EARTH IS SQUARE is an Australian based digital agency. We provide services
       in website design, website development, digital marketing, photography, social media,
@@ -55,8 +55,6 @@
       </div>
     {% endif %}
 
-    {% if user.is_authenticated %}
-
     <!-- Navbar -->
     <nav id="navbar" class="site-navbar">
       <div class="navbar-container">
@@ -94,11 +92,13 @@
                   <h2 class="item">CONTACT</h2>
                 </a>
               </li>
+              {% if user.is_authenticated %}
               <li>
                 <a href="{% url 'auth_logout' %}">
                   <h2 class="item">LOGOUT</h2>
                 </a>
               </li>
+              {% endif %}
             </ul>
           </div>
           <div class="container social">
@@ -123,7 +123,7 @@
       </div>
     </footer>
 
-    {% else %}
+    {% if 1 == 2 %}
 
     <div id="landing-page" class="container">
       <div class="row">

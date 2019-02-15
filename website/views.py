@@ -23,14 +23,14 @@ def home(request, reason=""):
     profiles = Profile.objects.all().order_by('name')
 
     # If user accesses homepage and IS NOT logged in.
-    if not request.user.is_authenticated:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-        else:
-            return render(request, 'index.html')
+    # if not request.user.is_authenticated:
+    #    username = request.POST.get('username')
+    #    password = request.POST.get('password')
+    #    user = authenticate(request, username=username, password=password)
+    #    if user is not None:
+    #        login(request, user)
+    #    else:
+    #        return render(request, 'index.html')
 
     return render(request, 'index.html', {
     'services' : services,

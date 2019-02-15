@@ -7,7 +7,6 @@
 {% endblock title %}
 
 {% block header %}
-  {% if user.is_authenticated %}
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
   <script src="{% static 'js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
@@ -31,7 +30,6 @@
         }
       });
     </script>
-  {% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -66,8 +64,8 @@
                 that make it easy for you to get an idea of what areas you may want to target as
                 our client.
                 <br><br>
-                Make no mistake, though, while we're flexible and multi-faceted our
-                we're experts in our favourite fields, website design & development and social
+                Make no mistake, though, while we're flexible and multi-faceted
+                we're experts in our specialized fields, website design / development and social
                 media marketing. Check out our portfolio below, let us prove it to you 😉.
               </p>
             </div>
