@@ -19,7 +19,7 @@ def home(request, reason=""):
         timeout = 5500
 
     services = Service.objects.filter(parent=True)
-    projects = Project.objects.all().order_by('client')
+    projects = Project.objects.all().order_by('date_completed')
     profiles = Profile.objects.all().order_by('name')
 
     # If user accesses homepage and IS NOT logged in.
@@ -59,7 +59,7 @@ def service(request, parsed_name):
 
 def portfolio(request):
     services = Service.objects.filter(parent=True)
-    portfolio = Project.objects.all().order_by('client')
+    portfolio = Project.objects.all().order_by('date_completed')
 
     return render(request, 'portfolio.html', {
     'portfolio' : portfolio,
