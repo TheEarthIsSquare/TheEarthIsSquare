@@ -19,7 +19,7 @@ def home(request, reason=""):
         timeout = 5500
 
     services = Service.objects.filter(parent=True)
-    projects = Project.objects.all().order_by('date_completed')
+    projects = Project.objects.all().order_by('ongoing', 'date_completed')
     profiles = Profile.objects.all().order_by('name')
 
     # If user accesses homepage and IS NOT logged in.

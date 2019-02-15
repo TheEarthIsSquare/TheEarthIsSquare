@@ -40,7 +40,8 @@ class Project(models.Model):
 
     type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'parent': False})
     client = models.CharField(max_length=255)
-    date_completed = models.DateField(default=datetime.now)
+    ongoing = models.BooleanField(default=False)
+    date_completed = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     tesimonial = models.TextField(null=True, blank=True)
     client_website = models.CharField(max_length=255, null=True, blank=True)
@@ -49,6 +50,12 @@ class Project(models.Model):
 
     def parsed_client(self):
         return self.client.lower().replace(' ', '_')
+
+    def date(self):
+        if ongoing == True:
+            return 'Ongoing'
+        else:
+            return self.date_completed
 
 class Image(models.Model):
     image = S3DirectField(dest='projects', null=True)
