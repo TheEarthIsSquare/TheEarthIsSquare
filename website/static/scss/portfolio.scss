@@ -72,10 +72,11 @@
             height: 300px;
             display: table;
             z-index: 1000;
-            .title {
+            ._content {
               display: table-cell;
               vertical-align: middle;
-              color: white;
+              color: #fff;
+              text-transform: uppercase;
             }
           }
         }
