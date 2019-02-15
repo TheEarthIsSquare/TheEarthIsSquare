@@ -52,7 +52,7 @@ class Project(models.Model):
         return self.client.lower().replace(' ', '_')
 
     def date(self):
-        if ongoing == True:
+        if self.ongoing == True:
             return 'Ongoing'
         else:
             return self.date_completed
