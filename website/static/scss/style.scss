@@ -288,8 +288,9 @@ a {
 }
 
 .profiles-container {
+  margin-bottom: 15%;
   .profile {
-    margin-top: 20%;
+    margin-top: 15%;
     animation: fade-main 3s ease;
     animation-fill-mode: forwards;
     &:hover {
@@ -361,6 +362,11 @@ a {
         }
       }
       .modal-body {
+        text-align: center;
+        @media #{$bp-md}{
+          content: "";
+          text-align: left;
+        }
         .role {
           font-weight: 300;
           font-size: 1.2rem;

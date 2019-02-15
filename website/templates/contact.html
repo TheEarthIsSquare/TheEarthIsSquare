@@ -34,7 +34,8 @@
 
 <div id="contact-form-coffee" class="contact-form-wrapper">
   <div class="container">
-    <h1 class="text-center">Let's Grab a Coffee</h1>
+    <h1 class="d-none d-md-block text-center">Let's Grab a Coffee</h1>
+    <h3 class="d-md-none text-center">Let's Grab a Coffee</h3>
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -59,11 +60,11 @@
               {{ coffee_form.content }}
             </div>
           </div>
-          <div class="col-2">
-            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
-          </div>
-          <div class="col-10">
+          <div class="col-12 col-md-10">
             <button class="submit btn btn-primary btn-block" name="action" value="Coffee" type="submit">Start the Conversation</button>
+          </div>
+          <div class="col-12 col-md-2">
+            <button id="contact-go-back" class="btn btn-warning btn-block" type="reset">Go Back</button>
           </div>
         </div>
       </div>
@@ -73,7 +74,8 @@
 
 <div id="contact-form-work" class="contact-form-wrapper">
   <div class="container">
-    <h1 class="text-center">Let's Make Something Beautiful</h1>
+    <h1 class="d-none d-md-block text-center">Let's Make Something Beautiful</h1>
+    <h3 class="d-md-none text-center">Let's Make Something Beautiful</h3>
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -98,11 +100,11 @@
               {{ work_form.content }}
             </div>
           </div>
-          <div class="col-2">
-            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
-          </div>
-          <div class="col-10">
+          <div class="col-12 col-md-10">
             <button class="submit btn btn-primary btn-block" name="action" value="Work" type="submit">Start the Conversation</button>
+          </div>
+          <div class="col-12 col-md-2">
+            <button id="contact-go-back" class="btn btn-warning btn-block" type="reset">Go Back</button>
           </div>
         </div>
       </div>
@@ -112,7 +114,8 @@
 
 <div id="contact-form-other" class="contact-form-wrapper">
   <div class="container">
-    <h1 class="text-center">Let's Have a Chat</h1>
+    <h1 class="d-none d-md-block text-center">Let's Have a Chat</h1>
+    <h3 class="d-md-none text-center">Let's Have a Chat</h3>
     <form role="form" action="" method="post">
       {% csrf_token %}
       <div class="contact-form">
@@ -132,11 +135,11 @@
               {{ other_form.content }}
             </div>
           </div>
-          <div class="col-2">
-            <button id="contact-go-back" class="btn btn-warning" type="reset">Go Back</button>
-          </div>
-          <div class="col-10">
+          <div class="col-12 col-md-10">
             <button class="submit btn btn-primary btn-block" name="action" value="Other" type="submit">Start the Conversation</button>
+          </div>
+          <div class="col-12 col-md-2">
+            <button id="contact-go-back" class="btn btn-warning btn-block" type="reset">Go Back</button>
           </div>
         </div>
       </div>

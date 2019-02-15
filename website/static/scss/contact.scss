@@ -2,19 +2,28 @@
   opacity: 1;
   transition: all 0.5s ease;
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 0;
   right: 0;
   animation: zoomIn 1s ease;
+  @media #{$bp-md}{
+    top: 40%;
+  }
   #contact-why {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 0;
     right: 0;
     text-align: center;
     width: 100%;
     opacity: 1;
     transition: all 0.5s ease;
+    @media #{$bp-md}{
+      top: 40%;
+    }
+    .btn.coffee, .btn.work, .btn.other {
+      margin: 10px 0px;
+    }
   }
   &.hide {
     opacity: 0;
@@ -26,13 +35,16 @@
 
 #email-success {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 0;
   right: 0;
   font-size: 2rem;
   text-align: center;
   animation: fadeInDown 1s ease;
   animation-fill-mode: forwards;
+  @media #{$bp-md}{
+    top: 40%;
+  }
   .title {
     font-weight: 500;
   }
@@ -42,9 +54,12 @@
   opacity: 0;
   width: 100%;
   position: absolute;
-  top: 25%;
+  top: 10%;
   transition: all 0.5s ease;
   pointer-events: none;
+  @media #{$bp-md}{
+    top: 25%;
+  }
   &.show {
     pointer-events: inherit;
     animation: fadeInDown 1s ease;
@@ -59,6 +74,9 @@
         padding: 5px 10px;
         width: 100%;
       }
+    }
+    button {
+      margin: 10px 0px;
     }
     .content {
       textarea {
