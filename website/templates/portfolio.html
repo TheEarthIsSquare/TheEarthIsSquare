@@ -8,12 +8,12 @@
 
 {% block content %}
 <div class="container">
-  <section id="portfolio-page">
+  <section id="portfolio">
     <div class="portfolio-container container">
       <h1 class="header">Portfolio</h1>
       <div class="projects-list row justify-content-center">
       {% for project in portfolio %}
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-sm-6 col-lg-4">
         <div class="project">
           <a href="/portfolio/{{ project.parsed_client }}">
             <div class="overlay">
@@ -23,8 +23,8 @@
               </div>
             </div>
           </a>
-          <!-- <div class="img" style="background-image: url('{% static 'images/avatar.jpg' %}');"></div> -->
-          <div class="img" style="background-image: url('{{ project.avatar }}');"></div>
+          <div class="img" style="background-image: url('{% static 'images/avatar.jpg' %}');"></div>
+          <!-- <div class="img" style="background-image: url('{{ project.avatar }}');"></div> -->
         </div>
       </div>
       {% endfor %}

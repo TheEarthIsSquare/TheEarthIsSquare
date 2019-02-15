@@ -85,7 +85,7 @@
         <a href="{% url 'portfolio' %}" class="header"><h1>Portfolio</h1></a>
         <div class="projects-list row justify-content-center">
         {% for project in projects %}
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="project">
             <a href="/portfolio/{{ project.parsed_client }}">
               <div class="overlay">
