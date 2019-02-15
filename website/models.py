@@ -24,6 +24,7 @@ class Service(models.Model):
     image = S3DirectField(dest='services', null=True, blank=True)
     enabled = models.BooleanField(default=False)
     parent = models.BooleanField(default=False)
+    package = models.BooleanField(default=False)
     parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
     fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
 
