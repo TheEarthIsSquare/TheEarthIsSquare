@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 from s3direct.fields import S3DirectField
+from tinymce.models import HTMLField
 
 class Profile(models.Model):
     # def image_tag(self):
@@ -13,14 +14,14 @@ class Profile(models.Model):
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+    description = HTMLField(null=True, blank=True)
     twitter_username = models.CharField(max_length=255, null=True, blank=True)
     instagram_username = models.CharField(max_length=255, null=True, blank=True)
     linkedin_username = models.CharField(max_length=255, null=True, blank=True)
 
 class Service(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField(null=True, blank=True)
+    description = HTMLField(null=True, blank=True)
     image = S3DirectField(dest='services', null=True, blank=True)
     enabled = models.BooleanField(default=False)
     parent = models.BooleanField(default=False)
@@ -42,8 +43,8 @@ class Project(models.Model):
     client = models.CharField(max_length=255)
     ongoing = models.BooleanField(default=False)
     date_completed = models.DateField(null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
-    tesimonial = models.TextField(null=True, blank=True)
+    description = HTMLField(null=True, blank=True)
+    tesimonial = HTMLField(null=True, blank=True)
     client_website = models.CharField(max_length=255, null=True, blank=True)
     avatar = S3DirectField(dest='projects', null=True, blank=True)
     banner = S3DirectField(dest='projects', null=True, blank=True)

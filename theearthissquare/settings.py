@@ -13,6 +13,7 @@ ALLOWED_HOSTS = ['192.168.0.108', 'localhost']
 INSTALLED_APPS = [
     'website',
     's3direct',
+    'tinymce',
     'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',

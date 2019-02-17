@@ -32,4 +32,6 @@ urlpatterns = [
 
     url(r'^s3direct/', include('s3direct.urls')),
 
+    url(r'^tinymce/', include('tinymce.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
