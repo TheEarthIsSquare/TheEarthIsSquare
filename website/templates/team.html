@@ -58,7 +58,7 @@
                   <h3>{{ profile.name }}<br>
                     <small class="text-muted role">{{ profile.role }}</small>
                   </h3>
-                  <p>{{ profile.description|linebreaks }}</p>
+                  <p>{{ profile.description|safe }}</p>
                 </div>
               </div>
             </div>

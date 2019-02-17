@@ -77,7 +77,7 @@ $(document).ready(function() {
                   <div class="row">
                     <div class="col-12">
                       <h2>{{ sub_service.name }}</h2>
-                      <p>{{ sub_service.description|linebreaks }}</p>
+                      <p>{{ sub_service.description|safe }}</p>
                     </div>
                   </div>
                 </div>
