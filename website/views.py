@@ -6,7 +6,7 @@ from theearthissquare import settings
 from website.forms import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
-
+from django.db import connection
 
 # Create your views here.
 def home(request, reason=""):
@@ -32,6 +32,7 @@ def home(request, reason=""):
     #    else:
     #        return render(request, 'index.html')
 
+    connection.close()
     return render(request, 'index.html', {
     'services' : services,
     'projects' : projects,
@@ -44,6 +45,7 @@ def services(request):
     services = Service.objects.filter(parent=True, enabled=True)
     sub_services = Service.objects.filter(parent=False, enabled=True, package=False)
 
+    connection.close()
     return render(request, 'services.html', {
     'services' : services,
     'sub_services' : sub_services,
@@ -53,6 +55,7 @@ def service(request, parsed_name):
     name = parsed_name.replace('_', ' ')
     service = Service.objects.get(name__iexact=name)
 
+    connection.close()
     return render(request, 'service.html', {
     'service' : service,
     })
@@ -61,6 +64,7 @@ def portfolio(request):
     services = Service.objects.filter(parent=True)
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
+    connection.close()
     return render(request, 'portfolio.html', {
     'portfolio' : portfolio,
     })
@@ -69,12 +73,15 @@ def project(request, parsed_client):
     client = parsed_client.replace('_', ' ')
     project = Project.objects.get(client__iexact=client)
 
+    connection.close()
     return render(request, 'project.html', {
     'project' : project,
     })
 
 def team(request):
     profiles = Profile.objects.all().order_by('name')
+
+    connection.close()
     return render(request, 'team.html', {
     'profiles' : profiles,
     })
