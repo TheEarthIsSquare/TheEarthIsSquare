@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from s3direct.fields import S3DirectField
 from tinymce.models import HTMLField
+from django.utils import timezone
 
 class Profile(models.Model):
-    avatar = S3DirectField(dest='profiles')
+    avatar = S3DirectField(dest='profiles', null=True, blank=True)
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, blank=True)
