@@ -7,10 +7,13 @@ from website.forms import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.db import connection
+from django.http import HttpResponse, HttpResponseRedirect
+import requests, json, logging
+
+
 
 # Create your views here.
 def home(request, reason=""):
-
     loading_screen = settings.USE_LOADING_SCREEN
 
     if loading_screen == False:
@@ -161,3 +164,56 @@ def contact(request):
         'other_form': other_form,
         'emailSent': success,
     })
+
+def findInstagramId():
+    access_token = 'EAAXyjkCQvyIBAGUqaAdNB6j2Pl7rMo7NMuVm0VHPaAaZAvSQD2wowKFZBdhNEgoZAjFdMLdDAee4Jyrqj6fW61xVrjDcejsrzkBE100f6BhkQzgilRnuYVh5jUGsWjjVDKYILAetAPmivfXNANTZCeWeeg4bz0YLpBLtxBjSEbNmupP2w2kRQEzAcJPUYjxC1g9odM0ZCoAZDZD'
+
+    url = 'https://graph.facebook.com/me?access_token=' + access_token
+    response = requests.get(url).json()
+    dump = json.dumps(response)
+    loadJson = json.loads(dump)
+    print(loadJson)
+
+    url = 'https://graph.facebook.com/' + loadJson['id'] + '?fields=connected_instagram_account&access_token=' + access_token
+    response = requests.get(url).json()
+    dump = json.dumps(response)
+    loadJson = json.loads(dump)
+    print(loadJson)
+
+    return loadJson['connected_instagram_account']['id']
+
+def instagramFollowers():
+    settings = graphAPI();
+    id = findInstagramId()
+    url = 'https://graph.facebook.com/' + id + '?fields=followers_count&access_token=' + settings['access_token']
+    response = requests.get(url).json()
+    dump = json.dumps(response)
+    loadJson = json.loads(dump)
+    print(loadJson)
+    return loadJson['followers_count']
+
+def facebookFollowers():
+    settings = graphAPI();
+    url = 'https://graph.facebook.com/me?fields=fan_count&access_token=' + settings['access_token']
+    response = requests.get(url).json()
+    dump = json.dumps(response)
+    loadJson = json.loads(dump)
+    print(loadJson)
+    return loadJson['fan_count']
+
+def graphAPI():
+    settings = {
+        'access_token' : 'EAAXyjkCQvyIBAGUqaAdNB6j2Pl7rMo7NMuVm0VHPaAaZAvSQD2wowKFZBdhNEgoZAjFdMLdDAee4Jyrqj6fW61xVrjDcejsrzkBE100f6BhkQzgilRnuYVh5jUGsWjjVDKYILAetAPmivfXNANTZCeWeeg4bz0YLpBLtxBjSEbNmupP2w2kRQEzAcJPUYjxC1g9odM0ZCoAZDZD',
+        }
+    return settings
+
+def dashboard(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+    else:
+        instagram_count = instagramFollowers()
+        facebook_count = facebookFollowers()
+        return render(request, 'dashboard.html', {
+        'instagram_count' : instagram_count,
+        'facebook_count' : facebook_count,
+        })
