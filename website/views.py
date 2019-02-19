@@ -166,8 +166,8 @@ def contact(request):
     })
 
 def getFBPageInfo():
-    settings = graphAPI();
-    url = 'https://graph.facebook.com/' + settings['teis_facebook_id'] + '?fields=connected_instagram_account,fan_count&access_token=' + settings['access_token']
+    graphSettings = graphAPI();
+    url = 'https://graph.facebook.com/' + graphSettings['teis_facebook_id'] + '?fields=connected_instagram_account,fan_count&access_token=' + graphSettings['access_token']
     response = requests.get(url).json()
     dump = json.dumps(response)
     loadJson = json.loads(dump)
@@ -181,9 +181,9 @@ def getFBPageInfo():
         return loadJson
 
 def getIGPageInfo():
-    settings = graphAPI();
+    graphSettings = graphAPI();
     instagram = getFBPageInfo().get('connected_instagram_account')
-    url = 'https://graph.facebook.com/' + instagram['id'] + '?fields=media{like_count},followers_count&access_token=' + settings['access_token']
+    url = 'https://graph.facebook.com/' + instagram['id'] + '?fields=media{like_count},followers_count&access_token=' + graphSettings['access_token']
     response = requests.get(url).json()
     dump = json.dumps(response)
     loadJson = json.loads(dump)
@@ -205,11 +205,11 @@ def getIGPageInfo():
         return instagramInfo
 
 def graphAPI():
-    settings = {
-        'access_token' : 'EAAXyjkCQvyIBANoVZB5dKa9hLyxIz34SKWP2CiwNiutFgEeusBjMvAH1vaIr6wMdk9KOLZCfupSoi0YxmFJVR0H1lOPHEWpRi6q9lUMN5vDuNwJzZCNZCXHgeM2dTInB6b1vZCF9lEyQK6pAet8woCsBmZBdSMEu0ZD',
+    values = {
+        'access_token' : settings.FACEBOOK_GRAPH_API_ACCESS_KEY,
         'teis_facebook_id' : '380002269441497',
         }
-    return settings
+    return values
 
 def dashboard(request):
     if not request.user.is_authenticated:

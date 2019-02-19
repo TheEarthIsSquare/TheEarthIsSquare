@@ -10,16 +10,12 @@ class ProjectAdmin(admin.ModelAdmin):
     model = Project
     list_display = ('client', 'type', 'date_completed')
 
-class ImageAdmin(admin.ModelAdmin):
-    model = Image
-
 class ServiceAdmin(admin.ModelAdmin):
     model = Service
     list_display = ('name', 'parent', 'package', 'parent_service', 'enabled',)
 
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(Image, ImageAdmin)
 admin.site.register(Service, ServiceAdmin)
 
 admin.site.site_header = "The Earth is Square"
