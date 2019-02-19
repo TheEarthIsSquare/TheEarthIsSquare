@@ -13,7 +13,7 @@ class Profile(models.Model):
     twitter_username = models.CharField(max_length=255, null=True, blank=True)
     instagram_username = models.CharField(max_length=255, null=True, blank=True)
     linkedin_username = models.CharField(max_length=255, null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
 class Service(models.Model):
@@ -25,7 +25,7 @@ class Service(models.Model):
     package = models.BooleanField(default=False)
     parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
     fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -46,7 +46,7 @@ class Project(models.Model):
     client_website = models.CharField(max_length=255, null=True, blank=True)
     avatar = S3DirectField(dest='projects', null=True, blank=True)
     banner = S3DirectField(dest='projects', null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
     def parsed_client(self):
@@ -61,7 +61,7 @@ class Project(models.Model):
 class Image(models.Model):
     image = S3DirectField(dest='projects', null=True)
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
 class InstagramPost(models.Model):
@@ -70,12 +70,12 @@ class InstagramPost(models.Model):
     comment_count = models.IntegerField(default=0)
     caption = models.TextField(max_length=255, blank=True)
     date_published = models.DateTimeField(blank=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
 class Settings(models.Model):
     name = models.CharField(max_length=255)
     like_count = models.CharField(max_length=255)
     value = models.CharField(max_length=255)
-    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date_created = models.DateTimeField(default=datetime.now(), blank=True)
     date_modified = models.DateTimeField(auto_now=True)
