@@ -172,25 +172,44 @@ def findInstagramId():
     response = requests.get(url).json()
     dump = json.dumps(response)
     loadJson = json.loads(dump)
-    print(loadJson)
-
-    url = 'https://graph.facebook.com/' + loadJson['id'] + '?fields=connected_instagram_account&access_token=' + access_token
-    response = requests.get(url).json()
-    dump = json.dumps(response)
-    loadJson = json.loads(dump)
-    print(loadJson)
-
-    return loadJson['connected_instagram_account']['id']
+    error = loadJson.get('error')
+    if error != None:
+        print('There has been an error with accessing the Facebook Page ID /me: ' + error['message'])
+        return loadJson
+    else:
+        url = 'https://graph.facebook.com/' + loadJson['id'] + '?fields=connected_instagram_account&access_token=' + access_token
+        response = requests.get(url).json()
+        dump = json.dumps(response)
+        loadJson = json.loads(dump)
+        error = loadJson.get('error')
+        if error != None:
+            print('There has been an error when attempting to list connected Instagram: ' + error['message'])
+            print(error)
+            return loadJson
+        else:
+            print(loadJson)
+            return loadJson['connected_instagram_account']['id']
 
 def instagramFollowers():
     settings = graphAPI();
     id = findInstagramId()
-    url = 'https://graph.facebook.com/' + id + '?fields=followers_count&access_token=' + settings['access_token']
-    response = requests.get(url).json()
-    dump = json.dumps(response)
-    loadJson = json.loads(dump)
-    print(loadJson)
-    return loadJson['followers_count']
+    error = id.get('error')
+    if error != None:
+        print(id)
+        return id
+    else:
+        print(id)
+        url = 'https://graph.facebook.com/' + id + '?fields=followers_count&access_token=' + settings['access_token']
+        response = requests.get(url).json()
+        dump = json.dumps(response)
+        loadJson = json.loads(dump)
+        error = loadJson.get('error')
+        if error != None:
+            print('There has been an error trying to get the follower count: ' + error['message'])
+            return loadJson['error']
+        else:
+            print(loadJson)
+            return loadJson['followers_count']
 
 def facebookFollowers():
     settings = graphAPI();
@@ -198,7 +217,12 @@ def facebookFollowers():
     response = requests.get(url).json()
     dump = json.dumps(response)
     loadJson = json.loads(dump)
-    print(loadJson)
+    error = loadJson.get('error')
+    if error != None:
+        print('There has been an error when attempting to get the Facebook fan count ' + error['message'])
+        return loadJson
+    else:
+        print(loadJson)
     return loadJson['fan_count']
 
 def graphAPI():

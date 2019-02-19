@@ -10,21 +10,35 @@
   <section id="Dashboard">
       <h1 class="text-center">Dashboard</h1>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-12 col-md-6">
+          {% if 'error' in instagram_count %}
+          <div class="alert alert-danger" role="alert">
+            <strong>There has been an error:</strong><br>
+            {{ instagram_count }}<br><br>
+          </div>
+          {% else %}
          <div class="card text-center text-white bg-success mb-3">
             <h5 class="card-header">Instagram Followers</h5>
            <div class="card-body">
              <h2 class="card-title">{{ instagram_count }}</h2>
            </div>
          </div>
+         {% endif %}
        </div>
-       <div class="col-sm-6">
-        <div class="card text-center text-white bg-primary mb-3">
-           <h5 class="card-header">Facebook Followers</h5>
-          <div class="card-body">
-            <h2 class="card-title">{{ facebook_count }}</h2>
+       <div class="col-12 col-md-6">
+         {% if 'error' in facebook_count %}
+         <div class="alert alert-danger" role="alert">
+           <strong>There has been an error:</strong><br>
+           {{ facebook_count }}<br><br>
+         </div>
+         {% else %}
+          <div class="card text-center text-white bg-primary mb-3">
+             <h5 class="card-header">Facebook Followers</h5>
+            <div class="card-body">
+              <h2 class="card-title">{{ facebook_count }}</h2>
+            </div>
           </div>
-        </div>
+         {% endif %}
       </div>
      </div>
     </div>
