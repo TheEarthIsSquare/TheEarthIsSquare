@@ -165,69 +165,49 @@ def contact(request):
         'emailSent': success,
     })
 
-def findInstagramId():
-    access_token = 'EAAXyjkCQvyIBAGUqaAdNB6j2Pl7rMo7NMuVm0VHPaAaZAvSQD2wowKFZBdhNEgoZAjFdMLdDAee4Jyrqj6fW61xVrjDcejsrzkBE100f6BhkQzgilRnuYVh5jUGsWjjVDKYILAetAPmivfXNANTZCeWeeg4bz0YLpBLtxBjSEbNmupP2w2kRQEzAcJPUYjxC1g9odM0ZCoAZDZD'
-
-    url = 'https://graph.facebook.com/me?access_token=' + access_token
+def getFBPageInfo():
+    settings = graphAPI();
+    url = 'https://graph.facebook.com/' + settings['teis_facebook_id'] + '?fields=connected_instagram_account,fan_count&access_token=' + settings['access_token']
     response = requests.get(url).json()
     dump = json.dumps(response)
     loadJson = json.loads(dump)
     error = loadJson.get('error')
     if error != None:
-        print('There has been an error with accessing the Facebook Page ID /me: ' + error['message'])
-        return loadJson
-    else:
-        url = 'https://graph.facebook.com/' + loadJson['id'] + '?fields=connected_instagram_account&access_token=' + access_token
-        response = requests.get(url).json()
-        dump = json.dumps(response)
-        loadJson = json.loads(dump)
-        error = loadJson.get('error')
-        if error != None:
-            print('There has been an error when attempting to list connected Instagram: ' + error['message'])
-            print(error)
-            return loadJson
-        else:
-            print(loadJson)
-            return loadJson['connected_instagram_account']['id']
-
-def instagramFollowers():
-    settings = graphAPI();
-    id = findInstagramId()
-    error = id.get('error')
-    if error != None:
-        print(id)
-        return id
-    else:
-        print(id)
-        url = 'https://graph.facebook.com/' + id + '?fields=followers_count&access_token=' + settings['access_token']
-        response = requests.get(url).json()
-        dump = json.dumps(response)
-        loadJson = json.loads(dump)
-        error = loadJson.get('error')
-        if error != None:
-            print('There has been an error trying to get the follower count: ' + error['message'])
-            return loadJson['error']
-        else:
-            print(loadJson)
-            return loadJson['followers_count']
-
-def facebookFollowers():
-    settings = graphAPI();
-    url = 'https://graph.facebook.com/me?fields=fan_count&access_token=' + settings['access_token']
-    response = requests.get(url).json()
-    dump = json.dumps(response)
-    loadJson = json.loads(dump)
-    error = loadJson.get('error')
-    if error != None:
-        print('There has been an error when attempting to get the Facebook fan count ' + error['message'])
+        print('There has been an error when attempting to get Facebook Page Info ' + error['message'])
+        print(error)
         return loadJson
     else:
         print(loadJson)
-    return loadJson['fan_count']
+        return loadJson
+
+def getIGPageInfo():
+    settings = graphAPI();
+    instagram = getFBPageInfo().get('connected_instagram_account')
+    url = 'https://graph.facebook.com/' + instagram['id'] + '?fields=media{like_count},followers_count&access_token=' + settings['access_token']
+    response = requests.get(url).json()
+    dump = json.dumps(response)
+    loadJson = json.loads(dump)
+    error = loadJson.get('error')
+    if error != None:
+        print('There has been an error when attempting to get Instagram Page Info ' + error['message'])
+        return loadJson
+    else:
+        print(loadJson)
+
+        likeCount = 0
+        for media in loadJson['media']['data']:
+            likeCount = likeCount + media['like_count']
+
+        instagramInfo = {
+            'totalLikeCount' : likeCount,
+            'followerCount' : loadJson['followers_count'],
+        }
+        return instagramInfo
 
 def graphAPI():
     settings = {
-        'access_token' : 'EAAXyjkCQvyIBAGUqaAdNB6j2Pl7rMo7NMuVm0VHPaAaZAvSQD2wowKFZBdhNEgoZAjFdMLdDAee4Jyrqj6fW61xVrjDcejsrzkBE100f6BhkQzgilRnuYVh5jUGsWjjVDKYILAetAPmivfXNANTZCeWeeg4bz0YLpBLtxBjSEbNmupP2w2kRQEzAcJPUYjxC1g9odM0ZCoAZDZD',
+        'access_token' : 'EAAXyjkCQvyIBANoVZB5dKa9hLyxIz34SKWP2CiwNiutFgEeusBjMvAH1vaIr6wMdk9KOLZCfupSoi0YxmFJVR0H1lOPHEWpRi6q9lUMN5vDuNwJzZCNZCXHgeM2dTInB6b1vZCF9lEyQK6pAet8woCsBmZBdSMEu0ZD',
+        'teis_facebook_id' : '380002269441497',
         }
     return settings
 
@@ -235,9 +215,11 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        instagram_count = instagramFollowers()
-        facebook_count = facebookFollowers()
+        instagram_count = getIGPageInfo().get('followerCount')
+        instagram_likes = getIGPageInfo().get('totalLikeCount')
+        facebook_count = getFBPageInfo().get('fan_count')
         return render(request, 'dashboard.html', {
         'instagram_count' : instagram_count,
         'facebook_count' : facebook_count,
+        'instagram_likes' : instagram_likes,
         })
