@@ -199,7 +199,7 @@ def dashboard(request):
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
         'instagramLikes' : instagramLikes,
-        'instagramPosts' : InstagramPost.objects.all(),
+        'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
         'facebookFollowers' : facebookFollowers.value,
         'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
         })

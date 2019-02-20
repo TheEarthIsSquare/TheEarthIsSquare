@@ -7,8 +7,8 @@
 
 {% block content %}
 <div class="container">
-  <section id="Dashboard">
-      <h1 class="text-center">Dashboard</h1>
+  <section id="dashboard">
+      <a class="header" href="/dashboard"><h1 class="text-center">Dashboard</h1></a>
       {% if user.is_superuser %}
         <div class="updater text-right mb-3">
           <form action="{% url 'dashboard' %}" method="post">
@@ -26,12 +26,21 @@
             {{ instagramFollowers }}<br><br>
           </div>
           {% else %}
-         <div class="card text-center text-white bg-success mb-3">
-            <h5 class="card-header">Instagram Followers</h5>
-           <div class="card-body">
-             <h2 class="card-title">{{ instagramFollowers }}</h2>
-           </div>
-         </div>
+          <div class="panel -small">
+            <div class="panel-header">Instagram Followers</div>
+            <div class="row">
+              <div class="col-10 col-md-9">
+                <div class="count">
+                  <h1>{{ instagramFollowers }}</h1>
+                </div>
+              </div>
+              <div class="col-2 col-md-3">
+                <div class="gainloss">
+                  +0
+                </div>
+              </div>
+            </div>
+          </div>
          {% endif %}
        </div>
        <div class="col-12 col-md-4">
@@ -41,12 +50,21 @@
            {{ facebookFollowers }}<br><br>
          </div>
          {% else %}
-          <div class="card text-center text-white bg-primary mb-3">
-             <h5 class="card-header">Facebook Followers</h5>
-            <div class="card-body">
-              <h2 class="card-title">{{ facebookFollowers }}</h2>
-            </div>
-          </div>
+         <div class="panel -small">
+           <div class="panel-header">Total Instagram Likes</div>
+           <div class="row">
+             <div class="col-10 col-md-9">
+               <div class="count">
+                 <h1>{{ instagramLikes }}</h1>
+               </div>
+             </div>
+             <div class="col-2 col-md-3">
+               <div class="gainloss">
+                 +0
+               </div>
+             </div>
+           </div>
+         </div>
          {% endif %}
       </div>
       <div class="col-12 col-md-4">
@@ -56,12 +74,21 @@
           {{ instagramLikes }}<br><br>
         </div>
         {% else %}
-         <div class="card text-center text-white bg-warning mb-3">
-            <h5 class="card-header">Total Instagram Likes</h5>
-           <div class="card-body">
-             <h2 class="card-title">{{ instagramLikes }}</h2>
-           </div>
-         </div>
+        <div class="panel -small">
+          <div class="panel-header">Facebook Followers</div>
+          <div class="row">
+            <div class="col-10 col-md-9">
+              <div class="count">
+                <h1>{{ facebookFollowers }}</h1>
+              </div>
+            </div>
+            <div class="col-2 col-md-3">
+              <div class="gainloss">
+                +0
+              </div>
+            </div>
+          </div>
+        </div>
         {% endif %}
       </div>
       {% for media in instagramPosts %}
