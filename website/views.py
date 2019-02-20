@@ -193,7 +193,7 @@ def dashboard(request):
         try:
             lastUpdate = Settings.objects.get(name="SocialsDashboard.LastUpdate")
         except Settings.DoesNotExist:
-            lastUpdate = Settings.objects.create(name="SocialsDashboard.LastUpdate",value=Null)
+            lastUpdate = Settings.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
 
 
         return render(request, 'dashboard.html', {
