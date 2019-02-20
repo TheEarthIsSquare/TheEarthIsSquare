@@ -9,33 +9,42 @@
 <div class="container">
   <section id="Dashboard">
       <h1 class="text-center">Dashboard</h1>
+      {% if user.is_superuser %}
+        <div class="updater text-right mb-3">
+          <form action="{% url 'dashboard' %}" method="post">
+            {% csrf_token %}
+            <button class="-link btn btn-primary btn-secondary" type="submit">Update Dashboard</button>
+          </form>
+          Last Update: {{ lastUpdate|timesince }} ago
+        </div>
+      {% endif %}
       <div class="row">
         <div class="col-12 col-md-4">
-          {% if 'error' in instagram_count %}
+          {% if 'error' in instagramFollowers %}
           <div class="alert alert-danger" role="alert">
             <strong>There has been an error:</strong><br>
-            {{ instagram_count }}<br><br>
+            {{ instagramFollowers }}<br><br>
           </div>
           {% else %}
          <div class="card text-center text-white bg-success mb-3">
             <h5 class="card-header">Instagram Followers</h5>
            <div class="card-body">
-             <h2 class="card-title">{{ instagram_count }}</h2>
+             <h2 class="card-title">{{ instagramFollowers }}</h2>
            </div>
          </div>
          {% endif %}
        </div>
        <div class="col-12 col-md-4">
-         {% if 'error' in facebook_count %}
+         {% if 'error' in facebookFollowers %}
          <div class="alert alert-danger" role="alert">
            <strong>There has been an error:</strong><br>
-           {{ facebook_count }}<br><br>
+           {{ facebookFollowers }}<br><br>
          </div>
          {% else %}
           <div class="card text-center text-white bg-primary mb-3">
              <h5 class="card-header">Facebook Followers</h5>
             <div class="card-body">
-              <h2 class="card-title">{{ facebook_count }}</h2>
+              <h2 class="card-title">{{ facebookFollowers }}</h2>
             </div>
           </div>
          {% endif %}

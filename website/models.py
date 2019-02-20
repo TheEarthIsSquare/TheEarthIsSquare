@@ -66,6 +66,7 @@ class Image(models.Model):
     date_modified = models.DateTimeField(auto_now=True)
 
 class InstagramPost(models.Model):
+    instagram_id = models.CharField(max_length=255, blank=True)
     image_url = models.CharField(max_length=255, blank=True)
     like_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)

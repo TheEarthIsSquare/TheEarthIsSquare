@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service
 from theearthissquare import settings
 from website.forms import *
+from website.functions import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.db import connection
@@ -165,61 +165,40 @@ def contact(request):
         'emailSent': success,
     })
 
-def getFBPageInfo():
-    graphSettings = graphAPI();
-    url = 'https://graph.facebook.com/' + graphSettings['teis_facebook_id'] + '?fields=connected_instagram_account,fan_count&access_token=' + graphSettings['access_token']
-    response = requests.get(url).json()
-    dump = json.dumps(response)
-    loadJson = json.loads(dump)
-    error = loadJson.get('error')
-    if error != None:
-        print('There has been an error when attempting to get Facebook Page Info ' + error['message'])
-        print(error)
-        return loadJson
-    else:
-        print(loadJson)
-        return loadJson
-
-def getIGPageInfo():
-    graphSettings = graphAPI();
-    instagram = getFBPageInfo().get('connected_instagram_account')
-    url = 'https://graph.facebook.com/' + instagram['id'] + '?fields=media{like_count},followers_count&access_token=' + graphSettings['access_token']
-    response = requests.get(url).json()
-    dump = json.dumps(response)
-    loadJson = json.loads(dump)
-    error = loadJson.get('error')
-    if error != None:
-        print('There has been an error when attempting to get Instagram Page Info ' + error['message'])
-        return loadJson
-    else:
-        print(loadJson)
-
-        likeCount = 0
-        for media in loadJson['media']['data']:
-            likeCount = likeCount + media['like_count']
-
-        instagramInfo = {
-            'totalLikeCount' : likeCount,
-            'followerCount' : loadJson['followers_count'],
-        }
-        return instagramInfo
-
-def graphAPI():
-    values = {
-        'access_token' : settings.FACEBOOK_GRAPH_API_ACCESS_KEY,
-        'teis_facebook_id' : '380002269441497',
-        }
-    return values
-
 def dashboard(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        instagram_count = getIGPageInfo().get('followerCount')
-        instagram_likes = getIGPageInfo().get('totalLikeCount')
-        facebook_count = getFBPageInfo().get('fan_count')
+        if request.method == 'POST':
+            dashboardUpdated = updateSocialsDashboard()
+
+        # Get Instagram Follower Count
+        try:
+            instagramFollowers = Settings.objects.get(name="SocialsDashboard.InstagramFollowers")
+        except Settings.DoesNotExist:
+            instagramFollowers = Settings.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
+
+        # Get All Likes Across All Posts
+        allPostLikes = InstagramPost.objects.all().values_list('like_count', flat=True)
+        instagram_likes = 0
+        for mediaLikes in allPostLikes:
+            instagram_likes = instagram_likes + mediaLikes
+
+        # Get Facebook Follower Count
+        try:
+            facebookFollowers = Settings.objects.get(name="SocialsDashboard.FacebookFollowers")
+        except Settings.DoesNotExist:
+            facebookFollowers = Settings.objects.create(name="SocialsDashboard.FacebookFollowers",value=0)
+
+        try:
+            lastUpdate = Settings.objects.get(name="SocialsDashboard.LastUpdate")
+        except Settings.DoesNotExist:
+            lastUpdate = Settings.objects.create(name="SocialsDashboard.LastUpdate",value=Null)
+
+
         return render(request, 'dashboard.html', {
-        'instagram_count' : instagram_count,
-        'facebook_count' : facebook_count,
+        'instagramFollowers' : instagramFollowers.value,
+        'facebookFollowers' : facebookFollowers.value,
         'instagram_likes' : instagram_likes,
+        'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
         })
