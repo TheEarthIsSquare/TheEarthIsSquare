@@ -3,8 +3,8 @@
 
 {% block extrastyle %}{{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-{% endblock %}  
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/style.css' %}" />
+{% endblock %}
 
 {% block coltype %}container{% endblock %}
 
@@ -13,7 +13,7 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block branding %}
-<a href="{% url 'admin:index' %}"><img class="logo" src="../static/images/logo-black-text.png"></a>
+<a href="{% url 'admin:index' %}"><img class="logo" src="../static/website/images/logo-black-text.png"></a>
 {% endblock %}
 
 {% block content %}

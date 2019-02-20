@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service, InstagramPost, Settings
 from theearthissquare import settings
 from website.forms import *
-from website.functions import *
 from django.db import connection
 import requests, json, logging
 from datetime import datetime

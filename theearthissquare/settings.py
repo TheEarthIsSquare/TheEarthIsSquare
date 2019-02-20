@@ -41,7 +41,7 @@ ROOT_URLCONF = 'theearthissquare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['dashboard/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,10 +107,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'website/static'),
+    os.path.join(BASE_DIR, 'dashboard/static'),
 )
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'website/media/')
-MEDIA_URL = '/media/'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
