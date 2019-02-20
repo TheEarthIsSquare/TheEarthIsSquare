@@ -50,22 +50,38 @@
          {% endif %}
       </div>
       <div class="col-12 col-md-4">
-        {% if 'error' in instagram_likes %}
+        {% if 'error' in instagramLikes %}
         <div class="alert alert-danger" role="alert">
           <strong>There has been an error:</strong><br>
-          {{ instagram_likes }}<br><br>
+          {{ instagramLikes }}<br><br>
         </div>
         {% else %}
          <div class="card text-center text-white bg-warning mb-3">
             <h5 class="card-header">Total Instagram Likes</h5>
            <div class="card-body">
-             <h2 class="card-title">{{ instagram_likes }}</h2>
+             <h2 class="card-title">{{ instagramLikes }}</h2>
            </div>
          </div>
         {% endif %}
-     </div>
-     </div>
-    </div>
+      </div>
+      {% for media in instagramPosts %}
+      <div class="col-12 col-md-3">
+        <div class="card instagram-post">
+          <img class="card-img-top" src="{{media.image_url}}" alt="Card image cap">
+          <div class="card-body">
+            <p class="text-center">
+              <i class="fas fa-thumbs-up"></i><strong> {{ media.like_count }} | </strong>
+              <i class="fas fa-comments"></i><strong> {{ media.comment_count }} </strong>
+            </p>
+            <p class="card-text">{{ media.caption|truncatechars:100 }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{ media.date_published|naturaltime }}</small>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+   </div>
   </section>
 </div>
 {% endblock content %}

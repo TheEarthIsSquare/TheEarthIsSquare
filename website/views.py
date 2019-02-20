@@ -180,9 +180,9 @@ def dashboard(request):
 
         # Get All Likes Across All Posts
         allPostLikes = InstagramPost.objects.all().values_list('like_count', flat=True)
-        instagram_likes = 0
+        instagramLikes = 0
         for mediaLikes in allPostLikes:
-            instagram_likes = instagram_likes + mediaLikes
+            instagramLikes = instagramLikes + mediaLikes
 
         # Get Facebook Follower Count
         try:
@@ -198,7 +198,8 @@ def dashboard(request):
 
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
+        'instagramLikes' : instagramLikes,
+        'instagramPosts' : InstagramPost.objects.all(),
         'facebookFollowers' : facebookFollowers.value,
-        'instagram_likes' : instagram_likes,
         'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
         })
