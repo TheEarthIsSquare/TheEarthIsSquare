@@ -8,14 +8,14 @@
 
 {% block header %}
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
-  <script src="{% static 'js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static '/website/js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
       setTimeout(function(){
         $('.content').toggleClass('fade');
       }, {{timeout}});
 
       setTimeout(function(){
-        particlesJS.load('particles-js', "{% static 'js/custom/particles/particles.json' %}");
+        particlesJS.load('particles-js', "{% static 'website/js/custom/particles/particles.json' %}");
         $('#particles-wrapper').toggleClass('fade');
         $('.homepage').toggleClass('fade');
       }, ({{timeout}} + 500));

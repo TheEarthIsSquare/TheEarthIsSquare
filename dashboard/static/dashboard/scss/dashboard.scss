@@ -126,6 +126,7 @@
           border-left: 20px solid $dashboard-dark-blue;
         }
         .nav-item-inner {
+          border-left: $dashboard-dark-blue solid 5px;
           .nav-item-inner-content {
             color: white;
           }
@@ -136,6 +137,7 @@
         align-items: center;
         height: 100%;
         padding: 0px 30px;
+        border-left: $dashboard-light-blue solid 5px;
         .nav-item-inner-content {
           text-align: left;
           color: $dashboard-dark-blue;
