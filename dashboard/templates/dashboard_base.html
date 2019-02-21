@@ -40,6 +40,31 @@
 
   <body>
 
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul id="navbar" class="navbar navbar-nav">
+        <a class="navbar-brand d-none d-lg-block" href="#">
+          <img class="logo" src="{% static 'website/images/logo-white-text.png' %}" alt="The League Digest">
+        </a>
+        <li class="nav-item" >
+          <a href="{% url 'dashboard' %}" class="nav-item-inner {% if "/dashboard/" == request.path %}nav-active{% endif %}">
+            <div class="nav-item-inner-content">
+              <i class="fas fa-home nav-icon"></i>DASHBOARD HOME
+            </div>
+          </a>
+            {% if "/dashboard/" == request.path %}<div class="arrow-right d-none d-md-block"></div>{% endif %}
+        </li>
+        <li class="nav-item" >
+          <a href="{% url 'home' %}" class="nav-item-inner">
+            <div class="nav-item-inner-content">
+              <i class="fas fa-users nav-icon"></i>BACK TO WEBSITE
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
     <div id="wrapper">
       {% block content %}{% endblock content %}
       <div class="footer-push"></div>
