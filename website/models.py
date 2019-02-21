@@ -75,7 +75,7 @@ class InstagramPost(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
-class Settings(models.Model):
+class Setting(models.Model):
     name = models.CharField(max_length=255)
     like_count = models.CharField(max_length=255)
     value = models.CharField(max_length=255)

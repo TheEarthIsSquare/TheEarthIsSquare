@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
-from website.models import Profile, Project, Image, Service, InstagramPost, Settings
+from website.models import Profile, Project, Image, Service, InstagramPost, Setting
 from theearthissquare import settings
 from website.forms import *
 from django.db import connection
@@ -68,18 +68,18 @@ def updateSocialsDashboard(success=False):
                         post.save()
 
     try:
-        instagramFollowers = Settings.objects.get(name="SocialsDashboard.InstagramFollowers")
+        instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
     except Settings.DoesNotExist:
         instagramFollowers = None
 
     if instagramFollowers == None:
-        instagramFollowers = Settings.objects.create(name="SocialsDashboard.InstagramFollowers",value=loadJson['followers_count'])
+        instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=loadJson['followers_count'])
     else:
         instagramFollowers.value = loadJson['followers_count']
         instagramFollowers.save()
 
     try:
-        facebookFollowers = Settings.objects.get(name="SocialsDashboard.FacebookFollowers")
+        facebookFollowers = Setting.objects.get(name="SocialsDashboard.FacebookFollowers")
     except Settings.DoesNotExist:
         facebookFollowers = None
 
@@ -90,12 +90,12 @@ def updateSocialsDashboard(success=False):
         facebookFollowers.save()
 
     try:
-        lastUpdate = Settings.objects.get(name="SocialsDashboard.LastUpdate")
+        lastUpdate = Setting.objects.get(name="SocialsDashboard.LastUpdate")
     except Settings.DoesNotExist:
         lastUpdate = None
 
     if lastUpdate == None:
-        lastUpdate = Settings.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
+        lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
     else:
         lastUpdate.value = datetime.now()
         lastUpdate.save()

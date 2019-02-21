@@ -22,8 +22,8 @@ class InstagramPostAdmin(admin.ModelAdmin):
     list_display = ('date_published', 'like_count', 'comment_count')
     readonly_fields = ["date_created", "date_modified"]
 
-class SettingsAdmin(admin.ModelAdmin):
-    model = Settings
+class SettingAdmin(admin.ModelAdmin):
+    model = Setting
     list_display = ('name', 'value')
     readonly_fields = ["date_created", "date_modified"]
 
@@ -31,7 +31,7 @@ admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(InstagramPost, InstagramPostAdmin)
-admin.site.register(Settings, SettingsAdmin)
+admin.site.register(Setting, SettingAdmin)
 
 admin.site.site_header = "The Earth is Square"
 admin.site.site_title = "The Earth is Square"

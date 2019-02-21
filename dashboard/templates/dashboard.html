@@ -8,16 +8,25 @@
 {% block content %}
 <div class="container">
   <section id="dashboard">
-      <a class="header" href="/dashboard"><h1 class="text-center">Dashboard</h1></a>
-      {% if user.is_superuser %}
-        <div class="updater text-right mb-3">
+    <div class="header-row">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <a class="header" href="/dashboard"><h1>Dashboard</h1></a>
+        </div>
+        {% if user.is_superuser %}
+        <div class="update-button col-12 col-md-2">
           <form action="{% url 'dashboard' %}" method="post">
             {% csrf_token %}
             <button class="-link btn btn-primary btn-secondary" type="submit">Update Dashboard</button>
           </form>
-          Last Update: {{ lastUpdate|timesince }} ago
         </div>
-      {% endif %}
+        <div class="update-text col-12 col-md-7">
+          <small class="text-muted">Last Update: {{ lastUpdate|timesince }} ago</small>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="stats-row">
       <div class="row">
         <div class="col-12 col-md-4">
           {% if 'error' in instagramFollowers %}
@@ -42,72 +51,77 @@
             </div>
           </div>
          {% endif %}
-       </div>
-       <div class="col-12 col-md-4">
-         {% if 'error' in facebookFollowers %}
-         <div class="alert alert-danger" role="alert">
-           <strong>There has been an error:</strong><br>
-           {{ facebookFollowers }}<br><br>
          </div>
-         {% else %}
-         <div class="panel -small">
-           <div class="panel-header">Total Instagram Likes</div>
-           <div class="row">
-             <div class="col-10 col-md-9">
-               <div class="count">
-                 <h1>{{ instagramLikes }}</h1>
+         <div class="col-12 col-md-4">
+           {% if 'error' in facebookFollowers %}
+           <div class="alert alert-danger" role="alert">
+             <strong>There has been an error:</strong><br>
+             {{ facebookFollowers }}<br><br>
+           </div>
+           {% else %}
+           <div class="panel -small">
+             <div class="panel-header">Total Instagram Likes</div>
+             <div class="row">
+               <div class="col-10 col-md-9">
+                 <div class="count">
+                   <h1>{{ instagramLikes }}</h1>
+                 </div>
                </div>
-             </div>
-             <div class="col-2 col-md-3">
-               <div class="gainloss">
-                 +0
+               <div class="col-2 col-md-3">
+                 <div class="gainloss">
+                   +0
+                 </div>
                </div>
              </div>
            </div>
-         </div>
-         {% endif %}
-      </div>
-      <div class="col-12 col-md-4">
-        {% if 'error' in instagramLikes %}
-        <div class="alert alert-danger" role="alert">
-          <strong>There has been an error:</strong><br>
-          {{ instagramLikes }}<br><br>
+           {% endif %}
         </div>
-        {% else %}
-        <div class="panel -small">
-          <div class="panel-header">Facebook Followers</div>
-          <div class="row">
-            <div class="col-10 col-md-9">
-              <div class="count">
-                <h1>{{ facebookFollowers }}</h1>
+        <div class="col-12 col-md-4">
+          {% if 'error' in instagramLikes %}
+          <div class="alert alert-danger" role="alert">
+            <strong>There has been an error:</strong><br>
+            {{ instagramLikes }}<br><br>
+          </div>
+          {% else %}
+          <div class="panel -small">
+            <div class="panel-header">Facebook Followers</div>
+            <div class="row">
+              <div class="col-10 col-md-9">
+                <div class="count">
+                  <h1>{{ facebookFollowers }}</h1>
+                </div>
+              </div>
+              <div class="col-2 col-md-3">
+                <div class="gainloss">
+                  +0
+                </div>
               </div>
             </div>
-            <div class="col-2 col-md-3">
-              <div class="gainloss">
-                +0
-              </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="posts-row">
+      <div class="row">
+        {% for media in instagramPosts %}
+        <div class="col-12 col-md-3">
+          <div class="card instagram-post">
+            <img class="card-img-top" src="{{media.image_url}}" alt="Card image cap">
+            <div class="card-body">
+              <p class="text-center">
+                <i class="fas fa-thumbs-up"></i><strong> {{ media.like_count }} | </strong>
+                <i class="fas fa-comments"></i><strong> {{ media.comment_count }} </strong>
+              </p>
+              <p class="card-text">{{ media.caption|truncatechars:100 }}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ media.date_published|naturaltime }}</small>
             </div>
           </div>
         </div>
-        {% endif %}
-      </div>
-      {% for media in instagramPosts %}
-      <div class="col-12 col-md-3">
-        <div class="card instagram-post">
-          <img class="card-img-top" src="{{media.image_url}}" alt="Card image cap">
-          <div class="card-body">
-            <p class="text-center">
-              <i class="fas fa-thumbs-up"></i><strong> {{ media.like_count }} | </strong>
-              <i class="fas fa-comments"></i><strong> {{ media.comment_count }} </strong>
-            </p>
-            <p class="card-text">{{ media.caption|truncatechars:100 }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{{ media.date_published|naturaltime }}</small>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+     </div>
    </div>
   </section>
 </div>

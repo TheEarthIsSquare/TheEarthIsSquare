@@ -19,9 +19,9 @@ def dashboard(request):
 
         # Get Instagram Follower Count
         try:
-            instagramFollowers = Settings.objects.get(name="SocialsDashboard.InstagramFollowers")
+            instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
         except Settings.DoesNotExist:
-            instagramFollowers = Settings.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
+            instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
 
         # Get All Likes Across All Posts
         allPostLikes = InstagramPost.objects.all().values_list('like_count', flat=True)
@@ -31,14 +31,14 @@ def dashboard(request):
 
         # Get Facebook Follower Count
         try:
-            facebookFollowers = Settings.objects.get(name="SocialsDashboard.FacebookFollowers")
+            facebookFollowers = Setting.objects.get(name="SocialsDashboard.FacebookFollowers")
         except Settings.DoesNotExist:
-            facebookFollowers = Settings.objects.create(name="SocialsDashboard.FacebookFollowers",value=0)
+            facebookFollowers = Setting.objects.create(name="SocialsDashboard.FacebookFollowers",value=0)
 
         try:
-            lastUpdate = Settings.objects.get(name="SocialsDashboard.LastUpdate")
+            lastUpdate = Setting.objects.get(name="SocialsDashboard.LastUpdate")
         except Settings.DoesNotExist:
-            lastUpdate = Settings.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
+            lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
 
 
         return render(request, 'dashboard.html', {
