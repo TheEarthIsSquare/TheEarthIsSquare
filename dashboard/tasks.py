@@ -5,3 +5,7 @@ from dashboard.functions import *
 @task()
 def task_updateDashboard():
     updateSocialsDashboard()
+
+@task()
+def task_createStatsLog():
+    createStatsLog();

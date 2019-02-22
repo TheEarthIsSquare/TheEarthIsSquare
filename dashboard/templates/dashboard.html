@@ -14,13 +14,13 @@
           <a class="header" href="/dashboard"><h1>Dashboard</h1></a>
         </div>
         {% if user.is_superuser %}
-        <div class="update-button col-12 col-md-2">
+        <!-- <div class="update-button col-12 col-md-2">
           <form action="{% url 'dashboard' %}" method="post">
             {% csrf_token %}
             <button class="-link btn btn-primary btn-secondary" type="submit">Update Dashboard</button>
           </form>
-        </div>
-        <div class="update-text col-12 col-md-7">
+        </div> -->
+        <div class="update-text col-12 col-md-9">
           <small class="text-muted">Last Update: {{ lastUpdate|timesince }} ago</small>
         </div>
         {% endif %}

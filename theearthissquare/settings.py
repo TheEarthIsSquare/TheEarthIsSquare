@@ -14,6 +14,7 @@ ALLOWED_HOSTS = ['192.168.0.108', 'localhost', 'redis://localhost']
 
 INSTALLED_APPS = [
     'website',
+    'dashboard',
     's3direct',
     'tinymce',
     'django.contrib.sitemaps',
@@ -136,6 +137,10 @@ CELERY_TIMEZONE = 'Australia/Melbourne'
 CELERY_BEAT_SCHEDULE = {
     'task_updateDashboard': {
         'task': 'dashboard.tasks.task_updateDashboard',
-        'schedule': crontab(minute='*/5'),
+        'schedule': crontab(minute='*/10'),
+    },
+    'task_createStatsLog': {
+        'task': 'dashboard.tasks.task_createStatsLog',
+        'schedule': crontab(minute=0, hour='*/3'),
     }
 }

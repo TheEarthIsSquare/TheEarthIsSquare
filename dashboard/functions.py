@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from website.models import Profile, Project, Image, Service, InstagramPost, Setting
+from dashboard.models import StatsLog
 from theearthissquare import settings
 from website.forms import *
 from django.db import connection
@@ -18,10 +19,8 @@ def getFBPageInfo():
     error = loadJson.get('error')
     if error != None:
         print('There has been an error when attempting to get Facebook Page Info ' + error['message'])
-        print(error)
         return loadJson
     else:
-        print(loadJson)
         return loadJson
 
 def graphAPI():
@@ -102,3 +101,23 @@ def updateSocialsDashboard(success=False):
 
     Success = True
     return Success
+
+def createStatsLog():
+    try:
+        facebookFollowers = Setting.objects.get(name="SocialsDashboard.FacebookFollowers")
+    except Settings.DoesNotExist:
+        return None
+
+    try:
+        instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
+    except Settings.DoesNotExist:
+        return None
+
+    allPostLikes = InstagramPost.objects.all().values_list('like_count', flat=True)
+    instagramLikes = 0
+    for mediaLikes in allPostLikes:
+        instagramLikes = instagramLikes + mediaLikes
+
+    newLog = StatsLog.objects.create(instagram_likes=instagramLikes,instagram_followers=instagramFollowers.value,instagram_posts=InstagramPost.objects.all().count(),facebook_likes=facebookFollowers.value)
+
+    return None

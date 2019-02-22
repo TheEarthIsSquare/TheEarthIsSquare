@@ -34,7 +34,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'dashboard/images/favicon.ico' %}" />
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="{% static 'dashboard/js/all-min.js' %}"></script>
+    <!-- <script src="{% static 'dashboard/js/all-min.js' %}"></script> -->
     {% block header %}{% endblock header %}
   </head>
 
@@ -43,8 +43,8 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul id="navbar" class="navbar navbar-nav">
-        <a class="navbar-brand d-none d-lg-block" href="#">
-          <img class="logo" src="{% static 'website/images/logo-white-text.png' %}" alt="The League Digest">
+        <a class="navbar-brand d-none d-lg-block" href="{% url 'dashboard' %}">
+          <img class="logo" src="{% static 'website/images/logo-white-text.png' %}" alt="The Earth is Square">
         </a>
         <li class="nav-item" >
           <a href="{% url 'dashboard' %}" class="nav-item-inner {% if "/dashboard/" == request.path %}nav-active{% endif %}">
