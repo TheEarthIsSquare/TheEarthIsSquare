@@ -2,6 +2,7 @@
 *.sqlite3
 website/media/profiles/*.png
 website/media/profiles/*.jpg
+celerybeat-schedule.db
 
 ### Django ###
 *.log
