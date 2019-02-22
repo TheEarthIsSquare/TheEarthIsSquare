@@ -7,6 +7,7 @@ from theearthissquare import settings
 from website.forms import *
 from django.db import connection
 from datetime import datetime
+from django.templatetags.static import static
 from pygal.style import Style
 import requests, json, logging, pygal
 
@@ -202,9 +203,10 @@ def GenerateInstagramLikesGraph():
             int(AllStatLogs[5].instagram_likes),
             int(IGLikesGraphFirst.instagram_likes)
             ])
-    Instagram_Likes.render_to_file('dashboard/static/dashboard/charts/Instagram_Likes.svg')
+    static_url = 'dashboard/' + static('dashboard/charts/Instagram_Likes.svg')
+    Instagram_Likes.render_to_file(static_url)
 
-def GenerateFacebookLikesGraph():
+def GenerateInstagramFollowersGraph():
     custom_style = Style(
         background='transparent',
         plot_background='transparent',
@@ -217,71 +219,71 @@ def GenerateFacebookLikesGraph():
         major_label_font_size=25,
         font_family='googlefont:Raleway',
         colors=('#08BDBD',))
-    Facebook_Likes = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
-    FBLikesGraphCount = StatsLog.objects.all().count()
-    if FBLikesGraphCount >= 1:
-        LatestStatLog = StatsLog.objects.latest('date_created')
-        if FBLikesGraphCount < 8:
-            Facebook_Likes.x_labels = map(str, range(1, 2))
-            Facebook_Likes.add('', [
-            int(LatestStatLog.facebook_likes)
+    Graph = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
+    AllStatLogs = StatsLog.objects.all()
+    LatestStatLog = StatsLog.objects.latest('date_created')
+    if AllStatLogs.count() >= 1:
+        if AllStatLogs.count() < 8:
+            Graph.x_labels = map(str, range(1, 2))
+            Graph.add('', [
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount < 16:
-            FBLikesGraphObjects = StatsLog.objects.all()[:8:8]
-            Facebook_Likes.x_labels = map(str, range(1, 3))
-            Facebook_Likes.add('', [
-            int(FBLikesGraphObjects[0].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+        elif AllStatLogs.count() < 16:
+            AllStatLogs = StatsLog.objects.all()[:8:8]
+            Graph.x_labels = map(str, range(1, 3))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount < 24:
-            FBLikesGraphObjects = StatsLog.objects.all()[:16:8]
-            Facebook_Likes.x_labels = map(str, range(1, 4))
-            Facebook_Likes.add('', [
-            int(FBLikesGraphObjects[0].facebook_likes),
-            int(FBLikesGraphObjects[1].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+        elif AllStatLogs.count() < 24:
+            AllStatLogs = StatsLog.objects.all()[:16:8]
+            Graph.x_labels = map(str, range(1, 4))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(AllStatLogs[1].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount < 32:
-            FBLikesGraphObjects = StatsLog.objects.all()[:24:8]
-            Facebook_Likes.x_labels = map(str, range(1, 5))
-            Facebook_Likes.add('', [
-            int(FBLikesGraphObjects[0].facebook_likes),
-            int(FBLikesGraphObjects[1].facebook_likes),
-            int(FBLikesGraphObjects[2].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+        elif AllStatLogs.count() < 32:
+            AllStatLogs = StatsLog.objects.all()[:24:8]
+            Graph.x_labels = map(str, range(1, 5))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(AllStatLogs[1].instagram_followers),
+            int(AllStatLogs[2].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount < 40:
-            FBLikesGraphObjects = StatsLog.objects.all()[:32:8]
-            Facebook_Likes.x_labels = map(str, range(1, 6))
-            Facebook_Likes.add('', [
-            int(FBLikesGraphObjects[0].facebook_likes),
-            int(FBLikesGraphObjects[1].facebook_likes),
-            int(FBLikesGraphObjects[2].facebook_likes),
-            int(FBLikesGraphObjects[3].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+        elif AllStatLogs.count() < 40:
+            AllStatLogs = StatsLog.objects.all()[:32:8]
+            Graph.x_labels = map(str, range(1, 6))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(AllStatLogs[1].instagram_followers),
+            int(AllStatLogs[2].instagram_followers),
+            int(AllStatLogs[3].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount < 48:
-            FBLikesGraphObjects = StatsLog.objects.all()[:48:8]
-            Facebook_Likes.x_labels = map(str, range(1, 7))
-            Facebook_Likes.add('', [
-            int(FBLikesGraphObjects[0].facebook_likes),
-            int(FBLikesGraphObjects[1].facebook_likes),
-            int(FBLikesGraphObjects[2].facebook_likes),
-            int(FBLikesGraphObjects[3].facebook_likes),
-            int(FBLikesGraphObjects[4].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+        elif AllStatLogs.count() < 48:
+            AllStatLogs = StatsLog.objects.all()[:48:8]
+            Graph.x_labels = map(str, range(1, 7))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(AllStatLogs[1].instagram_followers),
+            int(AllStatLogs[2].instagram_followers),
+            int(AllStatLogs[3].instagram_followers),
+            int(AllStatLogs[4].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-        elif FBLikesGraphCount >= 48:
+        elif AllStatLogs.count() >= 48:
             AllStatLogs = StatsLog.objects.all()[:56:8]
-            Facebook_Likes.x_labels = map(str, range(7, 0, -1))
-            Facebook_Likes.add('', [
-            int(AllStatLogs[0].facebook_likes),
-            int(AllStatLogs[1].facebook_likes),
-            int(AllStatLogs[2].facebook_likes),
-            int(AllStatLogs[3].facebook_likes),
-            int(AllStatLogs[4].facebook_likes),
-            int(AllStatLogs[5].facebook_likes),
-            int(LatestStatLog.facebook_likes)
+            Graph.x_labels = map(str, range(7, 0, -1))
+            Graph.add('', [
+            int(AllStatLogs[0].instagram_followers),
+            int(AllStatLogs[1].instagram_followers),
+            int(AllStatLogs[2].instagram_followers),
+            int(AllStatLogs[3].instagram_followers),
+            int(AllStatLogs[4].instagram_followers),
+            int(AllStatLogs[5].instagram_followers),
+            int(LatestStatLog.instagram_followers)
             ])
-
-    Facebook_Likes.render_to_file('dashboard/static/dashboard/charts/Facebook_Likes.svg')
+    static_url = 'dashboard/' + static('dashboard/charts/Instagram_Followers.svg')
+    Graph.render_to_file(static_url)

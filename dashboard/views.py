@@ -43,7 +43,7 @@ def dashboard(request):
 
         GenerateInstagramLikesGraph()
 
-        GenerateFacebookLikesGraph()
+        GenerateInstagramFollowersGraph()
 
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
