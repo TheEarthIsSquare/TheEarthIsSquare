@@ -6,8 +6,9 @@ from dashboard.models import StatsLog
 from theearthissquare import settings
 from website.forms import *
 from django.db import connection
-import requests, json, logging
 from datetime import datetime
+from pygal.style import Style
+import requests, json, logging, pygal
 
 
 def getFBPageInfo():
@@ -121,3 +122,166 @@ def createStatsLog():
     newLog = StatsLog.objects.create(instagram_likes=instagramLikes,instagram_followers=instagramFollowers.value,instagram_posts=InstagramPost.objects.all().count(),facebook_likes=facebookFollowers.value)
 
     return None
+
+def GenerateInstagramLikesGraph():
+    custom_style = Style(
+        background='transparent',
+        plot_background='transparent',
+        foreground='white',
+        foreground_strong='white',
+        foreground_subtle='white',
+        opacity='.9',
+        transition='400ms ease-in',
+        label_font_size=20,
+        major_label_font_size=25,
+        font_family='googlefont:Raleway',
+        colors=('#DCF763',))
+    Instagram_Likes = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
+    IGLikesGraphCount = StatsLog.objects.all().count()
+    if IGLikesGraphCount >= 1:
+        IGLikesGraphFirst = StatsLog.objects.latest('date_created')
+        if IGLikesGraphCount < 8:
+            Instagram_Likes.x_labels = map(str, range(1, 2))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount < 16:
+            IGLikesGraphObjects = StatsLog.objects.all()[:8:8]
+            Instagram_Likes.x_labels = map(str, range(1, 3))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphObjects[0].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount < 24:
+            IGLikesGraphObjects = StatsLog.objects.all()[:16:8]
+            Instagram_Likes.x_labels = map(str, range(1, 4))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphObjects[0].instagram_likes),
+            int(IGLikesGraphObjects[1].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount < 32:
+            IGLikesGraphObjects = StatsLog.objects.all()[:24:8]
+            Instagram_Likes.x_labels = map(str, range(1, 5))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphObjects[0].instagram_likes),
+            int(IGLikesGraphObjects[1].instagram_likes),
+            int(IGLikesGraphObjects[2].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount < 40:
+            IGLikesGraphObjects = StatsLog.objects.all()[:32:8]
+            Instagram_Likes.x_labels = map(str, range(1, 6))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphObjects[0].instagram_likes),
+            int(IGLikesGraphObjects[1].instagram_likes),
+            int(IGLikesGraphObjects[2].instagram_likes),
+            int(IGLikesGraphObjects[3].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount < 48:
+            IGLikesGraphObjects = StatsLog.objects.all()[:48:8]
+            Instagram_Likes.x_labels = map(str, range(1, 7))
+            Instagram_Likes.add('', [
+            int(IGLikesGraphObjects[0].instagram_likes),
+            int(IGLikesGraphObjects[1].instagram_likes),
+            int(IGLikesGraphObjects[2].instagram_likes),
+            int(IGLikesGraphObjects[3].instagram_likes),
+            int(IGLikesGraphObjects[4].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+        elif IGLikesGraphCount >= 48:
+            AllStatLogs = StatsLog.objects.all()[:56:8]
+            Instagram_Likes.x_labels = map(str, range(7, 0, -1))
+            Instagram_Likes.add('', [
+            int(AllStatLogs[0].instagram_likes),
+            int(AllStatLogs[1].instagram_likes),
+            int(AllStatLogs[2].instagram_likes),
+            int(AllStatLogs[3].instagram_likes),
+            int(AllStatLogs[4].instagram_likes),
+            int(AllStatLogs[5].instagram_likes),
+            int(IGLikesGraphFirst.instagram_likes)
+            ])
+    Instagram_Likes.render_to_file('dashboard/static/dashboard/charts/Instagram_Likes.svg')
+
+def GenerateFacebookLikesGraph():
+    custom_style = Style(
+        background='transparent',
+        plot_background='transparent',
+        foreground='white',
+        foreground_strong='white',
+        foreground_subtle='white',
+        opacity='.9',
+        transition='400ms ease-in',
+        label_font_size=20,
+        major_label_font_size=25,
+        font_family='googlefont:Raleway',
+        colors=('#08BDBD',))
+    Facebook_Likes = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
+    FBLikesGraphCount = StatsLog.objects.all().count()
+    if FBLikesGraphCount >= 1:
+        LatestStatLog = StatsLog.objects.latest('date_created')
+        if FBLikesGraphCount < 8:
+            Facebook_Likes.x_labels = map(str, range(1, 2))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount < 16:
+            FBLikesGraphObjects = StatsLog.objects.all()[:8:8]
+            Facebook_Likes.x_labels = map(str, range(1, 3))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphObjects[0].facebook_likes),
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount < 24:
+            FBLikesGraphObjects = StatsLog.objects.all()[:16:8]
+            Facebook_Likes.x_labels = map(str, range(1, 4))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphObjects[0].facebook_likes),
+            int(FBLikesGraphObjects[1].facebook_likes),
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount < 32:
+            FBLikesGraphObjects = StatsLog.objects.all()[:24:8]
+            Facebook_Likes.x_labels = map(str, range(1, 5))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphObjects[0].facebook_likes),
+            int(FBLikesGraphObjects[1].facebook_likes),
+            int(FBLikesGraphObjects[2].facebook_likes),
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount < 40:
+            FBLikesGraphObjects = StatsLog.objects.all()[:32:8]
+            Facebook_Likes.x_labels = map(str, range(1, 6))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphObjects[0].facebook_likes),
+            int(FBLikesGraphObjects[1].facebook_likes),
+            int(FBLikesGraphObjects[2].facebook_likes),
+            int(FBLikesGraphObjects[3].facebook_likes),
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount < 48:
+            FBLikesGraphObjects = StatsLog.objects.all()[:48:8]
+            Facebook_Likes.x_labels = map(str, range(1, 7))
+            Facebook_Likes.add('', [
+            int(FBLikesGraphObjects[0].facebook_likes),
+            int(FBLikesGraphObjects[1].facebook_likes),
+            int(FBLikesGraphObjects[2].facebook_likes),
+            int(FBLikesGraphObjects[3].facebook_likes),
+            int(FBLikesGraphObjects[4].facebook_likes),
+            int(FBLikesGraphFirst.facebook_likes)
+            ])
+        elif FBLikesGraphCount >= 48:
+            AllStatLogs = StatsLog.objects.all()[:56:8]
+            Facebook_Likes.x_labels = map(str, range(7, 0, -1))
+            Facebook_Likes.add('', [
+            int(AllStatLogs[0].facebook_likes),
+            int(AllStatLogs[1].facebook_likes),
+            int(AllStatLogs[2].facebook_likes),
+            int(AllStatLogs[3].facebook_likes),
+            int(AllStatLogs[4].facebook_likes),
+            int(AllStatLogs[5].facebook_likes),
+            int(LatestStatLog.facebook_likes)
+            ])
+
+    Facebook_Likes.render_to_file('dashboard/static/dashboard/charts/Facebook_Likes.svg')

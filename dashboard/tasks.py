@@ -8,4 +8,5 @@ def task_updateDashboard():
 
 @task()
 def task_createStatsLog():
+    updateSocialsDashboard()
     createStatsLog();

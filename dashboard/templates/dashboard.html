@@ -1,5 +1,6 @@
 {% extends 'dashboard_base.html' %}
 {% load humanize %}
+{% load static %}
 
 {% block title %}
 {{ block.super }} - Socials Dashbaord
@@ -24,6 +25,22 @@
           <small class="text-muted">Last Update: {{ lastUpdate|timesince }} ago</small>
         </div>
         {% endif %}
+      </div>
+    </div>
+    <div class="charts-row">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="charts-panel">
+            <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
+            <embed type="image/svg+xml" src="{% static 'dashboard/charts/Instagram_Likes.svg' %}" width="100%" height="350"/>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="charts-panel">
+            <div class="panel-header">Total Facebook Likes (Past 7 Days)</div>
+            <embed type="image/svg+xml" src="{% static 'dashboard/charts/Facebook_Likes.svg' %}" width="100%" height="350"/>
+          </div>
+        </div>
       </div>
     </div>
     <div class="stats-row">

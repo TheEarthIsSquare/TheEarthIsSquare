@@ -8,7 +8,8 @@ from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.db import connection
 from django.http import HttpResponse, HttpResponseRedirect
-import requests, json, logging
+from datetime import datetime
+import requests, json, logging, pygal
 
 def dashboard(request):
     if not request.user.is_authenticated:
@@ -40,6 +41,9 @@ def dashboard(request):
         except Settings.DoesNotExist:
             lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
 
+        GenerateInstagramLikesGraph()
+
+        GenerateFacebookLikesGraph()
 
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
