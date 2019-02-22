@@ -1,4 +1,6 @@
 import os
+from celery.schedules import crontab
+
 
 USE_LOADING_SCREEN = os.environ.get('USE_LOADING_SCREEN', False)
 
@@ -8,7 +10,7 @@ SECRET_KEY = '8@jl6lay-4-xzjdic2#mw%e2c@%*o1nfh&k@95p2=&x%5n&n@g'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.108', 'localhost']
+ALLOWED_HOSTS = ['192.168.0.108', 'localhost', 'redis://localhost']
 
 INSTALLED_APPS = [
     'website',
@@ -123,3 +125,18 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
 FACEBOOK_GRAPH_API_ACCESS_KEY = os.environ.get('FACEBOOK_GRAPH_API_ACCESS_KEY', 'EAAXyjkCQvyIBANoVZB5dKa9hLyxIz34SKWP2CiwNiutFgEeusBjMvAH1vaIr6wMdk9KOLZCfupSoi0YxmFJVR0H1lOPHEWpRi6q9lUMN5vDuNwJzZCNZCXHgeM2dTInB6b1vZCF9lEyQK6pAet8woCsBmZBdSMEu0ZD')
+
+# Celery application definition
+# http://docs.celeryproject.org/en/v4.0.2/userguide/configuration.html
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Australia/Melbourne'
+CELERY_BEAT_SCHEDULE = {
+    'task_updateDashboard': {
+        'task': 'dashboard.tasks.task_updateDashboard',
+        'schedule': crontab(minute='*/5'),
+    }
+}

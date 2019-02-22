@@ -12,6 +12,8 @@
     <script>
       setTimeout(function(){
         $('.content').toggleClass('fade');
+        $(".services-container").addClass("fade");
+        $(".portfolio-container").addClass("fade");
       }, {{timeout}});
 
       setTimeout(function(){
@@ -19,16 +21,6 @@
         $('#particles-wrapper').toggleClass('fade');
         $('.homepage').toggleClass('fade');
       }, ({{timeout}} + 500));
-
-      $(window).scroll(function(){
-        if ($(window).scrollTop() >= 175) {
-            $(".services-container").addClass("fade");
-        }
-
-        if ($(window).scrollTop() >= 700) {
-            $(".portfolio-container").addClass("fade");
-        }
-      });
     </script>
 {% endblock header %}
 

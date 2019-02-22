@@ -178,7 +178,7 @@ a {
         height: 600px;
         padding: 0px;
         .blurb {
-          padding-top: 200px;
+          padding-top: 180px;
           font-size: 2rem;
           font-weight: 900;
           text-transform: uppercase;
@@ -211,7 +211,7 @@ a {
             padding: 20px 100px;
           }
           &.fade {
-            animation: fadeInDown 1.5s ease;
+            animation: fadeInDown 2s ease;
             animation-fill-mode: forwards;
           }
           .header {
@@ -295,7 +295,7 @@ a {
   margin-bottom: 15%;
   .profile {
     margin-top: 15%;
-    animation: fade-main 3s ease;
+    animation: fadeInDown 2s ease;
     animation-fill-mode: forwards;
     &:hover {
       .frame{
