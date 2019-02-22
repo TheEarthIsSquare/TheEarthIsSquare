@@ -224,14 +224,14 @@ def GenerateFacebookLikesGraph():
         if FBLikesGraphCount < 8:
             Facebook_Likes.x_labels = map(str, range(1, 2))
             Facebook_Likes.add('', [
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount < 16:
             FBLikesGraphObjects = StatsLog.objects.all()[:8:8]
             Facebook_Likes.x_labels = map(str, range(1, 3))
             Facebook_Likes.add('', [
             int(FBLikesGraphObjects[0].facebook_likes),
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount < 24:
             FBLikesGraphObjects = StatsLog.objects.all()[:16:8]
@@ -239,7 +239,7 @@ def GenerateFacebookLikesGraph():
             Facebook_Likes.add('', [
             int(FBLikesGraphObjects[0].facebook_likes),
             int(FBLikesGraphObjects[1].facebook_likes),
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount < 32:
             FBLikesGraphObjects = StatsLog.objects.all()[:24:8]
@@ -248,7 +248,7 @@ def GenerateFacebookLikesGraph():
             int(FBLikesGraphObjects[0].facebook_likes),
             int(FBLikesGraphObjects[1].facebook_likes),
             int(FBLikesGraphObjects[2].facebook_likes),
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount < 40:
             FBLikesGraphObjects = StatsLog.objects.all()[:32:8]
@@ -258,7 +258,7 @@ def GenerateFacebookLikesGraph():
             int(FBLikesGraphObjects[1].facebook_likes),
             int(FBLikesGraphObjects[2].facebook_likes),
             int(FBLikesGraphObjects[3].facebook_likes),
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount < 48:
             FBLikesGraphObjects = StatsLog.objects.all()[:48:8]
@@ -269,7 +269,7 @@ def GenerateFacebookLikesGraph():
             int(FBLikesGraphObjects[2].facebook_likes),
             int(FBLikesGraphObjects[3].facebook_likes),
             int(FBLikesGraphObjects[4].facebook_likes),
-            int(FBLikesGraphFirst.facebook_likes)
+            int(LatestStatLog.facebook_likes)
             ])
         elif FBLikesGraphCount >= 48:
             AllStatLogs = StatsLog.objects.all()[:56:8]
