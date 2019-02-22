@@ -3,7 +3,7 @@
 website/media/profiles/*.png
 website/media/profiles/*.jpg
 celerybeat-schedule.db
-dashboard/static/dashboard/charts/*
+dashboard/static/dashboard/charts/*.svg
 
 ### Django ###
 *.log
