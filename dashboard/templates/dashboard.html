@@ -32,13 +32,12 @@
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
-            <embed type="image/svg+xml" src="{% static 'dashboard/charts/Instagram_Likes.svg' %}" width="100%" height="350"/>
+            <div id="ig-likes-chart" data-url="{% url 'dashboard_data' %}"></div>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Facebook Likes (Past 7 Days)</div>
-            <embed type="image/svg+xml" src="{% static 'dashboard/charts/Instagram_Followers.svg' %}" width="100%" height="350"/>
           </div>
         </div>
       </div>
@@ -142,4 +141,14 @@
    </div>
   </section>
 </div>
+
+<script>
+  $.ajax({
+    url: $("#ig-likes-chart").attr("data-url"),
+    dataType: 'json',
+    success: function (data) {
+      Highcharts.chart("ig-likes-chart", data);
+    }
+  });
+</script>
 {% endblock content %}

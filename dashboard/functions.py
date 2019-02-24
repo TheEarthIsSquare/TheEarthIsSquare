@@ -203,8 +203,9 @@ def GenerateInstagramLikesGraph():
             int(AllStatLogs[5].instagram_likes),
             int(IGLikesGraphFirst.instagram_likes)
             ])
-    static_url = 'dashboard/' + static('dashboard/charts/Instagram_Likes.svg')
-    Instagram_Likes.render_to_file(static_url)
+
+    Instagram_Likes.render_django_response()
+    return Instagram_Likes
 
 def GenerateInstagramFollowersGraph():
     custom_style = Style(
@@ -285,5 +286,5 @@ def GenerateInstagramFollowersGraph():
             int(AllStatLogs[5].instagram_followers),
             int(LatestStatLog.instagram_followers)
             ])
-    static_url = 'dashboard/' + static('dashboard/charts/Instagram_Followers.svg')
-    Graph.render_to_file(static_url)
+    Graph.render_django_response()
+    return Graph

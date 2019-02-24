@@ -6,9 +6,11 @@ from website.forms import *
 from dashboard.functions import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
+from django.core import serializers
 from django.db import connection
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from datetime import datetime
+from django.forms.models import model_to_dict
 import requests, json, logging, pygal
 
 def dashboard(request):
@@ -41,9 +43,9 @@ def dashboard(request):
         except Settings.DoesNotExist:
             lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
 
-        GenerateInstagramLikesGraph()
+        instagramLikesGraph = GenerateInstagramLikesGraph()
 
-        GenerateInstagramFollowersGraph()
+        instagramFollowersGraph = GenerateInstagramFollowersGraph()
 
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
@@ -51,4 +53,32 @@ def dashboard(request):
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
         'facebookFollowers' : facebookFollowers.value,
         'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
+        'instagramLikesGraph' : instagramLikesGraph,
+        'instagramFollowersGraph' : instagramFollowersGraph
         })
+
+def dashboard_data(request):
+    count = StatsLog.objects.all().count()
+    if count > 56:
+        count = 56
+    dataset = StatsLog.objects \
+        .values('instagram_likes', 'date_created') \
+        .order_by('-date_created') \
+        [:count:8] \
+
+    dataset.reverse()
+
+    chart = {
+        'chart': {
+        'type': 'line',
+        'backgroundColor': 'transparent'
+        },
+        'title': {'text': ''},
+        'credits': {'enabled': False},
+        'series': [{
+            'name': 'Total Likes',
+            'data': list(map(lambda row: {'name': row['date_created'].strftime("%B %d, %Y"), 'y': int(row['instagram_likes'])}, dataset))
+        }]
+    }
+
+    return JsonResponse(chart)
