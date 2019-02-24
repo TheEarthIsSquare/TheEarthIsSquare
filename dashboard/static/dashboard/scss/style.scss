@@ -13,9 +13,8 @@ body {
   min-height: 100%;
   font-family: Raleway, sans-serif;
   font-weight: 300;
-  color: $earth-dark-grey;
   box-sizing: border-box;
-  color: white;
+  color: $dashboard-text-main;
 }
 
 h1, h2, h3, h4, h5 {
@@ -32,7 +31,7 @@ a {
   transition: all 0.5s ease;
   &:hover {
     text-decoration: none;
-    color: $earth-green;
+    color: $dashboard-green;
   }
 }
 
@@ -40,9 +39,9 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  color: white;
+  color: $dashboard-text-main;
   padding: 10px 50px;
-  background-color: $earth-dark-grey;
+  background-color: $dashboard-panel-color;
   text-align: center;
 }
 
@@ -51,7 +50,7 @@ a {
 }
 
 #wrapper {
-  background-color: $dashboard-dark-blue;
+  background-color: $dashboard-background-color;
   min-height: 100%;
   margin-bottom: -50px;
   padding-top: 10px;

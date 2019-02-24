@@ -34,6 +34,14 @@ gulp.task('Website Scripts', function() {
     .pipe(gulp.dest('website/static/website/js'));
 });
 
+gulp.task('Dashboard Scripts', function() {
+  return gulp.src('dashboard/static/dashboard/js/custom/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('dashboard/static/dashboard/js'))
+    .pipe(minify())
+    .pipe(gulp.dest('dashboard/static/dashboard/js'));
+});
+
 // PostCSS processor
 gulp.task('Website CSS', function () {
   var processors = [
@@ -45,4 +53,4 @@ gulp.task('Website CSS', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series('Website SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts'));
+gulp.task('default', gulp.series('Website SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));

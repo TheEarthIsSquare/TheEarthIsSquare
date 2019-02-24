@@ -4,15 +4,30 @@ $earth-dark-green: #29BF12;
 $earth-red: #F21B3F;
 $earth-orange: #FF9914;
 $earth-blue: #08BDBD;
-$dashboard-dark-green: #173023;
-$dashboard-light-green: #264732;
+
+$dashboard-green: #90A959;
+$dashboard-orange: #E9B872;
+$dashboard-blue: #6494AA;
+$dashboard-red: #A63D40;
+$dashboard-black: #151515;
+
 $dashboard-dark-blue: #171c30;
-$dashboard-blue: #262d47;
-$dashboard-light-blue: #2e3656;
+$dashboard-darkish-blue: #2e3656;
 
 $earth-dark-grey: #202021;
 $earth-grey: #435058;
 $earth-light-grey: #848C8E;
+
+$dashboard-grey: #E6E8E6;
+
+$coolor-cerulean-blue: #2B59C3;
+$coolor-st-patricks-blue: #253C78;
+$coolor-deep-koamaru: #2F3061;
+$coolor-purple-navy: #5F5980;
+$coolor-oxford-blue: #0B2545;
+$coolor-prussian-blue: #13315C;
+$coolor-white-smoke: #F7F7F7;
+$coolor-platinum: #E1E1E1;
 
 /* Breakpoints */
 $bp-sm: "(min-width: 576px)"; // col-sm
@@ -22,3 +37,9 @@ $bp-lg: "(min-width: 992px)"; // col-lg
 /* Page Elements */
 $nav-height: 75px;
 $footer-height: 50px;
+$dashboard-background-color: $coolor-platinum;
+$dashboard-panel-color: white;
+$dashboard-text-main: $dashboard-black;
+$dashboard-sidebar-primary: $coolor-st-patricks-blue;
+$dashboard-sidebar-secondary: $coolor-cerulean-blue;
+$dashboard-sidebar-text-color: white;

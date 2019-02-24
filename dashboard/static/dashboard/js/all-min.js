@@ -1,0 +1,1 @@
+$.ajax({url:$("#ig-likes-chart").attr("data-url"),dataType:"json",success:function(a){Highcharts.chart("ig-likes-chart",a)}}),$.ajax({url:$("#ig-followers-chart").attr("data-url"),dataType:"json",success:function(a){Highcharts.chart("ig-followers-chart",a)}});

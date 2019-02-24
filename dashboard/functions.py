@@ -146,6 +146,8 @@ def instagramLikesChart():
             'text': ''
         },
 
+        'colors': ['#2B59C3'],
+
         'credits': {
             'enabled': False
         },
@@ -155,14 +157,13 @@ def instagramLikesChart():
                 'enabled': True,
                 'text': 'Days Ago',
                 'style': {
-                    'color': 'white'
-                    'font_family'
+                    'color': '#2B59C3'
                 }
             },
             'categories': [7, 6, 5, 4, 3, 2, 1],
             'labels': {
                 'style': {
-                    'color': 'white'
+                    'color': '#2B59C3'
                 }
             }
         },
@@ -174,7 +175,7 @@ def instagramLikesChart():
             },
             'labels': {
                 'style': {
-                    'color': 'white'
+                    'color': '#2B59C3'
                 }
             }
         },
@@ -212,6 +213,8 @@ def instagramFollowersChart():
             'text': ''
         },
 
+        'colors': ['#2B59C3'],
+
         'credits': {
             'enabled': False
         },
@@ -221,14 +224,13 @@ def instagramFollowersChart():
                 'enabled': True,
                 'text': 'Days Ago',
                 'style': {
-                    'color': 'white'
-                    'font_family'
+                    'color': '#2B59C3'
                 }
             },
             'categories': [7, 6, 5, 4, 3, 2, 1],
             'labels': {
                 'style': {
-                    'color': 'white'
+                    'color': '#2B59C3'
                 }
             }
         },
@@ -240,7 +242,7 @@ def instagramFollowersChart():
             },
             'labels': {
                 'style': {
-                    'color': 'white'
+                    'color': '#2B59C3'
                 }
             }
         },
