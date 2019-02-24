@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView, RedirectView
 from django.contrib.auth import views as auth_views
 from website import views as website
@@ -31,7 +31,7 @@ urlpatterns = [
 
     path('dashboard/', dashboard.dashboard, name='dashboard'),
 
-    path('dashboard/data', dashboard.dashboard_data, name='dashboard_data'),
+    path('dashboard/data<type>', dashboard.dashboard_data, name='dashboard_data'),
 
     path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
 

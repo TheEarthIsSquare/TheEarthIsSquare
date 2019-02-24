@@ -26,11 +26,14 @@ def dashboard(request):
         except Settings.DoesNotExist:
             instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
 
-        # Get All Likes Across All Posts
-        allPostLikes = InstagramPost.objects.all().values_list('like_count', flat=True)
-        instagramLikes = 0
-        for mediaLikes in allPostLikes:
-            instagramLikes = instagramLikes + mediaLikes
+        totalInstagramLikes = StatsLog.objects.values_list('instagram_likes', flat=True).order_by('-date_created')
+        igLikesDifference = (int(totalInstagramLikes[0]) - int(totalInstagramLikes[7]))
+
+        totalInstagramFollowers = StatsLog.objects.values_list('instagram_followers', flat=True).order_by('-date_created')
+        igFollowersDifference = (int(totalInstagramFollowers[0]) - int(totalInstagramFollowers[7]))
+
+        totalFacebookFollowers = StatsLog.objects.values_list('facebook_likes', flat=True).order_by('-date_created')
+        fbFollowersDifference = (int(totalFacebookFollowers[0]) - int(totalFacebookFollowers[7]))
 
         # Get Facebook Follower Count
         try:
@@ -43,42 +46,21 @@ def dashboard(request):
         except Settings.DoesNotExist:
             lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
 
-        instagramLikesGraph = GenerateInstagramLikesGraph()
-
-        instagramFollowersGraph = GenerateInstagramFollowersGraph()
-
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
-        'instagramLikes' : instagramLikes,
+        'instagramLikes' : totalInstagramLikes[0],
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
         'facebookFollowers' : facebookFollowers.value,
         'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
-        'instagramLikesGraph' : instagramLikesGraph,
-        'instagramFollowersGraph' : instagramFollowersGraph
+        'igLikesDifference': igLikesDifference,
+        'igFollowersDifference': igFollowersDifference,
+        'fbFollowersDifference': fbFollowersDifference
         })
 
-def dashboard_data(request):
-    count = StatsLog.objects.all().count()
-    if count > 56:
-        count = 56
-    dataset = StatsLog.objects \
-        .values('instagram_likes', 'date_created') \
-        .order_by('-date_created') \
-        [:count:8] \
-
-    dataset.reverse()
-
-    chart = {
-        'chart': {
-        'type': 'line',
-        'backgroundColor': 'transparent'
-        },
-        'title': {'text': ''},
-        'credits': {'enabled': False},
-        'series': [{
-            'name': 'Total Likes',
-            'data': list(map(lambda row: {'name': row['date_created'].strftime("%B %d, %Y"), 'y': int(row['instagram_likes'])}, dataset))
-        }]
-    }
+def dashboard_data(request,type):
+    if type == 'instagramLikes':
+        chart = instagramLikesChart()
+    elif type == 'instagramFollowers':
+        chart = instagramFollowersChart()
 
     return JsonResponse(chart)

@@ -8,8 +8,8 @@ from website.forms import *
 from django.db import connection
 from datetime import datetime
 from django.templatetags.static import static
-from pygal.style import Style
-import requests, json, logging, pygal
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+import requests, json, logging
 
 
 def getFBPageInfo():
@@ -124,167 +124,134 @@ def createStatsLog():
 
     return None
 
-def GenerateInstagramLikesGraph():
-    custom_style = Style(
-        background='transparent',
-        plot_background='transparent',
-        foreground='white',
-        foreground_strong='white',
-        foreground_subtle='white',
-        opacity='.9',
-        transition='400ms ease-in',
-        label_font_size=20,
-        major_label_font_size=25,
-        font_family='googlefont:Raleway',
-        colors=('#DCF763',))
-    Instagram_Likes = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
-    IGLikesGraphCount = StatsLog.objects.all().count()
-    if IGLikesGraphCount >= 1:
-        IGLikesGraphFirst = StatsLog.objects.latest('date_created')
-        if IGLikesGraphCount < 8:
-            Instagram_Likes.x_labels = map(str, range(1, 2))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount < 16:
-            IGLikesGraphObjects = StatsLog.objects.all()[:8:8]
-            Instagram_Likes.x_labels = map(str, range(1, 3))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphObjects[0].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount < 24:
-            IGLikesGraphObjects = StatsLog.objects.all()[:16:8]
-            Instagram_Likes.x_labels = map(str, range(1, 4))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphObjects[0].instagram_likes),
-            int(IGLikesGraphObjects[1].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount < 32:
-            IGLikesGraphObjects = StatsLog.objects.all()[:24:8]
-            Instagram_Likes.x_labels = map(str, range(1, 5))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphObjects[0].instagram_likes),
-            int(IGLikesGraphObjects[1].instagram_likes),
-            int(IGLikesGraphObjects[2].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount < 40:
-            IGLikesGraphObjects = StatsLog.objects.all()[:32:8]
-            Instagram_Likes.x_labels = map(str, range(1, 6))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphObjects[0].instagram_likes),
-            int(IGLikesGraphObjects[1].instagram_likes),
-            int(IGLikesGraphObjects[2].instagram_likes),
-            int(IGLikesGraphObjects[3].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount < 48:
-            IGLikesGraphObjects = StatsLog.objects.all()[:48:8]
-            Instagram_Likes.x_labels = map(str, range(1, 7))
-            Instagram_Likes.add('', [
-            int(IGLikesGraphObjects[0].instagram_likes),
-            int(IGLikesGraphObjects[1].instagram_likes),
-            int(IGLikesGraphObjects[2].instagram_likes),
-            int(IGLikesGraphObjects[3].instagram_likes),
-            int(IGLikesGraphObjects[4].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
-        elif IGLikesGraphCount >= 48:
-            AllStatLogs = StatsLog.objects.all()[:56:8]
-            Instagram_Likes.x_labels = map(str, range(7, 0, -1))
-            Instagram_Likes.add('', [
-            int(AllStatLogs[0].instagram_likes),
-            int(AllStatLogs[1].instagram_likes),
-            int(AllStatLogs[2].instagram_likes),
-            int(AllStatLogs[3].instagram_likes),
-            int(AllStatLogs[4].instagram_likes),
-            int(AllStatLogs[5].instagram_likes),
-            int(IGLikesGraphFirst.instagram_likes)
-            ])
+def instagramLikesChart():
+    count = StatsLog.objects.all().count()
+    if count > 56:
+        count = 56
+    dataset = StatsLog.objects \
+        .values('instagram_likes', 'date_created') \
+        .order_by('-date_created') \
+        [:count:8] \
 
-    Instagram_Likes.render_django_response()
-    return Instagram_Likes
+    dataset.reverse()
 
-def GenerateInstagramFollowersGraph():
-    custom_style = Style(
-        background='transparent',
-        plot_background='transparent',
-        foreground='white',
-        foreground_strong='white',
-        foreground_subtle='white',
-        opacity='.9',
-        transition='400ms ease-in',
-        label_font_size=20,
-        major_label_font_size=25,
-        font_family='googlefont:Raleway',
-        colors=('#08BDBD',))
-    Graph = pygal.Line(style=custom_style, fill=True, min_scale=1, show_legend=False)
-    AllStatLogs = StatsLog.objects.all()
-    LatestStatLog = StatsLog.objects.latest('date_created')
-    if AllStatLogs.count() >= 1:
-        if AllStatLogs.count() < 8:
-            Graph.x_labels = map(str, range(1, 2))
-            Graph.add('', [
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() < 16:
-            AllStatLogs = StatsLog.objects.all()[:8:8]
-            Graph.x_labels = map(str, range(1, 3))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() < 24:
-            AllStatLogs = StatsLog.objects.all()[:16:8]
-            Graph.x_labels = map(str, range(1, 4))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(AllStatLogs[1].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() < 32:
-            AllStatLogs = StatsLog.objects.all()[:24:8]
-            Graph.x_labels = map(str, range(1, 5))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(AllStatLogs[1].instagram_followers),
-            int(AllStatLogs[2].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() < 40:
-            AllStatLogs = StatsLog.objects.all()[:32:8]
-            Graph.x_labels = map(str, range(1, 6))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(AllStatLogs[1].instagram_followers),
-            int(AllStatLogs[2].instagram_followers),
-            int(AllStatLogs[3].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() < 48:
-            AllStatLogs = StatsLog.objects.all()[:48:8]
-            Graph.x_labels = map(str, range(1, 7))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(AllStatLogs[1].instagram_followers),
-            int(AllStatLogs[2].instagram_followers),
-            int(AllStatLogs[3].instagram_followers),
-            int(AllStatLogs[4].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-        elif AllStatLogs.count() >= 48:
-            AllStatLogs = StatsLog.objects.all()[:56:8]
-            Graph.x_labels = map(str, range(7, 0, -1))
-            Graph.add('', [
-            int(AllStatLogs[0].instagram_followers),
-            int(AllStatLogs[1].instagram_followers),
-            int(AllStatLogs[2].instagram_followers),
-            int(AllStatLogs[3].instagram_followers),
-            int(AllStatLogs[4].instagram_followers),
-            int(AllStatLogs[5].instagram_followers),
-            int(LatestStatLog.instagram_followers)
-            ])
-    Graph.render_django_response()
-    return Graph
+    chart = {
+
+        'chart': {
+            'type': 'line',
+            'backgroundColor': 'transparent',
+        },
+
+        'title': {
+            'text': ''
+        },
+
+        'credits': {
+            'enabled': False
+        },
+
+        'xAxis': {
+            'title': {
+                'enabled': True,
+                'text': 'Days Ago',
+                'style': {
+                    'color': 'white'
+                    'font_family'
+                }
+            },
+            'categories': [7, 6, 5, 4, 3, 2, 1],
+            'labels': {
+                'style': {
+                    'color': 'white'
+                }
+            }
+        },
+
+        'yAxis': {
+            'title': {
+                'enabled': False,
+                'text': '# of Total Likes',
+            },
+            'labels': {
+                'style': {
+                    'color': 'white'
+                }
+            }
+        },
+
+        'legend': {
+            'enabled': False
+        },
+
+        'series': [{
+            'name': 'Total Likes',
+            'data': list(map(lambda row: {'name': row['date_created'].strftime("%B %d, %Y"), 'y': int(row['instagram_likes'])}, dataset))
+        }]
+    }
+    return chart
+
+def instagramFollowersChart():
+    count = StatsLog.objects.all().count()
+    if count > 56:
+        count = 56
+    dataset = StatsLog.objects \
+        .values('instagram_followers', 'date_created') \
+        .order_by('-date_created') \
+        [:count:8] \
+
+    dataset.reverse()
+
+    chart = {
+
+        'chart': {
+            'type': 'line',
+            'backgroundColor': 'transparent',
+        },
+
+        'title': {
+            'text': ''
+        },
+
+        'credits': {
+            'enabled': False
+        },
+
+        'xAxis': {
+            'title': {
+                'enabled': True,
+                'text': 'Days Ago',
+                'style': {
+                    'color': 'white'
+                    'font_family'
+                }
+            },
+            'categories': [7, 6, 5, 4, 3, 2, 1],
+            'labels': {
+                'style': {
+                    'color': 'white'
+                }
+            }
+        },
+
+        'yAxis': {
+            'title': {
+                'enabled': False,
+                'text': '# of Total Followers',
+            },
+            'labels': {
+                'style': {
+                    'color': 'white'
+                }
+            }
+        },
+
+        'legend': {
+            'enabled': False
+        },
+
+        'series': [{
+            'name': 'Total Followers',
+            'data': list(map(lambda row: {'name': row['date_created'].strftime("%B %d, %Y"), 'y': int(row['instagram_followers'])}, dataset))
+        }]
+    }
+    return chart

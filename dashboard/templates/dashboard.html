@@ -32,12 +32,13 @@
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
-            <div id="ig-likes-chart" data-url="{% url 'dashboard_data' %}"></div>
+            <div id="ig-likes-chart" data-url="{% url 'dashboard_data' type='instagramLikes' %}"></div>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="charts-panel">
-            <div class="panel-header">Total Facebook Likes (Past 7 Days)</div>
+            <div class="panel-header">Total Instagram Followers (Past 7 Days)</div>
+            <div id="ig-followers-chart" data-url="{% url 'dashboard_data' type='instagramFollowers' %}"></div>
           </div>
         </div>
       </div>
@@ -61,7 +62,11 @@
               </div>
               <div class="col-2 col-md-4">
                 <div class="gainloss">
-                  <h2>+0</h2>
+                  {% if igFollowersDifference >= 0 %}
+                  <h2 class="positive">+ {{ igFollowersDifference }}</h2>
+                  {% else %}
+                  <h2 class="negative">{{ igFollowersDifference }}</h2>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -78,14 +83,18 @@
            <div class="panel -small">
              <div class="panel-header">Total Instagram Likes</div>
              <div class="row">
-               <div class="col-10 col-md-8">
+               <div class="col-10 col-md-7">
                  <div class="count">
                    <h1>{{ instagramLikes }}</h1>
                  </div>
                </div>
-               <div class="col-2 col-md-4">
+               <div class="col-2 col-md-5">
                  <div class="gainloss">
-                   <h2>+0</h2>
+                   {% if igLikesDifference >= 0 %}
+                   <h2 class="positive">+ {{ igLikesDifference }}</h2>
+                   {% else %}
+                   <h2 class="negative">{{ igLikesDifference }}</h2>
+                   {% endif %}
                  </div>
                </div>
              </div>
@@ -109,7 +118,11 @@
               </div>
               <div class="col-2 col-md-4">
                 <div class="gainloss">
-                  <h2>+0</h2>
+                  {% if fbFollowersDifference >= 0 %}
+                  <h2 class="positive">+ {{ fbFollowersDifference }}</h2>
+                  {% else %}
+                  <h2 class="negative">{{ fbFollowersDifference }}</h2>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -148,6 +161,14 @@
     dataType: 'json',
     success: function (data) {
       Highcharts.chart("ig-likes-chart", data);
+    }
+  });
+
+  $.ajax({
+    url: $("#ig-followers-chart").attr("data-url"),
+    dataType: 'json',
+    success: function (data) {
+      Highcharts.chart("ig-followers-chart", data);
     }
   });
 </script>

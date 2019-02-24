@@ -73,6 +73,14 @@
           margin-top: 10px;
         }
       }
+      .gainloss {
+        .positive {
+          color: $earth-green;
+        }
+        .negative {
+          color: $earth-red;
+        }
+      }
       &.-small {
         height: 150px;
       }
