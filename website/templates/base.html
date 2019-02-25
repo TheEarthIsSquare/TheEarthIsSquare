@@ -105,6 +105,11 @@
               </li>
               {% if user.is_authenticated %}
               <li>
+                <a href="{% url 'dashboard' %}">
+                  <h2 class="item">DASHBOARD</h2>
+                </a>
+              </li>
+              <li>
                 <a href="{% url 'auth_logout' %}">
                   <h2 class="item">LOGOUT</h2>
                 </a>

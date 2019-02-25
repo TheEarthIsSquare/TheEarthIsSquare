@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-{{ block.super }} - Socials Dashbaord
+{{ block.super }} - Instagram Dashbaord
 {% endblock title %}
 
 {% block content %}
@@ -12,29 +12,8 @@
     <div class="header-row">
       <div class="row">
         <div class="col-12">
-          <div class="header"><h2>Welcome, {{ user.first_name }}</h2></div>
-          <!-- <fb:login-button
-            class="fb-login-button"
-            data-auto-logout-link="false"
-            data-button-type="login_with"
-            scope="public_profile,email"
-            onlogin="checkLoginState();"
-            data-use-continue-as="true"
-            data-size="medium">
-          </fb:login-button>
-          <div id="status"></div>
+          <div class="header"><h2>{{ user.first_name }}, here are your Instagram statistics</h2></div>
         </div>
-        {% if user.is_superuser %}
-         <div class="update-button col-12 col-md-2">
-          <form action="{% url 'dashboard' %}" method="post">
-            {% csrf_token %}
-            <button class="-link btn btn-primary btn-secondary" type="submit">Update Dashboard</button>
-          </form>
-        </div>
-        <div class="update-text col-12 col-md-9">
-          <small class="text-muted">Last Update: {{ lastUpdate|timesince }} ago</small>
-        </div>
-        {% endif %} -->
       </div>
     </div>
     <div class="charts-row">
@@ -107,34 +86,29 @@
              </div>
            </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="panel -small">
-            <div class="panel-header">Facebook Followers</div>
-            <div class="row">
-              <div class="panel-content">
-                <div class="col-12">
-                  <div class="count">
-                    <h1>{{ facebookFollowers }}</h1>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="gainloss">
-                    {% if fbFollowersDifference > 0 %}
-                    <small class="positive"><i class="fas fa-caret-up"></i>
-                    {% elif fbFollowersDifference < 0 %}
-                    <small class="negative"><i class="fas fa-caret-down"></i>
-                    {% else %}
-                    <small class="neutral"><i class="fas fa-square"></i>
-                    {% endif %}
-                    {{ fbFollowersDifference }} followers since yesterday</small>
-                  </div>
-                </div>
-              </div>
+      </div>
+    </div>
+    <div class="posts-row">
+      <div class="row">
+        {% for media in instagramPosts %}
+        <div class="col-12 col-md-3">
+          <div class="card instagram-post">
+            <img class="card-img-top" src="{{media.image_url}}" alt="Card image cap">
+            <div class="card-body">
+              <p class="text-center">
+                <i class="fas fa-thumbs-up"></i><strong> {{ media.like_count }} | </strong>
+                <i class="fas fa-comments"></i><strong> {{ media.comment_count }} </strong>
+              </p>
+              <p class="card-text">{{ media.caption|truncatechars:100 }}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ media.date_published|naturaltime }}</small>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        {% endfor %}
+     </div>
+   </div>
   </section>
 </div>
 

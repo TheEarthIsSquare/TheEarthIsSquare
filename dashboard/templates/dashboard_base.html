@@ -40,6 +40,9 @@
 
   <body>
 
+    <div id="fb-root"></div>
+    <script async defer src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=1674067666059042&autoLogAppEvents=1"></script>
+
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul id="navbar" class="navbar navbar-nav">
@@ -55,9 +58,17 @@
             {% if "/dashboard/" == request.path %}<div class="arrow-right d-none d-md-block"></div>{% endif %}
         </li>
         <li class="nav-item" >
+          <a href="{% url 'dashboard_instagram' %}" class="nav-item-inner {% if "/dashboard/instagram" == request.path %}nav-active{% endif %}">
+            <div class="nav-item-inner-content">
+              <i class="fab fa-instagram nav-icon"></i>INSTAGRAM STATS
+            </div>
+          </a>
+            {% if "/dashboard/instagram" == request.path %}<div class="arrow-right d-none d-md-block"></div>{% endif %}
+        </li>
+        <li class="nav-item" >
           <a href="{% url 'home' %}" class="nav-item-inner">
             <div class="nav-item-inner-content">
-              <i class="fas fa-users nav-icon"></i>BACK TO WEBSITE
+              <i class="fas fa-arrow-left nav-icon"></i>BACK TO WEBSITE
             </div>
           </a>
         </li>

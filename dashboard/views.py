@@ -17,9 +17,6 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        if request.method == 'POST':
-            dashboardUpdated = updateSocialsDashboard()
-
         # Get Instagram Follower Count
         try:
             instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
@@ -41,20 +38,39 @@ def dashboard(request):
         except Settings.DoesNotExist:
             facebookFollowers = Setting.objects.create(name="SocialsDashboard.FacebookFollowers",value=0)
 
-        try:
-            lastUpdate = Setting.objects.get(name="SocialsDashboard.LastUpdate")
-        except Settings.DoesNotExist:
-            lastUpdate = Setting.objects.create(name="SocialsDashboard.LastUpdate",value=datetime.now())
-
         return render(request, 'dashboard.html', {
         'instagramFollowers' : instagramFollowers.value,
         'instagramLikes' : totalInstagramLikes[0],
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
         'facebookFollowers' : facebookFollowers.value,
-        'lastUpdate' : datetime.strptime(lastUpdate.value, '%Y-%m-%d %H:%M:%S.%f'),
         'igLikesDifference': igLikesDifference,
         'igFollowersDifference': igFollowersDifference,
         'fbFollowersDifference': fbFollowersDifference
+        })
+
+def dashboard_instagram(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+    else:
+
+        # Get Instagram Follower Count
+        try:
+            instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
+        except Settings.DoesNotExist:
+            instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
+
+        totalInstagramLikes = StatsLog.objects.values_list('instagram_likes', flat=True).order_by('-date_created')
+        igLikesDifference = (int(totalInstagramLikes[0]) - int(totalInstagramLikes[7]))
+
+        totalInstagramFollowers = StatsLog.objects.values_list('instagram_followers', flat=True).order_by('-date_created')
+        igFollowersDifference = (int(totalInstagramFollowers[0]) - int(totalInstagramFollowers[7]))
+
+        return render(request, 'dashboard_instagram.html', {
+        'instagramFollowers' : instagramFollowers.value,
+        'instagramLikes' : totalInstagramLikes[0],
+        'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
+        'igLikesDifference': igLikesDifference,
+        'igFollowersDifference': igFollowersDifference,
         })
 
 def dashboard_data(request,type):
