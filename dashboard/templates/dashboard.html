@@ -11,20 +11,20 @@
   <section id="dashboard">
     <div class="header-row">
       <div class="row">
-        <div class="col-12 col-md-3">
-          <a class="header" href="/dashboard"><h1>Dashboard</h1></a>
+        <div class="col-12">
+          <div class="header"><h2>Welcome, {{ user.first_name }}</h2></div>
         </div>
-        {% if user.is_superuser %}
-        <!-- <div class="update-button col-12 col-md-2">
+        <!--{% if user.is_superuser %}
+         <div class="update-button col-12 col-md-2">
           <form action="{% url 'dashboard' %}" method="post">
             {% csrf_token %}
             <button class="-link btn btn-primary btn-secondary" type="submit">Update Dashboard</button>
           </form>
-        </div> -->
+        </div>
         <div class="update-text col-12 col-md-9">
           <small class="text-muted">Last Update: {{ lastUpdate|timesince }} ago</small>
         </div>
-        {% endif %}
+        {% endif %} -->
       </div>
     </div>
     <div class="charts-row">
@@ -32,13 +32,13 @@
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
-            <div id="ig-likes-chart" data-url="{% url 'dashboard_data' type='instagramLikes' %}"></div>
+            <div id="ig-likes-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagramLikes' %}"></div>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Followers (Past 7 Days)</div>
-            <div id="ig-followers-chart" data-url="{% url 'dashboard_data' type='instagramFollowers' %}"></div>
+            <div id="ig-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagramFollowers' %}"></div>
           </div>
         </div>
       </div>
@@ -49,19 +49,21 @@
           <div class="panel -small">
             <div class="panel-header">Instagram Followers</div>
             <div class="row">
-              <div class="col-12">
-                <div class="count">
-                  <h1>{{ instagramFollowers }}</h1>
+              <div class="panel-content">
+                <div class="col-12">
+                  <div class="count">
+                    <h1>{{ instagramFollowers }}</h1>
+                  </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <div class="gainloss">
-                  {% if igFollowersDifference >= 0 %}
-                  <small class="positive"><i class="fas fa-caret-up"></i>
-                  {% else %}
-                  <small class="negative"><i class="fas fa-caret-down"></i>
-                  {% endif %}
-                  {{ igFollowersDifference }} followers since yesterday</small>
+                <div class="col-12">
+                  <div class="gainloss">
+                    {% if igFollowersDifference >= 0 %}
+                    <small class="positive"><i class="fas fa-caret-up"></i>
+                    {% else %}
+                    <small class="negative"><i class="fas fa-caret-down"></i>
+                    {% endif %}
+                    {{ igFollowersDifference }} followers since yesterday</small>
+                  </div>
                 </div>
               </div>
             </div>
@@ -71,19 +73,21 @@
            <div class="panel -small">
              <div class="panel-header">Total Instagram Likes</div>
              <div class="row">
-               <div class="col-10 col-md-12">
-                 <div class="count">
-                   <h1>{{ instagramLikes }}</h1>
+               <div class="panel-content">
+                 <div class="col-12">
+                   <div class="count">
+                     <h1>{{ instagramLikes }}</h1>
+                   </div>
                  </div>
-               </div>
-               <div class="col-2 col-md-12">
-                 <div class="gainloss">
-                   {% if igLikesDifference >= 0 %}
-                   <small class="positive"><i class="fas fa-caret-up"></i>
-                   {% else %}
-                   <small class="negative"><i class="fas fa-caret-down"></i>
-                   {% endif %}
-                   {{ igLikesDifference }} followers since yesterday</small>
+                 <div class="col-12">
+                   <div class="gainloss">
+                     {% if igLikesDifference >= 0 %}
+                     <small class="positive"><i class="fas fa-caret-up"></i>
+                     {% else %}
+                     <small class="negative"><i class="fas fa-caret-down"></i>
+                     {% endif %}
+                     {{ igLikesDifference }} likes since yesterday</small>
+                   </div>
                  </div>
                </div>
              </div>
@@ -93,19 +97,21 @@
           <div class="panel -small">
             <div class="panel-header">Facebook Followers</div>
             <div class="row">
-              <div class="col-10 col-md-12">
-                <div class="count">
-                  <h1>{{ facebookFollowers }}</h1>
+              <div class="panel-content">
+                <div class="col-12">
+                  <div class="count">
+                    <h1>{{ facebookFollowers }}</h1>
+                  </div>
                 </div>
-              </div>
-              <div class="col-2 col-md-12">
-                <div class="gainloss">
-                  {% if fbFollowersDifference >= 0 %}
-                  <small class="positive"><i class="fas fa-caret-up"></i>
-                  {% else %}
-                  <small class="negative"><i class="fas fa-caret-down"></i>
-                  {% endif %}
-                  {{ fbFollowersDifference }} followers since yesterday</small>
+                <div class="col-12">
+                  <div class="gainloss">
+                    {% if fbFollowersDifference >= 0 %}
+                    <small class="positive"><i class="fas fa-caret-up"></i>
+                    {% else %}
+                    <small class="negative"><i class="fas fa-caret-down"></i>
+                    {% endif %}
+                    {{ fbFollowersDifference }} followers since yesterday</small>
+                  </div>
                 </div>
               </div>
             </div>

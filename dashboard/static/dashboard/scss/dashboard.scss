@@ -33,16 +33,25 @@
     }
   }
   .charts-row {
+    margin-bottom: 20px;
     .charts-panel {
       background-color: $dashboard-panel-color;
-      border-radius: 2px;
-      padding: 20px;
+      border-radius: 10px;
       color: $dashboard-text-main;
       margin-bottom: 15px;
       box-shadow: 0 10px 14px 0px rgba(0,0,0,.1);
       .panel-header {
         text-align: left;
-        font-size: 0.8rem;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 10px 20px;
+        background-color: #253c77;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .panel-chart {
+        padding: 20px;
       }
     }
   }
@@ -53,8 +62,7 @@
     .panel {
       background-color: $dashboard-panel-color;
       color: $dashboard-text-main;
-      padding: 20px;
-      border-radius: 2px;
+      border-radius: 10px;
       margin-bottom: 15px;
       box-shadow: 0 10px 14px 0px rgba(0,0,0,.1);
       @media #{$bp-md}{
@@ -62,31 +70,37 @@
       }
       .panel-header {
         text-align: left;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-      .count {
-        h1 {
-          text-align: center;
-          font-size: 3.5rem;
-          /*padding-left: 20px;
-          border-left: 2px $dashboard-green solid; */
-          margin-top: 10px;
-        }
-      }
-      .gainloss {
-        text-align: center;
         font-size: 1rem;
-        font-weight: 500;
-        .positive {
-          color: $dashboard-green;
-        }
-        .negative {
-          color: $dashboard-red;
-        }
+        font-weight: 400;
+        padding: 10px 20px;
+        background-color: #253c77;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
       }
-      &.-small {
-        /* height: 150px; */
+      .panel-content {
+        padding-bottom: 20px;
+        width: 100%;
+        .count {
+          h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            /*padding-left: 20px;
+            border-left: 2px $dashboard-green solid; */
+            margin-top: 10px;
+          }
+        }
+        .gainloss {
+          text-align: center;
+          font-size: 1rem;
+          font-weight: 500;
+          .positive {
+            color: $dashboard-green;
+          }
+          .negative {
+            color: $dashboard-red;
+          }
+        }
       }
     }
   }
