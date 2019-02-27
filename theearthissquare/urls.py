@@ -31,9 +31,9 @@ urlpatterns = [
 
     path('dashboard/', dashboard.dashboard, name='dashboard'),
 
-    path('dashboard/instagram', dashboard.dashboard_instagram, name='dashboard_instagram'),
+    path('dashboard/instagram/', dashboard.dashboard_instagram, name='dashboard_instagram'),
 
-    path('dashboard/data<type>', dashboard.dashboard_data, name='dashboard_data'),
+    path('dashboard/data<type>,<seriesName>', dashboard.dashboard_data, name='dashboard_data'),
 
     path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
 

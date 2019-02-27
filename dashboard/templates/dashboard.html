@@ -42,13 +42,13 @@
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
-            <div id="ig-likes-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagramLikes' %}"></div>
+            <div id="ig-likes-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagram_likes' seriesName='Total Likes' %}"></div>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="charts-panel">
             <div class="panel-header">Total Instagram Followers (Past 7 Days)</div>
-            <div id="ig-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagramFollowers' %}"></div>
+            <div id="ig-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagram_followers' seriesName='Total Followers' %}"></div>
           </div>
         </div>
       </div>

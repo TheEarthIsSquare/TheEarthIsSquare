@@ -4,79 +4,36 @@ from website.models import Profile, Project, Image, Service
 from theearthissquare import settings
 from website.forms import *
 from dashboard.functions import *
-from django.template.loader import get_template
-from django.core.mail import send_mail
-from django.core import serializers
-from django.db import connection
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from datetime import datetime
-from django.forms.models import model_to_dict
-import requests, json, logging, pygal
+import requests, json, logging
 
 def dashboard(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        # Get Instagram Follower Count
-        try:
-            instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
-        except Settings.DoesNotExist:
-            instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
-
-        totalInstagramLikes = StatsLog.objects.values_list('instagram_likes', flat=True).order_by('-date_created')
-        igLikesDifference = (int(totalInstagramLikes[0]) - int(totalInstagramLikes[7]))
-
-        totalInstagramFollowers = StatsLog.objects.values_list('instagram_followers', flat=True).order_by('-date_created')
-        igFollowersDifference = (int(totalInstagramFollowers[0]) - int(totalInstagramFollowers[7]))
-
-        totalFacebookFollowers = StatsLog.objects.values_list('facebook_likes', flat=True).order_by('-date_created')
-        fbFollowersDifference = (int(totalFacebookFollowers[0]) - int(totalFacebookFollowers[7]))
-
-        # Get Facebook Follower Count
-        try:
-            facebookFollowers = Setting.objects.get(name="SocialsDashboard.FacebookFollowers")
-        except Settings.DoesNotExist:
-            facebookFollowers = Setting.objects.create(name="SocialsDashboard.FacebookFollowers",value=0)
-
         return render(request, 'dashboard.html', {
-        'instagramFollowers' : instagramFollowers.value,
-        'instagramLikes' : totalInstagramLikes[0],
+        'instagramFollowers' : getConfigValue('InstagramFollowers'),
+        'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
-        'facebookFollowers' : facebookFollowers.value,
-        'igLikesDifference': igLikesDifference,
-        'igFollowersDifference': igFollowersDifference,
-        'fbFollowersDifference': fbFollowersDifference
+        'facebookFollowers' : getConfigValue('FacebookFollowers'),
+        'igLikesDifference': getDifference('instagram_likes'),
+        'igFollowersDifference': getDifference('instagram_followers'),
+        'fbFollowersDifference': getDifference('facebook_likes', getConfigValue('FacebookFollowers'))
         })
 
 def dashboard_instagram(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-
-        # Get Instagram Follower Count
-        try:
-            instagramFollowers = Setting.objects.get(name="SocialsDashboard.InstagramFollowers")
-        except Settings.DoesNotExist:
-            instagramFollowers = Setting.objects.create(name="SocialsDashboard.InstagramFollowers",value=0)
-
-        totalInstagramLikes = StatsLog.objects.values_list('instagram_likes', flat=True).order_by('-date_created')
-        igLikesDifference = (int(totalInstagramLikes[0]) - int(totalInstagramLikes[7]))
-
-        totalInstagramFollowers = StatsLog.objects.values_list('instagram_followers', flat=True).order_by('-date_created')
-        igFollowersDifference = (int(totalInstagramFollowers[0]) - int(totalInstagramFollowers[7]))
-
         return render(request, 'dashboard_instagram.html', {
-        'instagramFollowers' : instagramFollowers.value,
-        'instagramLikes' : totalInstagramLikes[0],
+        'instagramFollowers' : getConfigValue('InstagramFollowers'),
+        'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
-        'igLikesDifference': igLikesDifference,
-        'igFollowersDifference': igFollowersDifference,
+        'igLikesDifference': getDifference('instagram_likes'),
+        'igFollowersDifference': getDifference('instagram_followers'),
         })
 
-def dashboard_data(request,type):
-    if type == 'instagramLikes':
-        chart = instagramLikesChart()
-    elif type == 'instagramFollowers':
-        chart = instagramFollowersChart()
-
+def dashboard_data(request,type,seriesName='Value'):
+    chart = getChart(type,seriesName)
     return JsonResponse(chart)
