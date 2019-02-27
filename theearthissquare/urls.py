@@ -23,6 +23,10 @@ urlpatterns = [
 
     path('services/<parsed_name>/', website.service, name='service'),
 
+    path('examples/', website.examples, name='examples'),
+
+    path('examples/cafe/', website.cafe_example, name='cafe_example'),
+
     path('portfolio/', website.portfolio, name='portfolio'),
 
     path('portfolio/<parsed_client>/', website.project, name='project'),

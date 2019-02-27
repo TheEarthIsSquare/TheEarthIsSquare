@@ -163,3 +163,13 @@ def contact(request):
         'other_form': other_form,
         'emailSent': success,
     })
+
+def examples(request):
+
+    return render(request, 'examples.html', {
+    })
+
+def cafe_example(request):
+
+    return render(request, 'examples/cafe_example/index.html', {
+    })
