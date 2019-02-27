@@ -17,8 +17,8 @@ def dashboard(request):
         'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
         'facebookFollowers' : getConfigValue('FacebookFollowers'),
-        'igLikesDifference': getDifference('instagram_likes'),
-        'igFollowersDifference': getDifference('instagram_followers'),
+        'igLikesDifference': getDifference('instagram_likes', getConfigValue('InstagramLikes')),
+        'igFollowersDifference': getDifference('instagram_followers', getConfigValue('InstagramFollowers')),
         'fbFollowersDifference': getDifference('facebook_likes', getConfigValue('FacebookFollowers'))
         })
 
@@ -30,8 +30,17 @@ def dashboard_instagram(request):
         'instagramFollowers' : getConfigValue('InstagramFollowers'),
         'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
-        'igLikesDifference': getDifference('instagram_likes'),
-        'igFollowersDifference': getDifference('instagram_followers'),
+        'igLikesDifference': getDifference('instagram_likes', getConfigValue('InstagramLikes')),
+        'igFollowersDifference': getDifference('instagram_followers', getConfigValue('InstagramFollowers')),
+        })
+
+def dashboard_facebook(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+    else:
+        return render(request, 'dashboard_facebook.html', {
+        'facebookFollowers' : getConfigValue('FacebookFollowers'),
+        'fbFollowersDifference': getDifference('facebook_likes', getConfigValue('FacebookFollowers'))
         })
 
 def dashboard_data(request,type,seriesName='Value'):

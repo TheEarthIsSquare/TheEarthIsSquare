@@ -1,0 +1,63 @@
+{% extends 'dashboard_base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block title %}
+{{ block.super }} - Facebook Dashbaord
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <section id="dashboard">
+    <div class="header-row">
+      <div class="row">
+        <div class="col-12">
+          <div class="header"><h2>{{ user.first_name }}, here are your Facebook statistics</h2></div>
+        </div>
+      </div>
+    </div>
+    <div class="charts-row">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="charts-panel">
+            <div class="panel-header -facebook"><i class="fab fa-facebook"></i> Total Facebook Followers (Past 7 Days)</div>
+            <div id="ig-likes-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='facebook_likes' seriesName='Total Followers' %}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="panel -small">
+            <div class="panel-header -facebook"><i class="fab fa-facebook"></i> Facebook Followers</div>
+            <div class="row">
+              <div class="panel-content">
+                <div class="col-12">
+                  <div class="count">
+                    <h1>{{ facebookFollowers }}</h1>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="gainloss">
+                    {% if fbFollowersDifference > 0 %}
+                    <small class="positive"><i class="fas fa-caret-up"></i>
+                    {% elif fbFollowersDifference < 0 %}
+                    <small class="negative"><i class="fas fa-caret-down"></i>
+                    {% else %}
+                    <small class="neutral"><i class="fas fa-square"></i>
+                    {% endif %}
+                    {{ fbFollowersDifference }} followers since yesterday</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </section>
+</div>
+
+{% endblock content %}

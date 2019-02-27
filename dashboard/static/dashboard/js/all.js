@@ -13,6 +13,14 @@ $.ajax({
     Highcharts.chart("ig-followers-chart", data);
   }
 });
+
+$.ajax({
+  url: $("#fb-followers-chart").attr("data-url"),
+  dataType: 'json',
+  success: function (data) {
+    Highcharts.chart("fb-followers-chart", data);
+  }
+});
 /*
 window.fbAsyncInit = function() {
   FB.init({

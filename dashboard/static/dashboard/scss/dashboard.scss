@@ -45,10 +45,16 @@
         font-size: 1rem;
         font-weight: 400;
         padding: 10px 20px;
-        background-color: #253c77;
+        background-color: $dashboard-green;
         color: white;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        &.-instagram {
+          background-color: $instagram-salmon;
+        }
+        &.-facebook {
+          background-color: $facebook-blue;
+        }
       }
       .panel-chart {
         padding: 20px;
@@ -73,10 +79,16 @@
         font-size: 1rem;
         font-weight: 400;
         padding: 10px 20px;
-        background-color: #253c77;
+        background-color: $dashboard-green;
         color: white;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        &.-instagram {
+          background-color: $instagram-salmon;
+        }
+        &.-facebook {
+          background-color: $facebook-blue;
+        }
       }
       .panel-content {
         padding-bottom: 20px;

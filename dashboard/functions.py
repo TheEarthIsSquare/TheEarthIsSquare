@@ -74,6 +74,8 @@ def createStatsLog():
 def getChart(type,seriesName):
     count = StatsLog.objects.all().order_by('-date_created')[:56].count()
 
+    print(type)
+
     dataset = StatsLog.objects \
         .values(type, 'date_created') \
         .order_by('-date_created') \

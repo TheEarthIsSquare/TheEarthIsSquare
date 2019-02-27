@@ -41,14 +41,14 @@
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="charts-panel">
-            <div class="panel-header">Total Instagram Likes (Past 7 Days)</div>
-            <div id="ig-likes-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagram_likes' seriesName='Total Likes' %}"></div>
+            <div class="panel-header -instagram"><i class="fab fa-instagram"></i> Total Instagram Followers (Past 7 Days)</div>
+            <div id="ig-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagram_followers' seriesName='Total Followers' %}"></div>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="charts-panel">
-            <div class="panel-header">Total Instagram Followers (Past 7 Days)</div>
-            <div id="ig-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='instagram_followers' seriesName='Total Followers' %}"></div>
+            <div class="panel-header -facebook"><i class="fab fa-facebook"></i> Total Facebook Followers (Past 7 Days)</div>
+            <div id="fb-followers-chart" class="panel-chart" data-url="{% url 'dashboard_data' type='facebook_likes' seriesName='Total Followers' %}"></div>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <div class="panel -small">
-            <div class="panel-header">Instagram Followers</div>
+            <div class="panel-header -instagram"><i class="fab fa-instagram"></i> Instagram Followers</div>
             <div class="row">
               <div class="panel-content">
                 <div class="col-12">
@@ -83,7 +83,7 @@
          </div>
          <div class="col-12 col-md-4">
            <div class="panel -small">
-             <div class="panel-header">Total Instagram Likes</div>
+             <div class="panel-header -instagram"><i class="fab fa-instagram"></i> Total Instagram Likes</div>
              <div class="row">
                <div class="panel-content">
                  <div class="col-12">
@@ -109,7 +109,7 @@
         </div>
         <div class="col-12 col-md-4">
           <div class="panel -small">
-            <div class="panel-header">Facebook Followers</div>
+            <div class="panel-header -facebook"><i class="fab fa-facebook"></i> Facebook Followers</div>
             <div class="row">
               <div class="panel-content">
                 <div class="col-12">
