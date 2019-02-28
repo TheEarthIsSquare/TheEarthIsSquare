@@ -41,7 +41,9 @@ urlpatterns = [
 
     path('dashboard/data<type>,<seriesName>', dashboard.dashboard_data, name='dashboard_data'),
 
-    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml')),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
+
+    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='text/xml'), name='sitemap'),
 
     url(r'^s3direct/', include('s3direct.urls')),
 

@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-{{ block.super }} - {{ project.client }}
+{{ project.client }} - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-12 col-md-4 col-lg-3">
         <div class="avatar-frame">
-          <img class="img-fluid avatar" src="{{ project.avatar}}" />
+          <img class="img-fluid avatar" src="{{ project.avatar}}" alt="{{ project.client }}"/>
         </div>
       </div>
       <div class="col-12 col-md-8 col-lg-9">

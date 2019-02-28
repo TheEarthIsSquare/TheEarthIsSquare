@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-{{ block.super }} - Portfolio
+Our Portfolio - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
@@ -23,7 +23,7 @@
               </div>
             </div>
           </a>
-          <div class="img" style="background-image: url('{{ project.avatar }}');"></div>
+          <div class="img" style="background-image: url('{{ project.avatar }}');" alt="Project - {{ project.client }}"></div>
         </div>
       </div>
       {% endfor %}

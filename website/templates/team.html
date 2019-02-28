@@ -4,7 +4,7 @@
 
 
 {% block title %}
-{{ block.super }} - The Team
+Who Are We - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
@@ -16,7 +16,7 @@
           <p class="text">Like what you see?</p>
         </div>
         <div class="frame">
-          <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+          <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
         </div>
         <h4 class="name">{{ profile.name }}</h4>
         <p class="role">{{ profile.role }}</p>
@@ -29,7 +29,7 @@
               <div class="row">
                 <div class="col-12 col-md-4 order-2 order-md-1 modal-left">
                   <div class="frame">
-                    <img class="img-fluid avatar" src="{{ profile.avatar }}" />
+                    <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
                   </div>
                   <div class="social row justify-content-center">
                     {% if profile.email != None %}

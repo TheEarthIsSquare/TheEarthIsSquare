@@ -34,12 +34,12 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-8">
-            <div class="blurb">
-                The Earth is Square is a digital web agency, we help bring brands into the
+            <h1 class="blurb">
+                <b>The Earth is Square</b> is a <b>digital agency</b>, we help bring brands into the
               <span>
                 online modern era.
               </span>
-            </div>
+            </h1>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       <div id="services-container" class="services-container container">
         <div class="row">
           <div class="col-12 col-md-6">
-            <a href="{% url 'services' %}" class="header"><h1>Services</h1></a>
+            <a href="{% url 'services' %}" class="header"><h2>Services</h2></a>
             <div class="blurb">
               <p>
                 Here at The Earth is Square we enjoy new challenges and are capable of solving
@@ -68,7 +68,7 @@
               <li class="service">
                 <a class="-inner" href="/services/">
                   <i class="fa-2x {{ service.fa_icon }}" style="margin-right: 10px"></i>
-                  <span class="title">{{ service.name }}</span>
+                  <h3 class="title">{{ service.name }}</h3>
                 </a>
               </li>
             {% endfor %}
@@ -92,17 +92,13 @@
                 </div>
               </div>
             </a>
-            <!-- <div class="img" style="background-image: url('{% static 'images/avatar.jpg' %}');"></div> -->
-            <div class="img" style="background-image: url('{{ project.avatar }}');"></div>
+            <div class="img" style="background-image: url('{{ project.avatar }}');" alt="Project - {{ project.client }}"></div>
           </div>
         </div>
         {% endfor %}
         </div>
       </div>
     </section>
-    <!-- <section id="why-us">
-
-    </section> -->
   </div>
 </div>
 {% endblock content %}
