@@ -67,7 +67,7 @@ def createStatsLog():
     instagramFollowers = getConfigValue('InstagramFollowers')
     instagramLikes = getConfigValue('InstagramLikes')
 
-    newLog = StatsLog.objects.create(instagram_likes=instagramLikes,instagram_followers=instagramFollowers.value,instagram_posts=InstagramPost.objects.all().count(),facebook_likes=facebookFollowers.value)
+    newLog = StatsLog.objects.create(instagram_likes=instagramLikes,instagram_followers=instagramFollowers,instagram_posts=InstagramPost.objects.all().count(),facebook_likes=facebookFollowers)
 
     return None
 
