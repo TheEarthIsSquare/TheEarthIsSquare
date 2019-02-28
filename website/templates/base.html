@@ -122,9 +122,46 @@
 
     <div id="wrapper">
       {% block content %}{% endblock content %}
-      <div class="footer-push"></div>
+      <!-- <div class="footer-push"></div> -->
     </div>
     <footer id="footer">
+      <div class="links">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <img class="img-fluid" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" />
+            </div>
+            <div class="col-5">
+              <ul class="navigation">
+                <h5>Navigation</h5>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'team' %}">The Team</a></li>
+                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <div class="socials">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 class="header">Let's Stay In Touch</h5>
+                  </div>
+                  <div class="col-6">
+                    <a href="https://www.facebook.com/earthissquareagency">Facebook</a>
+                  </div>
+                  <div class="col-6">
+                    <a href="https://www.twitter.com/_earthissquare">Twitter</a>
+                  </div>
+                  <div class="col-6">
+                    <a href="https://www.instagram.com/_earthissquare">Instagram</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="copyright">
         &copy; The Earth is Square {% now "Y" %}
       </div>

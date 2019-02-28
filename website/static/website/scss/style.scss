@@ -32,7 +32,7 @@ b, strong {
 
 a {
   text-decoration: none;
-  color: none;
+  color: inherit;
   transition: all 0.5s ease;
   &:hover {
     text-decoration: none;
@@ -45,18 +45,38 @@ a {
   left: 0;
   right: 0;
   color: white;
-  padding: 10px 50px;
   background-color: $earth-dark-grey;
   text-align: center;
+  height: $footer-height;
+  .links {
+    height: calc(#{$footer-height} - 60px);
+    padding: 40px 0px;
+    background-color: $dashboard-blue;
+    color: white;
+    .navigation {
+      list-style-type: none;
+      padding-left: 100px;
+      text-align: left;
+    }
+    .socials {
+      list-style-type: none;
+      padding-top: 35px;
+      text-align: left;
+    }
+  }
+  .copyright {
+    height: 60px;
+    background-color: $earth-dark-grey;
+    padding: 20px;
+  }
 }
 
-#footer, .footer-push {
-  height: $footer-height;
+.footer-push {
+  height: 50px;
 }
 
 #wrapper {
-  min-height: 100%;
-  margin-bottom: -50px;
+  min-height: 100vh;
   padding-top: $nav-height;
 }
 
