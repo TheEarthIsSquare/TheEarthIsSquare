@@ -80,6 +80,11 @@ a {
 #wrapper {
   min-height: 100vh;
   padding-top: $nav-height;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  &.fade {
+    opacity: 1;
+  }
 }
 
 .landing-page {
@@ -142,17 +147,9 @@ a {
   animation: colorchange 40s ease;
   animation-iteration-count: infinite;
   margin-top: -$nav-height;
-  opacity: 0;
-  &.fade {
-    opacity: 1;
-  }
   #particles-wrapper {
-    opacity: 0;
     transition: all 0.5s ease;
     z-index: -1;
-    &.fade {
-      opacity: 1;
-    }
     #particles-js {
       display: none;
       position: absolute;
@@ -188,11 +185,6 @@ a {
     }
   }
   .content {
-    opacity: 0;
-    &.fade {
-      animation: fadeIn 2s ease;
-      animation-fill-mode: forwards;
-    }
     section {
       padding: 100px 0px;;
       &#main {
@@ -205,7 +197,8 @@ a {
           text-transform: uppercase;
           transition: all 0.5s ease;
           text-align: center;
-          animation: fadeInDown 2s ease;
+          opacity: 1;
+          animation: break 2s ease;
           animation-fill-mode: forwards;
           @media #{$bp-md}{
             text-align: left;
@@ -228,14 +221,9 @@ a {
           min-height: 200px;
           color: white;
           padding: 20px 50px;
-          opacity: 0;
           transition: all 0.5s ease;
           @media #{$bp-md}{
             padding: 20px 100px;
-          }
-          &.fade {
-            animation: fadeInDown 2s ease;
-            animation-fill-mode: forwards;
           }
           .header {
             text-align: center;
@@ -320,7 +308,7 @@ a {
   margin-bottom: 15%;
   .profile {
     margin-top: 15%;
-    animation: fadeInDown 2s ease;
+    animation: break 2s ease;
     animation-fill-mode: forwards;
     &:hover {
       .frame{

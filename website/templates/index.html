@@ -11,16 +11,9 @@
   <script src="{% static '/website/js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
       setTimeout(function(){
-        $('.content').toggleClass('fade');
-        $(".services-container").addClass("fade");
-        $(".portfolio-container").addClass("fade");
-      }, {{timeout}});
-
-      setTimeout(function(){
+        $('#wrapper').toggleClass('fade');
         particlesJS.load('particles-js', "{% static 'website/js/custom/particles/particles.json' %}");
-        $('#particles-wrapper').toggleClass('fade');
-        $('.homepage').toggleClass('fade');
-      }, ({{timeout}} + 500));
+      }, {{timeout}});
     </script>
 {% endblock header %}
 
