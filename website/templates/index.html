@@ -11,7 +11,7 @@
   <script src="{% static '/website/js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
       setTimeout(function(){
-        $('#wrapper').toggleClass('fade');
+        $('.homepage').toggleClass('fade');
         particlesJS.load('particles-js', "{% static 'website/js/custom/particles/particles.json' %}");
       }, {{timeout}});
     </script>
