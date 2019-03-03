@@ -31,12 +31,18 @@
   </head>
 
   <body>
-    {% if developer_mode == True %}
-    <div class="dev-notice">Developer Mode</div>
+    {% if user.is_authenticated %}
+    <div class="dev-mode">
+      {% if user.profile.dev_mode == True %}
+      Developer Mode
+      {% else %}
+      <button class="btn btn-primary"><i class="fas fa-code"></i></button>
+      {% endif %}
+    </div>
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and developer_mode == False %}
+    {% if request.get_full_path == '/' and user.profile.dev_mode == False %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
         <div class="loading-content" style="background-image: url('{% static 'website/images/Loading-Screen-Back.png' %}'">

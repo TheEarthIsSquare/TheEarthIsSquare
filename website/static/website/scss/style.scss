@@ -40,6 +40,16 @@ a {
   }
 }
 
+.dev-mode {
+  padding: 10px;
+  font-weight: bold;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  text-transform: uppercase;
+  z-index: 2000
+}
+
 #footer {
   bottom: 0;
   left: 0;

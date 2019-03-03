@@ -14,7 +14,6 @@ import requests, json, logging
 # Create your views here.
 def home(request, reason=""):
     loading_screen = settings.USE_LOADING_SCREEN
-    developer_mode = settings.DEVELOPER_MODE
 
     if loading_screen == False:
         timeout = 0
@@ -35,6 +34,8 @@ def home(request, reason=""):
     #    else:
     #        return render(request, 'index.html')
 
+    developer_mode = request.user.profile.dev_mode
+    
     template = 'index.html'
     if developer_mode == True:
         template = 'dev/index.html'

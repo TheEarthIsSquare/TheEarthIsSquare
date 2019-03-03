@@ -7,6 +7,9 @@ from django.utils import timezone
 
 class Profile(models.Model):
     avatar = S3DirectField(dest='profiles', null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+        blank=True, null=True)
+    dev_mode = models.BooleanField(default=False)
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, blank=True)
