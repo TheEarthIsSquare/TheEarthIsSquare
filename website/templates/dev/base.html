@@ -41,7 +41,7 @@
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and user.profile.dev_mode == False %}
+    {% if request.get_full_path == '/' and loading_screen == True %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
         <div class="loading-content" style="background-image: url('{% static 'website/images/Loading-Screen-Back.png' %}'">

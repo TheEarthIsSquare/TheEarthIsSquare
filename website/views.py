@@ -58,6 +58,7 @@ def home(request, reason=""):
     'profiles' : profiles,
     'timeout' : timeout,
     'developer_mode' : developer_mode,
+    'loading_screen' : loading_screen,
     })
 
 def services(request):
