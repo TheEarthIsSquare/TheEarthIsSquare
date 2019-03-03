@@ -43,9 +43,11 @@ a {
   position: fixed;
   top: 5px;
   left: 5px;
-  border: $square-light-blue solid 4px;
   text-transform: uppercase;
-  z-index: 2000
+  z-index: 2000;
+  button {
+    color: white;
+  }
 }
 
 #wrapper {

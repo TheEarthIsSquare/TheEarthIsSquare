@@ -49,6 +49,7 @@ class Project(models.Model):
     tesimonial = HTMLField(null=True, blank=True)
     client_website = models.CharField(max_length=255, null=True, blank=True)
     avatar = S3DirectField(dest='projects', null=True, blank=True)
+    large_avatar = S3DirectField(dest='projects', null=True, blank=True)
     banner = S3DirectField(dest='projects', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     date_modified = models.DateTimeField(auto_now=True)

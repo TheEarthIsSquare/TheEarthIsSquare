@@ -33,11 +33,10 @@
   <body>
     {% if user.is_authenticated %}
     <div class="dev-mode">
-      {% if user.profile.dev_mode == True %}
-      Developer Mode
-      {% else %}
-      <button class="btn btn-primary" name="action" value="Dev_Mode" type="submit">Developer Mode</button>
-      {% endif %}
+      <form role="form" action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-primary" name="action" value="Dev_On" type="submit">Turn On Developer Mode</button>
+      </form>
     </div>
     {% endif %}
 

@@ -34,11 +34,13 @@ def home(request, reason=""):
     #    else:
     #        return render(request, 'index.html')
 
-    #if request.method == 'POST':
-    #    if request.POST['action'] == 'Dev_Off':
-    #        ddd
-    #    elif request.POST['action'] == 'Dev_On':
-    #        ddd
+    if request.method == 'POST':
+        if request.POST['action'] == 'Dev_Off':
+            request.user.profile.dev_mode = False
+            request.user.profile.save()
+        elif request.POST['action'] == 'Dev_On':
+           request.user.profile.dev_mode = True
+           request.user.profile.save()
 
     if request.user.is_authenticated:
         developer_mode = request.user.profile.dev_mode
