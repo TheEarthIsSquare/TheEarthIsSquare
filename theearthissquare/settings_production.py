@@ -9,6 +9,8 @@ ALLOWED_HOSTS = ['*']
 
 DEBUG = False
 
+DEVELOPER_MODE = False
+
 SECURE_SSL_REDIRECT = True
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']

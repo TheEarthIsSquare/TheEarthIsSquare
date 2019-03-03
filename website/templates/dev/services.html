@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}
+Our Services - {{ block.super }}
+{% endblock title %}
+
+{% block header %}
+<script>
+$(document).ready(function() {
+  {% for service in services %}
+    $('#{{ service.parsed_name }}-button').click(function() {
+      $('.service').toggleClass('hide');
+      {% for sub_service in sub_services %}
+        {% if sub_service.parent_service == service %}
+            $('.{{ sub_service.parsed_name }}.sub-service').toggleClass('show');
+        {% endif %}
+      {% endfor %}
+      $('.{{ service.parsed_name }}.go-back').toggleClass('show');
+    });
+
+    $('.{{service.parsed_name}}.go-back').click(function() {
+      $('.service').toggleClass('hide');
+        {% for sub_service in sub_services %}
+          {% if sub_service.parent_service == service %}
+              $('.{{ sub_service.parsed_name }}.sub-service').toggleClass('show');
+          {% endif %}
+        {% endfor %}
+      $('.{{ service.parsed_name }}.go-back').toggleClass('show');
+    });
+    {% for sub_service in sub_services %}
+      {% if sub_service.parent_service == service %}
+        $('#{{ sub_service.parsed_name }}-opener').click(function() {
+          $('#serviceModal-{{ sub_service.parsed_name }}').modal('show')
+        });
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+});
+</script>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+  <section id="services-page">
+    <!-- <h1 class="title">Services</h1> -->
+    <div class="row services-list">
+      {% for service in services %}
+      <div class="{{service.parsed_name}} go-back">
+        <i class="fas fa-2x fa-angle-up"></i>
+      </div>
+      <div class="col-12 col-md-3 {{ service.parsed_name }} service">
+        <div class="service-panel">
+          <a id="{{service.parsed_name}}-button" href="#">
+            <i class="fa-2x {{ service.fa_icon }} icon"></i><br>
+            {{ service.name }}<br>
+            <i class="fas fa-angle-down"></i>
+          </a>
+        </div>
+      </div>
+      <div class="sub-services-list container row justify-content-center">
+        {% for sub_service in sub_services %}
+          {% if sub_service.parent_service == service %}
+          <div class="col-12 col-md-3 {{ sub_service.parsed_name }} sub-service">
+            <div class="sub-service-panel">
+              <a href="#" id="{{ sub_service.parsed_name }}-opener">
+                <i class="fa-2x {{ sub_service.fa_icon }} icon"></i><br>
+                {{ sub_service.name }}<br>
+              </a>
+            </div>
+          </div>
+
+          <div class="modal fade" id="serviceModal-{{ sub_service.parsed_name }}" tabindex="-1" role="dialog" aria-labelledby="serviceModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-body container">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2>{{ sub_service.name }}</h2>
+                      <p>{{ sub_service.description|safe }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-primary" href="{% url 'contact' %}">Contact Us</a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+          </div>
+          <!-- End Modal -->
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock content %}

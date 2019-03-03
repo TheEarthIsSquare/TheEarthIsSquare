@@ -1,0 +1,104 @@
+#portfolio {
+  padding: 50px 0px;
+  background-color: white;
+  .portfolio-container {
+    animation: fadeInDown 1s ease-out;
+    animation-fill-mode: forwards;
+    .header {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: $earth-dark-grey;
+      @media #{$bp-md}{
+        font-size: 4.5rem;
+      }
+    }
+    .projects-list {
+      list-style-type: none;
+      padding: 0px;
+      .project {
+        overflow: hidden;
+        height: 200px;
+        width: 200px;
+        margin: auto;
+        margin-bottom: 30px;
+        @media #{$bp-md}{
+          height: 300px;
+          width: 300px;
+        }
+        &:hover {
+          .img {
+            transform: scale(1.3,1.3);
+          }
+          .overlay {
+            opacity: 1;
+          }
+        }
+        .img {
+          width: 200px;
+          height: 200px;
+          transition: all 0.5s ease;
+          margin: auto;
+          background-position: 60% 60%;
+          background-size: cover;
+          @media #{$bp-md}{
+            height: 300px;
+            width: 300px;
+          }
+        }
+        a {
+          color: white;
+          .overlay {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: all 0.5s ease;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: table;
+            z-index: 1000;
+            @media #{$bp-md}{
+              height: 300px;
+              width: 300px;
+            }
+            ._content {
+              display: table-cell;
+              vertical-align: middle;
+              color: #fff;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#project {
+  margin-bottom: 100px;
+  .project-banner {
+    min-width: 100%;
+    height: 400px;
+    overflow: hidden;
+    animation: fadeInDown 1s ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    img {
+      width: 100%;
+    }
+  }
+  .project-content {
+    animation: fadeInUp 1s ease;
+    .back-button {
+      margin: 10px 0px;
+    }
+    .avatar-frame {
+      overflow: hidden;
+      border-radius: 5px;
+    }
+  }
+}

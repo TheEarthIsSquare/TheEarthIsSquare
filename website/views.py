@@ -14,6 +14,7 @@ import requests, json, logging
 # Create your views here.
 def home(request, reason=""):
     loading_screen = settings.USE_LOADING_SCREEN
+    developer_mode = settings.DEVELOPER_MODE
 
     if loading_screen == False:
         timeout = 0
@@ -21,7 +22,7 @@ def home(request, reason=""):
         timeout = 5500
 
     services = Service.objects.filter(parent=True)
-    projects = Project.objects.all().order_by('-ongoing', '-date_completed')
+    projects = Project.objects.all().order_by('-ongoing', '-date_completed')[:4]
     profiles = Profile.objects.all().order_by('name')
 
     # If user accesses homepage and IS NOT logged in.
@@ -34,12 +35,17 @@ def home(request, reason=""):
     #    else:
     #        return render(request, 'index.html')
 
+    template = 'index.html'
+    if developer_mode == True:
+        template = 'dev/index.html'
+
     connection.close()
-    return render(request, 'index.html', {
+    return render(request, template, {
     'services' : services,
     'projects' : projects,
     'profiles' : profiles,
     'timeout' : timeout,
+    'developer_mode' : developer_mode,
     })
 
 def services(request):

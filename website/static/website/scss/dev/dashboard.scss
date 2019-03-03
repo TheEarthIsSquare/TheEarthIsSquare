@@ -1,0 +1,38 @@
+#dashboard {
+  .header {
+    color: $earth-dark-grey;
+    &:hover {
+      color: $earth-dark-grey;
+    }
+    h1 {
+      font-weight: 700;
+    }
+  }
+  .panel {
+    background-color: $earth-grey;
+    color: white;
+    padding: 20px;
+    border-radius: 2px;
+    .panel-header {
+      text-align: left;
+      font-size: 0.8rem;
+    }
+    .count {
+      h1 {
+        font-size: 3.5rem;
+        padding-left: 20px;
+        border-left: 2px $earth-red solid;
+        margin-top: 10px;
+      }
+    }
+    &.-small {
+      height: 150px;
+    }
+  }
+  .instagram-post {
+    margin: 10px 0px;
+    .card-body {
+      height: 200px;
+    }
+  }
+}

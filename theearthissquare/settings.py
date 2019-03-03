@@ -4,6 +4,8 @@ from celery.schedules import crontab
 
 USE_LOADING_SCREEN = os.environ.get('USE_LOADING_SCREEN', False)
 
+DEVELOPER_MODE = True
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '8@jl6lay-4-xzjdic2#mw%e2c@%*o1nfh&k@95p2=&x%5n&n@g'

@@ -18,6 +18,14 @@ gulp.task('Website SCSS', function() {
     .pipe(gulp.dest('website/static/website/css'));
 });
 
+gulp.task('Website Dev SCSS', function() {
+  return gulp.src('website/static/website/scss/dev/style.scss')
+    .pipe(sass())
+    .pipe(cleanCSS())
+    .pipe(rename('dev_style.css'))
+    .pipe(gulp.dest('website/static/website/css'));
+});
+
 gulp.task('Dashboard SCSS', function() {
   return gulp.src('dashboard/static/dashboard/scss/style.scss')
     .pipe(sass())
@@ -53,4 +61,4 @@ gulp.task('Website CSS', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series('Website SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));
+gulp.task('default', gulp.series('Website SCSS', 'Website Dev SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));

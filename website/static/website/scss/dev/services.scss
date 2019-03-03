@@ -1,0 +1,95 @@
+#services-page {
+  .title {
+    text-align: center;
+  }
+  .go-back {
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    margin: -50px 0px 0px -24px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    &.show {
+      animation: fadeInDown 2s ease;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      pointer-events: visible;
+    }
+  }
+  .services-list {
+    margin-top: 20%;
+    .service {
+      opacity: 0;
+      transition: all 0.5s ease;
+      animation: fadeInDown 2s ease;
+      animation-fill-mode: forwards;
+      &.hide {
+        animation: fadeOutUp 2s ease;
+        pointer-events: none;
+      }
+      .service-panel {
+        height: 250px;
+        width: 250px;
+        margin: 10px auto;
+        background-color: transparent;
+        text-align: center;
+        display: table;
+        a {
+          color: $earth-dark-grey;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          vertical-align: middle;
+          display: table-cell;
+          font-size: 1.5rem;
+          font-weight: 500;
+          transition: all 0.5s ease;
+          &:hover {
+            animation: 1.2s bounce ease;
+            animation-iteration-count: infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sub-services-list {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  .sub-service {
+    opacity: 0;
+    transition: all 0.5s ease;
+    &.show {
+      animation: fadeInDown 2s ease;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      pointer-events: visible;
+    }
+    .sub-service-panel {
+      height: 250px;
+      width: 250px;
+      margin: 10px auto;
+      background-color: transparent;
+      text-align: center;
+      display: table;
+      a {
+        color: $earth-dark-grey;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: all 0.5s ease;
+        &:hover {
+          animation: 1.2s bounce ease;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+}
