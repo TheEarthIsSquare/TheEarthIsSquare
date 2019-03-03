@@ -34,8 +34,17 @@ def home(request, reason=""):
     #    else:
     #        return render(request, 'index.html')
 
-    developer_mode = request.user.profile.dev_mode
-    
+    #if request.method == 'POST':
+    #    if request.POST['action'] == 'Dev_Off':
+    #        ddd
+    #    elif request.POST['action'] == 'Dev_On':
+    #        ddd
+
+    if request.user.is_authenticated:
+        developer_mode = request.user.profile.dev_mode
+    else:
+        developer_mode = False
+
     template = 'index.html'
     if developer_mode == True:
         template = 'dev/index.html'
