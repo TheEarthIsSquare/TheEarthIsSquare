@@ -1,0 +1,95 @@
+#team-page {
+  .profiles-container {
+    margin-bottom: 15%;
+    .profile {
+      margin-top: 15%;
+      animation: break 2s ease;
+      animation-fill-mode: forwards;
+      &:hover {
+        .frame{
+          &.-hover {
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            z-index: 1001;
+            background-color: $earth-dark-grey;
+          }
+        }
+      }
+      .frame-overlay {
+        height: 100%;
+        width: 100%;
+        background-color: $earth-dark-grey;
+        opacity: 0;
+        transition: all 0.5s ease;
+        position: absolute;
+        display: inline-block;
+        margin-left: -15px;
+        display: table;
+        .text {
+          text-transform: uppercase;
+          color: white;
+          text-align: center;
+          vertical-align: middle;
+          display: table-cell;
+          font-size: 1.5rem;
+          font-weight: 900;
+        }
+        &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+      }
+      .frame {
+        height: 250px;
+        width: 250px;
+        border-radius: 200px;
+        overflow: hidden;
+        margin: auto;
+        margin-top: 20px;
+        .avatar {
+          height: auto;
+          width: 250px;
+        }
+      }
+      .name {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 0px;
+      }
+      .role {
+        text-align: center;
+      }
+    }
+  }
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        .modal-body {
+          text-align: center;
+          @media #{$bp-md}{
+            content: "";
+            text-align: left;
+          }
+          .role {
+            font-weight: 300;
+            font-size: 1.2rem;
+          }
+        }
+        .social {
+          margin-top: 10px;
+          a {
+            color: $earth-dark-grey;
+          }
+          .email {
+            margin-bottom: 10px;
+            text-align: center;
+          }
+        }
+        .modal-footer {
+          border: none;
+        }
+      }
+    }
+  }
+}

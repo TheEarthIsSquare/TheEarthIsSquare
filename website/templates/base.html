@@ -35,7 +35,7 @@
     <div class="dev-mode">
       <form role="form" action="" method="post">
         {% csrf_token %}
-        <button class="btn btn-primary" name="action" value="Dev_On" type="submit">Developer Mode</button>
+        <button class="btn btn-outline-secondary" name="action" value="Dev_Off" type="submit">Developer Mode</button>
       </form>
     </div>
     {% endif %}
@@ -44,25 +44,25 @@
     {% if request.get_full_path == '/' and timeout != 0 %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
-        <div id="loader-teis">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <div class="left">
-                THE EARTH IS
+        <div class="loading-content" style="background-image: url('{% static 'website/images/Loading-Screen-Back.png' %}'">
+          <div id="loader-teis">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="left">
+                  THE EARTH IS
+                </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="right">
-                <div class="-square">SQUARE</div>
-                <div class="-unique">UNIQUE</div>
-                <div class="-different">DIFFERENT</div>
-                <div class="-creative">CREATIVE</div>
+              <div class="col-12 col-md-6">
+                <div class="right">
+                  <div class="-square">SQUARE</div>
+                  <div class="-unique">UNIQUE</div>
+                  <div class="-different">DIFFERENT</div>
+                  <div class="-creative">CREATIVE</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
       </div>
     {% endif %}
 
@@ -75,6 +75,7 @@
         <a href="{% url 'home' %}">
           <img class="white-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square">
         </a>
+        <a class="btn btn-outline-secondary contact" href="{% url 'contact' %}">Contact</a>
         <div id="opener" class="opener">
           <p class="label">MENU</p>
           <p class="label -close">CLOSE</p>
@@ -128,10 +129,10 @@
       </div>
     </nav>
 
-    <div id="wrapper">
+    <div id="wrapper" style="background-image: url({% static 'website/images/background.png' %});">
       {% block content %}{% endblock content %}
-      <!-- <div class="footer-push"></div> -->
     </div>
+
     <footer id="footer">
       <div class="links">
         <div class="container">
@@ -174,59 +175,6 @@
         &copy; The Earth is Square {% now "Y" %}
       </div>
     </footer>
-
-    {% if 1 == 2 %}
-
-    <div id="landing-page" class="container">
-      <div class="row">
-        <div class="col-xl-12 landing-page">
-          <a data-toggle="modal" data-target="#loginModal">
-            <img id="logo" class="logo" src="/static/website/images/logo.png" alt="The Earth is Square">
-          </a>
-          <p class="email"><b>Contact Us:</b> hello@theearthissquare.com</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content login-modal">
-          <div class="modal-header header">
-            <h3 class="modal-title title">Login</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="form">
-            <form role="form" action="" method="post">
-              {% csrf_token %}
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text icon" id="login-addon">
-                      <span class="fas fa-user"></span>
-                    </span>
-                  </div>
-                  <input type="text" name="username" class="form-control field" placeholder="Username" maxlength="30" aria-label="Username" aria-describedby="login-addon"/>
-              </div>
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text icon" id="login-addon">
-                      <span class="fas fa-key"></span>
-                    </span>
-                  </div>
-                  <input type="password" name="password" class="form-control field" placeholder="Password" maxlength="30" aria-label="Password" aria-describedby="login-addon"/>
-              </div>
-              <div class="modal-footer footer">
-                <input class="submit btn btn-block" type="submit">
-                <button type="button" class="closeButton btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {% endif %}
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

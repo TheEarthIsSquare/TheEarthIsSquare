@@ -70,44 +70,6 @@
   }
 }
 
-#loader-wrapper {
-  &.loaded {
-    visibility: hidden;
-
-    -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: translateY(-100%);  /* IE 9 */
-            transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
-
-    -webkit-transition: all 0.3s 1s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-            transition: all 0.3s 1s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-    #loader-teis {
-        opacity: 0;
-
-        -webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-
-    }
-    .loader-section {
-      &.section-left {
-          -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(-100%);  /* IE 9 */
-                  transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
-
-                  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-      }
-      &.section-right {
-          -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-              -ms-transform: translateX(100%);  /* IE 9 */
-                  transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
-
-          -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-                  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
-      }
-    }
-  }
-}
-
 @keyframes menu-fade {
   0% {
     -webkit-transform: translateY(-50px);

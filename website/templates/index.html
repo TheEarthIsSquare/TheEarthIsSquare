@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'dev/base.html' %}
 {% load humanize %}
 {% load static %}
 
@@ -7,88 +7,179 @@
 {% endblock title %}
 
 {% block header %}
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
-  <script src="{% static '/website/js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
     <script>
       setTimeout(function(){
         $('.homepage').toggleClass('fade');
-        particlesJS.load('particles-js', "{% static 'website/js/custom/particles/particles.json' %}");
       }, {{timeout}});
     </script>
 {% endblock header %}
 
 {% block content %}
 <div class="homepage">
-  <div id="particles-wrapper">
-    <div id="particles-js" class="particles show"></div>
-  </div>
   <div class="content">
     <section id="main">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-10">
             <h1 class="blurb">
-                <b>The Earth is Square</b> is a <b>digital agency</b>, we help bring brands into the
+                The Earth is Square is a digital agency, we're making the internet
               <span>
-                online modern era.
+                interesting.
               </span>
             </h1>
           </div>
         </div>
       </div>
     </section>
-    <section id="services">
-      <div id="services-container" class="services-container container">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <a href="{% url 'services' %}" class="header"><h2>Services</h2></a>
-            <div class="blurb">
-              <p>
-                Here at The Earth is Square we enjoy new challenges and are capable of solving
-                many problems in the digital space. We've split up our expertise into categories
-                that make it easy for you to get an idea of what areas you may want to target as
-                our client.
-                <br><br>
-                Make no mistake, though, while we're flexible and multi-faceted
-                we're experts in our specialized fields, website design / development and social
-                media marketing. Check out our portfolio below, let us prove it to you 😉.
-              </p>
+    <section id="superpowers">
+      <div class="superpowers-wrapper">
+        <div class="content-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="blurb">
+                  <h1 class="header">Our <span>Superpowers.</span></h1>
+                  <p class="text">With years of training and fighting crime, we've helped bring the standards of digital
+                    design, marketing, and web development to a new level. We intend to keep pushing that
+                    standard, changing the digital space 1 brand a time.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="superpower-panel" style="background-image: url('{% static 'website/images/superpower1.png' %}')">
+                  <div class="row">
+                    <div class="col-12 col-md-10">
+                      <div class="content">
+                        <h3 class="header">Web Development</h3>
+                        <p class="text">We can help bring your web presence to life with our web design and development services.</p>
+                        <a class="learn-more" href="#">Learn More --></a>
+                      </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-2">
+                      <i class="fas fa-3x fa-code"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="superpower-panel" style="background-image: url('{% static 'website/images/superpower2.png' %}')">
+                  <div class="row">
+                    <div class="col-12 col-md-10">
+                      <div class="content">
+                        <h3 class="header">Digital Marketing</h3>
+                        <p class="text">Let us help boost your social media knowledge and influence with our digital marketing expertise and strategies.</p>
+                        <a class="learn-more" href="#">Learn More --></a>
+                      </div>
+                    </div>
+                    <div class="d-none d-md-block col-2">
+                      <i class="fas fa-3x fa-thumbs-up"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <ul class="services-list">
-            {% for service in services %}
-              <li class="service">
-                <a class="-inner" href="/services/">
-                  <i class="fa-2x {{ service.fa_icon }}" style="margin-right: 10px"></i>
-                  <h3 class="title">{{ service.name }}</h3>
-                </a>
-              </li>
-            {% endfor %}
-            </ul>
           </div>
         </div>
       </div>
     </section>
-    <section id="portfolio">
-      <div class="portfolio-container container">
-        <a href="{% url 'portfolio' %}" class="header"><h1>Portfolio</h1></a>
-        <div class="projects-list row justify-content-center">
-        {% for project in projects %}
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="project">
-            <a href="/portfolio/{{ project.parsed_client }}">
-              <div class="overlay">
-                <div class="_content">
-                  {{ project.type }}
-                  <h3>{{ project.client }}</h3>
+    <section id="origin">
+      <div class="origin-wrapper">
+        <div class="content-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-8 order-1 order-md-2">
+                <div class="blurb">
+                  <h1 class="header">Our <span>Origin</span> Story.</h1>
+                  <p class="text">Both founders, Mitchell & Yani, started their online careers building their own brands on YouTube.
+                  Together, they amassed over <span>300,000 followers</span> on the platform with over <span>50 million views.</span>
+                  <br><br>
+                  Mitchell now works as a software developer in Melbourne, while Yani continues to grow her YouTube and social following.
+                  <br>
+                  Together, they are unstoppable.
+                  </p>
+                  <div class="button">
+                    <a class="btn btn-primary" href="{% url 'team' %}">Find Out More</a>
+                  </div>
                 </div>
               </div>
-            </a>
-            <div class="img" style="background-image: url('{{ project.avatar }}');" alt="Project - {{ project.client }}"></div>
+              <div class="col-12 col-md-4 order-2 order-md-1">
+                <div class="row">
+                  {% for profile in profiles %}
+                  <div class="col-6 col-md-12 profile">
+                    <div class="frame">
+                      <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        {% endfor %}
+      </div>
+    </section>
+    <section id="home-portfolio">
+      <div class="portfolio-wrapper">
+        <div class="content-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="blurb">
+                  <h1 class="header">We Like To <span>Show Off.</span></h1>
+                  <p class="text">We work hard, and we want to show that off. Here are some of our most recent projects for you to get
+                    jealous of. And, who knows, maybe your brand will be the next project who gets to sit here.
+                  </p>
+                </div>
+                <div class="portfolio">
+                  <div class="row">
+                    <div class="col-12 col-md-8 wrapper">
+                      <div class="project -big">
+                        <img class="img-fluid" src="{{ projects.0.large_avatar }}" alt="{{ projects.0.client }}" style="border-top-left-radius: 5px;"/>
+                        <div class="overlay" style="border-top-left-radius: 5px;">
+                          <h1 class="header"><span>{{projects.0.client}}</span></h1>
+                          <h2 class="type">{{projects.0.type}}</h2>
+                          <a href="/portfolio/{{ projects.0.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                        </div>
+                        <a href="/portfolio/{{ projects.0.parsed_client }}" class="link"></a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 wrapper">
+                      <div class="project -small">
+                        <img class="img-fluid" src="{{ projects.1.avatar }}" alt="{{ projects.1.client }}" style="border-top-right-radius: 5px;"/>
+                        <div class="overlay" style="border-top-right-radius: 5px;">
+                          <h1 class="header"><span>{{projects.1.client}}</span></h1>
+                          <h2 class="type">{{projects.1.type}}</h2>
+                          <a href="/portfolio/{{ projects.1.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                        </div>
+                        <a href="/portfolio/{{ projects.1.parsed_client }}" class="link"></a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 wrapper">
+                      <div class="project -small">
+                        <img class="img-fluid" src="{{ projects.2.avatar }}" alt="{{ projects.2.client }}" style="border-bottom-left-radius: 5px;"/>
+                        <div class="overlay" style="border-bottom-left-radius: 5px;">
+                          <h1 class="header"><span>{{projects.2.client}}</span></h1>
+                          <h2 class="type">{{projects.2.type}}</h2>
+                          <a href="/portfolio/{{ projects.2.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                        </div>
+                        <a href="/portfolio/{{ projects.2.parsed_client }}" class="link"></a>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-8 wrapper">
+                      <div class="project -big">
+                        <img class="img-fluid" src="{{ projects.3.large_avatar }}" alt="{{ projects.3.client }}"style="border-bottom-right-radius: 5px;"/>
+                        <div class="overlay" style="border-bottom-right-radius: 5px;">
+                          <h1 class="header"><span>{{projects.3.client}}</span></h1>
+                          <h2 class="type">{{projects.3.type}}</h2>
+                          <a href="/portfolio/{{ projects.3.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                        </div>
+                        <a href="/portfolio/{{ projects.3.parsed_client }}" class="link"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

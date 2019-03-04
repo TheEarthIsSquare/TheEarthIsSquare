@@ -6,15 +6,23 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
+  background-color: white;
+  &.loaded {
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transition: all 1s ease-in;
+            transition: all 1s ease-in;
+  }
   .loading-bar {
     position: absolute;
     top: 0%;
     left: 0%;
     height: 5px;
-    background-color: $earth-green;
+    background-color: $square-dark-blue;
     animation: loading-bar 5.5s ease;
     animation-fill-mode: forwards;
-    border: 2px solid $earth-green;
+    border: 2px solid $square-dark-blue;
     z-index: 1001
   }
   .loader-section {
@@ -22,7 +30,7 @@
     top: 0;
     width: 51%;
     height: 100%;
-    background: $earth-grey;
+    background: white;
     z-index: 1000;
   }
   .loader-section.section-left {
@@ -31,63 +39,73 @@
   .loader-section.section-right {
     right: 0;
   }
-  #loader-teis {
-    display: block;
-    position: relative;
-    text-align: center;
-    top: 50%;
+  .loading-content {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1001;
-    color: #fff;
-    font-weight: 900;
-    font-size: 3.5rem;
-    margin-top: -36px;
-    @media #{$bp-md} {
-      margin-left: 40px;
-    }
-    .left {
-      opacity: 0;
-      animation: fade-main 1s ease;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-      @media #{$bp-md} {
-        text-align: right;
-      }
-    }
-    .right {
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+    animation: fadeIn 2s ease-out;
+    #loader-teis {
+      display: block;
       position: relative;
+      text-align: center;
+      top: 50%;
+      width: 100%;
+      z-index: 1001;
+      color: $square-light-blue;
+      font-weight: 900;
+      font-size: 3.5rem;
+      margin-top: -36px;
       @media #{$bp-md} {
-        text-align: left;
+        margin-left: 40px;
       }
-      .-square {
-        animation: fade-main 2s ease;
-        animation-delay: 3.5s;
-        animation-fill-mode: forwards;
-        color: $earth-green;
+      .left {
         opacity: 0;
-        position: absolute;
-        width: 100%;
-      }
-      .-unique {
-        animation: fade 1s ease;
+        animation: fade-main 1s ease;
         animation-delay: 0.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
+        animation-fill-mode: forwards;
+        @media #{$bp-md} {
+          text-align: right;
+        }
       }
-      .-different {
-        animation: fade 1s ease;
-        animation-delay: 1.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
-      }
-      .-creative {
-        animation: fade 1s ease;
-        animation-delay: 2.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
+      .right {
+        position: relative;
+        @media #{$bp-md} {
+          text-align: left;
+        }
+        .-square {
+          animation: fade-main 2s ease;
+          animation-delay: 3.5s;
+          animation-fill-mode: forwards;
+          color: $square-pink;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-unique {
+          animation: fade 1s ease;
+          animation-delay: 0.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-different {
+          animation: fade 1s ease;
+          animation-delay: 1.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-creative {
+          animation: fade 1s ease;
+          animation-delay: 2.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
       }
     }
   }

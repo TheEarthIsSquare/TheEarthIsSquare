@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block title %}
+{{ block.super }}
+{% endblock title %}
+
+{% block header %}
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
+  <script src="{% static '/website/js/custom/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script>
+      setTimeout(function(){
+        $('.homepage').toggleClass('fade');
+        particlesJS.load('particles-js', "{% static 'website/js/custom/particles/particles.json' %}");
+      }, {{timeout}});
+    </script>
+{% endblock header %}
+
+{% block content %}
+<div class="homepage">
+  <div id="particles-wrapper">
+    <div id="particles-js" class="particles show"></div>
+  </div>
+  <div class="content">
+    <section id="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-10">
+            <h1 class="blurb">
+                <b>The Earth is Square</b> is a <b>digital agency</b>, we help bring brands into the
+              <span>
+                online modern era.
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services">
+      <div id="services-container" class="services-container container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <a href="{% url 'services' %}" class="header"><h2>Services</h2></a>
+            <div class="blurb">
+              <p>
+                Here at The Earth is Square we enjoy new challenges and are capable of solving
+                many problems in the digital space. We've split up our expertise into categories
+                that make it easy for you to get an idea of what areas you may want to target as
+                our client.
+                <br><br>
+                Make no mistake, though, while we're flexible and multi-faceted
+                we're experts in our specialized fields, website design / development and social
+                media marketing. Check out our portfolio below, let us prove it to you 😉.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <ul class="services-list">
+            {% for service in services %}
+              <li class="service">
+                <a class="-inner" href="/services/">
+                  <i class="fa-2x {{ service.fa_icon }}" style="margin-right: 10px"></i>
+                  <h3 class="title">{{ service.name }}</h3>
+                </a>
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="portfolio-container container">
+        <a href="{% url 'portfolio' %}" class="header"><h1>Portfolio</h1></a>
+        <div class="projects-list row justify-content-center">
+        {% for project in projects %}
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="project">
+            <a href="/portfolio/{{ project.parsed_client }}">
+              <div class="overlay">
+                <div class="_content">
+                  {{ project.type }}
+                  <h3>{{ project.client }}</h3>
+                </div>
+              </div>
+            </a>
+            <div class="img" style="background-image: url('{{ project.avatar }}');" alt="Project - {{ project.client }}"></div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock content %}
