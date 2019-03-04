@@ -69,7 +69,7 @@
       height: 45px;
       text-align: center;
       &.open {
-        background-color: $earth-green;
+        background-color: $square-pink;
         .label {
           display: none;
           &.-close {
@@ -84,7 +84,8 @@
         position: absolute;
         right: 60px;
         margin-top: -3px;
-        background-color: white;
+        font-weight: 600;
+        border-width: 3px;
         @media #{$bp-sm}{
           right: 140px;
         }
@@ -108,7 +109,7 @@
       height: 100%;
       width: 100%;
       position: fixed;
-      background-color: $earth-dark-grey;
+      background-color: $square-light-blue;
       display: none;
       z-index: 1000;
       top: 0;
@@ -142,7 +143,7 @@
         transition: color 0.5s ease;
         padding: 10px 0px;
         &:hover {
-          color: $earth-green;
+          color: $square-pink;
         }
       }
     }
