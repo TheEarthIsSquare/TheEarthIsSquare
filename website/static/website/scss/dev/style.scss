@@ -152,6 +152,8 @@ a {
                 color: $earth-dark-grey;
                 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
                 margin-bottom: 15px;
+                background-size: cover;
+                background-position: right; 
                 .content {
                   padding: 20px 70px 20px 10px;
                   .header {
@@ -336,6 +338,7 @@ a {
                 box-shadow: #fe5186 -12px -12px 0 0;
                 border-radius: 5px;
                 position: relative;
+                margin-top: 20px;
                 &::before {
                   content: "";
                   position: absolute;
@@ -393,6 +396,11 @@ a {
                         span {
                           background-color: $square-pink;
                         }
+                      }
+                      .look {
+                        color: white;
+                        position: absolute;
+                        bottom: 50px;
                       }
                       .type {
                         color: white;

@@ -45,7 +45,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-6">
-                <div class="superpower-panel">
+                <div class="superpower-panel" style="background-image: url('{% static 'website/images/superpower1.png' %}')">
                   <div class="row">
                     <div class="col-12 col-md-10">
                       <div class="content">
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-6">
-                <div class="superpower-panel">
+                <div class="superpower-panel" style="background-image: url('{% static 'website/images/superpower2.png' %}')">
                   <div class="row">
                     <div class="col-12 col-md-10">
                       <div class="content">
@@ -134,9 +134,10 @@
                     <div class="col-12 col-md-8 wrapper">
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.0.large_avatar }}" alt="{{ projects.0.client }}" style="border-top-left-radius: 5px;"/>
-                        <div class="overlay">
+                        <div class="overlay" style="border-top-left-radius: 5px;">
                           <h1 class="header"><span>{{projects.0.client}}</span></h1>
                           <h2 class="type">{{projects.0.type}}</h2>
+                          <a href="/portfolio/{{ projects.0.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.0.parsed_client }}" class="link"></a>
                       </div>
@@ -144,9 +145,10 @@
                     <div class="col-12 col-md-4 wrapper">
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.1.avatar }}" alt="{{ projects.1.client }}" style="border-top-right-radius: 5px;"/>
-                        <div class="overlay">
+                        <div class="overlay" style="border-top-right-radius: 5px;">
                           <h1 class="header"><span>{{projects.1.client}}</span></h1>
                           <h2 class="type">{{projects.1.type}}</h2>
+                          <a href="/portfolio/{{ projects.1.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.1.parsed_client }}" class="link"></a>
                       </div>
@@ -154,9 +156,10 @@
                     <div class="col-12 col-md-4 wrapper">
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.2.avatar }}" alt="{{ projects.2.client }}" style="border-bottom-left-radius: 5px;"/>
-                        <div class="overlay">
+                        <div class="overlay" style="border-bottom-left-radius: 5px;">
                           <h1 class="header"><span>{{projects.2.client}}</span></h1>
                           <h2 class="type">{{projects.2.type}}</h2>
+                          <a href="/portfolio/{{ projects.2.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.2.parsed_client }}" class="link"></a>
                       </div>
@@ -164,9 +167,10 @@
                     <div class="col-12 col-md-8 wrapper">
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.3.large_avatar }}" alt="{{ projects.3.client }}"style="border-bottom-right-radius: 5px;"/>
-                        <div class="overlay">
+                        <div class="overlay" style="border-bottom-right-radius: 5px;">
                           <h1 class="header"><span>{{projects.3.client}}</span></h1>
                           <h2 class="type">{{projects.3.type}}</h2>
+                          <a href="/portfolio/{{ projects.3.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.3.parsed_client }}" class="link"></a>
                       </div>
