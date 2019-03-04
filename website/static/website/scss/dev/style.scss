@@ -350,11 +350,11 @@ a {
                     padding: 0px;
                   }
                   .project {
-                    height: 380px;
                     &:hover {
                       .overlay {
                         top: 0;
                         padding: 40px 20px;
+                        opacity: 1;
                         .header, .type {
                           opacity: 1;
                         }
@@ -382,8 +382,8 @@ a {
                       right: 0;
                       bottom: 0;
                       top: 100%;
-                      opacity: 0.8;
-                      background-color: $square-light-blue;
+                      opacity: 0;
+                      background-color: rgba(57, 178, 184, 0.8);
                       transition: all 0.5s ease;
                       .header {
                         font-weight: 900;
