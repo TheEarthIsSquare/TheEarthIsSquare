@@ -1,32 +1,34 @@
 {% load static %}
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134699162-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-134699162-1');
-    </script>
+
     <title>
       {% block title %}
-      Web Development & Social Media Marketing - The Earth Is Square | Digital Agency
+      Web Development & Digital Marketing - The Earth Is Square Digital Agency
       {% endblock title %}
     </title>
-    <meta charset='utf-8'>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <meta name="description" content="
       THE EARTH IS SQUARE is an Australian based digital agency, specializing
-      in Website Development & Social Media Marketing. Contact Us Today!"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      in Website Development & Social Media Marketing.">
+    </meta>
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'website/css/style.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}" />
+    <link rel="apple-touch-icon" href="{% static 'website/images/apple-icon.png' %}">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{% static 'website/js/all-min.js' %}"></script>
+
     {% block header %}{% endblock header %}
   </head>
 
@@ -70,10 +72,10 @@
     <nav id="navbar" class="site-navbar">
       <div class="navbar-container">
         <a href="{% url 'home' %}">
-          <img class="black-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-BlackLogo.png' %}" alt="The Earth is Square">
+          <img class="black-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-BlackLogo.png' %}" alt="The Earth is Square Black Logo">
         </a>
         <a href="{% url 'home' %}">
-          <img class="white-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square">
+          <img class="white-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square White Logo">
         </a>
         <a class="btn btn-outline-secondary contact" href="{% url 'contact' %}">Contact</a>
         <div id="opener" class="opener">
@@ -138,7 +140,7 @@
         <div class="container">
           <div class="row">
             <div class="d-none d-md-block col-3">
-              <img class="img-fluid" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" />
+              <img class="img-fluid" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square Footer Logo"/>
             </div>
             <div class="col-6 col-md-5">
               <ul class="navigation">
@@ -177,7 +179,6 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>

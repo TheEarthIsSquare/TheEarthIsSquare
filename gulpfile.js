@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 let cleanCSS = require('gulp-clean-css');
 const minify = require('gulp-minify');
+const htmlmin = require('gulp-htmlmin');
 
 // Include Our Plugins
 var sass = require('gulp-sass');
@@ -9,6 +10,12 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
+
+gulp.task('Website HTML', () => {
+  return gulp.src('website/templates/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('website/templates/min'));
+});
 
 // Compile Our Sass
 gulp.task('Website SCSS', function() {
@@ -35,7 +42,9 @@ gulp.task('Dashboard SCSS', function() {
 
 // Concatenate
 gulp.task('Website Scripts', function() {
-  return gulp.src('website/static/website/js/custom/*.js')
+  return gulp.src([
+    'website/static/website/js/custom/*.js',
+    'website/static/website/js/custom/*.min.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('website/static/website/js'))
     .pipe(minify())
@@ -61,4 +70,4 @@ gulp.task('Website CSS', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series('Website SCSS', 'Website Dev SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));
+gulp.task('default', gulp.series('Website HTML', 'Website SCSS', 'Website Dev SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));

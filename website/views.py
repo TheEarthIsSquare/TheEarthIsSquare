@@ -47,7 +47,7 @@ def home(request, reason=""):
     else:
         developer_mode = False
 
-    template = 'index.html'
+    template = 'min/index.html'
     if developer_mode == True:
         template = 'dev/index.html'
 
@@ -66,7 +66,7 @@ def services(request):
     sub_services = Service.objects.filter(parent=False, enabled=True, package=False)
 
     connection.close()
-    return render(request, 'services.html', {
+    return render(request, 'min/services.html', {
     'services' : services,
     'sub_services' : sub_services,
     })
@@ -76,7 +76,7 @@ def service(request, parsed_name):
     service = Service.objects.get(name__iexact=name)
 
     connection.close()
-    return render(request, 'service.html', {
+    return render(request, 'min/service.html', {
     'service' : service,
     })
 
@@ -85,7 +85,7 @@ def portfolio(request):
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
     connection.close()
-    return render(request, 'portfolio.html', {
+    return render(request, 'min/portfolio.html', {
     'portfolio' : portfolio,
     })
 
@@ -94,7 +94,7 @@ def project(request, parsed_client):
     project = Project.objects.get(client__iexact=client)
 
     connection.close()
-    return render(request, 'project.html', {
+    return render(request, 'min/project.html', {
     'project' : project,
     })
 
@@ -102,7 +102,7 @@ def team(request):
     profiles = Profile.objects.all().order_by('name')
 
     connection.close()
-    return render(request, 'team.html', {
+    return render(request, 'min/team.html', {
     'profiles' : profiles,
     })
 
@@ -175,7 +175,7 @@ def contact(request):
             )
             success = True
 
-    return render(request, 'contact.html', {
+    return render(request, 'min/contact.html', {
         'coffee_form': coffee_form,
         'work_form': work_form,
         'other_form': other_form,
@@ -184,7 +184,7 @@ def contact(request):
 
 def examples(request):
 
-    return render(request, 'examples.html', {
+    return render(request, 'min/examples.html', {
     })
 
 def cafe_example(request):
