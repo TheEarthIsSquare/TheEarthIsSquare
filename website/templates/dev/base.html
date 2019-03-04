@@ -35,7 +35,7 @@
     <div class="dev-mode">
       <form role="form" action="" method="post">
         {% csrf_token %}
-        <button class="btn btn-primary" name="action" value="Dev_Off" type="submit">Turn Off Developer Mode</button>
+        <button class="btn btn-outline-secondary" name="action" value="Dev_Off" type="submit">Developer Mode</button>
       </form>
     </div>
     {% endif %}
@@ -76,6 +76,7 @@
           <img class="white-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square">
         </a>
         <div id="opener" class="opener">
+          <a class="btn btn-outline-secondary contact" href="{% url 'contact' %}">Contact</a>
           <p class="label">MENU</p>
           <p class="label -close">CLOSE</p>
           <i class="fas fa-bars"></i>

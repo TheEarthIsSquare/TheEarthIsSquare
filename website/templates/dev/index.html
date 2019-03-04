@@ -47,14 +47,14 @@
               <div class="col-12 col-md-6">
                 <div class="superpower-panel">
                   <div class="row">
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                       <div class="content">
                         <h3 class="header">Web Development</h3>
                         <p class="text">We can help bring your web presence to life with our web design and development services.</p>
                         <a class="learn-more" href="#">Learn More --></a>
                       </div>
                     </div>
-                    <div class="col-2">
+                    <div class="d-none d-md-block col-md-2">
                       <i class="fas fa-3x fa-code"></i>
                     </div>
                   </div>
@@ -63,14 +63,14 @@
               <div class="col-12 col-md-6">
                 <div class="superpower-panel">
                   <div class="row">
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                       <div class="content">
                         <h3 class="header">Digital Marketing</h3>
                         <p class="text">Let us help boost your social media knowledge and influence with our digital marketing expertise and strategies.</p>
                         <a class="learn-more" href="#">Learn More --></a>
                       </div>
                     </div>
-                    <div class="col-2">
+                    <div class="d-none d-md-block col-2">
                       <i class="fas fa-3x fa-thumbs-up"></i>
                     </div>
                   </div>
@@ -98,21 +98,22 @@
                   Together, they are unstoppable.
                   </p>
                   <div class="button">
-                    <div class="button-back"></div>
                     <a class="btn btn-primary" href="{% url 'team' %}">Find Out More</a>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-4 order-2 order-md-1">
-                {% for profile in profiles %}
-                <div class="col-6 col-md-12 profile">
-                  <div id="frame-{{ profile.id }}" class="frame-overlay">
+                <div class="row">
+                  {% for profile in profiles %}
+                  <div class="col-6 col-md-12 profile">
+                    <div id="frame-{{ profile.id }}" class="frame-overlay">
+                    </div>
+                    <div class="frame">
+                      <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
+                    </div>
                   </div>
-                  <div class="frame">
-                    <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
-                  </div>
+                  {% endfor %}
                 </div>
-                {% endfor %}
               </div>
             </div>
           </div>
@@ -129,7 +130,7 @@
                 <div class="blurb">
                   <h1 class="header">We Like To <span>Show Off.</span></h1>
                   <p class="text">We work hard, and we want to show that off. Here are some of our most recent projects for you to get
-                    jealous of. And, who knows, maybe your brand will be the next project who gets to sit here.{{ user.profile.role }}
+                    jealous of. And, who knows, maybe your brand will be the next project who gets to sit here.
                   </p>
                 </div>
                 <div class="portfolio">

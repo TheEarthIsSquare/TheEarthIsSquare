@@ -80,11 +80,24 @@
       &:hover {
         transform: translateY(5px);
       }
+      .contact {
+        position: absolute;
+        right: 60px;
+        margin-top: -3px;
+        background-color: white;
+        @media #{$bp-sm}{
+          right: 140px;
+        }
+      }
     }
     .label {
       position: absolute;
       right: 45px;
       padding: 0px 10px;
+      display: none;
+      @media #{$bp-sm}{
+        display: block;
+      }
       &.-close {
         display: none;
         color: white;

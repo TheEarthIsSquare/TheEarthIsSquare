@@ -41,13 +41,11 @@ a {
   padding: 10px;
   font-weight: bold;
   position: fixed;
-  top: 5px;
-  left: 5px;
+  top: 75px;
+  right: 0;
   text-transform: uppercase;
   z-index: 2000;
-  button {
-    color: white;
-  }
+  margin-left: -85px;
 }
 
 #wrapper {
@@ -94,25 +92,32 @@ a {
         }
         &#superpowers {
           .superpowers-wrapper {
-            position: relative;
-            height: 525px;
             .content-wrapper {
-              height: 500px;
-              position: absolute;
-              right: 0;
-              left: 20%;
               background-color: $square-dark-blue;
               color: white;
-              padding: 35px;
+              padding: 20px;
               border-radius: 5px;
               box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+              @media #{$bp-md}{
+                margin-left: 20%;
+                padding: 35px;
+              }
               .container {
-                margin-left: 0px;
+                @media #{$bp-md}{
+                  margin-left: 0px;
+                }
               }
               .blurb {
+                text-align: center;
+                @media #{$bp-md}{
+                  text-align: left;
+                }
                 .header {
                   font-weight: 900;
-                  font-size: 3rem;
+                  font-size: 2.5rem;
+                  @media #{$bp-md}{
+                    font-size: 3rem;
+                  }
                   span {
                     background-color: $square-pink;
                   }
@@ -127,7 +132,7 @@ a {
                 padding: 25px;
                 color: $earth-dark-grey;
                 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-                height: 250px;
+                margin-bottom: 15px;
                 .content {
                   padding: 20px 70px 20px 10px;
                   .header {
@@ -159,23 +164,27 @@ a {
         }
         &#origin {
           .origin-wrapper {
-            position: relative;
-            height: 525px;
             .content-wrapper {
-              height: 500px;
-              position: absolute;
-              right: 20%;
-              left: 0;
               background-color: $square-dark-blue;
               color: white;
-              padding: 35px;
+              padding: 20px;
               border-radius: 5px;
               box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+              @media #{$bp-md}{
+                margin-right: 20%;
+                padding: 35px;
+              }
               .container {
-                margin-right: 0px;
+                @media #{$bp-md}{
+                  margin-left: 0px;
+                }
               }
               .blurb {
-                text-align: right;
+                text-align: center;
+                margin-bottom: 20px;
+                @media #{$bp-md}{
+                  text-align: right;
+                }
                 .header {
                   font-weight: 900;
                   font-size: 3rem;
@@ -194,25 +203,15 @@ a {
                   width: 100%;
                   margin-top: 50px;
                   .btn {
-                    width: 400px;
                     font-weight: 900;
-                    font-size: 3rem;
+                    font-size: 2.4rem;
                     text-transform: uppercase;
                     color: white;
                     padding: .200rem .75rem;
-                    position: absolute;
-                    right: 50%;
-                    margin-right: -200px;
-                  }
-                  .button-back {
-                    height: 80px;
-                    width: 400px;
-                    background-color: #fe5186;
-                    border-radius: .25rem;
-                    margin-top: -15px;
-                    position: absolute;
-                    right: 50%;
-                    margin-right: -185px;
+                    box-shadow: #fe5186 -12px -12px 0px 0px;
+                    @media #{$bp-md}{
+                      font-size: 3rem;
+                    }
                   }
                 }
               }
@@ -254,12 +253,16 @@ a {
                   }
                 }
                 .frame {
-                  height: 200px;
-                  width: 200px;
-                  border-radius: 200px;
+                  height: 150px;
+                  width: 150px;
+                  border-radius: 50%;
                   overflow: hidden;
                   margin: auto;
                   border: 5px white solid;
+                  @media #{$bp-sm}{
+                    height: 200px;
+                    width: 200px;
+                  }
                   .avatar {
                     height: auto;
                     width: 250px;
@@ -291,6 +294,10 @@ a {
         }
         &#home-portfolio {
           .portfolio-wrapper {
+            background-color: white;
+            @media #{$bp-lg}{
+              background-color: transparent;
+            }
             .content-wrapper {
               .blurb {
                 .header {
@@ -306,6 +313,8 @@ a {
                 }
               }
               .portfolio {
+                box-shadow: #fe5186 -12px -12px 0 0;
+                border-radius: 5px;
                 .row {
                   .wrapper {
                     padding: 0px;
