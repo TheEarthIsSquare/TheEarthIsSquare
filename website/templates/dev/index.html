@@ -79,7 +79,6 @@
             </div>
           </div>
         </div>
-        <div class="backdrop"></div>
       </div>
     </section>
     <section id="origin">
@@ -106,8 +105,6 @@
                 <div class="row">
                   {% for profile in profiles %}
                   <div class="col-6 col-md-12 profile">
-                    <div id="frame-{{ profile.id }}" class="frame-overlay">
-                    </div>
                     <div class="frame">
                       <img class="img-fluid avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}"/>
                     </div>
@@ -118,7 +115,6 @@
             </div>
           </div>
         </div>
-        <div class="backdrop"></div>
       </div>
     </section>
     <section id="home-portfolio">
@@ -138,29 +134,41 @@
                     <div class="col-12 col-md-8 wrapper">
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.0.large_avatar }}" alt="{{ projects.0.client }}"/>
-                        <div class="overlay"></div>
-                        <a href="#" class="link"></a>
+                        <div class="overlay">
+                          <h1 class="header"><span>{{projects.0.client}}</span></h1>
+                          <h2 class="type">{{projects.0.type}}</h2>
+                        </div>
+                        <a href="/portfolio/{{ projects.0.parsed_client }}" class="link"></a>
                       </div>
                     </div>
                     <div class="col-12 col-md-4 wrapper">
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.1.avatar }}" alt="{{ projects.1.client }}"/>
-                        <div class="overlay"></div>
-                        <a href="#" class="link"></a>
+                        <div class="overlay">
+                          <h1 class="header"><span>{{projects.1.client}}</span></h1>
+                          <h2 class="type">{{projects.1.type}}</h2>
+                        </div>
+                        <a href="/portfolio/{{ projects.1.parsed_client }}" class="link"></a>
                       </div>
                     </div>
                     <div class="col-12 col-md-4 wrapper">
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.2.avatar }}" alt="{{ projects.2.client }}"/>
-                        <div class="overlay"></div>
-                        <a href="#" class="link"></a>
+                        <div class="overlay">
+                          <h1 class="header"><span>{{projects.2.client}}</span></h1>
+                          <h2 class="type">{{projects.2.type}}</h2>
+                        </div>
+                        <a href="/portfolio/{{ projects.2.parsed_client }}" class="link"></a>
                       </div>
                     </div>
                     <div class="col-12 col-md-8 wrapper">
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.3.large_avatar }}" alt="{{ projects.3.client }}"/>
-                        <div class="overlay"></div>
-                        <a href="#" class="link"></a>
+                        <div class="overlay">
+                          <h1 class="header"><span>{{projects.3.client}}</span></h1>
+                          <h2 class="type">{{projects.3.type}}</h2>
+                        </div>
+                        <a href="/portfolio/{{ projects.3.parsed_client }}" class="link"></a>
                       </div>
                     </div>
                   </div>
