@@ -52,6 +52,16 @@
         display: block;
       }
     }
+    .contact {
+      position: absolute;
+      right: 100px;
+      top: 18px;
+      font-weight: 600;
+      border-width: 3px;
+      @media #{$bp-sm}{
+        right: 175px;
+      }
+    }
     .opener {
       position: absolute;
       top: 0;
@@ -79,16 +89,6 @@
       }
       &:hover {
         transform: translateY(5px);
-      }
-      .contact {
-        position: absolute;
-        right: 60px;
-        margin-top: -3px;
-        font-weight: 600;
-        border-width: 3px;
-        @media #{$bp-sm}{
-          right: 140px;
-        }
       }
     }
     .label {
