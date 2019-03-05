@@ -43,7 +43,7 @@
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and timeout == 0 %}
+    {% if request.get_full_path == '/' and timeout != 0 %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
         <div id="loader-teis">
