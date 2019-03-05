@@ -121,7 +121,7 @@ a {
               color: white;
               padding: 20px;
               border-radius: 5px;
-              box-shadow: $square-light-blue 12px 12px 0 0;
+              box-shadow: $square-light-blue 20px 20px 0 0;
               @media #{$bp-md}{
                 margin-left: 20%;
                 padding: 35px;
@@ -214,7 +214,7 @@ a {
               color: white;
               padding: 20px;
               border-radius: 5px;
-              box-shadow: $square-pink -12px 12px 0 0;
+              box-shadow: $square-pink -20px 20px 0 0;
               @media #{$bp-md}{
                 margin-right: 20%;
                 padding: 35px;
@@ -253,7 +253,7 @@ a {
                     text-transform: uppercase;
                     color: white;
                     padding: .200rem .75rem;
-                    box-shadow: #fe5186 -12px -12px 0px 0px;
+                    box-shadow: #fe5186 -20px -20px 0px 0px;
                     @media #{$bp-md}{
                       font-size: 3rem;
                     }
@@ -346,7 +346,7 @@ a {
                 }
               }
               .portfolio {
-                box-shadow: #fe5186 -12px -12px 0 0;
+                box-shadow: #fe5186 -20px -20px 0 0;
                 border-radius: 5px;
                 position: relative;
                 margin-top: 50px;
