@@ -12,6 +12,8 @@
         $('.homepage').toggleClass('fade');
       }, {{timeout}});
     </script>
+
+    <link rel="canonical" href="https://www.theearthissquare.com/" />
 {% endblock header %}
 
 {% block content %}
@@ -21,12 +23,12 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-10">
-            <h1 class="blurb">
-                The Earth is Square is a digital agency, we're making the internet
-              <span>
-                interesting.
-              </span>
-            </h1>
+            <div class="blurb">
+                <h1>We are<br><span>The Earth is Square</span></h1>
+                <h2>and we're making the internet
+                  <span>interesting.</span>
+                </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -38,7 +40,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="blurb">
-                  <h1 class="header">Our <span>Superpowers.</span></h1>
+                  <h2 class="header">Our <span>Superpowers.</span></h2>
                   <p class="text">With years of training and fighting crime, we've helped bring the standards of digital
                     design, marketing, and web development to a new level. We intend to keep pushing that
                     standard, changing the digital space 1 brand a time.</p>
@@ -88,7 +90,7 @@
             <div class="row">
               <div class="col-12 col-md-8 order-1 order-md-2">
                 <div class="blurb">
-                  <h1 class="header">Our <span>Origin</span> Story.</h1>
+                  <h2 class="header">Our <span>Origin</span> Story.</h2>
                   <p class="text">Both founders, Mitchell & Yani, started their online careers building their own brands on YouTube.
                   Together, they amassed over <span>300,000 followers</span> on the platform with over <span>50 million views.</span>
                   <br><br>
@@ -124,7 +126,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="blurb">
-                  <h1 class="header">We Like To <span>Show Off.</span></h1>
+                  <h2 class="header">We Like To <span>Show Off.</span></h2>
                   <p class="text">We work hard, and we want to show that off. Here are some of our most recent projects for you to get
                     jealous of. And, who knows, maybe your brand will be the next project who gets to sit here.
                   </p>
@@ -135,8 +137,8 @@
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.0.large_avatar }}" alt="{{ projects.0.client }}" style="border-top-left-radius: 5px;"/>
                         <div class="overlay" style="border-top-left-radius: 5px;">
-                          <h1 class="header"><span>{{projects.0.client}}</span></h1>
-                          <h2 class="type">{{projects.0.type}}</h2>
+                          <h2 class="header"><span>{{projects.0.client}}</span></h2>
+                          <h3 class="type">{{projects.0.type}}</h3>
                           <a href="/portfolio/{{ projects.0.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.0.parsed_client }}" class="link"></a>
@@ -146,8 +148,8 @@
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.1.avatar }}" alt="{{ projects.1.client }}" style="border-top-right-radius: 5px;"/>
                         <div class="overlay" style="border-top-right-radius: 5px;">
-                          <h1 class="header"><span>{{projects.1.client}}</span></h1>
-                          <h2 class="type">{{projects.1.type}}</h2>
+                          <h2 class="header"><span>{{projects.1.client}}</span></h2>
+                          <h3 class="type">{{projects.1.type}}</h3>
                           <a href="/portfolio/{{ projects.1.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.1.parsed_client }}" class="link"></a>
@@ -157,8 +159,8 @@
                       <div class="project -small">
                         <img class="img-fluid" src="{{ projects.2.avatar }}" alt="{{ projects.2.client }}" style="border-bottom-left-radius: 5px;"/>
                         <div class="overlay" style="border-bottom-left-radius: 5px;">
-                          <h1 class="header"><span>{{projects.2.client}}</span></h1>
-                          <h2 class="type">{{projects.2.type}}</h2>
+                          <h2 class="header"><span>{{projects.2.client}}</span></h2>
+                          <h3 class="type">{{projects.2.type}}</h3>
                           <a href="/portfolio/{{ projects.2.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.2.parsed_client }}" class="link"></a>
@@ -168,8 +170,8 @@
                       <div class="project -big">
                         <img class="img-fluid" src="{{ projects.3.large_avatar }}" alt="{{ projects.3.client }}"style="border-bottom-right-radius: 5px;"/>
                         <div class="overlay" style="border-bottom-right-radius: 5px;">
-                          <h1 class="header"><span>{{projects.3.client}}</span></h1>
-                          <h2 class="type">{{projects.3.type}}</h2>
+                          <h2 class="header"><span>{{projects.3.client}}</span></h2>
+                          <h3 class="type">{{projects.3.type}}</h3>
                           <a href="/portfolio/{{ projects.3.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
                         </div>
                         <a href="/portfolio/{{ projects.3.parsed_client }}" class="link"></a>

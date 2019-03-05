@@ -71,7 +71,6 @@ a {
           .blurb {
             margin-top: 40vh;
             font-size: 2rem;
-            font-weight: 900;
             text-transform: uppercase;
             transition: all 0.5s ease;
             text-align: center;
@@ -82,12 +81,23 @@ a {
               text-align: left;
               font-size: 3rem;
             }
+            h1 {
+              font-weight: 900;
+              font-size: 4.5rem;
+              span {
+                background-color: $square-pink;
+                color: white;
+              }
+            }
+            h2 {
+              font-weight: 900;
+              span {
+                background-color: $square-light-blue;
+                color: white;
+              }
+            }
             &:hover {
               transform: scale(1.05,1.05);
-            }
-            span {
-              background-color: $square-pink;
-              color: white;
             }
           }
         }

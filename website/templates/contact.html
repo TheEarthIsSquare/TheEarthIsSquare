@@ -4,6 +4,10 @@
   Contact Us - {{ block.super }}
 {% endblock %}
 
+{% block header %}
+  <link rel="canonical" href="https://www.theearthissquare.com/contact/" />
+{% endblock header %}
+
 {% block content %}
 {% if emailSent == True %}
 <div id="email-success">

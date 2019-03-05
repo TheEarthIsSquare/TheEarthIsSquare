@@ -6,6 +6,10 @@
 {{ project.client }} - {{ block.super }}
 {% endblock title %}
 
+{% block header %}
+  <link rel="canonical" href="https://www.theearthissquare.com/portfolio/{{ project.parsed_client }}/" />
+{% endblock header %}
+
 {% block content %}
 <div class="project-banner" style="background-image: url('{{ project.banner }}')"></div>
 <div id="project" class="container">
