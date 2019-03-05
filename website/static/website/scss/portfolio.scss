@@ -1,6 +1,5 @@
 #portfolio-page {
   padding: 50px 0px;
-  background-color: white;
   .portfolio-container {
     animation: fadeInDown 1s ease-out;
     animation-fill-mode: forwards;
@@ -8,7 +7,11 @@
       font-size: 3rem;
       text-align: center;
       margin-bottom: 50px;
-      color: $earth-dark-grey;
+      color: white;
+      font-weight: 900;
+      span {
+        background-color: $square-pink;
+      }
       @media #{$bp-md}{
         font-size: 4.5rem;
       }
