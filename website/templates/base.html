@@ -26,7 +26,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}" />
     <link rel="apple-touch-icon" href="{% static 'website/images/apple-icon.png' %}">
 
-    <script async src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script async src="{% static 'website/js/all-min.js' %}"></script>
 
     {% block header %}{% endblock header %}
@@ -43,28 +43,28 @@
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and timeout != 0 %}
+    {% if request.get_full_path == '/' and timeout == 0 %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
-        <div class="loading-content" style="background-image: url('{% static 'website/images/Loading-Screen-Back.png' %}'">
-          <div id="loader-teis">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="left">
-                  THE EARTH IS
-                </div>
+        <div id="loader-teis">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="left">
+                THE EARTH IS
               </div>
-              <div class="col-12 col-md-6">
-                <div class="right">
-                  <div class="-square">SQUARE</div>
-                  <div class="-unique">UNIQUE</div>
-                  <div class="-different">DIFFERENT</div>
-                  <div class="-creative">CREATIVE</div>
-                </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="right">
+                <div class="-square">SQUARE</div>
+                <div class="-unique">UNIQUE</div>
+                <div class="-different">DIFFERENT</div>
+                <div class="-creative">CREATIVE</div>
               </div>
             </div>
           </div>
         </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
       </div>
     {% endif %}
 

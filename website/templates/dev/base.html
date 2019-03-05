@@ -13,7 +13,7 @@
     </script>
     <title>
       {% block title %}
-      Web Development & Social Media Marketing - The Earth Is Square | Digital Agency
+      [DEV MODE] Web Development & Social Media Marketing - The Earth Is Square | Digital Agency
       {% endblock title %}
     </title>
     <meta charset='utf-8'>
@@ -41,10 +41,10 @@
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and timeout != 0 %}
+    {% if request.get_full_path == '/' and timeout == 0 %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
-        <div class="loading-content" style="background-image: url('{% static 'website/images/Loading-Screen-Back.png' %}'">
+        <div class="loading-content">
           <div id="loader-teis">
             <div class="row">
               <div class="col-12 col-md-6">
