@@ -333,6 +333,10 @@ a {
             }
             .content-wrapper {
               .blurb {
+                text-align: center;
+                @media #{$bp-md}{
+                  text-align: left;
+                }
                 .header {
                   font-weight: 900;
                   font-size: 3rem;
