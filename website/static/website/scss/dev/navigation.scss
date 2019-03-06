@@ -1,73 +1,47 @@
 /* Navigation & Navbar Styling */
 #navbar {
   &.site-navbar {
+    grid-area: n;
     height: $nav-height;
     position: fixed;
     background-color: transparent;
     z-index: 900;
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
-    left: 0;
-    right: 0;
+    display: grid;
+    grid-template: 1fr / repeat(12, 1fr);
+    grid-template-areas:
+      ". l l l l . c c c n n n";
     transition: all 0.5s ease;
-    .navbar-container {
-      height: 75px;
-      position: fixed;
-      background-color: transparent;
-      z-index: 900;
-      display: flex;
-      justify-content: space-between;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 30px;
-      padding-right: 30px;
-      left: 0;
-      right: 0;
-      transition: all .5s ease;
-      @media #{$bp-md}{
-        max-width: 1148px;
-      }
+    width: 100%;
+    @media #{$bp-sm}{
+      grid-template-areas:
+        ". l l l l . . . . c n .";
     }
     .black-logo {
-      position: absolute;
-      height: 100%;
-      left: 0;
-      margin-left: 20px;
-      padding-left: 30px;
+      grid-area: l;
       z-index: 1001;
+      display: grid;
+      align-content: center;
     }
     .white-logo {
-      position: absolute;
-      height: 100%;
-      left: 0;
-      margin-left: 20px;
-      padding-left: 30px;
+      grid-area: l;
       display: none;
       z-index: 1001;
+      align-content: center;
       &.open {
-        display: block;
+        display: grid;
       }
     }
     .contact {
-      position: absolute;
-      right: 100px;
-      top: 18px;
+      grid-area: c;
       font-weight: 600;
       border-width: 3px;
-      @media #{$bp-sm}{
-        right: 175px;
-      }
+      height: 45px;
+      margin: auto;
+      padding: 5px 20px;
+      line-height: 25px;
     }
     .opener {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin-top:  15px;
-      margin-right: 40px;
+      grid-area: n;
       padding: 7px 14px;
       background-color: transparent;
       border-radius: 50px;
@@ -75,15 +49,24 @@
       z-index: 1001;
       font-size: 1.3rem;
       transition: all 0.5s ease;
-      width: 45px;
-      height: 45px;
       text-align: center;
+      display: grid;
+      grid-template: 1fr / 1fr 1fr;
+      grid-template-areas:
+        "l b";
+        align-items: center;
       &.open {
-        background-color: $square-pink;
         .label {
           display: none;
           &.-close {
             display: block;
+          }
+        }
+        .bars {
+          i {
+            background-color: $square-pink;
+            padding: 10px 13px;
+            border-radius: 50%;
           }
         }
       }
@@ -92,8 +75,8 @@
       }
     }
     .label {
-      position: absolute;
-      right: 45px;
+      grid-area: l;
+      text-align: right;
       padding: 0px 10px;
       display: none;
       @media #{$bp-sm}{
@@ -104,6 +87,10 @@
         color: white;
         z-index: 1002;
       }
+    }
+    .bars {
+      grid-area: b;
+      text-align: left;
     }
     .nav-container {
       height: 100%;

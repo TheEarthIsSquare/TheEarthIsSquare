@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" >
+  <defs>
+  </defs>
+  <title>Pentagon</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <polygon points="250,20 500,200 400,500 100,500 2,200" fill="#3dc0c7"/>
+    </g>
+  </g>
+</svg>

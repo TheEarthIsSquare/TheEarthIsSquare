@@ -35,13 +35,13 @@
     <div class="dev-mode">
       <form role="form" action="" method="post">
         {% csrf_token %}
-        <button class="btn btn-outline-secondary" name="action" value="Dev_Off" type="submit">Developer Mode</button>
+        <button class="btn btn-outline-secondary" name="action" value="Dev_Off" type="submit">Dev Mode Off</button>
       </form>
     </div>
     {% endif %}
 
     <!-- Loading Screen -->
-    {% if request.get_full_path == '/' and timeout == 0 %}
+    {% if request.get_full_path == '/' and timeout != 0 %}
       <div id="loader-wrapper">
         <div class="loading-bar"></div>
         <div class="loading-content">
@@ -66,20 +66,22 @@
       </div>
     {% endif %}
 
-    <!-- Navbar -->
-    <nav id="navbar" class="site-navbar">
-      <div class="navbar-container">
-        <a href="{% url 'home' %}">
-          <img class="black-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-BlackLogo.png' %}" alt="The Earth is Square">
+    <div id="wrapper">
+      <!-- Navbar -->
+      <nav id="navbar" class="site-navbar">
+        <a class="black-logo" href="{% url 'home' %}">
+          <img class="resp-img" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-BlackLogo.png' %}" alt="The Earth is Square">
         </a>
-        <a href="{% url 'home' %}">
-          <img class="white-logo" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square">
+        <a class="white-logo" href="{% url 'home' %}">
+          <img class="resp-img" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" alt="The Earth is Square">
         </a>
         <a class="btn btn-outline-secondary contact" href="{% url 'contact' %}">Contact</a>
         <div id="opener" class="opener">
-          <p class="label">MENU</p>
-          <p class="label -close">CLOSE</p>
-          <i class="fas fa-bars"></i>
+          <div class="label">MENU</div>
+          <div class="label -close">CLOSE</div>
+          <div class="bars">
+            <i class="fas fa-bars"></i>
+          </div>
         </div>
         <div class="nav-container">
           <div class="container navigation">
@@ -118,66 +120,36 @@
               {% endif %}
             </ul>
           </div>
-          <div class="container social">
-            <div class="row justify-content-around">
+          <div class="social">
               <a href="https://www.twitter.com/_EarthIsSquare"><i class="fab fa-2x fa-twitter"></i></a>
               <a href="https://www.instagram.com/_earthissquare"><i class="fab fa-2x fa-instagram"></i></a>
               <a href="https://www.linkedin.com//company/19018595"><i class="fab fa-2x fa-linkedin"></i></a>
-            </div>
           </div>
         </div>
+      </nav>
+      <div id="content-wrapper">
+        {% block content %}{% endblock content %}
       </div>
-    </nav>
-
-    <div id="wrapper">
-      {% block content %}{% endblock content %}
+      <footer id="footer">
+        <img class="logo resp-img" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" />
+        <ul class="navigation">
+          <h5 class="header"><span>Navigation</span></h5>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'team' %}">The Team</a></li>
+          <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+        <div class="socials">
+          <h5 class="header"><span>Let's Stay In Touch</span></h5>
+          <a href="https://www.facebook.com/earthissquareagency">Facebook</a>
+          <a href="https://www.twitter.com/_earthissquare">Twitter</a>
+          <a href="https://www.instagram.com/_earthissquare">Instagram</a>
+        </div>
+        <div class="copyright">
+          &copy; The Earth is Square {% now "Y" %}
+        </div>
+      </footer>
     </div>
-
-    <footer id="footer">
-      <div class="links">
-        <div class="container">
-          <div class="row">
-            <div class="d-none d-md-block col-3">
-              <img class="img-fluid" src="{% static 'website/images/The-Earth-Is-Square-Digital-Agency-WhiteLogo.png' %}" />
-            </div>
-            <div class="col-6 col-md-5">
-              <ul class="navigation">
-                <h5>Navigation</h5>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'team' %}">The Team</a></li>
-                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-                <li><a href="{% url 'services' %}">Services</a></li>
-                <li><a href="{% url 'contact' %}">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4">
-              <div class="socials">
-                <div class="row">
-                  <div class="col-12">
-                    <h5 class="header">Let's Stay In Touch</h5>
-                  </div>
-                  <div class="col-6">
-                    <a href="https://www.facebook.com/earthissquareagency">Facebook</a>
-                  </div>
-                  <div class="col-6">
-                    <a href="https://www.twitter.com/_earthissquare">Twitter</a>
-                  </div>
-                  <div class="col-6">
-                    <a href="https://www.instagram.com/_earthissquare">Instagram</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; The Earth is Square {% now "Y" %}
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
