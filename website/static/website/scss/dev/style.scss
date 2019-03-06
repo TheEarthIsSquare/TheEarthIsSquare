@@ -2,6 +2,7 @@
 @import 'animations';
 @import 'loading';
 @import 'navigation';
+@import 'home';
 @import 'admin';
 @import 'portfolio';
 @import 'services';
@@ -10,8 +11,7 @@
 @import 'bootstrap/bootstrap';
 
 html, body {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -39,6 +39,7 @@ a {
 
 .resp-img {
   max-width: 100%;
+  max-height: 100%;
   margin: auto;
 }
 
@@ -75,7 +76,7 @@ a {
     }
   }
   .rings {
-    top: -150px;
+    top: 10%;
     right: 50%;
     position: absolute;
     .-ring {
@@ -83,10 +84,10 @@ a {
       position: absolute;
       filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.4));
       &.-pink {
-        height: 1000px;
+        height: 500px;
       }
       &.-darkblue {
-        height: 700px;
+        height: 400px;
         top: -120px;
         left: 80px;
       }
@@ -152,17 +153,27 @@ a {
   margin-left: -85px;
 }
 
-#wrapper {
+#grid-wrapper {
   display: grid;
   grid-template: 75px auto 300px / repeat(12, 1fr);
   grid-template-areas:
     "n n n n n n n n n n n n"
     "c c c c c c c c c c c c"
     "f f f f f f f f f f f f";
-    #content-wrapper {
-      grid-area: c;
-      min-height: 100vh;
+  #content-wrapper {
+    grid-area: c;
+    min-height: 100vh;
+    .homepage {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transition: opacity 2s ease-out;
+      &.fade {
+        opacity: 1;
+      }
     }
+  }
 }
 
 #footer {

@@ -9,14 +9,49 @@
 {% block header %}
     <script>
       setTimeout(function(){
-        $('.homepage').toggleClass('fade');
+        $('#homepage').toggleClass('fade');
       }, {{timeout}});
     </script>
 {% endblock header %}
 
 {% block content %}
-<div class="homepage">
-  
+<div id="homepage">
+  <section id="main">
+    <div class="blurb">
+        <h1>We are<br><span>The Earth is Square</span></h1>
+        <h2>and we're making the internet
+          <span>interesting.</span>
+        </h2>
+    </div>
+  </section>
+  <section id="superpowers">
+    <div class="superpowers-wrapper">
+      <div class="content-wrapper">
+        <div class="blurb">
+          <h1 class="header">Our <span>Superpowers.</span></h1>
+          <p class="text">With years of training and fighting crime, we've helped bring the standards of digital
+            design, marketing, and web development to a new level. We intend to keep pushing that
+            standard, changing the digital space 1 brand a time.</p>
+        </div>
+        <div class="superpower-panel -web" style="background-image: url('{% static 'website/images/superpower1.png' %}')">
+          <div class="content">
+            <h3 class="header">Web Development</h3>
+            <p class="text">We can help bring your web presence to life with our web design and development services.</p>
+            <a class="learn-more" href="#">Learn More</a>
+          </div>
+        <i class="fas fa-3x fa-code"></i>
+        </div>
+        <div class="superpower-panel -marketing" style="background-image: url('{% static 'website/images/superpower2.png' %}')">
+          <div class="content">
+            <h3 class="header">Digital Marketing</h3>
+            <p class="text">Let us help boost your social media knowledge and influence with our digital marketing expertise and strategies.</p>
+            <a class="learn-more" href="#">Learn More</a>
+          </div>
+          <i class="fas fa-3x fa-thumbs-up"></i>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 
@@ -25,44 +60,7 @@
 
 
 
-
-
-
 <!-- <div class="homepage">
-  <div class="shapes">
-    <div class="rectangles">
-      <object type="image/svg+xml" data="{% static 'website/svg/rect_blue.svg' %}" class="-rect -lightblue"></object>
-      <object type="image/svg+xml" data="{% static 'website/svg/rect_pink.svg' %}" class="-rect -pink"></object>
-    </div>
-    <div class="pentagons">
-      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_lightblue.svg' %}" class="-pentagon -lightblue"></object>
-      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_darkblue.svg' %}" class="-pentagon -darkblue"></object>
-      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_pink.svg' %}" class="-pentagon -pink"></object>
-    </div>
-    <div class="rings">
-      <object type="image/svg+xml" data="{% static 'website/svg/ring_darkblue.svg' %}" class="-ring -darkblue"></object>
-      <object type="image/svg+xml" data="{% static 'website/svg/ring_pink.svg' %}" class="-ring -pink"></object>
-    </div>
-    <div class="triangles">
-      <object type="image/svg+xml" data="{% static 'website/svg/triangle_pink.svg' %}" class="-triangle -pink"></object>
-      <object type="image/svg+xml" data="{% static 'website/svg/triangle_lightblue.svg' %}" class="-triangle -lightblue"></object>
-    </div>
-  </div>
-  <div class="content">
-    <section id="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-10">
-            <div class="blurb">
-                <h1>We are<br><span>The Earth is Square</span></h1>
-                <h2>and we're making the internet
-                  <span>interesting.</span>
-                </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section id="superpowers">
       <div class="superpowers-wrapper">
         <div class="content-wrapper">
@@ -215,6 +213,5 @@
         </div>
       </div>
     </section>
-  </div>
 </div> -->
 {% endblock content %}

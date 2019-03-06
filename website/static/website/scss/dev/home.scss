@@ -1,0 +1,135 @@
+#homepage {
+  display: grid;
+  grid-template: 100vh auto auto auto / repeat(12, 1fr);
+  grid-gap: 50px 0px;
+  grid-template-areas:
+    "main main main main main main main main main main main main"
+    ". . powers powers powers powers powers powers powers powers powers powers"
+    "origin origin origin origin origin origin origin origin origin origin . ."
+    ". . portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio . .";
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  &.fade {
+    opacity: 1;
+  }
+  #main {
+    grid-area: main;
+    height: 100vh;
+    padding: 0px;
+    display: grid;
+    grid-template: auto / repeat(6, 1fr);
+    grid-template-areas:
+      ". blurb blurb blurb blurb .";
+    .blurb {
+      grid-area: blurb;
+      margin-top: 30vh;
+      font-size: 2rem;
+      text-transform: uppercase;
+      transition: all 0.5s ease;
+      text-align: center;
+      opacity: 1;
+      animation: break 2s ease;
+      animation-fill-mode: forwards;
+      @media #{$bp-md}{
+        text-align: left;
+        font-size: 3rem;
+      }
+      h1 {
+        font-weight: 900;
+        font-size: 4.5rem;
+        span {
+          background-color: $square-pink;
+          color: white;
+        }
+      }
+      h2 {
+        font-weight: 900;
+        span {
+          background-color: $square-light-blue;
+          color: white;
+        }
+      }
+      &:hover {
+        transform: scale(1.05,1.05);
+      }
+    }
+  }
+  #superpowers {
+    grid-area: powers;
+    .superpowers-wrapper {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 0 60px;
+        border-radius: 5px;
+      }
+      .content-wrapper {
+        background-color: $square-dark-blue;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: $square-light-blue 20px 20px 0 0;
+        display: grid;
+        grid-template: auto auto / repeat(12, 1fr);
+        grid-template-areas:
+          "blurb blurb blurb blurb blurb blurb blurb blurb blurb blurb . ."
+          "web web web web web marketing marketing marketing marketing marketing . .";
+        @media #{$bp-md}{
+          padding: 35px;
+        }
+        .blurb {
+          griod-area: blurb;
+          text-align: center;
+          @media #{$bp-md}{
+            text-align: left;
+          }
+          .header {
+            font-weight: 900;
+            font-size: 2.5rem;
+            @media #{$bp-md}{
+              font-size: 3rem;
+            }
+            span {
+              background-color: $square-pink;
+            }
+          }
+          .text {
+            font-size: 1.4rem;
+          }
+        }
+        .superpower-panel {
+          background-color: white;
+          border-radius: 15px;
+          padding: 25px;
+          color: $earth-dark-grey;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+          margin-bottom: 15px;
+          background-size: cover;
+          background-position: right;
+          &.-web {
+            grid-area: web;
+          }
+          &.-marketing {
+            grid-area: marketing;
+          }
+          .content {
+            padding: 20px 70px 20px 10px;
+            .header {
+              font-weight: bold;
+            }
+            .text {
+              font-size: 1rem;
+            }
+            .learn-more {
+              font-size: 0.8rem;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

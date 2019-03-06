@@ -9,24 +9,28 @@
     display: grid;
     grid-template: 1fr / repeat(12, 1fr);
     grid-template-areas:
-      ". l l l l . c c c n n n";
+      ". logo logo logo logo . c c c n n n";
     transition: all 0.5s ease;
     width: 100%;
     @media #{$bp-sm}{
       grid-template-areas:
-        ". l l l l . . . . c n .";
+        ". . logo logo logo logo . . . c n .";
     }
     .black-logo {
-      grid-area: l;
+      grid-area: logo;
       z-index: 1001;
       display: grid;
-      align-content: center;
+      img {
+        margin-left: 0;
+      }
     }
     .white-logo {
-      grid-area: l;
+      grid-area: logo;
       display: none;
       z-index: 1001;
-      align-content: center;
+      img {
+        margin-left: 0;
+      }
       &.open {
         display: grid;
       }
@@ -35,7 +39,6 @@
       grid-area: c;
       font-weight: 600;
       border-width: 3px;
-      height: 45px;
       margin: auto;
       padding: 5px 20px;
       line-height: 25px;
