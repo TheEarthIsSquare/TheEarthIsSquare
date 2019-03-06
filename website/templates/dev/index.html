@@ -16,18 +16,49 @@
 
 {% block content %}
 <div class="homepage">
-  <object type="image/svg+xml" data="{% static 'website/svg/rectangle.svg' %}" class="shape">This browser sucks</object>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="homepage">
+  <div class="shapes">
+    <div class="rectangles">
+      <object type="image/svg+xml" data="{% static 'website/svg/rect_blue.svg' %}" class="-rect -lightblue"></object>
+      <object type="image/svg+xml" data="{% static 'website/svg/rect_pink.svg' %}" class="-rect -pink"></object>
+    </div>
+    <div class="pentagons">
+      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_lightblue.svg' %}" class="-pentagon -lightblue"></object>
+      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_darkblue.svg' %}" class="-pentagon -darkblue"></object>
+      <object type="image/svg+xml" data="{% static 'website/svg/pentagon_pink.svg' %}" class="-pentagon -pink"></object>
+    </div>
+    <div class="rings">
+      <object type="image/svg+xml" data="{% static 'website/svg/ring_darkblue.svg' %}" class="-ring -darkblue"></object>
+      <object type="image/svg+xml" data="{% static 'website/svg/ring_pink.svg' %}" class="-ring -pink"></object>
+    </div>
+    <div class="triangles">
+      <object type="image/svg+xml" data="{% static 'website/svg/triangle_pink.svg' %}" class="-triangle -pink"></object>
+      <object type="image/svg+xml" data="{% static 'website/svg/triangle_lightblue.svg' %}" class="-triangle -lightblue"></object>
+    </div>
+  </div>
   <div class="content">
     <section id="main">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-10">
-            <h1 class="blurb">
-                The Earth is Square is a digital agency, we're making the internet
-              <span>
-                interesting.
-              </span>
-            </h1>
+            <div class="blurb">
+                <h1>We are<br><span>The Earth is Square</span></h1>
+                <h2>and we're making the internet
+                  <span>interesting.</span>
+                </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +83,7 @@
                       <div class="content">
                         <h3 class="header">Web Development</h3>
                         <p class="text">We can help bring your web presence to life with our web design and development services.</p>
-                        <a class="learn-more" href="#">Learn More --></a>
+                        <a class="learn-more" href="#">Learn More</a>
                       </div>
                     </div>
                     <div class="d-none d-md-block col-md-2">
@@ -68,7 +99,7 @@
                       <div class="content">
                         <h3 class="header">Digital Marketing</h3>
                         <p class="text">Let us help boost your social media knowledge and influence with our digital marketing expertise and strategies.</p>
-                        <a class="learn-more" href="#">Learn More --></a>
+                        <a class="learn-more" href="#">Learn More</a>
                       </div>
                     </div>
                     <div class="d-none d-md-block col-2">
@@ -138,7 +169,7 @@
                         <div class="overlay" style="border-top-left-radius: 5px;">
                           <h1 class="header"><span>{{projects.0.client}}</span></h1>
                           <h2 class="type">{{projects.0.type}}</h2>
-                          <a href="/portfolio/{{ projects.0.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                          <a href="/portfolio/{{ projects.0.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
                         </div>
                         <a href="/portfolio/{{ projects.0.parsed_client }}" class="link"></a>
                       </div>
@@ -149,7 +180,7 @@
                         <div class="overlay" style="border-top-right-radius: 5px;">
                           <h1 class="header"><span>{{projects.1.client}}</span></h1>
                           <h2 class="type">{{projects.1.type}}</h2>
-                          <a href="/portfolio/{{ projects.1.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                          <a href="/portfolio/{{ projects.1.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
                         </div>
                         <a href="/portfolio/{{ projects.1.parsed_client }}" class="link"></a>
                       </div>
@@ -160,7 +191,7 @@
                         <div class="overlay" style="border-bottom-left-radius: 5px;">
                           <h1 class="header"><span>{{projects.2.client}}</span></h1>
                           <h2 class="type">{{projects.2.type}}</h2>
-                          <a href="/portfolio/{{ projects.2.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                          <a href="/portfolio/{{ projects.2.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
                         </div>
                         <a href="/portfolio/{{ projects.2.parsed_client }}" class="link"></a>
                       </div>
@@ -171,7 +202,7 @@
                         <div class="overlay" style="border-bottom-right-radius: 5px;">
                           <h1 class="header"><span>{{projects.3.client}}</span></h1>
                           <h2 class="type">{{projects.3.type}}</h2>
-                          <a href="/portfolio/{{ projects.3.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
+                          <a href="/portfolio/{{ projects.3.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
                         </div>
                         <a href="/portfolio/{{ projects.3.parsed_client }}" class="link"></a>
                       </div>
@@ -185,5 +216,5 @@
       </div>
     </section>
   </div>
-</div>
+</div> -->
 {% endblock content %}
