@@ -37,7 +37,7 @@
           <div class="content">
             <h3 class="header">Web Development</h3>
             <p class="text">We can help bring your web presence to life with our web design and development services.</p>
-            <a class="learn-more" href="#">Learn More</a>
+            <a class="learn-more" href="{% url 'services' %}">Learn More</a>
           </div>
           <i class="icon fas fa-3x fa-code"></i>
         </div>
@@ -45,7 +45,7 @@
           <div class="content">
             <h3 class="header">Digital Marketing</h3>
             <p class="text">Let us help boost your social media knowledge and influence with our digital marketing expertise and strategies.</p>
-            <a class="learn-more" href="#">Learn More</a>
+            <a class="learn-more" href="{% url 'services' %}">Learn More</a>
           </div>
           <i class="icon fas fa-3x fa-thumbs-up"></i>
         </div>
@@ -98,10 +98,10 @@
               <a href="/portfolio/{{ project.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
             </div>
             <div class="project">
-              {% if forloop.counter == 2 or orloop.counter == 3 %}
-              <img class="resp-img" src="{% static 'website/images/sushix-banner.png' %}" alt="{{ project.client }}"/>
+              {% if forloop.counter == 2 or forloop.counter == 3 %}
+              <img class="resp-img" src="{{ project.avatar }}" alt="{{ project.client }}"/>
               {% else %}
-              <img class="resp-img" src="{% static 'website/images/tld-banner.png' %}" alt="{{ project.client }}"/>
+              <img class="resp-img" src="{{ project.large_avatar }}" alt="{{ project.client }}"/>
               {% endif %}
               <a href="/portfolio/{{ project.parsed_client }}" class="link"></a>
             </div>

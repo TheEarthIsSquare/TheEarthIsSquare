@@ -8,7 +8,7 @@
 @import 'services';
 @import 'contact';
 @import 'team';
-@import 'bootstrap/bootstrap';
+/* @import 'bootstrap/bootstrap'; */
 
 html, body {
   min-height: 100vh;
@@ -21,10 +21,39 @@ body {
   font-weight: 400;
   color: $earth-dark-grey;
   box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.h1,h1 {
+    font-size: 2.5rem
+}
+
+.h2,h2 {
+    font-size: 2rem
+}
+
+.h3,h3 {
+    font-size: 1.75rem
+}
+
+.h4,h4 {
+    font-size: 1.5rem
+}
+
+.h5,h5 {
+    font-size: 1.25rem
+}
+
+.h6,h6 {
+    font-size: 1rem
 }
 
 a {
@@ -35,6 +64,43 @@ a {
     text-decoration: none;
     color: $square-pink;
   }
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #3dc0c7;
+    border-color: #3dc0c7;
+    &:hover {
+    color: #fff;
+    background-color: #32a6ac;
+    border-color: #2f9ca2;
+    }
+}
+
+.btn-outline-secondary {
+    color: #fe5186;
+    background-color: transparent;
+    background-image: none;
+    border-color: #fe5186;
+    &:hover {
+      color: #fff;
+      background-color: #fe5186;
+      border-color: #fe5186;
+    }
 }
 
 .resp-img {
