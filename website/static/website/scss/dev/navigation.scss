@@ -14,7 +14,7 @@
     width: 100%;
     @media #{$bp-sm}{
       grid-template-areas:
-        ". . logo logo logo logo . . . c n .";
+        ". . logo logo logo logo . . c n . .";
     }
     .black-logo {
       grid-area: logo;
