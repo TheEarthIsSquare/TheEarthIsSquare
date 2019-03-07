@@ -6,7 +6,7 @@
     "main main main main main main main main main main main main"
     "powers powers powers powers powers powers powers powers powers powers powers powers"
     "origin origin origin origin origin origin origin origin origin origin origin origin"
-    ". portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio .";
+    "portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio portfolio";
   opacity: 0;
   transition: opacity 2s ease-out;
   @media #{$bp-md}{
@@ -327,8 +327,10 @@
       .content-wrapper {
         .blurb {
           text-align: center;
+          padding: 0px 50px;
           @media #{$bp-md}{
             text-align: left;
+            padding: 0px;
           }
           .header {
             font-weight: 900;
@@ -344,11 +346,19 @@
         }
         .portfolio {
           display: grid;
-          grid-template: auto auto / repeat(3, 1fr);
+          grid-template: 1fr 2fr 2fr 1fr / 1fr;
           grid-template-areas:
-            "a a b"
-            "c d d";
+            "a"
+            "b"
+            "c"
+            "d";
           margin-bottom: 100px;
+          @media #{$bp-md}{
+            grid-template: auto auto / repeat(3, 1fr);
+            grid-template-areas:
+              "a a b"
+              "c d d";
+          }
           .project {
             position: relative;
             &:nth-child(1) {

@@ -50,9 +50,10 @@
     animation: fadeIn 2s ease-out;
     #loader-teis {
       display: grid;
-      grid-template: auto / 1fr 1fr;
+      grid-template: auto auto / 1fr;
       grid-template-areas:
-        "left right";
+        "left"
+        "right";
         grid-gap: 0px 20px;
       position: relative;
       text-align: center;
@@ -65,6 +66,9 @@
       margin-top: -36px;
       @media #{$bp-md} {
         margin-left: 40px;
+        grid-template: auto / 1fr 1fr;
+        grid-template-areas:
+          "left right";
       }
       .left {
         grid-area: left;
