@@ -348,10 +348,9 @@
           grid-template-areas:
             "a a b"
             "c d d";
-
+          margin-bottom: 100px;
           .project {
             position: relative;
-            margin-bottom: 100px;
             &:nth-child(1) {
               grid-area: a;
             }
