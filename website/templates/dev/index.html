@@ -91,20 +91,20 @@
         </div>
         <div class="portfolio">
           {% for project in projects %}
-          <div class="wrapper">
+          <div class="project">
             <div class="overlay">
-              <h1 class="header"><span>{{project.client}}</span></h1>
-              <h2 class="type">{{project.type}}</h2>
-              <a href="/portfolio/{{ project.parsed_client }}" class="look">LET'S HAVE A LOOK</a>
+              <h2 class="header"><span>{{project.client}}</span></h2>
+              <h3 class="type">{{project.type}}</h3>
+              <a href="/portfolio/{{ project.parsed_client }}" class="look">LET'S HAVE A LOOK --></a>
             </div>
-            <div class="project">
-              {% if forloop.counter == 2 or forloop.counter == 3 %}
-              <img class="resp-img" src="{{ project.avatar }}" alt="{{ project.client }}"/>
+            <figure class="project-item">
+              {% if forloop.counter == 1 or forloop.counter == 4 %}
+              <img class="project-img" src="{{ project.large_avatar }}"/>
               {% else %}
-              <img class="resp-img" src="{{ project.large_avatar }}" alt="{{ project.client }}"/>
+              <img class="project-img" src="{{ project.avatar }}"/>
               {% endif %}
-              <a href="/portfolio/{{ project.parsed_client }}" class="link"></a>
-            </div>
+            </figure>
+            <a href="/portfolio/{{ project.parsed_client }}" class="project-link"></a>
           </div>
           {% endfor %}
         </div>
