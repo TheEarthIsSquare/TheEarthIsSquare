@@ -20,7 +20,6 @@ def home(request, reason=""):
     else:
         timeout = 5500
 
-    services = Service.objects.filter(parent=True)
     projects = Project.objects.all().order_by('-ongoing', '-date_completed')[:4]
     profiles = Profile.objects.all().order_by('name')
 
@@ -53,7 +52,6 @@ def home(request, reason=""):
 
     connection.close()
     return render(request, template, {
-    'services' : services,
     'projects' : projects,
     'profiles' : profiles,
     'timeout' : timeout,
