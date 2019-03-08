@@ -33,28 +33,32 @@ $(document).ready(function() {
   <div class="content {{ service.tag }}">
     <h1 class="header"><span>{{ service.name }}<span></h1>
     <div class="description">{{ service.description|safe }}</div>
+    {% if included_services != None %}
     <h2 class="sub-header"><span>Includes:</span></h2>
-    <div class="included-services">
-      {% for included_service in included_services %}
-        {% if included_service.parent_service == service %}
-        <div class="included-service">
-          <i class="{{ included_service.fa_icon }} fa-3x"></i>
-          <h3 class="header">{{ included_service.name }}</h3>
-        </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-    <h2 class="sub-header"><span>Extras:</span></h2>
-    <div class="addon-services">
-      {% for addon_service in addon_services %}
-        {% if addon_service.parent_service == service %}
-        <div class="addon-service">
-          <i class="{{ addon_service.fa_icon }} fa-3x"></i>
-          <h3 class="header">{{ addon_service.name }}</h3>
-        </div>
-        {% endif %}
-      {% endfor %}
-    </div>
+      <div class="included-services">
+        {% for included_service in included_services %}
+          {% if included_service.parent_service == service %}
+          <div class="included-service">
+            <i class="{{ included_service.fa_icon }} fa-3x"></i>
+            <h3 class="header">{{ included_service.name }}</h3>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if addon_services != None %}
+      <h2 class="sub-header"><span>Extras:</span></h2>
+      <div class="addon-services">
+        {% for addon_service in addon_services %}
+          {% if addon_service.parent_service == service %}
+          <div class="addon-service">
+            <i class="{{ addon_service.fa_icon }} fa-3x"></i>
+            <h3 class="header">{{ addon_service.name }}</h3>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
   </div>
   {% endfor %}
 </section>

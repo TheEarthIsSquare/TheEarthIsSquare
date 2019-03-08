@@ -12,7 +12,7 @@
     position: relative;
     grid-template: auto / 1fr 1fr;
     grid-template-areas:
-    "web marketing";
+    "dev design";
     text-align: center;
     margin-top: 40px;
     padding-bottom: 30px;
@@ -21,11 +21,11 @@
       &:hover {
         color: $square-dark-blue;
       }
-      &.web {
-        grid-area: web;
+      &.dev {
+        grid-area: dev;
       }
-      &.marketing {
-        grid-area: marketing;
+      &.design {
+        grid-area: design;
       }
       .header {
         font-size: 1.2rem;
@@ -47,10 +47,10 @@
       right: 50%;
     }
     .menu-item {
-      &.web {
+      &.dev {
         color: $square-dark-blue;
       }
-      &.marketing {
+      &.design {
         opacity: 0.5;
       }
     }
@@ -60,11 +60,11 @@
     margin-top: 50px;
     overflow-x: hidden;
     transition: all 0.5s ease;
-    &.web {
+    &.dev {
       animation: fadeInLeft 1s ease;
       animation-fill-mode: forwards;
     }
-    &.marketing {
+    &.design {
       opacity: 0;
     }
     .header {
@@ -93,13 +93,13 @@
       }
     }
   }
-  &.web {
+  &.dev {
     .menu-item {
-      &.web {
+      &.dev {
         color: $square-dark-blue;
         opacity: 1;
       }
-      &.marketing {
+      &.design {
         opacity: 0.5;
       }
     }
@@ -108,22 +108,22 @@
       right: 50%;
     }
     .content {
-      &.web {
+      &.dev {
         animation: fadeInLeft 1s ease;
         animation-fill-mode: forwards;
       }
-      &.marketing {
+      &.design {
         animation: fadeOutRight 1s ease;
         animation-fill-mode: forwards;
       }
     }
   }
-  &.marketing {
+  &.design {
     .menu-item {
-      &.web {
+      &.dev {
         opacity: 0.5;
       }
-      &.marketing {
+      &.design {
         color: $square-dark-blue;
         opacity: 1;
       }
@@ -133,11 +133,11 @@
       right: 0%;
     }
     .content {
-      &.web {
+      &.dev {
         animation: fadeOutLeft 1s ease;
         animation-fill-mode: forwards;
       }
-      &.marketing {
+      &.design {
         animation: fadeInRight 1s ease;
         animation-fill-mode: forwards;
       }
