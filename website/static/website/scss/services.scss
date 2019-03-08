@@ -4,6 +4,7 @@
   grid-template-areas:
     ". menu menu menu menu menu menu menu menu menu menu ."
     ". content content content content content content content content content content .";
+    margin-bottom: 50px;
   .services-menu {
     grid-area: menu;
     width: 100%;
@@ -96,6 +97,7 @@
     .menu-item {
       &.web {
         color: $square-dark-blue;
+        opacity: 1;
       }
       &.marketing {
         opacity: 0.5;
@@ -123,6 +125,7 @@
       }
       &.marketing {
         color: $square-dark-blue;
+        opacity: 1;
       }
     }
     .menu-slider {
