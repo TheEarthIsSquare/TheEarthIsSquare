@@ -22,12 +22,16 @@ class Profile(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=255)
+    tagline = models.CharField(max_length=255, null=True, blank=True)
     description = HTMLField(null=True, blank=True)
-    image = S3DirectField(dest='services', null=True, blank=True)
-    enabled = models.BooleanField(default=False)
-    parent = models.BooleanField(default=False)
-    parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
-    fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
+    TYPES = (
+        ('a', 'Parent'),
+        ('b', 'Included'),
+        ('c', 'Addon'),
+    )
+    type = models.CharField(max_length=1, choices=TYPES, null=True, blank=True)
+    parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'type': 'a'})
+    fa_icon = models.CharField(max_length=255, null=True, blank=True, default='fas')
     tag = models.CharField(max_length=255, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     date_modified = models.DateTimeField(auto_now=True)

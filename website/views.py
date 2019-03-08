@@ -62,8 +62,17 @@ def home(request, reason=""):
 
 def services(request):
 
-    services = Service.objects.filter(parent=True, enabled=True)
-    sub_services = Service.objects.filter(parent=False, enabled=True)
+    services = Service.objects.filter(type='a')
+    included_services = Service.objects.filter(type='b')
+    addon_services = Service.objects.filter(type='c')
+
+    if request.method == 'POST':
+        if request.POST['action'] == 'Dev_Off':
+            request.user.profile.dev_mode = False
+            request.user.profile.save()
+        elif request.POST['action'] == 'Dev_On':
+           request.user.profile.dev_mode = True
+           request.user.profile.save()
 
     if request.user.is_authenticated:
         developer_mode = request.user.profile.dev_mode
@@ -77,7 +86,8 @@ def services(request):
     connection.close()
     return render(request, template, {
     'services' : services,
-    'sub_services' : sub_services,
+    'included_services' : included_services,
+    'addon_services' : addon_services,
     })
 
 def portfolio(request):

@@ -81,11 +81,11 @@
         color: white;
       }
     }
-    .sub-services {
+    .included-services, .addon-services {
       display: grid;
       grid-template: auto auto / repeat(6, 1fr);
       text-align: center;
-      .sub-service {
+      .included-service, .addon-service {
         .header {
           font-size: 1rem;
         }
