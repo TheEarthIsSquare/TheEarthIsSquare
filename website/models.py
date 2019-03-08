@@ -45,7 +45,7 @@ class Service(models.Model):
         return name.replace(' ', '_')
 
 class Project(models.Model):
-    type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'parent': True})
+    type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'type': 'a'})
     client = models.CharField(max_length=255)
     ongoing = models.BooleanField(default=False)
     date_completed = models.DateField(null=True, blank=True)
