@@ -47,7 +47,7 @@ def home(request, reason=""):
     else:
         developer_mode = False
 
-    template = 'min/index.html'
+    template = 'index.html'
     if developer_mode == True:
         template = 'dev/index.html'
 
@@ -63,21 +63,21 @@ def home(request, reason=""):
 def services(request):
 
     services = Service.objects.filter(parent=True, enabled=True)
-    sub_services = Service.objects.filter(parent=False, enabled=True, package=False)
+    sub_services = Service.objects.filter(parent=False, enabled=True)
+
+    if request.user.is_authenticated:
+        developer_mode = request.user.profile.dev_mode
+    else:
+        developer_mode = False
+
+    template = 'services.html'
+    if developer_mode == True:
+        template = 'dev/services.html'
 
     connection.close()
-    return render(request, 'min/services.html', {
+    return render(request, template, {
     'services' : services,
     'sub_services' : sub_services,
-    })
-
-def service(request, parsed_name):
-    name = parsed_name.replace('_', ' ')
-    service = Service.objects.get(name__iexact=name)
-
-    connection.close()
-    return render(request, 'min/service.html', {
-    'service' : service,
     })
 
 def portfolio(request):
@@ -85,7 +85,7 @@ def portfolio(request):
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
     connection.close()
-    return render(request, 'min/portfolio.html', {
+    return render(request, 'portfolio.html', {
     'portfolio' : portfolio,
     })
 
@@ -94,7 +94,7 @@ def project(request, parsed_client):
     project = Project.objects.get(client__iexact=client)
 
     connection.close()
-    return render(request, 'min/project.html', {
+    return render(request, 'project.html', {
     'project' : project,
     })
 
@@ -102,7 +102,7 @@ def team(request):
     profiles = Profile.objects.all().order_by('name')
 
     connection.close()
-    return render(request, 'min/team.html', {
+    return render(request, 'team.html', {
     'profiles' : profiles,
     })
 
@@ -175,7 +175,7 @@ def contact(request):
             )
             success = True
 
-    return render(request, 'min/contact.html', {
+    return render(request, 'contact.html', {
         'coffee_form': coffee_form,
         'work_form': work_form,
         'other_form': other_form,
@@ -184,10 +184,10 @@ def contact(request):
 
 def examples(request):
 
-    return render(request, 'min/examples.html', {
+    return render(request, 'examples.html', {
     })
 
 def cafe_example(request):
 
-    return render(request, 'examples/cafe_example/index.html', {
+    return render(request, 'cafe_example/index.html', {
     })

@@ -1,73 +1,50 @@
 /* Navigation & Navbar Styling */
 #navbar {
   &.site-navbar {
+    grid-area: n;
     height: $nav-height;
     position: fixed;
     background-color: transparent;
     z-index: 900;
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
-    left: 0;
-    right: 0;
+    display: grid;
+    grid-template: 1fr / repeat(12, 1fr);
+    grid-template-areas:
+      ". logo logo logo logo . c c c n n n";
     transition: all 0.5s ease;
-    .navbar-container {
-      height: 75px;
-      position: fixed;
-      background-color: transparent;
-      z-index: 900;
-      display: flex;
-      justify-content: space-between;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 30px;
-      padding-right: 30px;
-      left: 0;
-      right: 0;
-      transition: all .5s ease;
-      @media #{$bp-md}{
-        max-width: 1148px;
-      }
+    width: 100%;
+    @media #{$bp-sm}{
+      grid-template-areas:
+        ". . logo logo logo logo . . c n . .";
     }
     .black-logo {
-      position: absolute;
-      height: 100%;
-      left: 0;
-      margin-left: 20px;
-      padding-left: 30px;
+      grid-area: logo;
       z-index: 1001;
+      display: grid;
+      img {
+        margin-left: 0;
+      }
     }
     .white-logo {
-      position: absolute;
-      height: 100%;
-      left: 0;
-      margin-left: 20px;
-      padding-left: 30px;
+      grid-area: logo;
       display: none;
       z-index: 1001;
+      img {
+        margin-left: 0;
+      }
       &.open {
-        display: block;
+        display: grid;
       }
     }
     .contact {
-      position: absolute;
-      right: 100px;
-      top: 18px;
+      grid-area: c;
       font-weight: 600;
       border-width: 3px;
-      @media #{$bp-sm}{
-        right: 175px;
-      }
+      margin: auto;
+      padding: 5px 20px;
+      line-height: 25px;
     }
     .opener {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin-top:  15px;
-      margin-right: 40px;
+      grid-area: n;
       padding: 7px 14px;
       background-color: transparent;
       border-radius: 50px;
@@ -75,15 +52,30 @@
       z-index: 1001;
       font-size: 1.3rem;
       transition: all 0.5s ease;
-      width: 45px;
-      height: 45px;
       text-align: center;
+      display: grid;
+      grid-template: 1fr / 1fr;
+      grid-template-areas:
+        "b";
+      align-items: center;
+      @media #{$bp-sm}{
+        grid-template: 1fr / 1fr 1fr;
+        grid-template-areas:
+          "l b";
+      }
       &.open {
-        background-color: $square-pink;
         .label {
           display: none;
           &.-close {
-            display: block;
+            @media #{$bp-sm}{
+              display: block;
+            }
+          }
+        }
+        .bars {
+          i {
+            background-color: $square-pink;
+            border-radius: 50%;
           }
         }
       }
@@ -92,8 +84,8 @@
       }
     }
     .label {
-      position: absolute;
-      right: 45px;
+      grid-area: l;
+      text-align: right;
       padding: 0px 10px;
       display: none;
       @media #{$bp-sm}{
@@ -105,18 +97,32 @@
         z-index: 1002;
       }
     }
+    .bars {
+      grid-area: b;
+      @media #{$bp-sm}{
+        text-align: left;
+      }
+      i {
+        padding: 10px 13px;
+      }
+    }
     .nav-container {
       height: 100%;
       width: 100%;
       position: fixed;
       background-color: $square-light-blue;
       display: none;
+      grid-template: $nav-height auto auto / repeat(6, 1fr);
+      grid-template-areas:
+        ". . . . . ."
+        "menu menu menu menu menu menu"
+        ". social social social social .";
       z-index: 1000;
       top: 0;
       left: 0;
       transition: display 0.5s ease;
       &.open {
-        display: block;
+        display: grid;
         .navigation {
           animation: fadeInDown 0.5s ease;
           animation-fill-mode: forwards;
@@ -128,7 +134,8 @@
       }
     }
     .navigation {
-      top: 15%;
+      grid-area: menu;
+      display: grid;
       text-align: center;
       position: relative;
       li {
@@ -137,6 +144,7 @@
       }
       ul {
         padding: 0;
+        align-self: center;
       }
       .item {
         color: white;
@@ -148,12 +156,14 @@
       }
     }
     .social {
-      bottom: 5%;
-      position: absolute;
-      left: 0;
-      right: 0;
+      grid-area: social;
+      justify-content: space-evenly;
+      display: flex;
       a {
         color: white;
+        &:hover {
+          color: $square-pink;
+        }
       }
       .btn-primary {
         color: $earth-dark-grey;

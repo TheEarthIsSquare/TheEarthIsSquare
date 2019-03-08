@@ -21,8 +21,6 @@ urlpatterns = [
 
     path('services/', website.services, name='services'),
 
-    path('services/<parsed_name>/', website.service, name='service'),
-
     path('examples/', website.examples, name='examples'),
 
     path('examples/cafe/', website.cafe_example, name='cafe_example'),

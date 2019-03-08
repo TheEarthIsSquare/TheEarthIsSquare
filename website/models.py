@@ -26,9 +26,9 @@ class Service(models.Model):
     image = S3DirectField(dest='services', null=True, blank=True)
     enabled = models.BooleanField(default=False)
     parent = models.BooleanField(default=False)
-    package = models.BooleanField(default=False)
     parent_service = models.ForeignKey('Service', on_delete=models.CASCADE, null=True, blank=True, limit_choices_to={'parent': True})
     fa_icon = models.CharField(max_length=20, null=True, blank=True, default='fas')
+    tag = models.CharField(max_length=255, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     date_modified = models.DateTimeField(auto_now=True)
 
@@ -41,7 +41,7 @@ class Service(models.Model):
         return name.replace(' ', '_')
 
 class Project(models.Model):
-    type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'parent': False})
+    type = models.ForeignKey(Service, on_delete=models.DO_NOTHING, null=True, blank=True, limit_choices_to={'parent': True})
     client = models.CharField(max_length=255)
     ongoing = models.BooleanField(default=False)
     date_completed = models.DateField(null=True, blank=True)

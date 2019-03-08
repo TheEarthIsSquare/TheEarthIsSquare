@@ -6,15 +6,23 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
+  background-color: white;
+  &.loaded {
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transition: all 1s ease-in;
+            transition: all 1s ease-in;
+  }
   .loading-bar {
     position: absolute;
     top: 0%;
     left: 0%;
     height: 5px;
-    background-color: $square-pink;
+    background-color: $square-dark-blue;
     animation: loading-bar 5.5s ease;
     animation-fill-mode: forwards;
-    border: 5px solid $square-pink;
+    border: 2px solid $square-dark-blue;
     z-index: 1001
   }
   .loader-section {
@@ -31,63 +39,83 @@
   .loader-section.section-right {
     right: 0;
   }
-  #loader-teis {
-    display: block;
-    position: relative;
-    text-align: center;
-    top: 50%;
+  .loading-content {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1001;
-    color: $square-light-blue;
-    font-weight: 900;
-    font-size: 4.5rem;
-    margin-top: -36px;
-    @media #{$bp-md} {
-      margin-left: 40px;
-    }
-    .left {
-      opacity: 0;
-      animation: fade-main 1s ease;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-      @media #{$bp-md} {
-        text-align: right;
-      }
-    }
-    .right {
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+    animation: fadeIn 2s ease-out;
+    #loader-teis {
+      display: grid;
+      grid-template: auto auto / 1fr;
+      grid-template-areas:
+        "left"
+        "right";
+        grid-gap: 0px 20px;
       position: relative;
+      text-align: center;
+      top: 50%;
+      width: 100%;
+      z-index: 1001;
+      color: $square-light-blue;
+      font-weight: 900;
+      font-size: 3.5rem;
+      margin-top: -36px;
       @media #{$bp-md} {
-        text-align: left;
+        margin-left: 40px;
+        grid-template: auto / 1fr 1fr;
+        grid-template-areas:
+          "left right";
       }
-      .-square {
-        animation: fade-main 2s ease;
-        animation-delay: 3.5s;
-        animation-fill-mode: forwards;
-        color: $square-pink;
+      .left {
+        grid-area: left;
         opacity: 0;
-        position: absolute;
-        width: 100%;
-      }
-      .-unique {
-        animation: fade 1s ease;
+        animation: fade-main 1s ease;
         animation-delay: 0.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
+        animation-fill-mode: forwards;
+        @media #{$bp-md} {
+          text-align: right;
+        }
       }
-      .-different {
-        animation: fade 1s ease;
-        animation-delay: 1.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
-      }
-      .-creative {
-        animation: fade 1s ease;
-        animation-delay: 2.5s;
-        opacity: 0;
-        position: absolute;
-        width: 100%;
+      .right {
+        grid-area: right;
+        position: relative;
+        @media #{$bp-md} {
+          text-align: left;
+        }
+        .-square {
+          animation: fade-main 2s ease;
+          animation-delay: 3.5s;
+          animation-fill-mode: forwards;
+          color: $square-pink;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-unique {
+          animation: fade 1s ease;
+          animation-delay: 0.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-different {
+          animation: fade 1s ease;
+          animation-delay: 1.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
+        .-creative {
+          animation: fade 1s ease;
+          animation-delay: 2.5s;
+          opacity: 0;
+          position: absolute;
+          width: 100%;
+        }
       }
     }
   }

@@ -54,21 +54,27 @@
       transition: all 0.5s ease;
       text-align: center;
       display: grid;
-      grid-template: 1fr / 1fr 1fr;
+      grid-template: 1fr / 1fr;
       grid-template-areas:
-        "l b";
-        align-items: center;
+        "b";
+      align-items: center;
+      @media #{$bp-sm}{
+        grid-template: 1fr / 1fr 1fr;
+        grid-template-areas:
+          "l b";
+      }
       &.open {
         .label {
           display: none;
           &.-close {
-            display: block;
+            @media #{$bp-sm}{
+              display: block;
+            }
           }
         }
         .bars {
           i {
             background-color: $square-pink;
-            padding: 10px 13px;
             border-radius: 50%;
           }
         }
@@ -93,7 +99,12 @@
     }
     .bars {
       grid-area: b;
-      text-align: left;
+      @media #{$bp-sm}{
+        text-align: left;
+      }
+      i {
+        padding: 10px 13px;
+      }
     }
     .nav-container {
       height: 100%;
@@ -101,12 +112,17 @@
       position: fixed;
       background-color: $square-light-blue;
       display: none;
+      grid-template: $nav-height auto auto / repeat(6, 1fr);
+      grid-template-areas:
+        ". . . . . ."
+        "menu menu menu menu menu menu"
+        ". social social social social .";
       z-index: 1000;
       top: 0;
       left: 0;
       transition: display 0.5s ease;
       &.open {
-        display: block;
+        display: grid;
         .navigation {
           animation: fadeInDown 0.5s ease;
           animation-fill-mode: forwards;
@@ -118,7 +134,8 @@
       }
     }
     .navigation {
-      top: 15%;
+      grid-area: menu;
+      display: grid;
       text-align: center;
       position: relative;
       li {
@@ -127,6 +144,7 @@
       }
       ul {
         padding: 0;
+        align-self: center;
       }
       .item {
         color: white;
@@ -138,12 +156,14 @@
       }
     }
     .social {
-      bottom: 5%;
-      position: absolute;
-      left: 0;
-      right: 0;
+      grid-area: social;
+      justify-content: space-evenly;
+      display: flex;
       a {
         color: white;
+        &:hover {
+          color: $square-pink;
+        }
       }
       .btn-primary {
         color: $earth-dark-grey;

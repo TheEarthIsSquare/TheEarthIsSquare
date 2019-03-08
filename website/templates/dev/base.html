@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="{% static 'website/css/dev_style.css' %}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="{% static 'website/js/all-min.js' %}"></script>
     {% block header %}{% endblock header %}
   </head>
@@ -60,26 +62,10 @@
       </div>
     {% endif %}
 
-    <div id="wrapper"style="background-image: url({% static 'website/images/background.png' %});">
-      <!-- <div class="shapes">
-        <div class="rectangles">
-          <object type="image/svg+xml" data="{% static 'website/svg/rect_blue.svg' %}" class="-rect -lightblue"></object>
-          <object type="image/svg+xml" data="{% static 'website/svg/rect_pink.svg' %}" class="-rect -pink"></object>
-        </div>
-        <div class="pentagons">
-          <object type="image/svg+xml" data="{% static 'website/svg/pentagon_lightblue.svg' %}" class="-pentagon -lightblue"></object>
-          <object type="image/svg+xml" data="{% static 'website/svg/pentagon_darkblue.svg' %}" class="-pentagon -darkblue"></object>
-          <object type="image/svg+xml" data="{% static 'website/svg/pentagon_pink.svg' %}" class="-pentagon -pink"></object>
-        </div>
-        <div class="rings">
-          <object type="image/svg+xml" data="{% static 'website/svg/ring_darkblue.svg' %}" class="-ring -darkblue"></object>
-          <object type="image/svg+xml" data="{% static 'website/svg/ring_pink.svg' %}" class="-ring -pink"></object>
-        </div>
-        <div class="triangles">
-          <object type="image/svg+xml" data="{% static 'website/svg/triangle_pink.svg' %}" class="-triangle -pink"></object>
-          <object type="image/svg+xml" data="{% static 'website/svg/triangle_lightblue.svg' %}" class="-triangle -lightblue"></object>
-        </div>
-      </div> -->
+    <div id="wrapper"
+    {% if request.get_full_path == '/' %}
+    style="background-image: url({% static 'website/images/background.png' %});"
+    {% endif %}>
       <div id="grid-wrapper">
         <nav id="navbar" class="site-navbar">
           <a class="black-logo" href="{% url 'home' %}">
@@ -97,7 +83,7 @@
             </div>
           </div>
           <div class="nav-container">
-            <div class="container navigation">
+            <div class="navigation">
               <ul>
                 <li>
                   <a href="{% url 'services' %}">

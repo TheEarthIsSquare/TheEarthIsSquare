@@ -16,7 +16,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
     model = Service
-    list_display = ('name', 'parent', 'package', 'parent_service', 'enabled',)
+    list_display = ('name', 'parent', 'tag', 'parent_service', 'enabled',)
     readonly_fields = ["date_created", "date_modified"]
 
 class InstagramPostAdmin(admin.ModelAdmin):
