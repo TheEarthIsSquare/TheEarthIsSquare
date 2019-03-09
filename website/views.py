@@ -60,7 +60,7 @@ def home(request, reason=""):
 
 def services(request):
 
-    services = Service.objects.filter(type='a')
+    services = Service.objects.order_by('name').filter(type='a')
     included_services = Service.objects.filter(type='b')
     addon_services = Service.objects.filter(type='c')
 
@@ -89,7 +89,6 @@ def services(request):
     })
 
 def portfolio(request):
-    services = Service.objects.filter(parent=True)
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
     connection.close()

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 
 {% block title %}
 Our Services - {{ block.super }}
@@ -31,34 +32,44 @@ $(document).ready(function() {
   </div>
   {% for service in services %}
   <div class="content {{ service.tag }}">
-    <h1 class="header"><span>{{ service.name }}<span></h1>
-    <div class="description">{{ service.description|safe }}</div>
-    {% if included_services != None %}
-    <h2 class="sub-header"><span>Includes:</span></h2>
-      <div class="included-services">
-        {% for included_service in included_services %}
-          {% if included_service.parent_service == service %}
-          <div class="included-service">
-            <i class="{{ included_service.fa_icon }} fa-3x"></i>
-            <h3 class="header">{{ included_service.name }}</h3>
-          </div>
-          {% endif %}
-        {% endfor %}
+    <div class="image">
+      <img class="resp-img" src="{% static 'website/images/dev_laptop.png' %}"/>
+    </div>
+    <div class="text">
+      <div class="header">
+        <h1 class="title"><span>{{ service.name }}</span></h1>
+        <h2 class="tagline"><span>{{ service.tagline }}</span></h3>
       </div>
-    {% endif %}
-    {% if addon_services != None %}
-      <h2 class="sub-header"><span>Extras:</span></h2>
-      <div class="addon-services">
-        {% for addon_service in addon_services %}
-          {% if addon_service.parent_service == service %}
-          <div class="addon-service">
-            <i class="{{ addon_service.fa_icon }} fa-3x"></i>
-            <h3 class="header">{{ addon_service.name }}</h3>
-          </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+      <div class="description">{{ service.description|safe }}</div>
+    </div>
+    <div class="extra">
+      {% if included_services != None %}
+        <h2 class="include-header"><span>Includes:</span></h2>
+        <div class="included-services">
+          {% for included_service in included_services %}
+            {% if included_service.parent_service == service %}
+            <div class="service">
+              <i class="{{ included_service.fa_icon }} fa-3x"></i>
+              <h3 class="name">{{ included_service.name }}</h3>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       {% endif %}
+      {% if addon_services != None %}
+        <h2 class="addon-header"><span>Extras:</span></h2>
+        <div class="addon-services">
+          {% for addon_service in addon_services %}
+            {% if addon_service.parent_service == service %}
+            <div class="service">
+              <i class="{{ addon_service.fa_icon }} fa-3x"></i>
+              <h3 class="name">{{ addon_service.name }}</h3>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
   {% endfor %}
 </section>
