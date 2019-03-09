@@ -7,13 +7,6 @@
   height: 100%;
   z-index: 1000;
   background-color: white;
-  &.loaded {
-    visibility: hidden;
-    opacity: 0;
-
-    -webkit-transition: all 1s ease-in;
-            transition: all 1s ease-in;
-  }
   .loading-bar {
     position: absolute;
     top: 0%;
@@ -31,7 +24,7 @@
     width: 51%;
     height: 100%;
     background: white;
-    z-index: 1000;
+    z-index: 900;
   }
   .loader-section.section-left {
     left: 0;

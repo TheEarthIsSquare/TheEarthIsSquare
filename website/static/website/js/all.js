@@ -6,11 +6,6 @@ $(document).ready(function() {
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
 
-  // Open loading screen.
-  setTimeout(function(){
-      $('#loader-wrapper').addClass('loaded');
-  }, 4500);
-
   // Navigation Menu
   $('#opener').click(function() {
     $('.nav-container').toggleClass('open');
