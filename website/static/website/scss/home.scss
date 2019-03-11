@@ -196,6 +196,10 @@
           grid-template: auto / repeat(12, 1fr);
           grid-gap: 20px 20px;
           grid-template-areas:
+            "profiles profiles profiles . blurb blurb blurb blurb blurb blurb blurb blurb";
+        }
+        @media #{$bp-xl}{
+          grid-template-areas:
             ". . profiles profiles profiles blurb blurb blurb blurb blurb blurb blurb";
         }
         .blurb {
