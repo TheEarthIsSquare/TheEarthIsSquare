@@ -28,7 +28,10 @@ S3DIRECT_DESTINATIONS = {
         'key': 'uploads/profiles',
     },
     'projects': {
-        'key': 'uploads/projects'
+        'key': 'uploads/projects',
+    },
+    'services': {
+        'key': 'uploads/services',
     }
 }
 
