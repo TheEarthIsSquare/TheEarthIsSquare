@@ -24,6 +24,7 @@ class Service(models.Model):
     name = models.CharField(max_length=255)
     tagline = models.CharField(max_length=255, null=True, blank=True)
     description = HTMLField(null=True, blank=True)
+    image = S3DirectField(dest='services', null=True, blank=True)
     TYPES = (
         ('a', 'Parent'),
         ('b', 'Included'),

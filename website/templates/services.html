@@ -33,7 +33,7 @@ $(document).ready(function() {
   {% for service in services %}
   <div class="content {{ service.tag }}">
     <div class="image">
-      <img class="resp-img" src="{% static 'website/images/dev_laptop.png' %}"/>
+      <img class="resp-img" src="{{ service.image }}"/>
     </div>
     <div class="text">
       <div class="header">

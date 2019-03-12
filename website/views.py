@@ -15,10 +15,7 @@ import requests, json, logging
 def home(request, reason=""):
     loading_screen = settings.USE_LOADING_SCREEN
 
-    if loading_screen == False:
-        timeout = 0
-    else:
-        timeout = 5500
+    timeout = 4500 if loading_screen else 0
 
     projects = Project.objects.all().order_by('-ongoing', '-date_completed')[:4]
     profiles = Profile.objects.all().order_by('name')
@@ -41,14 +38,9 @@ def home(request, reason=""):
            request.user.profile.dev_mode = True
            request.user.profile.save()
 
-    if request.user.is_authenticated:
-        developer_mode = request.user.profile.dev_mode
-    else:
-        developer_mode = False
+    developer_mode = request.user.profile.dev_mode if request.user.is_authenticated else False
 
-    template = 'index.html'
-    if developer_mode == True:
-        template = 'dev/index.html'
+    template = 'dev/index.html' if developer_mode else 'index.html'
 
     connection.close()
     return render(request, template, {
