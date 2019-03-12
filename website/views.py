@@ -105,11 +105,11 @@ def project(request, parsed_client):
     'project' : project,
     })
 
-def team(request):
+def about(request):
     profiles = Profile.objects.all().order_by('name')
 
     connection.close()
-    return render(request, 'team.html', {
+    return render(request, 'about.html', {
     'profiles' : profiles,
     })
 

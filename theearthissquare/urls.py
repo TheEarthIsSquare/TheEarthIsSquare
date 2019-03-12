@@ -17,7 +17,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('team/', website.team, name='team'),
+    path('about/', website.about, name='about'),
 
     path('services/', website.services, name='services'),
 
