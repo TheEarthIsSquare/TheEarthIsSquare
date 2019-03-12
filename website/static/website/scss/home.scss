@@ -196,11 +196,7 @@
           grid-template: auto / repeat(12, 1fr);
           grid-gap: 20px 20px;
           grid-template-areas:
-            "profiles profiles profiles . blurb blurb blurb blurb blurb blurb blurb blurb";
-        }
-        @media #{$bp-xl}{
-          grid-template-areas:
-            ". . profiles profiles profiles blurb blurb blurb blurb blurb blurb blurb";
+            "profiles profiles profiles profiles blurb blurb blurb blurb blurb blurb blurb blurb";
         }
         .blurb {
           grid-area: blurb;
@@ -250,12 +246,9 @@
         }
         .profiles {
           grid-area: profiles;
-          display: grid;
-          grid-template: 1fr / 1fr 1fr;
+          display: flex;
           align-items: center;
-          @media #{$bp-lg}{
-            grid-template: 1fr 1fr / 1fr;
-          }
+          margin: auto;
           .profile {
             margin-bottom: 10px;
             &:hover {
@@ -301,8 +294,8 @@
               margin: auto;
               border: 5px white solid;
               @media #{$bp-sm}{
-                height: 200px;
-                width: 200px;
+                height: 250px;
+                width: 250px;
               }
               .avatar {
                 height: auto;
