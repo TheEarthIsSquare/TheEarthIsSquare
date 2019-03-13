@@ -40,7 +40,7 @@ def home(request, reason=""):
 
     developer_mode = request.user.profile.dev_mode if request.user.is_authenticated else False
 
-    template = 'dev/index.html' if developer_mode else 'index.html'
+    template = 'website/dev/index.html' if developer_mode else 'website/index.html'
 
     connection.close()
     return render(request, template, {
@@ -69,9 +69,9 @@ def services(request):
     else:
         developer_mode = False
 
-    template = 'services.html'
+    template = 'website/services.html'
     if developer_mode == True:
-        template = 'dev/services.html'
+        template = 'website/dev/services.html'
 
     connection.close()
     return render(request, template, {
@@ -84,7 +84,7 @@ def portfolio(request):
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
     connection.close()
-    return render(request, 'portfolio.html', {
+    return render(request, 'website/portfolio.html', {
     'portfolio' : portfolio,
     })
 
@@ -93,7 +93,7 @@ def project(request, parsed_client):
     project = Project.objects.get(client__iexact=client)
 
     connection.close()
-    return render(request, 'project.html', {
+    return render(request, 'website/project.html', {
     'project' : project,
     })
 
@@ -101,7 +101,7 @@ def about(request):
     profiles = Profile.objects.all().order_by('name')
 
     connection.close()
-    return render(request, 'about.html', {
+    return render(request, 'website/about.html', {
     'profiles' : profiles,
     })
 
@@ -174,7 +174,7 @@ def contact(request):
             )
             success = True
 
-    return render(request, 'contact.html', {
+    return render(request, 'website/contact.html', {
         'coffee_form': coffee_form,
         'work_form': work_form,
         'other_form': other_form,
@@ -183,10 +183,10 @@ def contact(request):
 
 def examples(request):
 
-    return render(request, 'examples.html', {
+    return render(request, 'website/examples.html', {
     })
 
 def cafe_example(request):
 
-    return render(request, 'cafe_example/index.html', {
+    return render(request, 'website/examples/cafe_example/index.html', {
     })

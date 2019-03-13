@@ -33,6 +33,14 @@ gulp.task('Dashboard SCSS', function() {
     .pipe(gulp.dest('dashboard/static/dashboard/css'));
 });
 
+gulp.task('Admin SCSS', function() {
+  return gulp.src('admin_panel/static/admin_panel/scss/base.scss')
+    .pipe(sass())
+    .pipe(cleanCSS())
+    .pipe(rename('style.css'))
+    .pipe(gulp.dest('admin_panel/static/admin_panel/css'));
+});
+
 // Concatenate
 gulp.task('Website Scripts', function() {
   return gulp.src([
@@ -52,6 +60,14 @@ gulp.task('Dashboard Scripts', function() {
     .pipe(gulp.dest('dashboard/static/dashboard/js'));
 });
 
+gulp.task('Admin Scripts', function() {
+  return gulp.src('admin_panel/static/admin_panel/js/custom/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('admin_panel/static/admin_panel/js'))
+    .pipe(minify())
+    .pipe(gulp.dest('admin_panel/static/admin_panel/js'));
+});
+
 // PostCSS processor
 gulp.task('Website CSS', function () {
   var processors = [
@@ -63,4 +79,4 @@ gulp.task('Website CSS', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series('Website SCSS', 'Website Dev SCSS', 'Dashboard SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts'));
+gulp.task('default', gulp.series('Website SCSS', 'Website Dev SCSS', 'Dashboard SCSS', 'Admin SCSS', 'Website CSS', 'Website Scripts', 'Dashboard Scripts', 'Admin Scripts'));

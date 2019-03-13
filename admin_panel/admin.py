@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.admin import AdminSite
 
 from website.models import *
 
@@ -44,6 +45,7 @@ admin.site.register(Service, ServiceAdmin)
 admin.site.register(InstagramPost, InstagramPostAdmin)
 admin.site.register(Setting, SettingAdmin)
 admin.site.register(StatsLog, StatsLogAdmin)
+
 
 admin.site.site_header = "The Earth is Square"
 admin.site.site_title = "The Earth is Square"

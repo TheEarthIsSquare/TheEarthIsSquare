@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div id="index-main">
+{% if app_list %}
+  {% for app in app_list %}
+    {% for model in app.models %}
+        <a href="{{ model.admin_url }}" class="model-{{ model.object_name|lower }}">
+          <h2>{{ model.name }}</h2>
+        </a>
+      {% endfor %}
+  {% endfor %}
+{% else %}
+    <p>{% trans "You don't have permission to view or edit anything." %}</p>
+{% endif %}
+</div>
+{% endblock %}

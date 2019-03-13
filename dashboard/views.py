@@ -12,7 +12,7 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        return render(request, 'dashboard.html', {
+        return render(request, 'dashboard/dashboard.html', {
         'instagramFollowers' : getConfigValue('InstagramFollowers'),
         'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
@@ -26,7 +26,7 @@ def dashboard_instagram(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        return render(request, 'dashboard_instagram.html', {
+        return render(request, 'dashboard/dashboard_instagram.html', {
         'instagramFollowers' : getConfigValue('InstagramFollowers'),
         'instagramLikes' : getConfigValue('InstagramLikes'),
         'instagramPosts' : InstagramPost.objects.all().order_by('-date_published'),
@@ -38,7 +38,7 @@ def dashboard_facebook(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/')
     else:
-        return render(request, 'dashboard_facebook.html', {
+        return render(request, 'dashboard/dashboard_facebook.html', {
         'facebookFollowers' : getConfigValue('FacebookFollowers'),
         'fbFollowersDifference': getDifference('facebook_likes', getConfigValue('FacebookFollowers'))
         })

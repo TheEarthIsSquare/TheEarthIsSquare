@@ -17,6 +17,7 @@ ALLOWED_HOSTS = ['192.168.0.108', 'localhost', 'redis://localhost']
 INSTALLED_APPS = [
     'website',
     'dashboard',
+    'admin_panel',
     's3direct',
     'tinymce',
     'django.contrib.sitemaps',
@@ -46,7 +47,7 @@ ROOT_URLCONF = 'theearthissquare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['dashboard/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,6 +114,7 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'website/static'),
     os.path.join(BASE_DIR, 'dashboard/static'),
+    os.path.join(BASE_DIR, 'admin_panel/static'),
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
