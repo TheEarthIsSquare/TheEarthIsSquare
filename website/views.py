@@ -1,18 +1,14 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from website.models import Profile, Project, Image, Service
+from django.shortcuts import render
+from website.models import Profile, Project, Service
 from theearthissquare import settings
 from website.forms import *
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.db import connection
-from django.http import HttpResponse, HttpResponseRedirect
-import requests, json, logging
-
 
 
 # Create your views here.
-def home(request, reason=""):
+def home(request):
     loading_screen = settings.USE_LOADING_SCREEN
 
     timeout = 4500 if loading_screen else 0
@@ -35,8 +31,8 @@ def home(request, reason=""):
             request.user.profile.dev_mode = False
             request.user.profile.save()
         elif request.POST['action'] == 'Dev_On':
-           request.user.profile.dev_mode = True
-           request.user.profile.save()
+            request.user.profile.dev_mode = True
+            request.user.profile.save()
 
     developer_mode = request.user.profile.dev_mode if request.user.is_authenticated else False
 
@@ -44,14 +40,14 @@ def home(request, reason=""):
 
     connection.close()
     return render(request, template, {
-    'projects' : projects,
-    'profiles' : profiles,
-    'timeout' : timeout,
-    'developer_mode' : developer_mode,
+        'projects': projects,
+        'profiles': profiles,
+        'timeout': timeout,
+        'developer_mode': developer_mode,
     })
 
-def services(request):
 
+def services(request):
     services = Service.objects.order_by('name').filter(type='a')
     included_services = Service.objects.filter(type='b')
     addon_services = Service.objects.filter(type='c')
@@ -61,8 +57,8 @@ def services(request):
             request.user.profile.dev_mode = False
             request.user.profile.save()
         elif request.POST['action'] == 'Dev_On':
-           request.user.profile.dev_mode = True
-           request.user.profile.save()
+            request.user.profile.dev_mode = True
+            request.user.profile.save()
 
     if request.user.is_authenticated:
         developer_mode = request.user.profile.dev_mode
@@ -75,18 +71,20 @@ def services(request):
 
     connection.close()
     return render(request, template, {
-    'services' : services,
-    'included_services' : included_services,
-    'addon_services' : addon_services,
+        'services': services,
+        'included_services': included_services,
+        'addon_services': addon_services,
     })
+
 
 def portfolio(request):
     portfolio = Project.objects.all().order_by('-ongoing', '-date_completed')
 
     connection.close()
     return render(request, 'website/portfolio.html', {
-    'portfolio' : portfolio,
+        'portfolio': portfolio,
     })
+
 
 def project(request, parsed_client):
     client = parsed_client.replace('_', ' ')
@@ -94,16 +92,18 @@ def project(request, parsed_client):
 
     connection.close()
     return render(request, 'website/project.html', {
-    'project' : project,
+        'project': project,
     })
+
 
 def about(request):
     profiles = Profile.objects.all().order_by('name')
 
     connection.close()
     return render(request, 'website/about.html', {
-    'profiles' : profiles,
+        'profiles': profiles,
     })
+
 
 def contact(request):
     coffee_form = ContactForm_Coffee
@@ -130,7 +130,7 @@ def contact(request):
                 city = form.cleaned_data['city']
 
                 # email the profile with the contact info
-                template = get_template('contact_coffee.txt')
+                template = get_template('website/contact_coffee.txt')
 
                 context = {
                     'contact_name': contact_name,
@@ -143,7 +143,7 @@ def contact(request):
                 type = form.cleaned_data['type']
 
                 # email the profile with the contact info
-                template = get_template('contact_work.txt')
+                template = get_template('website/contact_work.txt')
 
                 context = {
                     'contact_name': contact_name,
@@ -155,7 +155,7 @@ def contact(request):
             else:
 
                 # email the profile with the contact info
-                template = get_template('contact_other.txt')
+                template = get_template('website/contact_other.txt')
 
                 context = {
                     'contact_name': contact_name,
@@ -181,12 +181,12 @@ def contact(request):
         'emailSent': success,
     })
 
-def examples(request):
 
+def examples(request):
     return render(request, 'website/examples.html', {
     })
 
-def cafe_example(request):
 
+def cafe_example(request):
     return render(request, 'website/examples/cafe_example/index.html', {
     })

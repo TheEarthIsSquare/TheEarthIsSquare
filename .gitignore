@@ -4,6 +4,7 @@ website/media/profiles/*.png
 website/media/profiles/*.jpg
 celerybeat-schedule.db
 dashboard/static/dashboard/charts/*.svg
+*.idea
 
 ### Django ###
 *.log
