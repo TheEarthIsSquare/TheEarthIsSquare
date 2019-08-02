@@ -7,7 +7,6 @@ from django.core.mail import send_mail
 from django.db import connection
 
 
-# Create your views here.
 def home(request):
     loading_screen = settings.USE_LOADING_SCREEN
 
