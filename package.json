@@ -1,34 +1,59 @@
 {
-  "name": "theearthissquare",
-  "version": "1.0.0",
-  "description": "Repository for The Earth is Square website.",
-  "main": "index.js",
+  "name": "the-earth-is-square",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MitchellRomney/theearthissquare.git"
-  },
-  "author": "Mitchell Romney",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MitchellRomney/theearthissquare/issues"
-  },
-  "homepage": "https://github.com/MitchellRomney/theearthissquare#readme",
-  "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-minify": "^3.1.0"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
-    "autoprefixer": "^9.4.6",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "particles.js": "^2.0.0",
-    "waypoints": "^4.0.1"
-  }
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/vue-fontawesome": "^0.1.7",
+    "axios": "^0.19.0",
+    "core-js": "^2.6.5",
+    "express": "^4.17.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "vue": "^2.6.10",
+    "vue-clipboard2": "^0.3.1",
+    "vue-router": "^3.0.3",
+    "vue-tippy": "^4.0.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
