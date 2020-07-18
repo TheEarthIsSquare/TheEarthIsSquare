@@ -23,14 +23,16 @@
     </nav>
     <NavigationMenu :open="isMenuOpen" @close="closeMenu"/>
     <div class="view-wrapper">
-      <router-view :class="{ 'menu-open' : isMenuOpen }"/>
+      <transition name="fade" mode="out-in">
+        <router-view :class="{ 'menu-open' : isMenuOpen }"/>
+      </transition>
     </div>
     <footer class="container">
       <Logo/>
       <div class="footer-socials">
-        <a href="https://www.facebook.com">facebook</a> |
-        <a href="https://www.twitter.com">twitter</a> |
-        <a href="https://www.instagram.com">instagram</a>
+        <a href="https://www.instagram.com/_earthissquare">
+          <font-awesome-icon :icon="['fab', 'instagram']" size="2x"/>
+        </a>
       </div>
       <div class="footer-copyright">
         &copy; 2020 The Earth is Square. All rights reserved.
@@ -65,7 +67,6 @@ export default {
   },
   methods: {
     closeMenu() {
-      console.log('hello?')
       this.isMenuOpen = false
     },
     toggleMenu() {
@@ -144,13 +145,17 @@ export default {
     padding-top: 50px;
     padding-bottom: 50px;
     color: white;
-    height: 300px;
 
     .footer-socials {
-      padding: 50px 0;
+      padding: 20px 0;
 
       a {
         color: white;
+        transition: color 0.25s ease;
+
+        &:hover {
+          color: $rose;
+        }
       }
     }
   }

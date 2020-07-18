@@ -1,5 +1,5 @@
 <template>
-  <button class="main-blurb__cta" :style="{ transform : `rotate(${rotation}deg)`}">
+  <button class="main-blurb__cta" :style="{ transform : `rotate(${rotation}deg)`}" :class="{ disabled }">
     <span class="main-blurb-cta__text">{{ text }}</span>
   </button>
 </template>
@@ -11,6 +11,10 @@ export default {
     text: {
       type: String,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     rotation: {
       type: Number,
@@ -50,6 +54,19 @@ export default {
 
     .main-blurb-cta__text {
       background-color: rgba($martinique, 0);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.2;
+    cursor: initial;
+
+    &:hover {
+      background-color: transparent;
+
+      .main-blurb-cta__text {
+        background-color: rgba($martinique, 1);
+      }
     }
   }
 }

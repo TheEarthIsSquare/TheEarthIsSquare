@@ -38,7 +38,7 @@ export default {
       menuItems: [
         { name: 'the earth is square', highlightText: 'who are we?', construction: true, link: 'About' },
         { name: 'our portfolio', highlightText: 'history of awesome', construction: true, link: 'Portfolio' },
-        { name: 'contact us', highlightText: 'let\'s create', construction: true, link: 'Contact' },
+        { name: 'contact us', highlightText: 'let\'s create', construction: false, link: 'Contact' },
       ]
     }
   },

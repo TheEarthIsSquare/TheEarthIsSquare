@@ -31,19 +31,25 @@
       </div>
       <div class="team__description">
         <div class="team__header">
-          <span>The Team (Spoiler: It's Just Me)</span>
+          <span>👋 The Team (Spoiler: It's Just Me)</span>
         </div>
         <div class="team__member">
           <div class="team-member__name">
             Mitchell Romney
           </div>
-          <div class="team-member__position">
-            Founder & Director
+          <div class="team-member__position-location">
+            <div class="team-member__position">
+              Founder & Director
+            </div>
+            <div class="team-member__location">
+              Current Location: <span>Melbourne, Australia</span>
+            </div>
           </div>
           <div class="team-member__blurb">
-            Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person.
-            Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person.
-            Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person. Mitchell Romney is a person.
+            Mitchell is the founder of The Earth is Square, an experienced web engineer and designer who has a focus on
+            thinking outside the box and coming up with modern creative solutions. He can always be found with a coffee
+            in his hand, and many active creative projects going at once. Constantly up for the next challenge, he's
+            worked on a large scope of projects both in his career and with his freelance clients.
           </div>
         </div>
       </div>
@@ -203,8 +209,11 @@ export default {
       .team__header {
         font-weight: bold;
         text-transform: uppercase;
+        margin-bottom: 20px;
 
         span {
+          padding: 2px 5px;
+          border-radius: 5px;
           background-color: $martinique;
         }
       }
@@ -215,16 +224,30 @@ export default {
           font-weight: bold;
         }
 
-        .team-member__position {
-          opacity: 0.9;
-          font-size: 24px;
+        .team-member__position-location {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 18px;
           font-weight: 500;
+
+          .team-member__location {
+            span {
+              padding: 2px 5px;
+              border-radius: 5px;
+              font-weight: bold;
+              background-color: $martinique;
+            }
+          }
         }
 
         .team-member__blurb {
           font-size: 16px;
-          opacity: 0.9;
           margin-top: 20px;
+          line-height: 1.5;
+          background-color: $martinique;
+          padding: 10px;
+          border-radius: 5px;
         }
       }
     }

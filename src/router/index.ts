@@ -8,7 +8,9 @@ let router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', name: 'Home', component: Home },
-    { path: '/contact', name: 'Contact', component: () => import('@/views/Contact.vue') }
+    { path: '/contact', name: 'Contact', component: () => import('@/views/Contact.vue'), children: [
+        { name: 'Contact Form', path: ':type', component: () => import("@/components/ContactForm.vue") },
+      ]},
   ],
 })
 
