@@ -1,6 +1,8 @@
+@import './animations.scss';
+@import './variables.scss';
+
 body {
   margin: 0;
-  overflow: hidden;
 }
 
 .container {
@@ -11,4 +13,9 @@ body {
 a {
   color: initial;
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
 }

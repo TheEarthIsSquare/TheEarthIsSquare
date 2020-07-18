@@ -1,0 +1,25 @@
+.fade-left-enter, .fade-left-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-left-leave-active {
+  position: absolute;
+}
+
+.fade-right-enter, .fade-right-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.fade-right-leave-active {
+  position: absolute;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

@@ -1,33 +1,76 @@
 <template>
   <div id="app">
-    <nav class="navigation-wrapper">
+    <nav class="navigation-wrapper" :class="{ open : isMenuOpen }">
       <div class="navigation container">
-        <router-link :to="{ name: 'Home' }">
-          <div class="navigation__logo">
-            the earth <span>is square</span>
-            <div class="navigation__logo-square"/>
-          </div>
-        </router-link>
-        <div class="menu-toggle" @click="toggleMenu">
-          menu
+        <div class="logo-wrapper" @click="closeMenu">
+          <router-link :to="{ name: 'Home' }">
+            <Logo :dark="isMenuOpen"/>
+          </router-link>
+        </div>
+        <div class="menu-toggle__wrapper" @click="toggleMenu">
+          <transition name="fade" mode="out-in">
+            <div class="menu-toggle" :key="'menu'" v-if="!isMenuOpen">
+              <div class="menu-toggle__text">menu</div>
+              <font-awesome-icon icon="bars"/>
+            </div>
+            <div class="menu-toggle" :key="'close'" v-else>
+              <div class="menu-toggle__text">close</div>
+              <font-awesome-icon icon="times"/>
+            </div>
+          </transition>
         </div>
       </div>
     </nav>
-    <div class="navigation-menu" v-if="openMenu">
-
+    <NavigationMenu :open="isMenuOpen" @close="closeMenu"/>
+    <div class="view-wrapper">
+      <router-view :class="{ 'menu-open' : isMenuOpen }"/>
     </div>
-    <router-view/>
+    <footer class="container">
+      <Logo/>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com">facebook</a> |
+        <a href="https://www.twitter.com">twitter</a> |
+        <a href="https://www.instagram.com">instagram</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2020 The Earth is Square. All rights reserved.
+      </div>
+    </footer>
   </div>
 </template>
 
-<script lang="ts">
-import { Vue } from 'vue-property-decorator';
+<script>
+import Logo from './components/TheLogo'
+import NavigationMenu from "./components/NavigationMenu/NavigationMenu"
 
-export default class App extends Vue {
-  openMenu: boolean = false
-
-  toggleMenu(): void {
-    this.openMenu = !this.openMenu
+export default {
+  name: 'Home',
+  components: { Logo, NavigationMenu },
+  data() {
+    return {
+      isMenuOpen: false
+    }
+  },
+  computed: {
+    currentRoute() {
+      return this.$route.name
+    }
+  },
+  watch: {
+    currentRoute(previousRoute, currentRoute) {
+      if (previousRoute !== currentRoute){
+        this.isMenuOpen = false
+      }
+    }
+  },
+  methods: {
+    closeMenu() {
+      console.log('hello?')
+      this.isMenuOpen = false
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+    }
   }
 }
 </script>
@@ -35,6 +78,8 @@ export default class App extends Vue {
 <style lang="scss">
 @import './styles/variables';
 @import './styles/_base';
+@import './styles/animations';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 #app {
   font-family: 'Open Sans', sans-serif;
@@ -42,10 +87,15 @@ export default class App extends Vue {
   -moz-osx-font-smoothing: grayscale;
 
   .navigation-wrapper {
+    z-index: 2000;
     width: 100%;
     height: 100px;
     position: absolute;
     color: white;
+
+    &.open {
+      position: fixed;
+    }
 
     .navigation {
       display: flex;
@@ -53,39 +103,56 @@ export default class App extends Vue {
       align-items: center;
       height: 100%;
 
-      .navigation__logo {
-        display: flex;
-        font-weight: bold;
-        font-size: 24px;
-        color: white;
-
-        span {
-          padding-left: 5px;
-          color: $rose;
-        }
-
-        .navigation__logo-square {
-          background-color: $rose;
-          height: 5px;
-          width: 5px;
-          margin: 0 0 7px 5px;
-          align-self: flex-end;
-        }
-      }
-
-      .menu-toggle {
+      .menu-toggle__wrapper {
         margin-left: auto;
         font-weight: bold;
         cursor: pointer;
+
+        .menu-toggle {
+          display: flex;
+          align-items: center;
+
+          .menu-toggle__text {
+            margin-top: -4px;
+            margin-right: 5px;
+          }
+        }
       }
     }
   }
 
-  .navigation-menu {
-    position: fixed;
-    background-color: $rose;
-    width: 100vw;
-    height: 100vh;
+  .view-wrapper {
+    position: relative;
+    display: flex;
+    padding-top: 100px;
+    background-color: $martinique;
+    color: white;
+    min-height: calc(100vh - 100px);
+
+    &.menu-open {
+      overflow: hidden;
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    background-color: $martinique;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    height: 300px;
+
+    .footer-socials {
+      padding: 50px 0;
+
+      a {
+        color: white;
+      }
+    }
   }
 }
 </style>
