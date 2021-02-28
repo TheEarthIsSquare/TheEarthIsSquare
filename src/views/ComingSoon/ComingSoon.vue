@@ -19,32 +19,46 @@
       </div>
     </KinesisElement>
     <div class="logo">
-      <KinesisElement><div class="square --topLeftSquare"/></KinesisElement>
-      <KinesisElement><div class="square --topRightSquare"/></KinesisElement>
-      <KinesisElement strength="20"><div class="square --bottomLeftSquare"/></KinesisElement>
-      <KinesisElement><div class="square --bottomRightSquare"/></KinesisElement>
+      <KinesisElement>
+        <div class="square --topLeftSquare"/>
+      </KinesisElement>
+      <KinesisElement>
+        <div class="square --topRightSquare"/>
+      </KinesisElement>
+      <KinesisElement strength="20">
+        <div class="square --bottomLeftSquare"/>
+      </KinesisElement>
+      <KinesisElement>
+        <div class="square --bottomRightSquare"/>
+      </KinesisElement>
     </div>
   </KinesisContainer>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'ComingSoon',
+  name: "ComingSoon",
   setup() {
-    return
+    return;
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
 #ComingSoon {
   height: 100vh;
-  display: grid;
-  grid-gap: 100px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
+  justify-items: center;
+  margin: auto;
+  padding: 0 20px;
+
+  @media only screen and (min-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
   .content {
     justify-self: flex-end;
@@ -104,8 +118,13 @@ export default defineComponent({
   .logo {
     width: 200px;
     height: 200px;
-    display: grid;
+    display: none;
     grid-template: 1fr 1fr / 1fr 1fr;
+    padding-left: 25px;
+
+    @media only screen and (min-width: 600px) {
+      display: grid;
+    }
 
     .square {
       background-color: #2d3436;
