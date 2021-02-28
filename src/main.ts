@@ -1,26 +1,8 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import App from './App.vue'
-import router from './router'
-import VueAxios from './plugins/axios'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faTimes, faArrowRight, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { createApp } from "vue";
+import App from "./App.vue";
+import store from "./store";
+import router from "./router";
 // @ts-ignore
-import { SquareSpinner } from 'vue-spinners'
+import VueKinesis from "vue-kinesis";
 
-library.add(faBars, faTimes, faArrowRight, faInstagram, faCheckCircle)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('square', SquareSpinner)
-
-Vue.use(Vuex)
-Vue.use(VueAxios)
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App).use(router).use(store).use(VueKinesis).mount("#app");
