@@ -1,9 +1,9 @@
 <template>
-  <KinesisContainer id="ComingSoon" duration="2000">
+  <KinesisContainer id="Landing" duration="2000">
     <KinesisElement class="content">
       <h4 class="name">think outside the square</h4>
       <h1>THE EARTH<br>IS SQUARE</h1>
-      <h3 class="blurb">new website, coming soon.</h3>
+<!--      <h3 class="blurb">new website, coming soon.</h3>-->
       <div class="divider"/>
       <h3 class="contact">hello@theearthissquare.com</h3>
       <div class="socials">
@@ -39,7 +39,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComingSoon",
+  name: "Landing",
   setup() {
     return;
   }
@@ -47,7 +47,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-#ComingSoon {
+#Landing {
   height: 100vh;
   display: flex;
   align-items: center;

@@ -4,5 +4,16 @@ import store from "./store";
 import router from "./router";
 // @ts-ignore
 import VueKinesis from "vue-kinesis";
+import VueGtag from "vue-gtag-next";
 
-createApp(App).use(router).use(store).use(VueKinesis).mount("#app");
+createApp(App)
+  .use(router)
+  .use(store)
+  .use(VueKinesis)
+  .use(VueGtag, {
+    useDebugger: true,
+    property: {
+      id: "G-XEXHEZY5TL"
+    }
+  })
+  .mount("#app");
