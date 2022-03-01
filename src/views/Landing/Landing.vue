@@ -1,9 +1,9 @@
 <template>
   <KinesisContainer id="Landing" duration="2000">
+
     <KinesisElement class="content">
-      <h4 class="name">think outside the square</h4>
+      <h4 class="tagline">think outside the square</h4>
       <h1>THE EARTH<br>IS SQUARE</h1>
-<!--      <h3 class="blurb">new website, coming soon.</h3>-->
       <div class="divider"/>
       <h3 class="contact">hello@theearthissquare.com</h3>
       <div class="socials">
@@ -18,6 +18,7 @@
         </a>
       </div>
     </KinesisElement>
+
     <div class="logo">
       <KinesisElement>
         <div class="square --topLeftSquare"/>
@@ -39,10 +40,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Landing",
-  setup() {
-    return;
-  }
+  name: "Landing"
 });
 </script>
 
@@ -64,11 +62,10 @@ export default defineComponent({
     justify-self: flex-end;
     text-align: right;
 
-    .name {
+    .tagline {
       font-weight: 900;
-      opacity: 0.6;
       margin: 0;
-      color: #ff0081;
+      color: #EB2188;
     }
 
     .blurb {
@@ -133,6 +130,7 @@ export default defineComponent({
 
       &.--bottomLeftSquare {
         transform: translate3d(-25px, 25px, 0);
+        background-color: #EB2188;
       }
     }
   }
