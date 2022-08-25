@@ -8,7 +8,11 @@
 </template>
 
 <script lang="ts" setup>
+import { definePageMeta } from "#imports";
 
+definePageMeta({
+  title: "The Earth Is Square - Development & Creativity - Think Outside The Square"
+});
 </script>
 
 <style lang="scss" scoped>

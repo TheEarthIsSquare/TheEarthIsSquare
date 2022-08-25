@@ -30,7 +30,11 @@
 </template>
 
 <script lang="ts" setup>
+import { definePageMeta } from "#imports";
 
+definePageMeta({
+  title: "The Earth Is Square - Contact Us"
+});
 </script>
 
 <style lang="scss" scoped>
