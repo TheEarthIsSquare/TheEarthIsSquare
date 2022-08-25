@@ -1,58 +1,15 @@
 {
-  "name": "theearthissquare-frontend",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "connect-history-api-fallback": "^1.6.0",
-    "express": "^4.17.2",
-    "express-sslify": "^1.2.0",
-    "node-sass": "6.0.1",
-    "sass-loader": "^10.2.1",
-    "serve-static": "^1.14.2",
-    "vue": "^3.2.31",
-    "vue-gtag-next": "^1.14.0",
-    "vue-kinesis": "^2.0.5",
-    "vue-router": "^4.0.13"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.34.1-alpha.2",
-    "@typescript-eslint/parser": "^2.34.1-alpha.2",
-    "@vue/cli-plugin-babel": "~4.5.13",
-    "@vue/cli-plugin-eslint": "~4.5.13",
-    "@vue/cli-plugin-router": "~4.5.13",
-    "@vue/cli-plugin-typescript": "^4.5.13",
-    "@vue/cli-plugin-vuex": "~4.5.13",
-    "@vue/cli-service": "~4.5.13",
-    "@vue/compiler-sfc": "^3.1.4",
-    "@vue/eslint-config-typescript": "^5.1.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^7.12.1",
-    "typescript": "~3.9.10"
+    "nuxt": "3.0.0-rc.8"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript"
-    ],
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "dependencies": {
+    "sass": "^1.54.4"
+  }
 }
