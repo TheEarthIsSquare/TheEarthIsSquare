@@ -64,10 +64,6 @@
           </div>
           <div class="sidebar__overflow-arrow-back" />
         </div>
-
-        <div class="sidebar__overflow-tagline">
-          think outside the square.
-        </div>
       </div>
     </div>
   </div>
@@ -205,15 +201,6 @@ const toggleSidebar = () => {
           transform: rotate(45deg);
           background-color: white;
         }
-      }
-
-      .sidebar__overflow-tagline {
-        font-size: 18px;
-        font-weight: bold;
-        position: absolute;
-        bottom: 10%;
-        width: 250px;
-        transform: rotate(-90deg);
       }
     }
   }
