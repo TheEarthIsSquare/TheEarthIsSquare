@@ -5,6 +5,7 @@ export const IconRegistry = {
   map: () => import(/* webpackPrefetch: true */ "./IconComponents/IconMap.vue"),
   phone: () => import(/* webpackPrefetch: true */ "./IconComponents/IconPhone.vue"),
   envelope: () => import(/* webpackPrefetch: true */ "./IconComponents/IconEnvelope.vue"),
+  rocket: () => import(/* webpackPrefetch: true */ "./IconComponents/IconRocket.vue"),
 
   discord: () => import(/* webpackPrefetch: true */ "./IconComponents/IconDiscord.vue"),
   instagram: () => import(/* webpackPrefetch: true */ "./IconComponents/IconInstagram.vue"),

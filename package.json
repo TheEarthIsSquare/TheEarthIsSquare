@@ -11,9 +11,10 @@
     "node": "16.x"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.8"
+    "nuxt": "3.0.0-rc.13"
   },
   "dependencies": {
-    "sass": "^1.54.4"
+    "axios": "^1.2.0",
+    "sass": "^1.56.1"
   }
 }

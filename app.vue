@@ -1,34 +1,39 @@
 <template>
   <div id="app">
-    <TheSidebar :isOpen="isSidebarOpen" @toggle-sidebar="isSidebarOpen = !isSidebarOpen" />
-    <div id="main" :class="{ '--sidebar-open': isSidebarOpen }">
+    <NavBar />
+
+    <main>
       <NuxtPage />
-    </div>
+      <AppFooter />
+    </main>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "@vue/reactivity";
+import { useHead } from "#head";
 
-const isSidebarOpen = ref(false);
+useHead({
+  title: "The Earth Is Square"
+});
 </script>
 
 <style lang="scss">
 #app {
+  position: relative;
   display: flex;
-  width: 100vw;
+  overflow: hidden;
+  flex-direction: column;
   height: 100vh;
+  padding: 0.6rem;
+  background: var(--black);
+  gap: 0.6rem;
 
-  #main {
+  main {
     display: flex;
-    flex: 1;
-    margin-left: 75px;
-    transition: margin-left 0.25s ease;
-    background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
-
-    &.--sidebar-open {
-      margin-left: 375px;
-    }
+    overflow-y: scroll;
+    flex-direction: column;
+    height: calc(100vh - 11.2rem);
+    margin-top: 11.2rem;
   }
 }
 </style>
