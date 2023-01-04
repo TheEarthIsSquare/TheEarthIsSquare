@@ -78,7 +78,11 @@ const panels = [
       color: var(--white);
 
       span {
-        color: var(--pink);
+        background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
         border-bottom: 0.3rem solid var(--pink);
       }
     }
@@ -86,7 +90,7 @@ const panels = [
     .outcomes__panels {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 5rem 8rem;
+      grid-gap: 5rem 6rem;
 
       .outcomes__panel {
         position: relative;
@@ -98,12 +102,17 @@ const panels = [
           position: absolute;
           top: 0;
           left: 0;
-          fill: var(--pink);
+          fill: url('#teis_gradient');
         }
 
         .outcomes__panel-title {
+          font-weight: 900;
           font-size: 3.583rem;
-          color: var(--pink);
+          background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
         }
 
         .outcomes__panel-description {

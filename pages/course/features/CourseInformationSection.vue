@@ -25,6 +25,15 @@
           Schedule A Meeting
         </CoreButton>
       </div>
+
+      <div class="course-information__images">
+        <div class="course-information__image --1"/>
+        <div class="course-information__image --2"/>
+        <div class="course-information__image --3"/>
+        <div class="course-information__image --4"/>
+        <div class="course-information__image --5"/>
+        <div class="course-information__image --6"/>
+      </div>
     </div>
   </section>
 </template>
@@ -39,6 +48,7 @@
   background-color: var(--white);
 
   .course-information__content {
+    position: relative;
     display: grid;
     align-items: center;
     flex: 1;
@@ -62,6 +72,66 @@
 
       button {
         margin-right: auto;
+      }
+    }
+
+    .course-information__images {
+      position: relative;
+      height: 100%;
+
+      .course-information__image {
+        position: absolute;
+        background-size: cover;
+        border-radius: 3rem;
+        box-shadow: 8px 8px 0 var(--black);
+
+        &.--1 {
+          background-image: url("@/assets/img/upleveled_15.png");
+          width: 8vw;
+          height: 8vw;
+          top: 0;
+          left: 6vw;
+        }
+
+        &.--2 {
+          background-image: url("@/assets/img/upleveled_6.png");
+          width: 12vw;
+          height: 12vw;
+          top: 10vw;
+          left: 9vw;
+        }
+
+        &.--3 {
+          background-image: url("@/assets/img/upleveled_16.png");
+          width: 14vw;
+          height: 14vw;
+          top: 4vw;
+          left: 23vw;
+        }
+
+        &.--4 {
+          background-image: url("@/assets/img/upleveled_11.png");
+          width: 7vw;
+          height: 7vw;
+          top: 16vw;
+          left: 0;
+        }
+
+        &.--5 {
+          background-image: url("@/assets/img/upleveled_1.png");
+          width: 8vw;
+          height: 8vw;
+          top: 24vw;
+          left: 11vw;
+        }
+
+        &.--6 {
+          background-image: url("@/assets/img/upleveled_5.png");
+          width: 10vw;
+          height: 10vw;
+          top: 25vw;
+          left: 22vw;
+        }
       }
     }
   }

@@ -2,7 +2,9 @@
   <section id="location">
     <div class="location__inner-wrapper">
       <div class="location__images">
-
+        <div class="location__image --1" />
+        <div class="location__image --2" />
+        <div class="location__image --3" />
       </div>
 
       <div class="location__blurb">
@@ -44,18 +46,47 @@
   background-color: var(--white);
 
   .location__inner-wrapper {
-    display: grid;
+    position: relative;
     max-width: 144rem;
-    grid-template-columns: 1fr 1fr;
 
     .location__images {
+      position: absolute;
+      left: 0;
 
+      .location__image {
+        background-size: cover;
+        border-radius: 3rem;
+        box-shadow: 8px 8px 0 var(--black);
+
+        &.--1 {
+          background-image: url("@/assets/img/location2.jpg");
+          width: 34rem;
+          height: 34rem;
+          margin-top: -10rem;
+        }
+
+        &.--2 {
+          background-image: url("@/assets/img/location1.jpg");
+          width: 28rem;
+          height: 28rem;
+          margin-top: -5rem;
+          margin-left: 20rem;
+        }
+
+        &.--3 {
+          background-image: url("@/assets/img/location3.jpg");
+          width: 34rem;
+          height: 34rem;
+          margin-top: -5rem;
+        }
+      }
     }
 
     .location__blurb {
       display: flex;
       flex-direction: column;
       text-align: right;
+      margin-left: 50%;
 
       h2 {
         font-size: 6.484rem;
