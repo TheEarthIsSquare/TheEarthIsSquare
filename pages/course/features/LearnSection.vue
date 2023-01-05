@@ -69,28 +69,31 @@ const selectedTab = computed(() => tabs[selectedTabIndex.value]);
   align-content: center;
   justify-content: center;
   padding: 10rem;
-  color: var(--white);
+  color: var(--Color-White);
 
   .learn__inner-wrapper {
-    font-weight: bold;
+    font-weight: var(--FontWeight-Bold);
     display: flex;
     align-content: center;
     flex-direction: column;
     justify-content: center;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
     gap: 5rem;
 
     h2 {
-      font-size: 6.484rem;
+      font-size: var(--FontSize-Chonky-M);
       text-align: center;
 
       span {
-        color: var(--pink);
+        background: var(--Gradient-PinkPurple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: none;
       }
     }
 
     .learn__tabs {
-      font-size: 3.583rem;
+      font-size: var(--FontSize-XXL);
       display: flex;
       align-content: center;
       justify-content: space-around;
@@ -104,13 +107,13 @@ const selectedTab = computed(() => tabs[selectedTabIndex.value]);
 
         &.--selected {
           opacity: 1;
-          border-bottom: 0.3rem solid var(--white);
+          border-bottom: 0.3rem solid var(--Color-White);
         }
       }
     }
 
     .learn__content {
-      font-size: 2.488rem;
+      font-size: var(--FontSize-L);
       display: grid;
       align-items: center;
       padding: 10rem 0;
@@ -120,11 +123,11 @@ const selectedTab = computed(() => tabs[selectedTabIndex.value]);
       .learn__content-hero {
         width: 100%;
         height: 30vh;
-        border: 3px solid var(--black);
-        border-radius: 3rem;
+        border: 0.3rem solid var(--Color-Black);
+        border-radius: var(--BorderRadius-L);
         background-position-y: center;
         background-size: cover;
-        box-shadow: 8px 8px 0 var(--black);
+        box-shadow: var(--Shadow-L);
       }
     }
   }

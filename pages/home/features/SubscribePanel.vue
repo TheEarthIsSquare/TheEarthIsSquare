@@ -8,7 +8,7 @@
           type="email"
           @keyup.enter="onSubscribe"
       />
-      <CoreButton @submit="onSubscribe">
+      <CoreButton height="100%" @submit="onSubscribe">
         Subscribe
       </CoreButton>
     </template>
@@ -50,7 +50,7 @@ const onSubscribe = async () => {
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease;
-  border-radius: 3rem;
+  border-radius: var(--BorderRadius-L);
   grid-row: span 1;
   grid-template-columns: 3fr 1fr;
   grid-column: span 12;
@@ -61,17 +61,17 @@ const onSubscribe = async () => {
   }
 
   input {
-    font-size: 1.8rem;
+    font-size: var(--FontSize-M);
     padding: 0 3rem;
-    border-radius: 3rem;
+    border-radius: var(--BorderRadius-L);
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: var(--FontSize-M);
     padding: 0 2rem;
     cursor: pointer;
     text-align: center;
-    color: var(--white);
+    color: var(--Color-White);
     grid-column: span 2;
   }
 }

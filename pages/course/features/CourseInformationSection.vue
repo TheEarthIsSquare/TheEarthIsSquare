@@ -44,30 +44,29 @@
   justify-content: center;
   height: 60vh;
   padding: 5rem 5%;
-  border-radius: 3rem;
-  background-color: var(--white);
+  border-radius: var(--BorderRadius-L);
+  background-color: var(--Color-White);
 
   .course-information__content {
     position: relative;
     display: grid;
     align-items: center;
     flex: 1;
-    max-width: 144rem;
-    background-color: var(--white);
+    max-width: var(--View-MaxWidth);
+    background-color: var(--Color-White);
     grid-template-columns: 1fr 1fr;
 
     .course-information-content__left {
-      font-size: 1.728rem;
+      font-size: var(--FontSize-M);
       display: flex;
       flex-direction: column;
       gap: 5rem;
 
       h1 {
-        font-size: 7.2rem;
+        font-size: var(--FontSize-Chonky-L);
         line-height: 72.19%;
-        color: var(--white);
-        text-shadow: 8px 8px 0 var(--black);
-        -webkit-text-stroke: 3px var(--black);
+        color: var(--Color-White);
+        text-shadow: var(--Shadow-Border), var(--Shadow-L);
       }
 
       button {
@@ -82,11 +81,11 @@
       .course-information__image {
         position: absolute;
         background-size: cover;
-        border-radius: 3rem;
-        box-shadow: 8px 8px 0 var(--black);
+        border-radius: var(--BorderRadius-L);
+        box-shadow: var(--Shadow-L);
 
         &.--1 {
-          background-image: url("@/assets/img/upleveled_15.png");
+          background-image: url("@/assets/img/upleveled_15.avif");
           width: 8vw;
           height: 8vw;
           top: 0;
@@ -94,7 +93,7 @@
         }
 
         &.--2 {
-          background-image: url("@/assets/img/upleveled_6.png");
+          background-image: url("@/assets/img/upleveled_6.avif");
           width: 12vw;
           height: 12vw;
           top: 10vw;
@@ -102,7 +101,7 @@
         }
 
         &.--3 {
-          background-image: url("@/assets/img/upleveled_16.png");
+          background-image: url("@/assets/img/upleveled_16.avif");
           width: 14vw;
           height: 14vw;
           top: 4vw;
@@ -110,7 +109,7 @@
         }
 
         &.--4 {
-          background-image: url("@/assets/img/upleveled_11.png");
+          background-image: url("@/assets/img/upleveled_11.avif");
           width: 7vw;
           height: 7vw;
           top: 16vw;
@@ -118,7 +117,7 @@
         }
 
         &.--5 {
-          background-image: url("@/assets/img/upleveled_1.png");
+          background-image: url("@/assets/img/upleveled_1.avif");
           width: 8vw;
           height: 8vw;
           top: 24vw;
@@ -126,7 +125,7 @@
         }
 
         &.--6 {
-          background-image: url("@/assets/img/upleveled_5.png");
+          background-image: url("@/assets/img/upleveled_5.avif");
           width: 10vw;
           height: 10vw;
           top: 25vw;

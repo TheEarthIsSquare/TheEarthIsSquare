@@ -1,5 +1,9 @@
 <template>
   <router-link class="main-hero" to="course">
+    <Duotone color="Pink">
+      <img alt="Students learning to code." src="@/assets/img/upleveled_4_2bit.avif"/>
+    </Duotone>
+
     <div class="main-hero__top">
       <CoreButton variant="secondary">
         231 Chapel Street, Prahran
@@ -24,19 +28,24 @@
 
 <style lang="scss" scoped>
 .main-hero {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 5rem;
-  border-radius: 3rem;
-  background-image: url('@/assets/img/main_hero.png');
-  background-size: cover;
+  border: 0.3rem solid var(--Color-Black);
+  border-radius: var(--BorderRadius-L);
   grid-column: span 12;
   grid-row: span 10;
+
+  img {
+    transition: all 0.25s ease;
+  }
 
   .main-hero__top {
     display: flex;
     align-items: center;
     gap: 2rem;
+    z-index: 10;
+    padding: 4rem;
   }
 
   .main-hero__middle {
@@ -47,37 +56,41 @@
     justify-content: center;
     transition: all 0.25s ease;
     gap: 3rem;
+    z-index: 10;
 
     h1 {
-      font-size: 110px;
+      font-size: var(--FontSize-Chonky-Chonk);
       line-height: 72.19%;
       transition: all 0.25s ease;
       transform: rotate(-2.6deg);
       text-align: center;
-      color: var(--white);
-      text-shadow: 8px 8px 0 var(--black);
-      -webkit-text-stroke: 3px var(--black);
+      color: var(--Color-White);
     }
 
     h2 {
-      font-size: 43.53px;
-      font-weight: 900;
+      font-size: var(--FontSize-Chonky-S);
+      font-weight: var(--FontWeight-Black);
       line-height: 72.19%;
       transition: all 0.25s ease;
       transform: rotate(-2.6deg);
       text-align: center;
-      color: var(--white);
-      text-shadow: 5px 5px 0 var(--black);
-      -webkit-text-stroke: 3px var(--black);
+      color: var(--Color-White);
+      text-shadow: var(--Shadow-Border), var(--Shadow-L);
     }
   }
 
   .main-hero__bottom {
     display: flex;
     justify-content: flex-end;
+    z-index: 10;
+    padding: 4rem;
   }
 
   &:hover {
+    img {
+      transform: scale(1.05, 1.05);
+    }
+
     .main-hero__middle {
       gap: 6rem;
 

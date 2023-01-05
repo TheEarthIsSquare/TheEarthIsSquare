@@ -10,7 +10,7 @@
       <div class="location__blurb">
         <h2>Welcome to our <span>home</span></h2>
 
-        <img alt="Revolver Lane Logo" src="@/assets/img/revolver-lane.png" />
+        <img alt="Revolver Lane Logo" src="@/assets/img/revolver-lane_logo.png" />
 
         <p>
           Lorem ipsum dolor sit amet. Eos pariatur amet aut iusto voluptatem eos consequatur molestiae et enim amet aut
@@ -42,12 +42,12 @@
   display: flex;
   justify-content: center;
   padding: 5rem 0;
-  border-radius: 3rem;
-  background-color: var(--white);
+  border-radius: var(--BorderRadius-L);
+  background-color: var(--Color-White);
 
   .location__inner-wrapper {
     position: relative;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
 
     .location__images {
       position: absolute;
@@ -55,18 +55,18 @@
 
       .location__image {
         background-size: cover;
-        border-radius: 3rem;
-        box-shadow: 8px 8px 0 var(--black);
+        border-radius: var(--BorderRadius-L);
+        box-shadow: var(--Shadow-L);
 
         &.--1 {
-          background-image: url("@/assets/img/location2.jpg");
+          background-image: url("assets/img/revolver-lane_2.avif");
           width: 34rem;
           height: 34rem;
           margin-top: -10rem;
         }
 
         &.--2 {
-          background-image: url("@/assets/img/location1.jpg");
+          background-image: url("assets/img/revolver-lane_1.avif");
           width: 28rem;
           height: 28rem;
           margin-top: -5rem;
@@ -74,7 +74,7 @@
         }
 
         &.--3 {
-          background-image: url("@/assets/img/location3.jpg");
+          background-image: url("assets/img/revolver-lane_3.avif");
           width: 34rem;
           height: 34rem;
           margin-top: -5rem;
@@ -89,10 +89,12 @@
       margin-left: 50%;
 
       h2 {
-        font-size: 6.484rem;
+        color: var(--Color-Black);
+        font-size: var(--FontSize-Chonky-S);
+        text-shadow: none;
 
         span {
-          color: var(--pink);
+          color: var(--Color-Pink);
         }
       }
 
@@ -103,11 +105,11 @@
       }
 
       p {
-        font-size: 1.728rem;
+        font-size: var(--FontSize-M);
       }
 
       h3 {
-        font-size: 3.583rem;
+        font-size: var(--FontSize-XXL);
         margin-top: 1rem;
       }
     }

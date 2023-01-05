@@ -18,18 +18,18 @@
 <style lang="scss" scoped>
 #quote-break {
   height: 15vh;
-  border-radius: 3rem;
-  background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+  border-radius: var(--BorderRadius-L);
+  background: var(--Gradient-PinkPurple);
 
   .quote-break__content {
     display: grid;
     align-items: center;
     justify-content: center;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
     height: 100%;
     margin: auto;
     padding-right: 10rem;
-    color: var(--white);
+    color: var(--Color-White);
     grid-template-columns: auto 1fr;
     grid-gap: 5rem;
 
@@ -39,7 +39,7 @@
       flex-direction: column;
 
       h3 {
-        font-size: 2.488rem;
+        font-size: var(--FontSize-L);
 
         &:first-child {
           padding-right: 4rem;
@@ -48,7 +48,7 @@
     }
 
     p {
-      font-size: 1.728rem;
+      font-size: var(--FontSize-M);
       padding-right: 10rem;
     }
   }

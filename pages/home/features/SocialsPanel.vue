@@ -3,7 +3,6 @@
     <SocialIcon name="instagram" />
     <SocialIcon name="twitter" />
     <SocialIcon name="youtube" />
-    <SocialIcon name="discord" />
     <SocialIcon name="linkedIn" />
   </div>
 </template>
@@ -15,7 +14,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 2rem 0;
-  color: var(--white);
+  color: var(--Color-White);
   grid-column: span 1;
   grid-row: span 5;
 }

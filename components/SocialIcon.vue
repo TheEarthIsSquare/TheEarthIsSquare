@@ -39,7 +39,7 @@ a {
   transition: all 0.25s ease;
 
   &:hover {
-    color: var(--pink);
+    color: var(--Color-Pink);
   }
 }
 </style>

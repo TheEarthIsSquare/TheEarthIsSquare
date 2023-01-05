@@ -66,24 +66,23 @@ const panels = [
   padding: 10rem 0;
 
   .outcomes__inner-wrapper {
-    font-weight: bold;
+    font-weight: var(--FontWeight-Bold);
     display: flex;
     flex-direction: column;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
     gap: 5rem;
 
     .outcomes__header {
       font-size: 6.484rem;
       text-align: center;
-      color: var(--white);
+      color: var(--Color-White);
 
       span {
-        background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+        background: var(--Gradient-PinkPurple);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
-        border-bottom: 0.3rem solid var(--pink);
+        border-bottom: 0.3rem solid var(--Color-Pink);
       }
     }
 
@@ -106,17 +105,16 @@ const panels = [
         }
 
         .outcomes__panel-title {
-          font-weight: 900;
-          font-size: 3.583rem;
-          background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+          font-weight: var(--FontWeight-Black);
+          font-size: var(--FontSize-XXL);
+          background: var(--Gradient-PinkPurple);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          text-fill-color: transparent;
         }
 
         .outcomes__panel-description {
-          font-size: 1.728rem;
+          font-size: var(--FontSize-M);
           color: white;
         }
       }

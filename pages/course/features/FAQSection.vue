@@ -46,7 +46,7 @@ const questions = [
 #faq {
   .faq__inner-wrapper {
     display: flex;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
     margin: 0 auto;
     gap: 0.6rem;
 
@@ -54,13 +54,14 @@ const questions = [
       position: relative;
       margin-top: auto;
       padding: 1rem;
-      color: var(--white);
+      color: var(--Color-White);
       text-orientation: upright;
       writing-mode: vertical-rl;
 
       h2 {
-        font-size: 5.4rem;
-        font-weight: 900;
+        text-shadow: var(--Shadow-Border), var(--Shadow-M);
+        font-size: var(--FontSize-Chonky-M);
+        font-weight: var(--FontWeight-Black);
         line-height: 4rem;
         position: relative;
         padding-right: 5rem;
@@ -73,8 +74,8 @@ const questions = [
         bottom: 0;
         // left: calc(0px - (((100vw - (view-border(x2) + scrollbar-width(?) + padding)) - max-width) / 2));
         left: calc(0px - (((100vw - (1.2rem + 1.1rem + 1rem)) - 144rem) / 2));
-        border-radius: 3rem;
-        background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+        border-radius: var(--BorderRadius-L);
+        background: var(--Gradient-PinkPurple);
       }
     }
 
@@ -86,14 +87,14 @@ const questions = [
       gap: 3rem;
 
       .faq__question {
-        font-size: 1.728rem;
-        font-weight: 700;
+        font-size: var(--FontSize-M);
+        font-weight: var(--FontWeight-Bold);
         position: relative;
 
         span {
-          font-size: 3.583rem;
-          font-weight: 900;
-          background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+          font-size: var(--FontSize-XXL);
+          font-weight: var(--FontWeight-Black);
+          background: var(--Gradient-PinkPurple);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -106,8 +107,8 @@ const questions = [
         right: calc(0px - (((100vw - (1.2rem + 1.1rem + 1rem)) - 144rem) / 2));
         bottom: 0;
         left: 0;
-        border-radius: 3rem;
-        background-color: var(--white);
+        border-radius: var(--BorderRadius-L);
+        background-color: var(--Color-White);
       }
     }
   }

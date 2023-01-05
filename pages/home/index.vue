@@ -37,7 +37,7 @@ import WhyCodePanel from "~/pages/home/features/WhyCodePanel.vue";
 import WhyUsPanel from "~/pages/home/features/WhyUsPanel.vue";
 
 useHead({
-  title: "Home - The Earth Is Square // Think Outside The Square"
+  title: "Learn To Code in Melbourne - The Earth Is Square"
 });
 </script>
 

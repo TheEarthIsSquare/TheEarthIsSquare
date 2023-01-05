@@ -31,8 +31,8 @@ import CoreButton from "./CoreButton.vue";</script>
 
 <style lang="scss" scoped>
 nav {
-  font-size: 24.88px;
-  font-weight: bold;
+  font-size: var(--FontSize-L);
+  font-weight: var(--FontWeight-Bold);
   position: absolute;
   z-index: 100;
   top: 0;
@@ -41,8 +41,8 @@ nav {
   display: flex;
   height: 11.6rem;
   padding: 0.6rem 0.6rem;
-  border-radius: 3rem;
-  background-color: var(--black);
+  border-radius: var(--BorderRadius-L);
+  background-color: var(--Color-Black);
   gap: 0.6rem;
 
   .nav__icon {
@@ -51,8 +51,8 @@ nav {
     justify-content: center;
     width: 12rem;
     height: 100%;
-    border-radius: 3rem;
-    background-color: var(--white);
+    border-radius: var(--BorderRadius-L);
+    background-color: var(--Color-White);
   }
 
   .nav__items {
@@ -60,8 +60,8 @@ nav {
     align-items: center;
     flex: 1;
     justify-content: center;
-    border-radius: 3rem;
-    background-color: var(--white);
+    border-radius: var(--BorderRadius-L);
+    background-color: var(--Color-White);
     gap: 2rem;
 
     .nav__item {
@@ -69,11 +69,17 @@ nav {
       text-transform: uppercase;
 
       &:hover {
-        color: var(--pink);
+        background: var(--Gradient-PinkPurple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
       &.router-link-exact-active {
-        color: var(--pink);
+        background: var(--Gradient-PinkPurple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     }
   }

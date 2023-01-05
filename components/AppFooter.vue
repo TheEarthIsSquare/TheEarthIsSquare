@@ -42,7 +42,7 @@ footer {
   color: white;
 
   .footer__content {
-    font-size: 1.2rem;
+    font-size: var(--FontSize-S);
     display: flex;
     align-items: center;
     flex: 1;
@@ -56,24 +56,24 @@ footer {
       gap: 1rem;
 
       h1 {
-        font-size: 42.55px;
+        font-size: var(--FontSize-Chonky-S);
         line-height: 72.19%;
         transform: rotate(-2.6deg);
         text-align: center;
-        color: var(--white);
+        color: var(--Color-White);
       }
 
       span {
-        font-weight: bold;
+        font-weight: var(--FontWeight-Bold);
       }
     }
 
     .footer__address {
-      font-weight: bold;
+      font-weight: var(--FontWeight-Bold);
     }
 
     .footer__links {
-      font-weight: bold;
+      font-weight: var(--FontWeight-Bold);
       display: flex;
       flex-direction: column;
 
@@ -82,7 +82,7 @@ footer {
         text-decoration: underline;
 
         &:hover {
-          color: var(--pink);
+          color: var(--Color-Pink);
         }
       }
     }

@@ -25,7 +25,7 @@ useHead({
   flex-direction: column;
   height: 100vh;
   padding: 0.6rem;
-  background: var(--black);
+  background: var(--Color-Black);
   gap: 0.6rem;
 
   main {

@@ -19,21 +19,22 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  border-radius: 3rem;
+  border-radius: var(--BorderRadius-L);
   flex-direction: column;
 
   h1 {
     text-align: center;
-    font-size: 12.2rem;
+    font-size: var(--FontSize-Chonky-Chonk);
     line-height: 72.19%;
-    color: var(--white);
-    text-shadow: 16px 16px 0 var(--black);
-    -webkit-text-stroke: 6px var(--black);
+    color: var(--Color-White);
+    text-shadow: var(--Shadow-Border), var(--Shadow-L);
   }
 
   h2 {
     margin-top: 5rem;
-    font-size: 3.2rem;
+    font-size: var(--FontSize-XL);
+    text-shadow: var(--Shadow-Border);
+    color: var(--Color-White);
   }
 
   .apply__socials {

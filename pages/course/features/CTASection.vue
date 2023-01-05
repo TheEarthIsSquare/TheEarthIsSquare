@@ -12,7 +12,7 @@
           </p>
 
           <router-link to="apply">
-            <CoreButton backgroundColor="white" size="L" variant="secondary">
+            <CoreButton backgroundColor="White" size="L" variant="secondary">
               Apply
             </CoreButton>
           </router-link>
@@ -25,7 +25,7 @@
             Looking for something else? Send us your questions or let us know what's holding you back.
           </p>
 
-          <CoreButton backgroundColor="white" size="L" variant="secondary">
+          <CoreButton backgroundColor="White" size="L" variant="secondary">
             Contact Us
           </CoreButton>
         </div>
@@ -36,24 +36,25 @@
 
 <style lang="scss" scoped>
 #cta {
-  padding: 10rem 0;
-  color: var(--white);
+  padding: 10rem 0 20rem 0;
+  color: var(--Color-White);
 
   .cta__inner-wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 144rem;
+    max-width: var(--View-MaxWidth);
     margin: 0 auto;
     gap: 10rem;
 
     h2 {
-      font-size: 6.484rem;
-      font-weight: 900;
+      text-shadow: none;
+      font-size: var(--FontSize-Chonky-M);
+      font-weight: var(--FontWeight-Black);
 
       span {
-        font-weight: 900;
-        background: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+        font-weight: var(--FontWeight-Black);
+        background: var(--Gradient-PinkPurple);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -74,13 +75,13 @@
         gap: 3rem;
 
         h3 {
-          font-size: 3.583rem;
-          font-weight: 900;
+          font-size: var(--FontSize-XXL);
+          font-weight: var(--FontWeight-Black);
         }
 
         p {
-          font-size: 1.728rem;
-          font-weight: bold;
+          font-size: var(--FontSize-M);
+          font-weight: var(--FontWeight-Bold);
           max-width: 30rem;
           text-align: center;
         }
