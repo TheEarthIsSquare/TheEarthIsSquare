@@ -19,7 +19,7 @@
     </div>
 
     <router-link to="apply">
-      <CoreButton height="100%" width="10vw">
+      <CoreButton size="L" height="100%" width="10vw">
         Get Started
       </CoreButton>
     </router-link>

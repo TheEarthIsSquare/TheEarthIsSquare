@@ -13,17 +13,17 @@
         <img alt="Revolver Lane Logo" src="@/assets/img/revolver-lane_logo.png" />
 
         <p>
-          Lorem ipsum dolor sit amet. Eos pariatur amet aut iusto voluptatem eos consequatur molestiae et enim amet aut
-          molestiae provident aut asperiores illum. In temporibus vitae sit facere veniam ut incidunt quod eum
-          necessitatibus magnam eos rerum voluptatem!
+          When deciding where we were going to host our bootcamp to maximize creativity, motivation, and networking
+          opportunities, it was a no-brainer to partner up with our friends at Revolver Lane for the space!
           <br /><br />
-          Qui tenetur quibusdam est unde quia quo velit corporis et minima sapiente et dicta aliquam eum labore
-          consequatur. Ut sint explicabo hic rerum quibusdam At adipisci natus vel praesentium temporibus aut quia
-          explicabo est veniam repellat eos dicta debitis.
+          Revolver Lane is a stunning co-working space located on Chapel St in Prahran, Melbourne. Their motto is
+          "Work Weird", which is a fantastically creative energy to be learning modern web development in. The Earth Is Square
+          marks creativity & "Thinking Outside The Square" as one of the most important skills to develop while
+          learning to code.
           <br /><br />
-          Est maxime nobis eum nihil consequatur aut eaque velit ab aspernatur dicta. Est aspernatur corrupti eum
-          voluptatem placeat non reprehenderit molestias.
-          Non harum voluptatem id galisum fugit 33 veniam quae sed nulla reprehenderit est dolor recusandae.
+          The location is also a perfect mix of the best of Melbourne, with amazing coffee hosted inside the co-working space,
+          or dozens of cafes a couple minutes away for you to choose from before and during classes! Keen on a relaxing drink after
+          working your ass off all day? Chapel St definitely has you covered with all the bars you'll need.
         </p>
 
         <h3>Want to attend remotely?</h3>
@@ -59,24 +59,24 @@
         box-shadow: var(--Shadow-L);
 
         &.--1 {
-          background-image: url("assets/img/revolver-lane_2.avif");
+          background-image: url("assets/img/revolver-lane_1.avif");
           width: 34rem;
           height: 34rem;
           margin-top: -10rem;
         }
 
         &.--2 {
-          background-image: url("assets/img/revolver-lane_1.avif");
-          width: 28rem;
-          height: 28rem;
+          background-image: url("assets/img/revolver-lane_3.avif");
+          width: 30rem;
+          height: 30rem;
           margin-top: -5rem;
           margin-left: 20rem;
         }
 
         &.--3 {
-          background-image: url("assets/img/revolver-lane_3.avif");
-          width: 34rem;
-          height: 34rem;
+          background-image: url("assets/img/revolver-lane_2.avif");
+          width: 38rem;
+          height: 38rem;
           margin-top: -5rem;
         }
       }

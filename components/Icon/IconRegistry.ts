@@ -1,4 +1,5 @@
 export const IconRegistry = {
+
   // BoxIcons - https://boxicons.com
   leftArrowAlt: () => import(/* webpackPrefetch: true */ "./IconComponents/IconLeftArrowAlt.vue"),
   rightArrowAlt: () => import(/* webpackPrefetch: true */ "./IconComponents/IconRightArrowAlt.vue"),
@@ -6,6 +7,11 @@ export const IconRegistry = {
   phone: () => import(/* webpackPrefetch: true */ "./IconComponents/IconPhone.vue"),
   envelope: () => import(/* webpackPrefetch: true */ "./IconComponents/IconEnvelope.vue"),
   rocket: () => import(/* webpackPrefetch: true */ "./IconComponents/IconRocket.vue"),
+  graduation: () => import(/* webpackPrefetch: true */ "./IconComponents/IconGraduation.vue"),
+  notepad: () => import(/* webpackPrefetch: true */ "./IconComponents/IconNotepad.vue"),
+  networkChart: () => import(/* webpackPrefetch: true */ "./IconComponents/IconNetworkChart.vue"),
+  laptop: () => import(/* webpackPrefetch: true */ "./IconComponents/IconLaptop.vue"),
+  hot: () => import(/* webpackPrefetch: true */ "./IconComponents/IconHot.vue"),
 
   discord: () => import(/* webpackPrefetch: true */ "./IconComponents/IconDiscord.vue"),
   instagram: () => import(/* webpackPrefetch: true */ "./IconComponents/IconInstagram.vue"),

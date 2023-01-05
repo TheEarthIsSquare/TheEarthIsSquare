@@ -8,7 +8,7 @@
       <div class="outcomes__panels">
         <div v-for="panel in panels" class="outcomes__panel">
           <div class="outcomes__panel-icon">
-            <Icon :name="panel.icon" size="6rem" />
+            <Icon isSolid :name="panel.icon" size="5.2rem" />
           </div>
 
           <div class="outcomes__panel-title">
@@ -34,27 +34,27 @@ const panels = [
   {
     title: "Planning",
     description: "You will finish the course with a full set of strong online & offline profiles, interview prep, tips & tricks for the application process.",
-    icon: "rocket"
+    icon: "notepad"
   },
   {
     title: "Graduation Event",
     description: "The presentation of your final project will be viewed by employers from all over who will invite you to job interviews.",
-    icon: "rocket"
+    icon: "graduation"
   },
   {
     title: "Networking",
     description: "You profile incl. projects and contacts will be featured on our online matching platform “Fusion” to make it easily accessible to employers ",
-    icon: "rocket"
+    icon: "networkChart"
   },
   {
     title: "On The Job Mentoring",
     description: "Would you like ongoing support during the first months of your job or when launching as a freelancer? We get you unstuck with our Mentoring subscription",
-    icon: "rocket"
+    icon: "laptop"
   },
   {
     title: "Matching on Fusion",
     description: "You profile incl. projects and contacts will be featured on our online matching platform “Fusion” to make it easily accessible to employers ",
-    icon: "rocket"
+    icon: "hot"
   }
 ];
 </script>
@@ -89,7 +89,7 @@ const panels = [
     .outcomes__panels {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 5rem 6rem;
+      grid-gap: 5rem;
 
       .outcomes__panel {
         position: relative;
