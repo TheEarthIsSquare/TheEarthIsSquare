@@ -2,28 +2,41 @@
   <section id="course-information">
     <div class="course-information__content">
       <div class="course-information-content__left">
-        <h1>WEB DEVELOPMENT<br />BOOTCAMP</h1>
+        <h1>WEB DEVELOPMENT<br/>BOOTCAMP</h1>
         <h4>
           Ready for a change? Become a professional Web Developer and boost your career or launch your own
           business.
         </h4>
         <p>
-          <strong>Start</strong> April 17th 2023 <br />
-          <strong>Duration</strong> 12 weeks (+4 weeks online preparation) <br />
-          <strong>Times</strong> 5 days/week, 9am - 6pm <br />
-          <strong>Price</strong> $13,999 (payment plans available) <br />
-          <strong>Program</strong> Fullstack (Frontend & Backend) <br />
+          <strong>Start</strong> April 17th 2023 <br/>
+          <strong>Duration</strong> 12 weeks (+4 weeks online preparation) <br/>
+          <strong>Times</strong> 5 days/week, 9am - 6pm <br/>
+          <strong>Price</strong> $13,999 (payment plans available) <br/>
+          <strong>Program</strong> Fullstack (Frontend & Backend) <br/>
           <strong>Technologies</strong>
-          HTML, CSS, JavaScript, React, Node.js, Next.js, GraphQL, PostgreSQL, GitHub and many more <br />
-          <strong>Experience</strong> no upfront coding knowledge needed <br />
+          HTML, CSS, JavaScript, React, Node.js, Next.js, GraphQL, PostgreSQL, GitHub and many more <br/>
+          <strong>Experience</strong> no upfront coding knowledge needed <br/>
         </p>
         <h4>
-          Do you have questions? <br />
+          Do you have questions? <br/>
           Let's talk! Click the link below to schedule time with us.
         </h4>
-        <CoreButton size="L" variant="secondary">
-          Schedule A Meeting
-        </CoreButton>
+
+        <Modal>
+          <template #trigger="{ toggleOpen }">
+            <CoreButton size="L" variant="secondary" @click="toggleOpen()">
+              Schedule A Meeting
+            </CoreButton>
+          </template>
+
+          <template #content>
+            <div
+                :style="{ flex: 1 }"
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/the-earth-is-square/30min"
+            />
+          </template>
+        </Modal>
       </div>
 
       <div class="course-information__images">
@@ -37,6 +50,14 @@
     </div>
   </section>
 </template>
+
+<script lang="ts" setup>
+onMounted(() => {
+  const recaptchaScript = document.createElement('script')
+  recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js')
+  document.head.appendChild(recaptchaScript)
+})
+</script>
 
 <style lang="scss" scoped>
 #course-information {
