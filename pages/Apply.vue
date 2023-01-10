@@ -108,14 +108,14 @@
 
         <div class="apply__form-footer">
           <CoreCheckbox
+              :isChecked="applyForm.subscribeToNewsletter"
               :title="getInputTitle('subscribeToNewsletter')"
-              isChecked
               label="Yes, please keep me posted about upcoming events, discounts and more."
               @onChange="v => applyForm.subscribeToNewsletter = v"
           />
           <CoreCheckbox
+              :isChecked="applyForm.getInTouch"
               :title="getInputTitle('getInTouch')"
-              isChecked
               label="I would like to learn more about The Earth Is Square. Please get in touch with me."
               @onChange="v => applyForm.getInTouch = v"
           />

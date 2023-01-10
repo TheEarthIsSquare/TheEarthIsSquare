@@ -12,8 +12,8 @@ export const applyForm = reactive({
     extraInfo: '',
     referralSource: '',
 
-    subscribeToNewsletter: false,
-    getInTouch: false,
+    subscribeToNewsletter: true,
+    getInTouch: true,
 });
 
 export const getInputTitle = (key: FormDataKeys) => {
