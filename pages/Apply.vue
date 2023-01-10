@@ -173,12 +173,12 @@ const isSuccess = ref(false);
 
 const submit = () => {
   const nucleusUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:4000/graphql' : 'https://nucleus.theearthissquare.com/graphql';
-  
+
   if (!isLoading.value && !isSuccess.value) {
     isLoading.value = true;
 
     axios.post(nucleusUrl, {
-      query: `query SendApplicationEmail($fields: [ApplicationField], $subscribe: Boolean!) {sendApplicationEmail(fields: $fields, subscribe: $subscribe) }`,
+      query: `query SendApplicationEmail($fields: [ApplicationField!]!, $subscribe: Boolean!) {sendApplicationEmail(fields: $fields, subscribe: $subscribe) }`,
       variables: {
         fields: Object.entries(applyForm).map(([key, value]) => ({
           label: getInputTitle(key as keyof typeof applyForm),
