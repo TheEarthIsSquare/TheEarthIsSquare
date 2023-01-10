@@ -1,27 +1,27 @@
 <template>
-  <router-link class="why-code" to="course">
-    <Duotone color="Yellow">
-      <img alt="Students learning to code." src="@/assets/img/upleveled_9_2bit.avif"/>
+  <NuxtLink class="why-us" to="course">
+    <Duotone color="Purple">
+      <img alt="Students learning to code." src="~/assets/img/upleveled_12_2bit.avif"/>
     </Duotone>
 
-    <h2>Why Learn<br /> To Code?</h2>
+    <h2>Why Us?</h2>
     <CoreButton variant="secondary">
-      Discover The Secrets
+      Let's Get Personal
     </CoreButton>
-  </router-link>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
-.why-code {
+.why-us {
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   border-radius: var(--BorderRadius-L);
-  grid-row: span 8;
-  gap: 4rem;
   grid-column: span 12;
+  gap: 4rem;
+  grid-row: span 6;
 
   img {
     transition: all 0.25s ease;

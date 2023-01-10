@@ -2,6 +2,7 @@
 
 :root {
   --Color-Black: #08090E;
+  --Color-Grey: #6F6F84;
   --Color-White: #FFFFFF;
   --Color-Pink: #EB2188;
 
@@ -76,4 +77,32 @@ a {
 
 button {
   cursor: pointer;
+}
+
+.v-popper--theme-dropdown {
+  .v-popper__inner {
+    margin-top: 1rem;
+    box-shadow: var(--Shadow-L), var(--Shadow-Border) !important;
+  }
+
+  .v-popper__arrow-container {
+    display: none;
+  }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }

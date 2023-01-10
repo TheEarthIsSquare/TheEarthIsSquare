@@ -106,7 +106,7 @@ onMounted(() => {
         box-shadow: var(--Shadow-L);
 
         &.--1 {
-          background-image: url("@/assets/img/upleveled_15.avif");
+          background-image: url("assets/img/upleveled_15.avif");
           width: 8vw;
           height: 8vw;
           top: 0;
@@ -114,7 +114,7 @@ onMounted(() => {
         }
 
         &.--2 {
-          background-image: url("@/assets/img/upleveled_6.avif");
+          background-image: url("assets/img/upleveled_6.avif");
           width: 12vw;
           height: 12vw;
           top: 10vw;
@@ -122,7 +122,7 @@ onMounted(() => {
         }
 
         &.--3 {
-          background-image: url("@/assets/img/upleveled_16.avif");
+          background-image: url("assets/img/upleveled_16.avif");
           width: 14vw;
           height: 14vw;
           top: 4vw;
@@ -130,7 +130,7 @@ onMounted(() => {
         }
 
         &.--4 {
-          background-image: url("@/assets/img/upleveled_11.avif");
+          background-image: url("assets/img/upleveled_11.avif");
           width: 7vw;
           height: 7vw;
           top: 16vw;
@@ -138,7 +138,7 @@ onMounted(() => {
         }
 
         &.--5 {
-          background-image: url("@/assets/img/upleveled_1.avif");
+          background-image: url("assets/img/upleveled_1.avif");
           width: 8vw;
           height: 8vw;
           top: 24vw;
@@ -146,7 +146,7 @@ onMounted(() => {
         }
 
         &.--6 {
-          background-image: url("@/assets/img/upleveled_5.avif");
+          background-image: url("assets/img/upleveled_5.avif");
           width: 10vw;
           height: 10vw;
           top: 25vw;

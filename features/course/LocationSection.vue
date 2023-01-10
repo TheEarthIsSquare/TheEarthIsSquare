@@ -2,27 +2,30 @@
   <section id="location">
     <div class="location__inner-wrapper">
       <div class="location__images">
-        <div class="location__image --1" />
-        <div class="location__image --2" />
-        <div class="location__image --3" />
+        <div class="location__image --1"/>
+        <div class="location__image --2"/>
+        <div class="location__image --3"/>
       </div>
 
       <div class="location__blurb">
         <h2>Welcome to our <span>home</span></h2>
 
-        <img alt="Revolver Lane Logo" src="@/assets/img/revolver-lane_logo.png" />
+        <img alt="Revolver Lane Logo" src="~/assets/img/revolver-lane_logo.png"/>
 
         <p>
           When deciding where we were going to host our bootcamp to maximize creativity, motivation, and networking
           opportunities, it was a no-brainer to partner up with our friends at Revolver Lane for the space!
-          <br /><br />
+          <br/><br/>
           Revolver Lane is a stunning co-working space located on Chapel St in Prahran, Melbourne. Their motto is
-          "Work Weird", which is a fantastically creative energy to be learning modern web development in. The Earth Is Square
+          "Work Weird", which is a fantastically creative energy to be learning modern web development in. The Earth Is
+          Square
           marks creativity & "Thinking Outside The Square" as one of the most important skills to develop while
           learning to code.
-          <br /><br />
-          The location is also a perfect mix of the best of Melbourne, with amazing coffee hosted inside the co-working space,
-          or dozens of cafes a couple minutes away for you to choose from before and during classes! Keen on a relaxing drink after
+          <br/><br/>
+          The location is also a perfect mix of the best of Melbourne, with amazing coffee hosted inside the co-working
+          space,
+          or dozens of cafes a couple minutes away for you to choose from before and during classes! Keen on a relaxing
+          drink after
           working your ass off all day? Chapel St definitely has you covered with all the bars you'll need.
         </p>
 

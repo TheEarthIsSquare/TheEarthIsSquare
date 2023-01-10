@@ -11,11 +11,11 @@
             We are excited to get to know you! Click apply and start your coding journey today.
           </p>
 
-          <router-link to="apply">
+          <NuxtLink to="apply">
             <CoreButton backgroundColor="White" size="L" variant="secondary">
               Apply
             </CoreButton>
-          </router-link>
+          </NuxtLink>
         </div>
 
         <div class="cta__option">

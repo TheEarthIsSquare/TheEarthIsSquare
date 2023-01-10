@@ -11,10 +11,12 @@ export default defineNuxtConfig({
         hostname: 'https://theearthissquare.com',
         gzip: true,
         filter: ({ routes }: { routes: any }) => {
-            return routes.filter((route: any) => !route.name.includes('features')).map((route: any) => {
+            return routes.map((route: any) => {
                 if (route.name === 'home') {
                     route.url = '/';
                 }
+
+                route.url = route.url.toLowerCase();
 
                 return route;
             });

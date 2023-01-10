@@ -1,11 +1,11 @@
 <template>
   <a class="upleveled" href="https://upleveled.io" target="_blank">
     <Duotone color="Green">
-      <img alt="Students learning to code." src="@/assets/img/upleveled_8_2bit.avif"/>
+      <img alt="Students learning to code." src="~/assets/img/upleveled_8_2bit.avif"/>
     </Duotone>
 
     <h3>Powered By</h3>
-    <img alt="UpLeveled Logo" src="@/assets/img/upleveled_logo.png" />
+    <img alt="UpLeveled Logo" src="~/assets/img/upleveled_logo.png"/>
     <CoreButton variant="secondary">
       Stalk Them
     </CoreButton>

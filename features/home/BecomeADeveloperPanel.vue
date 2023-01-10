@@ -1,7 +1,7 @@
 <template>
-  <router-link class="become-a-developer__wrapper" to="course">
+  <NuxtLink class="become-a-developer__wrapper" to="course">
     <Duotone color="Blue">
-      <img alt="Students learning to code." src="@/assets/img/upleveled_5_2bit.avif"/>
+      <img alt="Students learning to code." src="~/assets/img/upleveled_5_2bit.avif"/>
     </Duotone>
 
     <div class="become-a-developer">
@@ -14,12 +14,12 @@
       </h3>
 
       <h2>
-        Become A Developer<br />
+        Become A Developer<br/>
         In 3 Months
       </h2>
-      <div class="become-a-developer__backdrop" />
+      <div class="become-a-developer__backdrop"/>
     </div>
-  </router-link>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

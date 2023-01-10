@@ -1,12 +1,12 @@
 <template>
   <a class="location" href="https://revolverlane.com" target="_blank">
     <Duotone color="Pink">
-      <img alt="Revolver Lane" src="@/assets/img/revolver-lane_2_2bit.avif"/>
+      <img alt="Revolver Lane" src="~/assets/img/revolver-lane_2_2bit.avif"/>
     </Duotone>
 
     <h2>Welcome To Our Home</h2>
     <div class="location__logo">
-      <img alt="Revolver Lane Logo" src="@/assets/img/revolver-lane_logo.png" />
+      <img alt="Revolver Lane Logo" src="~/assets/img/revolver-lane_logo.png"/>
     </div>
   </a>
 </template>

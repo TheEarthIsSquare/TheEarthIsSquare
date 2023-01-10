@@ -1,6 +1,6 @@
 <template>
   <a :href="getLink()" target="_blank">
-    <Icon :name="name" :size="size" />
+    <Icon :name="name" :size="size"/>
   </a>
 </template>
 
@@ -30,6 +30,7 @@ const getLink = () => {
       return "https://www.linkedin.com/company/the-earth-is-square";
     case "discord":
       return "https://discord.com/invite/X23epKN";
+      return "https://discord.com/invite/X23epKN";
   }
 };
 </script>
@@ -40,6 +41,7 @@ a {
 
   &:hover {
     color: var(--Color-Pink);
+    fill: var(--Color-Pink);
   }
 }
 </style>

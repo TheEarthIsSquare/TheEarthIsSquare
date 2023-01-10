@@ -2,7 +2,7 @@
   <section id="learn">
     <div class="learn__inner-wrapper">
       <h2>
-        Ready to start your next chapter?<br />
+        Ready to start your next chapter?<br/>
         <span>Here’s what you’ll learn.</span>
       </h2>
 
@@ -20,7 +20,7 @@
         <div class="learn__content-text">
           {{ selectedTab.content }}
         </div>
-        <div :style="{ backgroundImage: `url('${selectedTab.image}')`}" class="learn__content-hero" />
+        <div :style="{ backgroundImage: `url('${selectedTab.image}')`}" class="learn__content-hero"/>
       </div>
     </div>
   </section>
@@ -28,9 +28,9 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "#imports";
-import bestPracticesImage from "@/assets/img/upleveled_17.avif";
-import technologiesImage from "@/assets/img/upleveled_11.avif";
-import toolsImage from "@/assets/img/upleveled_5.avif";
+import bestPracticesImage from "assets/img/upleveled_17.avif";
+import technologiesImage from "assets/img/upleveled_11.avif";
+import toolsImage from "assets/img/upleveled_5.avif";
 
 const tabs = [
   {

@@ -1,7 +1,7 @@
 <template>
-  <router-link class="main-hero" to="course">
+  <NuxtLink class="main-hero" to="course">
     <Duotone color="Pink">
-      <img alt="Students learning to code." src="@/assets/img/upleveled_4_2bit.avif"/>
+      <img alt="Students learning to code." src="~/assets/img/upleveled_4_2bit.avif"/>
     </Duotone>
 
     <div class="main-hero__top">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="main-hero__middle">
-      <h1>THE EARTH<br />IS SQUARE</h1>
+      <h1>THE EARTH<br/>IS SQUARE</h1>
       <h2>WEB DEVELOPMENT BOOTCAMP</h2>
     </div>
 
@@ -23,7 +23,7 @@
         Enrolments Open
       </CoreButton>
     </div>
-  </router-link>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

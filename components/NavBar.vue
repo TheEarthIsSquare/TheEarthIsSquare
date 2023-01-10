@@ -1,28 +1,24 @@
 <template>
   <nav>
-    <RouterLink :to="{ name: 'home' }" class="nav__icon">
-      <Icon name="teis" size="4rem" />
-    </RouterLink>
+    <NuxtLink :to="{ name: 'home' }" class="nav__icon">
+      <Icon name="teis" size="4rem"/>
+    </NuxtLink>
 
     <div class="nav__items">
-      <RouterLink :to="{ name: 'home' }" class="nav__item">
+      <NuxtLink :to="{ name: 'home' }" class="nav__item">
         Home
-      </RouterLink>
+      </NuxtLink>
 
-      <!--      <RouterLink :to="{ name: 'info' }" class="nav__item">-->
-      <!--        Info-->
-      <!--      </RouterLink>-->
-
-      <RouterLink :to="{ name: 'course' }" class="nav__item">
+      <NuxtLink :to="{ name: 'course' }" class="nav__item">
         Course
-      </RouterLink>
+      </NuxtLink>
     </div>
 
-    <router-link to="apply">
-      <CoreButton size="L" height="100%" width="10vw">
+    <NuxtLink to="apply">
+      <CoreButton height="100%" size="L" width="10vw">
         Get Started
       </CoreButton>
-    </router-link>
+    </NuxtLink>
   </nav>
 </template>
 
