@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavBar/>
 
     <main>
-      <NuxtPage />
-      <AppFooter />
+      <NuxtPage/>
+      <AppFooter/>
     </main>
   </div>
 </template>
@@ -13,7 +13,19 @@
 import { useHead } from "#head";
 
 useHead({
-  title: "The Earth Is Square"
+  title: "The Earth Is Square",
+  link: [
+    {
+      rel: "preconnect",
+      href: 'https://fonts.gstatic.com',
+      crossorigin: "anonymous"
+    },
+    {
+      rel: "preload",
+      href: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Passion+One:wght@900&display=swap",
+      as: "style"
+    }
+  ]
 });
 </script>
 
