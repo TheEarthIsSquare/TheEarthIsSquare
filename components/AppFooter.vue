@@ -24,8 +24,8 @@
         <SocialIcon name="instagram" size="3.2rem"/>
         <SocialIcon name="twitter" size="3.2rem"/>
         <SocialIcon name="youtube" size="3.2rem"/>
-        <SocialIcon name="discord" size="3.2rem"/>
         <SocialIcon name="linkedIn" size="3.2rem"/>
+        <SocialIcon name="facebook" size="3.2rem"/>
       </div>
     </div>
   </footer>

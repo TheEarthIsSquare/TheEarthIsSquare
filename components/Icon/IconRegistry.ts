@@ -22,6 +22,7 @@ export const IconRegistry = {
     youtube: () => import(/* webpackPrefetch: true */ "./IconComponents/IconYoutube.vue"),
     twitter: () => import(/* webpackPrefetch: true */ "./IconComponents/IconTwitter.vue"),
     linkedIn: () => import(/* webpackPrefetch: true */ "./IconComponents/IconLinkedIn.vue"),
+    facebook: () => import(/* webpackPrefetch: true */ "./IconComponents/IconFacebookSquare.vue"),
 
     // Custom Icons
     teis: () => import(/* webpackPrefetch: true */ "./IconComponents/IconTEIS.vue"),

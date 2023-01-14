@@ -9,7 +9,7 @@ import { PropType } from "@vue/runtime-core";
 
 const props = defineProps({
   name: {
-    type: String as PropType<"instagram" | "twitter" | "youtube" | "linkedIn" | "discord">,
+    type: String as PropType<"instagram" | "twitter" | "youtube" | "linkedIn" | "discord" | "facebook">,
     required: true
   },
   size: {
@@ -30,6 +30,8 @@ const getLink = () => {
       return "https://www.linkedin.com/company/the-earth-is-square";
     case "discord":
       return "https://discord.com/invite/X23epKN";
+    case "facebook":
+      return "https://facebook.com/TheEarthIsSquareAU"
   }
 };
 </script>

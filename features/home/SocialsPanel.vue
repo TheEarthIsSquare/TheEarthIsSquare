@@ -1,9 +1,10 @@
 <template>
   <div class="socials">
-    <SocialIcon name="instagram" />
-    <SocialIcon name="twitter" />
-    <SocialIcon name="youtube" />
-    <SocialIcon name="linkedIn" />
+    <SocialIcon name="instagram"/>
+    <SocialIcon name="twitter"/>
+    <SocialIcon name="youtube"/>
+    <SocialIcon name="linkedIn"/>
+    <SocialIcon name="facebook"/>
   </div>
 </template>
 
