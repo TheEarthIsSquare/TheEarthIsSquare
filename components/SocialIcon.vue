@@ -21,15 +21,14 @@ const props = defineProps({
 const getLink = () => {
   switch (props.name) {
     case "instagram":
-      return "https://instagram.com/_earthissquare";
+      return "https://instagram.com/theearthissquare.au";
     case "twitter":
-      return "https://twitter.com/_earthissquare";
+      return "https://twitter.com/EarthIsSquareAU";
     case "youtube":
-      return "https://www.youtube.com/channel/UC_FBMBKup_b3xk_NfeKlalQ";
+      return "https://www.youtube.com/@TheEarthIsSquare";
     case "linkedIn":
       return "https://www.linkedin.com/company/the-earth-is-square";
     case "discord":
-      return "https://discord.com/invite/X23epKN";
       return "https://discord.com/invite/X23epKN";
   }
 };
