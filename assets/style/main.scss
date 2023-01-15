@@ -2,6 +2,7 @@
 
 :root {
   --Color-Black: #08090E;
+  --Color-Light-Grey: #DEDEEC;
   --Color-Grey: #6F6F84;
   --Color-White: #FFFFFF;
   --Color-Pink: #EB2188;
@@ -13,8 +14,10 @@
   --Color-DuotoneBlue: #9AE7FF;
 
   --Gradient-PinkPurple: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
+  --Gradient-PinkPurple-Darker: linear-gradient(247.29deg, #C90F6E 7.21%, #B10CB5 91.17%);
 
   --Shadow-Border: -3px -3px 0 var(--Color-Black), 0 -3px 0 var(--Color-Black), 3px -3px 0 var(--Color-Black), 3px 0 0 var(--Color-Black), 3px 3px 0 var(--Color-Black), 0 3px 0 var(--Color-Black), -3px 3px 0 var(--Color-Black), -3px 0 0 var(--Color-Black);
+  --Shadow-S: 4px 4px 0 var(--Color-Black);
   --Shadow-M: 6px 6px 0 var(--Color-Black);
   --Shadow-L: 8px 8px 0 var(--Color-Black);
 

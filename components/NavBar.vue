@@ -15,7 +15,7 @@
     </div>
 
     <NuxtLink to="apply">
-      <CoreButton height="100%" size="L" width="10vw">
+      <CoreButton :style="{ height: '100%', width: '10vw' }" size="L">
         Get Started
       </CoreButton>
     </NuxtLink>

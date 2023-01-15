@@ -1,7 +1,7 @@
 <template>
   <button
       :class="[`--${variant}`, size === 'L' && '--large', {'--loading': isLoading}]"
-      :style="{ width, height, boxShadow: ` 0.8rem 0.8rem 0 var(--Color-${backgroundColor})` }"
+      :style="{ ...customStyle }"
       @submit="emit('submit')"
   >
     <div v-if="iconLeft || isLoading" class="icon-left">
@@ -29,18 +29,6 @@ defineProps({
     type: String as PropType<"L" | "S">,
     default: "S"
   },
-  width: {
-    type: String,
-    default: "auto"
-  },
-  height: {
-    type: String,
-    default: "auto"
-  },
-  backgroundColor: {
-    type: String as PropType<"Black" | "White">,
-    default: "Black"
-  },
   iconLeft: {
     type: String as PropType<IconName>,
     required: false
@@ -48,6 +36,10 @@ defineProps({
   isLoading: {
     type: Boolean,
     default: false
+  },
+  customStyle: {
+    type: Object,
+    default: {}
   }
 });
 
@@ -56,6 +48,7 @@ const emit = defineEmits(["submit"]);
 
 <style lang="scss" scoped>
 button {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,8 +56,17 @@ button {
   font-size: var(--FontSize-M);
   font-weight: var(--FontWeight-Bold);
   transition: all 0.25s ease;
-  border: none;
   border-radius: var(--BorderRadius-L);
+  padding: 1rem 1.5rem;
+  border: 0.3rem solid var(--Color-Black);
+  box-shadow: var(--Shadow-S);
+  z-index: 1;
+
+  &.--large {
+    font-size: var(--FontSize-L);
+    box-shadow: var(--Shadow-M);
+    padding: 2rem;
+  }
 
   &.--loading {
     pointer-events: none;
@@ -73,24 +75,34 @@ button {
   &.--primary {
     color: var(--Color-White);
     background: var(--Gradient-PinkPurple);
-  }
 
-  &.--secondary {
-    padding: 1rem 1.5rem;
-    border: 3px solid var(--Color-Black);
-    background-color: var(--Color-White);
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: var(--Gradient-PinkPurple-Darker);
+      z-index: -1;
+      transition: opacity 0.25s linear;
+      opacity: 0;
+      border-radius: var(--BorderRadius-L);
+    }
 
     &:hover {
-      color: var(--Color-White);
-      border: 3px solid var(--Color-White);
-      background-color: var(--Color-Black);
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
-  &.--large {
-    height: 4.8rem;
-    font-size: var(--FontSize-L);
-    padding: 2rem;
+  &.--secondary {
+    background-color: var(--Color-White);
+
+    &:hover {
+      background-color: var(--Color-Light-Grey);
+    }
   }
 }
 </style>

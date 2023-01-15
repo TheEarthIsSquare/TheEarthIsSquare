@@ -5,12 +5,16 @@
     <main>
       <NuxtPage/>
       <AppFooter/>
+
+      <CookieBanner/>
     </main>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useHead } from "#head";
+import CookieBanner from "~/components/CookieBanner.vue";
+import { config } from "vue-gtag";
 
 useHead({
   title: "The Earth Is Square",
@@ -27,6 +31,14 @@ useHead({
     }
   ]
 });
+
+const cookiePermission = useCookie('cookiePermission');
+
+onMounted(() => {
+  if (Boolean(cookiePermission.value)) {
+    config({ enabled: true });
+  }
+})
 </script>
 
 <style lang="scss">
