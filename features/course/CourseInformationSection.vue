@@ -55,11 +55,26 @@
           </template>
         </Modal>
 
-        <NuxtLink target="_blank" to="https://calendly.com/the-earth-is-square/30min">
-          <CoreButton size="L" variant="secondary">
-            Schedule A Meeting
-          </CoreButton>
-        </NuxtLink>
+        <template v-else>
+          <NuxtLink target="_blank" to="https://calendly.com/the-earth-is-square/30min">
+            <CoreButton size="L" variant="secondary">
+              Schedule A Meeting
+            </CoreButton>
+          </NuxtLink>
+
+          <div class="course-information__divider"/>
+
+          <strong>
+            Already excited to join? <br/>
+            Fill out our form on the link below and we'll be in touch!
+          </strong>
+
+          <NuxtLink to="apply">
+            <CoreButton size="L" variant="primary">
+              Apply
+            </CoreButton>
+          </NuxtLink>
+        </template>
       </div>
 
       <div v-if="isDesktop" class="course-information__images">
@@ -136,8 +151,16 @@ onMounted(() => {
         margin-right: auto;
 
         @media screen and (max-width: $BreakPoint-Tablet) {
+          width: 80%;
           margin: auto;
         }
+      }
+
+      .course-information__divider {
+        height: 1px;
+        width: 90%;
+        background-color: var(--Color-Black);
+        margin: 2rem auto;
       }
     }
 

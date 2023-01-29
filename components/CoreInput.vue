@@ -32,6 +32,9 @@ const focusInput = () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
+
 .input-wrapper {
   flex: 1;
   display: flex;

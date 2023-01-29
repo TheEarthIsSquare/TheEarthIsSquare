@@ -3,21 +3,22 @@
     <div v-if="!isSuccess" class="apply__inner-wrapper">
       <div class="apply__blurb">
         <Icon name="teis" size="8.5rem"/>
-        <h2>
+        <Heading type="h3">
           Ready for a good decision? Yay!<br/>
           We are excited to get to know you!
-        </h2>
-        <h3>
+        </Heading>
+
+        <Heading type="h5">
           Tell us a little bit about yourself, what you're interested in and how to get in touch with you.<br/>
           <br/>
           We will get back to you soon after and explain your options an potential next steps.<br/>
           Always feel free to contact us anytime if you have any questions.
-        </h3>
+        </Heading>
       </div>
 
       <form class="apply__form" @submit.prevent="submit">
         <div class="apply__header">
-          <h1>Application</h1>
+          <Heading type="h3">Application</Heading>
           <p>* Indicates Required</p>
         </div>
 
@@ -34,6 +35,13 @@
                   isRequired
                   @onChange="v => applyForm.firstName = v"
               />
+              <CoreInput
+                  v-if="isDesktop"
+                  :label="getInputTitle('lastName')"
+                  @onChange="v => applyForm.lastName = v"
+              />
+            </div>
+            <div v-if="!isDesktop" class="apply__section-inputs-row">
               <CoreInput
                   :label="getInputTitle('lastName')"
                   @onChange="v => applyForm.lastName = v"
@@ -167,9 +175,14 @@ import {
   graduationOptions,
   referralOptions
 } from "~/features/apply/apply.form";
+import { useScreen } from "~/hooks/useScreen";
+
+const { isDesktop } = useScreen();
 
 const isLoading = ref(false);
 const isSuccess = ref(false);
+
+const router = useRouter();
 
 const submit = () => {
   const nucleusUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:4000/graphql' : 'https://nucleus.theearthissquare.com/graphql';
@@ -189,6 +202,7 @@ const submit = () => {
     }).then(result => {
       if (result) {
         isSuccess.value = true;
+        router.push({ name: 'apply', query: { succeed: 'true' } });
       }
     }).finally(() => isLoading.value = false);
   }
@@ -197,11 +211,17 @@ const submit = () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 .apply {
   background-color: var(--Color-White);
   flex: 1;
   border-radius: var(--BorderRadius-L);
   padding: 10rem 0;
+
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    padding: 5rem 0;
+  }
 
   .apply__inner-wrapper {
     display: flex;
@@ -227,18 +247,12 @@ const submit = () => {
         align-items: center;
       }
 
-      h2 {
-        font-weight: var(--FontWeight-Black);
-        font-size: var(--FontSize-XXL);
+      h3 {
         background: var(--Gradient-PinkPurple);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-      }
-
-      h3 {
-        font-weight: var(--FontWeight-Normal);
-        font-size: var(--FontSize-M);
+        text-shadow: none;
       }
     }
 
@@ -250,19 +264,14 @@ const submit = () => {
       width: 100%;
       gap: 5rem;
 
+      @media screen and (max-width: $BreakPoint-Tablet) {
+        padding: 0 2rem;
+      }
+
       .apply__header {
         display: flex;
         justify-content: space-between;
         width: 100%;
-
-        h1 {
-          font-size: var(--FontSize-XXL);
-          font-family: 'Raleway', sans-serif;
-          font-weight: var(--FontWeight-Black);
-          text-shadow: none;
-          color: var(--Color-Black);
-          border: none;
-        }
 
         p {
           font-weight: var(--FontWeight-Bold);
@@ -273,6 +282,10 @@ const submit = () => {
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100%;
+
+        @media screen and (max-width: $BreakPoint-Tablet) {
+          grid-template-columns: 1fr;
+        }
 
         .apply__section-heading {
           display: flex;
@@ -286,6 +299,11 @@ const submit = () => {
           align-items: flex-end;
           gap: 2rem;
           padding-left: 5rem;
+
+          @media screen and (max-width: $BreakPoint-Tablet) {
+            padding-left: 0;
+            align-items: center;
+          }
 
           .apply__section-inputs-row {
             width: 100%;

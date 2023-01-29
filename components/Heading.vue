@@ -92,12 +92,10 @@ h4 {
 h5 {
   font-size: var(--FontSize-M);
   font-weight: var(--FontWeight-Bold);
-  color: var(--Color-White);
-  text-shadow: var(--Shadow-Border), var(--Shadow-L);
+  color: var(--Color-Black);
 
   @media screen and (max-width: $BreakPoint-Tablet) {
     font-size: var(--FontSize-S);
-    text-shadow: var(--Shadow-Border), var(--Shadow-M);
   }
 }
 
