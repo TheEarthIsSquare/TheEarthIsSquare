@@ -2,7 +2,7 @@
   <footer>
     <div class="footer__content">
       <div class="footer__logo">
-        <h1>THE EARTH<br/>IS SQUARE</h1>
+        <Heading font="PassionOne" type="h1">THE EARTH<br/>IS SQUARE</Heading>
         <span>© {{ (new Date).getFullYear() }} The Earth Is Square Ltd. </span>
       </div>
 
@@ -31,11 +31,9 @@
   </footer>
 </template>
 
-<script lang="ts" setup>
-
-</script>
-
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 footer {
   display: flex;
   margin-top: auto;
@@ -48,6 +46,14 @@ footer {
     flex: 1;
     justify-content: space-evenly;
     height: 15rem;
+
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      padding: 2rem 0;
+      text-align: center;
+      height: auto;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
     .footer__logo {
       display: flex;

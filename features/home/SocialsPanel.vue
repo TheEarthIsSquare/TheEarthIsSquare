@@ -9,6 +9,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 .socials {
   display: flex;
   align-items: center;

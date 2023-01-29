@@ -9,20 +9,23 @@
         Learn More
       </CoreButton>
 
-      <h3>
+      <Heading :customStyle="{ opacity: 0.7 }" type="h5">
         Our hands-on Web Development Bootcamp will not only teach you cutting-edge technologies.
-      </h3>
+      </Heading>
 
-      <h2>
+      <Heading type="h4">
         Become A Developer<br/>
         In 3 Months
-      </h2>
+      </Heading>
+
       <div class="become-a-developer__backdrop"/>
     </div>
   </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 .become-a-developer__wrapper {
   position: relative;
   overflow: hidden;
@@ -32,14 +35,8 @@
   grid-column: span 7;
   grid-row: span 5;
 
-  img {
-    transition: all 0.25s ease;
-  }
-
-  &:hover {
-    img {
-      transform: scale(1.05, 1.05);
-    }
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    grid-column: span 12;
   }
 
   .become-a-developer {
@@ -55,6 +52,10 @@
     border-radius: var(--BorderRadius-L);
     gap: 3rem;
 
+    button {
+      margin-right: auto;
+    }
+
     .become-a-developer__backdrop {
       position: absolute;
       top: -100%;
@@ -63,21 +64,6 @@
       left: -50%;
       transform: rotate(-30deg);
       background-color: var(--Color-Black);
-    }
-
-    h2 {
-      font-size: var(--FontSize-XXL);
-    }
-
-    h3 {
-      font-size: var(--FontSize-M);
-      opacity: 0.7;
-    }
-
-    button, h2, h3 {
-      position: relative;
-      z-index: 10;
-      margin-right: auto;
     }
   }
 }

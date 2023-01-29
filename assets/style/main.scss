@@ -1,49 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Passion+One:wght@900&display=swap');
-
-:root {
-  --Color-Black: #08090E;
-  --Color-Light-Grey: #DEDEEC;
-  --Color-Grey: #6F6F84;
-  --Color-White: #FFFFFF;
-  --Color-Pink: #EB2188;
-
-  --Color-DuotonePink: #FF71B9;
-  --Color-DuotoneYellow: #FFDD9A;
-  --Color-DuotoneGreen: #96CE9F;
-  --Color-DuotonePurple: #EB9AFF;
-  --Color-DuotoneBlue: #9AE7FF;
-
-  --Gradient-PinkPurple: linear-gradient(247.29deg, #EB2188 7.21%, #D909DD 91.17%);
-  --Gradient-PinkPurple-Darker: linear-gradient(247.29deg, #C90F6E 7.21%, #B10CB5 91.17%);
-
-  --Shadow-Border: -3px -3px 0 var(--Color-Black), 0 -3px 0 var(--Color-Black), 3px -3px 0 var(--Color-Black), 3px 0 0 var(--Color-Black), 3px 3px 0 var(--Color-Black), 0 3px 0 var(--Color-Black), -3px 3px 0 var(--Color-Black), -3px 0 0 var(--Color-Black);
-  --Shadow-S: 4px 4px 0 var(--Color-Black);
-  --Shadow-M: 6px 6px 0 var(--Color-Black);
-  --Shadow-L: 8px 8px 0 var(--Color-Black);
-
-  --FontSize-XXS: 0.96rem;
-  --FontSize-XS: 1.2rem;
-  --FontSize-S: 1.5rem;
-  --FontSize-M: 1.875rem;
-  --FontSize-L: 2.344rem;
-  --FontSize-XL: 2.930rem;
-  --FontSize-XXL: 3.662rem;
-
-  --FontSize-Chonky-S: 4.578rem;
-  --FontSize-Chonky-M: 5.722rem;
-  --FontSize-Chonky-L: 7.153rem;
-  --FontSize-Chonky-XL: 8.941rem;
-
-  --FontSize-Chonky-Chonk: 11.176rem;
-
-  --FontWeight-Normal: 400;
-  --FontWeight-Bold: 700;
-  --FontWeight-Black: 900;
-
-  --BorderRadius-L: 3rem;
-
-  --View-MaxWidth: 144rem;
-}
+@import 'variables';
 
 * {
   font-family: inherit;
@@ -59,13 +15,6 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-}
-
-h1 {
-  font-family: 'Passion One', 'Raleway', sans-serif;
-  color: var(--Color-White);
-  text-shadow: var(--Shadow-Border), var(--Shadow-L);
-  font-weight: var(--FontWeight-Black);
 }
 
 a {

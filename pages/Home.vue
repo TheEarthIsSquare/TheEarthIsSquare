@@ -1,26 +1,44 @@
 <template>
   <div id="home">
-    <div class="home__column">
-      <MainHeroPanel/>
+    <template v-if="isDesktop">
+      <div class="home__column">
+        <MainHeroPanel/>
 
-      <SocialsPanel/>
+        <SocialsPanel/>
 
-      <BecomeADeveloperPanel/>
+        <BecomeADeveloperPanel/>
 
-      <PowersPanel/>
+        <PowersPanel/>
 
-      <LocationPanel/>
-    </div>
+        <LocationPanel/>
+      </div>
 
-    <div class="home__column">
-      <WhyCodePanel/>
+      <div class="home__column">
+        <WhyCodePanel/>
 
-      <SubscribePanel/>
+        <SubscribePanel/>
 
-      <WhyUsPanel/>
+        <WhyUsPanel/>
 
-      <UpLeveledPanel/>
-    </div>
+        <UpLeveledPanel/>
+      </div>
+    </template>
+
+    <template v-else>
+      <div class="home__column">
+        <MainHeroPanel/>
+
+        <SubscribePanel/>
+
+        <WhyCodePanel/>
+
+        <WhyUsPanel/>
+
+        <UpLeveledPanel/>
+        
+        <LocationPanel/>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -35,13 +53,18 @@ import SubscribePanel from "~/features/home/SubscribePanel.vue";
 import UpLeveledPanel from "~/features/home/UpLeveledPanel.vue";
 import WhyCodePanel from "~/features/home/WhyCodePanel.vue";
 import WhyUsPanel from "~/features/home/WhyUsPanel.vue";
+import { useScreen } from "~/hooks/useScreen";
 
 useHead({
   title: "Learn To Code in Melbourne - The Earth Is Square"
 });
+
+const { isDesktop } = useScreen();
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 #home {
   display: grid;
   flex: 1;
@@ -54,6 +77,10 @@ useHead({
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 0.6rem;
     grid-auto-rows: 5vh;
+  }
+
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    grid-template-columns: 1fr;
   }
 }
 </style>

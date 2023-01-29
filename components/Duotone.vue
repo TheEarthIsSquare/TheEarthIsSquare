@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 const props = defineProps({
   color: {
     type: String,
@@ -35,7 +35,7 @@ const bgColor = computed(() => `var(--Color-${props.backgroundColor})`);
   border-radius: var(--BorderRadius-L);
 
   img {
-    filter:  grayscale(100%) contrast(1) blur(var(--blur));
+    filter: grayscale(100%) contrast(1) blur(var(--blur));
     flex: 1 0 100%;
     height: 100%;
     max-width: 100%;
@@ -43,6 +43,11 @@ const bgColor = computed(() => `var(--Color-${props.backgroundColor})`);
     object-fit: cover;
     position: relative;
     width: 100%;
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
   }
 
   &::before {

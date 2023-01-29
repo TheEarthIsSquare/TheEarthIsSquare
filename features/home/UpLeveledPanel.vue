@@ -1,50 +1,21 @@
 <template>
-  <a class="upleveled" href="https://upleveled.io" target="_blank">
-    <Duotone color="Green">
-      <img alt="Students learning to code." src="~/assets/img/upleveled_8_2bit.avif"/>
-    </Duotone>
+  <HomePanel :rowSpan="isDesktop ? '5' : '6'" colSpan="12" isExternalLink midGap="1rem" to="https://upleveled.io">
+    <template v-slot:bg>
+      <Duotone color="Green">
+        <img alt="Students learning to code." src="~/assets/img/upleveled_8_2bit.avif"/>
+      </Duotone>
+    </template>
 
-    <h3>Powered By</h3>
+    <Heading type="h4">Powered By</Heading>
     <img alt="UpLeveled Logo" src="~/assets/img/upleveled_logo.png"/>
     <CoreButton variant="secondary">
       Stalk Them
     </CoreButton>
-  </a>
+  </HomePanel>
 </template>
 
-<style lang="scss" scoped>
-.upleveled {
-  position: relative;
-  font-size: var(--FontSize-L);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.25s ease;
-  border-radius: var(--BorderRadius-L);
-  grid-column: span 12;
-  grid-row: span 5;
-  gap: 3rem;
+<script lang="ts" setup>
+import { useScreen } from "~/hooks/useScreen";
 
-  h3, img, button {
-    z-index: 10;
-    transition: all 0.25s ease;
-  }
-
-  h3 {
-    transform: rotate(-2.6deg);
-    color: var(--Color-White);
-  }
-
-  button {
-    transform: rotate(-2.6deg);
-  }
-
-
-  &:hover {
-    h3, img, button {
-      transform: scale(1.2, 1.2);
-    }
-  }
-}
-</style>
+const { isDesktop } = useScreen();
+</script>

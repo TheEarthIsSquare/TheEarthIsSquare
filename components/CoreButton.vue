@@ -47,6 +47,8 @@ const emit = defineEmits(["submit"]);
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 button {
   position: relative;
   display: flex;
@@ -62,10 +64,20 @@ button {
   box-shadow: var(--Shadow-S);
   z-index: 1;
 
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    font-size: var(--FontSize-XS);
+    border-radius: var(--BorderRadius-M);
+  }
+
   &.--large {
     font-size: var(--FontSize-L);
     box-shadow: var(--Shadow-M);
     padding: 2rem;
+
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      font-size: var(--FontSize-S);
+      padding: 1rem 1.5rem;
+    }
   }
 
   &.--loading {

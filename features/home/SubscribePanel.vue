@@ -45,6 +45,8 @@ const onSubscribe = async () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 .subscribe {
   display: grid;
   align-items: center;
@@ -55,24 +57,25 @@ const onSubscribe = async () => {
   grid-template-columns: 3fr 1fr;
   grid-column: span 12;
   grid-gap: 0.6rem;
+  font-size: var(--FontSize-M);
+
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    border-radius: var(--BorderRadius-M);
+    font-size: var(--FontSize-S);
+    grid-row: span 1;
+  }
 
   input, button {
     height: 100%;
   }
 
   input {
-    font-size: var(--FontSize-M);
     padding: 0 3rem;
     border-radius: var(--BorderRadius-L);
-  }
 
-  h3 {
-    font-size: var(--FontSize-M);
-    padding: 0 2rem;
-    cursor: pointer;
-    text-align: center;
-    color: var(--Color-White);
-    grid-column: span 2;
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      border-radius: var(--BorderRadius-M);
+    }
   }
 }
 </style>

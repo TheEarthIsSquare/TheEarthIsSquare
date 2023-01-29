@@ -42,13 +42,14 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+@import 'assets/style/variables.scss';
+
 #app {
   position: relative;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   height: 100vh;
-  padding: 0.6rem;
   background: var(--Color-Black);
   gap: 0.6rem;
 
@@ -56,8 +57,14 @@ onMounted(() => {
     display: flex;
     overflow-y: scroll;
     flex-direction: column;
-    height: calc(100vh - 11.2rem);
-    margin-top: 11.2rem;
+    padding: 11.8rem 0.6rem 0.6rem;
+
+    //noinspection CssInvalidPropertyValue
+    overflow-x: overlay;
+
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      padding-top: 8rem;
+    }
   }
 }
 </style>
