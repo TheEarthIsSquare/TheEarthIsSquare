@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { config } from 'vue-gtag';
 
-const cookiePermission = useCookie('cookiePermission');
+const cookiePermission = useCookie('cookiePermission', { maxAge: 1704085200 });
 
 const accept = () => {
   config({ enabled: true });
