@@ -64,6 +64,10 @@ button {
   box-shadow: var(--Shadow-S);
   z-index: 1;
 
+  &:visited {
+    color: var(--Color-Black);
+  }
+
   @media screen and (max-width: $BreakPoint-Tablet) {
     font-size: var(--FontSize-XS);
     border-radius: var(--BorderRadius-M);
@@ -100,6 +104,10 @@ button {
       transition: opacity 0.25s linear;
       opacity: 0;
       border-radius: var(--BorderRadius-L);
+    }
+
+    &:visited {
+      color: var(--Color-White);
     }
 
     &:hover {
