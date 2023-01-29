@@ -4,15 +4,17 @@
 
     <QuoteBreakSection/>
 
-    <LearnSection/>
+    <template v-if="isDesktop">
+      <LearnSection/>
 
-    <LocationSection/>
+      <LocationSection/>
 
-    <OutcomesSection/>
+      <OutcomesSection/>
 
-    <FAQSection/>
+      <FAQSection/>
 
-    <CTASection/>
+      <CTASection/>
+    </template>
   </div>
 </template>
 
@@ -25,10 +27,13 @@ import LearnSection from "~/features/course/LearnSection.vue";
 import LocationSection from "~/features/course/LocationSection.vue";
 import OutcomesSection from "~/features/course/OutcomesSection.vue";
 import QuoteBreakSection from "~/features/course/QuoteBreakSection.vue";
+import { useScreen } from "~/hooks/useScreen";
 
 useHead({
   title: "Course Details - The Earth Is Square // Think Outside The Square"
 });
+
+const { isDesktop } = useScreen();
 </script>
 
 <style lang="scss" scoped>

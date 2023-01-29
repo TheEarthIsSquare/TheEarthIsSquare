@@ -2,8 +2,8 @@
   <section id="quote-break">
     <div class="quote-break__content">
       <div class="quote">
-        <h3>“You miss 100% of the shots<br /> you don’t take. - Wayne Gretzky”</h3>
-        <h3>- Michael Scott</h3>
+        <strong>“You miss 100% of the shots<br/> you don’t take. - Wayne Gretzky”</strong>
+        <strong>- Michael Scott</strong>
       </div>
       <p>
         We know that a career transition is a tough step to take. But we believe this journey is worth it. Our dynamic
@@ -16,10 +16,16 @@
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 #quote-break {
   height: 15vh;
   border-radius: var(--BorderRadius-L);
   background: var(--Gradient-PinkPurple);
+
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    height: auto;
+  }
 
   .quote-break__content {
     display: grid;
@@ -33,16 +39,30 @@
     grid-template-columns: auto 1fr;
     grid-gap: 5rem;
 
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      text-align: center;
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      grid-gap: 1rem;
+    }
+
     .quote {
       display: flex;
       align-items: flex-end;
       flex-direction: column;
 
-      h3 {
-        font-size: var(--FontSize-L);
+      @media screen and (max-width: $BreakPoint-Tablet) {
+        font-size: var(--FontSize-M);
+        align-items: center;
+      }
 
+      strong {
         &:first-child {
           padding-right: 4rem;
+
+          @media screen and (max-width: $BreakPoint-Tablet) {
+            padding-right: 0;
+          }
         }
       }
     }
@@ -50,6 +70,11 @@
     p {
       font-size: var(--FontSize-M);
       padding-right: 10rem;
+
+      @media screen and (max-width: $BreakPoint-Tablet) {
+        font-size: var(--FontSize-S);
+        padding: 0;
+      }
     }
   }
 }

@@ -2,27 +2,44 @@
   <section id="course-information">
     <div class="course-information__content">
       <div class="course-information-content__left">
-        <h1>WEB DEVELOPMENT<br/>BOOTCAMP</h1>
-        <h4>
+        <Heading font="PassionOne" type="h1">
+          WEB DEVELOPMENT<br/>BOOTCAMP
+        </Heading>
+
+        <strong>
           Ready for a change? Become a professional Web Developer and boost your career or launch your own
           business.
-        </h4>
+        </strong>
+
         <p>
-          <strong>Start</strong> April 17th 2023 <br/>
-          <strong>Duration</strong> 12 weeks (+4 weeks online preparation) <br/>
-          <strong>Times</strong> 5 days/week, 9am - 6pm <br/>
-          <strong>Price</strong> $13,999 (payment plans available) <br/>
-          <strong>Program</strong> Fullstack (Frontend & Backend) <br/>
+          <strong>Start</strong>
+          April 17th 2023 <br/>
+
+          <strong>Duration</strong>
+          12 weeks (+4 weeks online preparation) <br/>
+
+          <strong>Times</strong>
+          5 days/week, 9am - 6pm <br/>
+
+          <strong>Price</strong>
+          <s>$13,999</s> <strong>$6,999 - 50% Grand Opening Special!</strong> <i>(payment plans available)</i> <br/>
+
+          <strong>Program</strong>
+          Fullstack (Frontend & Backend) <br/>
+
           <strong>Technologies</strong>
           HTML, CSS, JavaScript, React, Node.js, Next.js, GraphQL, PostgreSQL, GitHub and many more <br/>
-          <strong>Experience</strong> no upfront coding knowledge needed <br/>
+
+          <strong>Experience</strong>
+          no upfront coding knowledge needed <br/>
         </p>
-        <h4>
+
+        <strong>
           Do you have questions? <br/>
           Let's talk! Click the link below to schedule time with us.
-        </h4>
+        </strong>
 
-        <Modal>
+        <Modal v-if="isDesktop">
           <template #trigger="{ toggleOpen }">
             <CoreButton size="L" variant="secondary" @click="toggleOpen()">
               Schedule A Meeting
@@ -37,9 +54,15 @@
             />
           </template>
         </Modal>
+
+        <NuxtLink target="_blank" to="https://calendly.com/the-earth-is-square/30min">
+          <CoreButton size="L" variant="secondary">
+            Schedule A Meeting
+          </CoreButton>
+        </NuxtLink>
       </div>
 
-      <div class="course-information__images">
+      <div v-if="isDesktop" class="course-information__images">
         <div class="course-information__image --1"/>
         <div class="course-information__image --2"/>
         <div class="course-information__image --3"/>
@@ -52,6 +75,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useScreen } from "~/hooks/useScreen";
+
+const { isDesktop } = useScreen()
+
 onMounted(() => {
   const recaptchaScript = document.createElement('script')
   recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js')
@@ -60,6 +87,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 #course-information {
   display: flex;
   justify-content: center;
@@ -67,6 +96,13 @@ onMounted(() => {
   padding: 5rem 5%;
   border-radius: var(--BorderRadius-L);
   background-color: var(--Color-White);
+  overflow: hidden;
+
+  @media screen and (max-width: $BreakPoint-Tablet) {
+    padding: 0;
+    text-align: center;
+    height: auto;
+  }
 
   .course-information__content {
     position: relative;
@@ -77,21 +113,31 @@ onMounted(() => {
     background-color: var(--Color-White);
     grid-template-columns: 1fr 1fr;
 
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      transform: scale(0.9, 0.9);
+      grid-template-columns: 1fr;
+    }
+
     .course-information-content__left {
       font-size: var(--FontSize-M);
       display: flex;
       flex-direction: column;
       gap: 5rem;
 
-      h1 {
-        font-size: var(--FontSize-Chonky-L);
-        line-height: 72.19%;
-        color: var(--Color-White);
-        text-shadow: var(--Shadow-Border), var(--Shadow-L);
+      @media screen and (max-width: $BreakPoint-Tablet) {
+        gap: 2rem;
+      }
+
+      s {
+        margin-left: 0.5rem;
       }
 
       button {
         margin-right: auto;
+
+        @media screen and (max-width: $BreakPoint-Tablet) {
+          margin: auto;
+        }
       }
     }
 

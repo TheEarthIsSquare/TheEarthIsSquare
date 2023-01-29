@@ -1,5 +1,5 @@
 <template>
-  <HomePanel :rowSpan="isDesktop ? '10' : '8'" colSpan="12" to="course">
+  <HomePanel colSpan="12" rowSpan="10" to="course">
     <template v-slot:bg>
       <Duotone color="Pink">
         <img alt="Students learning to code." src="~/assets/img/upleveled_4_2bit.avif"/>
@@ -16,7 +16,7 @@
     </template>
 
     <Heading font="PassionOne" type="h1">THE EARTH<br/>IS SQUARE</Heading>
-    <Heading type="h3">WEB DEVELOPMENT BOOTCAMP</Heading>
+    <Heading type="h4">WEB DEVELOPMENT BOOTCAMP</Heading>
 
     <template v-slot:bot>
       <CoreButton size="L" variant="secondary">
@@ -25,9 +25,3 @@
     </template>
   </HomePanel>
 </template>
-
-<script lang="ts" setup>
-import { useScreen } from "~/hooks/useScreen";
-
-const { isDesktop } = useScreen();
-</script>
