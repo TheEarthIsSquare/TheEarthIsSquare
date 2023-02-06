@@ -59,6 +59,10 @@ h2 {
   color: var(--Color-White);
   text-shadow: var(--Shadow-Border), var(--Shadow-L);
 
+  @media screen and (max-width: $BreakPoint-Desktop) {
+    font-size: var(--FontSize-Chonky-L);
+  }
+
   @media screen and (max-width: $BreakPoint-Tablet) {
     font-size: var(--FontSize-Chonky-M);
     text-shadow: var(--Shadow-Border), var(--Shadow-M);
@@ -83,7 +87,8 @@ h4 {
   color: var(--Color-White);
   text-shadow: var(--Shadow-Border), var(--Shadow-L);
 
-  @media screen and (max-width: $BreakPoint-Tablet) {
+
+  @media screen and (max-width: $BreakPoint-Desktop) {
     font-size: var(--FontSize-L);
     text-shadow: var(--Shadow-Border), var(--Shadow-M);
   }
@@ -92,9 +97,9 @@ h4 {
 h5 {
   font-size: var(--FontSize-M);
   font-weight: var(--FontWeight-Bold);
-  color: var(--Color-Black);
+  color: var(--Color-White);
 
-  @media screen and (max-width: $BreakPoint-Tablet) {
+  @media screen and (max-width: $BreakPoint-Desktop) {
     font-size: var(--FontSize-S);
   }
 }

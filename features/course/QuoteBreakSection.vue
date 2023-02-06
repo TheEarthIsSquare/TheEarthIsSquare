@@ -50,6 +50,7 @@
       display: flex;
       align-items: flex-end;
       flex-direction: column;
+      font-size: var(--FontSize-L);
 
       @media screen and (max-width: $BreakPoint-Tablet) {
         font-size: var(--FontSize-M);
@@ -69,11 +70,9 @@
 
     p {
       font-size: var(--FontSize-M);
-      padding-right: 10rem;
 
       @media screen and (max-width: $BreakPoint-Tablet) {
         font-size: var(--FontSize-S);
-        padding: 0;
       }
     }
   }

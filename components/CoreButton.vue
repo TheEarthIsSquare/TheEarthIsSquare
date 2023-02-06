@@ -69,7 +69,6 @@ button {
   }
 
   @media screen and (max-width: $BreakPoint-Tablet) {
-    font-size: var(--FontSize-XS);
     border-radius: var(--BorderRadius-M);
   }
 
@@ -77,6 +76,10 @@ button {
     font-size: var(--FontSize-L);
     box-shadow: var(--Shadow-M);
     padding: 2rem;
+
+    @media screen and (max-width: $BreakPoint-Desktop) {
+      font-size: var(--FontSize-M);
+    }
 
     @media screen and (max-width: $BreakPoint-Tablet) {
       font-size: var(--FontSize-S);

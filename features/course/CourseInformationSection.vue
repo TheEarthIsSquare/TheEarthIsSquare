@@ -107,7 +107,6 @@ onMounted(() => {
 #course-information {
   display: flex;
   justify-content: center;
-  height: 60vh;
   padding: 5rem 5%;
   border-radius: var(--BorderRadius-L);
   background-color: var(--Color-White);
@@ -122,6 +121,7 @@ onMounted(() => {
   .course-information__content {
     position: relative;
     display: grid;
+    grid-gap: 5rem;
     align-items: center;
     flex: 1;
     max-width: var(--View-MaxWidth);
@@ -137,7 +137,7 @@ onMounted(() => {
       font-size: var(--FontSize-M);
       display: flex;
       flex-direction: column;
-      gap: 5rem;
+      gap: 2rem;
 
       @media screen and (max-width: $BreakPoint-Tablet) {
         gap: 2rem;
