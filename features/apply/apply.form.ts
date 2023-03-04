@@ -32,7 +32,6 @@ export const getInputTitle = (key: FormDataKeys) => {
 }
 
 export const bootcampOptions: DropdownOption[] = [
-    { label: 'Web Development Bootcamp: April 2023', value: 'April-23' },
     { label: 'Web Development Bootcamp: September 2023', value: 'September-23' }
 ];
 

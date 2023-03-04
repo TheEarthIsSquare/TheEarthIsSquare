@@ -11,7 +11,7 @@
         231 Chapel Street, Prahran
       </CoreButton>
       <CoreButton size="S" variant="secondary">
-        April 17 - July 7
+        September 18 - December 8
       </CoreButton>
     </template>
 

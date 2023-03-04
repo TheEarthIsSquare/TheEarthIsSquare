@@ -13,7 +13,7 @@
 
         <p>
           <strong>Start</strong>
-          April 17th 2023 <br/>
+          September 18th 2023 <br/>
 
           <strong>Duration</strong>
           12 weeks (+4 weeks online preparation) <br/>
@@ -22,7 +22,7 @@
           5 days/week, 9am - 6pm <br/>
 
           <strong>Price</strong>
-          <s>$13,999</s> <strong>$6,999 - 50% Grand Opening Special!</strong> <i>(payment plans available)</i> <br/>
+          $13,999 <i>(payment plans available)</i> <br/>
 
           <strong>Program</strong>
           Fullstack (Frontend & Backend) <br/>
