@@ -10,7 +10,8 @@
 
         <PowersPanel/>
 
-        <LocationPanel/>
+<!--        <LocationPanel/>-->
+        <UpLeveledPanel/>
       </div>
 
       <div class="home__column">
@@ -20,7 +21,6 @@
 
         <WhyUsPanel/>
 
-        <UpLeveledPanel/>
       </div>
     </template>
 
@@ -36,7 +36,7 @@
 
         <UpLeveledPanel/>
         
-        <LocationPanel/>
+<!--        <LocationPanel/>-->
       </div>
     </template>
   </div>

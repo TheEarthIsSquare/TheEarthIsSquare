@@ -1,5 +1,5 @@
 <template>
-  <HomePanel colSpan="12" rowSpan="8" to="course">
+  <HomePanel colSpan="12" rowSpan="9" to="course">
     <template v-slot:bg>
       <Duotone color="Yellow">
         <img alt="Students learning to code." src="~/assets/img/upleveled_9_2bit.avif"/>

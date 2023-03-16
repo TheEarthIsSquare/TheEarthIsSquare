@@ -7,9 +7,9 @@
     </template>
 
     <template v-slot:top>
-      <CoreButton size="S" variant="secondary">
-        231 Chapel Street, Prahran
-      </CoreButton>
+<!--      <CoreButton size="S" variant="secondary">-->
+<!--        231 Chapel Street, Prahran-->
+<!--      </CoreButton>-->
       <CoreButton size="S" variant="secondary">
         September 18 - December 8
       </CoreButton>

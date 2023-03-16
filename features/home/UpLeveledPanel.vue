@@ -1,5 +1,5 @@
 <template>
-  <HomePanel :rowSpan="isDesktop ? '5' : '6'" colSpan="12" isExternalLink midGap="1rem" to="https://upleveled.io">
+  <HomePanel :colSpan="isDesktop ? '8' : '12'" :rowSpan="isDesktop ? '5' : '6'" isExternalLink midGap="1rem" to="https://upleveled.io">
     <template v-slot:bg>
       <Duotone color="Green">
         <img alt="Students learning to code." src="~/assets/img/upleveled_8_2bit.avif"/>

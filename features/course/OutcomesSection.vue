@@ -60,6 +60,8 @@ const panels = [
 </script>
 
 <style lang="scss" scoped>
+@import 'assets/style/variables.scss';
+
 #outcomes {
   display: flex;
   justify-content: center;
@@ -71,6 +73,10 @@ const panels = [
     flex-direction: column;
     max-width: var(--View-MaxWidth);
     gap: 5rem;
+
+    @media screen and (max-width: $BreakPoint-Tablet) {
+      padding: 0 2rem;
+    }
 
     .outcomes__header {
       font-size: 6.484rem;
@@ -90,6 +96,10 @@ const panels = [
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 5rem;
+
+      @media screen and (max-width: $BreakPoint-Tablet) {
+        grid-template-columns: 1fr;
+      }
 
       .outcomes__panel {
         position: relative;

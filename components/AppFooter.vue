@@ -6,12 +6,12 @@
         <span>© {{ (new Date).getFullYear() }} The Earth Is Square Ltd. </span>
       </div>
 
-      <div class="footer__address">
-        Revolver Lane <br/>
-        231 Chapel Street <br/>
-        Prahran, 3181 <br/>
-        Melbourne, VIC, Australia
-      </div>
+<!--      <div class="footer__address">-->
+<!--        Revolver Lane <br/>-->
+<!--        231 Chapel Street <br/>-->
+<!--        Prahran, 3181 <br/>-->
+<!--        Melbourne, VIC, Australia-->
+<!--      </div>-->
 
       <div class="footer__links">
         <NuxtLink to="mailto:office@theearthissquare.com">Contact</NuxtLink>

@@ -2,14 +2,14 @@
   <div id="course">
     <CourseInformationSection/>
 
+    <OutcomesSection/>
+
     <QuoteBreakSection/>
 
     <template v-if="isDesktop">
       <LearnSection/>
 
-      <LocationSection/>
-
-      <OutcomesSection/>
+<!--      <LocationSection/>-->
 
       <FAQSection/>
 
