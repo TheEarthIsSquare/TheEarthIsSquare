@@ -110,7 +110,7 @@ onMounted(() => {
   padding: 5rem 5%;
   border-radius: var(--BorderRadius-L);
   background-color: var(--Color-White);
-  overflow: hidden;
+  height: 60vh;
 
   @media screen and (max-width: $BreakPoint-Tablet) {
     padding: 0;
@@ -165,6 +165,7 @@ onMounted(() => {
     }
 
     .course-information__images {
+      z-index: 10;
       position: relative;
       height: 100%;
 
