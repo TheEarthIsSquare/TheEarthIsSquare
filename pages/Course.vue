@@ -2,14 +2,12 @@
   <div id="course">
     <CourseInformationSection/>
 
-    <OutcomesSection/>
-
     <QuoteBreakSection/>
+
+    <OutcomesSection/>
 
     <template v-if="isDesktop">
       <LearnSection/>
-
-<!--      <LocationSection/>-->
 
       <FAQSection/>
 
@@ -19,18 +17,21 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "#head";
 import CourseInformationSection from "~/features/course/CourseInformationSection.vue";
 import CTASection from "~/features/course/CTASection.vue";
 import FAQSection from "~/features/course/FAQSection.vue";
 import LearnSection from "~/features/course/LearnSection.vue";
-import LocationSection from "~/features/course/LocationSection.vue";
 import OutcomesSection from "~/features/course/OutcomesSection.vue";
 import QuoteBreakSection from "~/features/course/QuoteBreakSection.vue";
 import { useScreen } from "~/hooks/useScreen";
 
-useHead({
-  title: "Course Details - The Earth Is Square // Think Outside The Square"
+useSeoMeta({
+  title: `Web Development Bootcamp - ${new Date().getFullYear()}`,
+  description:
+      `Join our Melbourne-based web development bootcamp and gain the skills needed for a
+      successful career in this fast-paced industry. Our experienced instructors guide you through hands-on
+      projects covering HTML, CSS, JavaScript, React, Node.js, and more. Flexible scheduling options available.
+      Enroll now and start your journey towards a rewarding career in web development.`
 });
 
 const { isDesktop } = useScreen();

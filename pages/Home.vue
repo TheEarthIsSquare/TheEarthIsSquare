@@ -10,7 +10,6 @@
 
         <PowersPanel/>
 
-<!--        <LocationPanel/>-->
         <UpLeveledPanel/>
       </div>
 
@@ -20,7 +19,6 @@
         <SubscribePanel/>
 
         <WhyUsPanel/>
-
       </div>
     </template>
 
@@ -35,17 +33,13 @@
         <WhyUsPanel/>
 
         <UpLeveledPanel/>
-        
-<!--        <LocationPanel/>-->
       </div>
     </template>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "#head";
 import BecomeADeveloperPanel from "~/features/home/BecomeADeveloperPanel.vue";
-import LocationPanel from "~/features/home/LocationPanel.vue";
 import MainHeroPanel from "~/features/home/MainHeroPanel.vue";
 import PowersPanel from "~/features/home/PowersPanel.vue";
 import SocialsPanel from "~/features/home/SocialsPanel.vue";
@@ -55,8 +49,13 @@ import WhyCodePanel from "~/features/home/WhyCodePanel.vue";
 import WhyUsPanel from "~/features/home/WhyUsPanel.vue";
 import { useScreen } from "~/hooks/useScreen";
 
-useHead({
-  title: "Learn To Code in Melbourne - The Earth Is Square"
+useSeoMeta({
+  title: "Learn To Code in Melbourne - Web Development Bootcamp",
+  description:
+    `Looking to jumpstart your career in web development? Our Melbourne-based bootcamp offers comprehensive
+    training in the latest programming languages and web technologies. With hands-on projects and experienced instructors,
+    you'll gain the skills and confidence needed to succeed in this exciting field. Enroll now and join the ranks of
+    successful web developers in Melbourne and beyond.`
 });
 
 const { isDesktop } = useScreen();

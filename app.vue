@@ -12,12 +12,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "#head";
 import CookieBanner from "~/components/CookieBanner.vue";
 import { config } from "vue-gtag";
 
+useSeoMeta({
+  titleTemplate: (title) => `${title} | The Earth Is Square`
+});
+
 useHead({
-  title: "The Earth Is Square",
   link: [
     {
       rel: "preconnect",

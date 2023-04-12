@@ -208,6 +208,9 @@ const submit = () => {
   }
 }
 
+useSeoMeta({
+  title: `Bootcamp Application`
+})
 </script>
 
 <style lang="scss" scoped>
