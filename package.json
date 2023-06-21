@@ -11,7 +11,7 @@
     "node": "19.x"
   },
   "devDependencies": {
-    "nuxt": "^3.4.0"
+    "nuxt": "^3.4.3"
   },
   "dependencies": {
     "@funken-studio/sitemap-nuxt-3": "^4.0.4",
